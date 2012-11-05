@@ -1,0 +1,79 @@
+\documentclass[11pt]{report}
+%Gummi|061|=)
+\usepackage[utf8]{inputenc}
+\title{\textbf{System Design}\\ NetInf Backend Group}
+\author{Kiril Goguev\\
+Faroogh Hassan\\
+Marcus Ihlar\\
+Thomas Nordström\\}
+\date{}
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{System Design}
+
+ The following components shall be deemed External System, since this is the node in our framework where we can interface directly with the outside world as well as forward any and all types of messages. The messages may be malformed or correctly formed, at any rate we do care what we get here.
+ 
+Please note that the following systems (HTTP) is noted in brackets so that our system is fully interchangeable in regards to the Convergence Layer technology that we will use. 
+
+\section{(HTTP) Handler}
+Listen for (HTTP) Requests
+\begin{enumerate}
+\item Research (HTTP) Servers(Base: Cowboy)
+\item Implement Http Request Handler
+\end{enumerate}
+Receive (HTTP) Requests
+\begin{enumerate}
+\item Setup forward Handler
+\item Forward to MSG Handler
+\end{enumerate}
+Send (HTTP) Response
+\begin{enumerate}
+\item Recieve MSG from MSG Handler
+\item Send MSG out to requester
+\item Tear down connection if not explicitly done for us
+\end{enumerate}
+
+The following components shall be deemed Internal Decontamination System, since this is the node in our framework where we can decontaminate MSGS and handle the cases of malformed MSGS. Here we will also format, validate and forward between the External System and the Internal System.
+
+\section{MSG Handler}
+
+Listen for incoming (HTTP) messages
+\begin{enumerate}
+\item Receives the http message
+\item Forward to MSG Formatter
+\item Message formatter will parse the message and checks if it is a Netinf MSG
+\item Message formatter returns MSG type and message
+\item If MSG type: error then send it back to (HTTP) Handler
+\item If MSG type: not-error then validate it
+\item Validation by MSG Handler means computing the hash of the MSG with name of the message
+\item If validated forward message to Event Handler else return error to MSG Formatter which in turn sends it back to message handler which sends it back to (HTTP) Handler
+\end{enumerate}
+
+\section{Communication between MSG Handler and MSG Formatter}
+Listen for internal messages
+\begin{enumerate}
+\item Receive message from event handler
+\item Build (HTTP) body for the message(MSG Formatter)
+\item Hash the http body(MSG Formatter)
+\item Write an (HTTP) message using the header and hash(MSG Formatter)
+\item Send (HTTP) message to (HTTP) Handler
+\end{enumerate}
+
+\section {Event Handler}
+Listen for incoming NetInf MSGS
+\begin{enumerate}
+\item Receive message from MSG Handler
+\item Check type of MSG
+\item Forward to appropriate DataBase(DB) Handler
+\end{enumerate}
+Response from the DB Handler
+\begin{enumerate}
+\item Recieve MSG from DB 
+\item Send MSG to MSG Handler
+\end{enumerate}
+
+\end{document}

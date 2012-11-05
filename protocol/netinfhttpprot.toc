@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Convergence Layer Specifications}{3}
+\contentsline {subsection}{\numberline {1.1}HTTP Convergence Layer}{3}
+\contentsline {subsubsection}{\numberline {1.1.1}Publish request message}{4}
+\contentsline {subsubsection}{\numberline {1.1.2}Publish response message}{6}
+\contentsline {subsubsection}{\numberline {1.1.3}GET request message}{7}
+\contentsline {subsubsection}{\numberline {1.1.4}GET response message}{8}
+\contentsline {subsubsection}{\numberline {1.1.5}Search Message}{9}
+\contentsline {subsubsection}{\numberline {1.1.6}Search response Message}{9}

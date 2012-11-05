@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+%Erlang group
+\title{\textbf{Erlang group Project CS 2012}}
+\author{Bacarella, Daniele\\
+		Borglund, Jon\\
+		Goguev, Kiril\\
+		Hassan, Faroogh\\
+		Ihlar, Marcus\\
+		Lorzen, Knut\\
+		Lind,Alex\\
+		Nordstrom, Thomas\\}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{ICN Objects}
+IO This is the super set object\\
+IDO This is the object that holds the unique identifiers for the BO and the publisher and the IO
+DO This is the object that gets used to publish to the NRS and also houses the BO location, contains all the info from the IDO
+BO This is the bit level object, the actual data\\
+
+
+
+\section{General workflow}
+
+*Assume unpublished BO \& NRS structure network*\\
+
+Publisher
+
+ The publisher starts the transaction: he or she is the source of the content currently. This is typically done by any node. 
+\begin{enumerate}
+  \item Create {\bf IDO}
+  	\begin{itemize}
+  	\item has identifier of BO
+  	\item has identifier of IO
+  	\item has identifier of Publisher (meta-data stuff \ldots)
+  	\end{itemize}
+  	\newpage
+  \item Create {\bf DO}
+  \begin{itemize}
+  	\item contains {\bf IDO } object from step 1
+  	\item BO location (own address)
+  	\end{itemize}
+  \item Put({\bf DO}) to NRS
+  \begin{itemize}
+  	\item this is the command that will be sent to the network with the parameter: DO
+  	\end{itemize}
+\end{enumerate}
+ \newpage
+NRS\\
+*Assume DO is received from Publisher *
+\begin{enumerate}
+  \item Extract {\bf IDO}
+  \item Check if {\bf IDO} is present in Database
+  \begin{itemize}
+  	\item if yes $\rightarrow$ merge DO to database
+  	\item if no $\rightarrow$ create new DO\\(refer to step 1 for the publisher on how to create a DO) for DB
+  	\end{itemize}
+\end{enumerate}
+
+Requester
+\begin{enumerate}
+  \item Get {\bf IDO}
+  	\begin{itemize}
+  	\item this is the command to send a request to the NRS parameter: IDO
+  	\end{itemize}
+  \item Recieve  {\bf IO}
+  \begin{itemize}
+  	\item if IO is an error msg $\rightarrow$ abort connection(die)
+  	\item if IO is a valid IO $\rightarrow$ extract the address list
+  	\end{itemize}
+\end{enumerate}
+
+Transfer service
+*Assume the transfer service was called with a valid IO*
+\begin{enumerate}
+  \item Choose {\bf BO } Address
+  	\begin{itemize}
+  	\item if the address list is exhausted then abort the connection otherwise try next address-if step 5 has a bad status message
+  	\end{itemize}
+  \item Create {\bf DO}
+  \begin{itemize}
+  	\item has requesters address
+  	\item desired object( in our case this is the IDO)
+  	\end{itemize}
+  	\item Call Transfer dispatch with the DO created in step 2 
+  	\item Recieve Status message from the Transfer dispatch
+  \begin{itemize}
+  	\item if status message $\rightarrow$ OK then done
+  	\item if status message $\rightarrow$ Not OK then remove BO Address from DO $\rightarrow$ step 1
+  	\end{itemize}  	
+\end{enumerate}
+
+
+
+\section{Backlog}
+
+
+
+You are now using Gummi 0.6.1. Many new exciting features have been added to the 0.6 series. The document editor is now a tabbed instance, allowing multiple documents to be worked on simultaneously. Using the new projects menu, you can group files together for easy access. 
+
+Support for two high-level {\LaTeX} building systems, \emph{rubber}\footnote{https://launchpad.net/rubber/} \& \emph{latexmk}\footnote{http://www.phys.psu.edu/{\textasciitilde}collins/software/latexmk-jcc/} has been added to this release as well. Your preferred typesetter can be configured through the Compilation tab in the Preferences menu. Typesetters that are not installed on your system will not be selectable. 
+
+Added for your viewing convenience is a continuous preview mode for the PDF. This mode is enabled by default, but can also be disabled through the \emph{(View $\rightarrow$ Page layout in preview)} menu. Complementary to this feature is SyncTeX integration, which allows you to synchronize the position in your editor with the PDF preview. 
+
+\section{Feedback}
+We hope you will enjoy using this release as much as we enjoyed creating it. If you have comments, suggestions or wish to report an issue you are experiencing - contact us at: \emph{http://gummi.midnightcoding.org}.
+
+\section{One more thing}
+If you are wondering where your old default text is; it has been stored as a template. The template menu can be used to access and restore it. 
+
+\end{document}

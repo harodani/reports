@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Content-Type:application/json
+
+{
+   "NetInf":"v0.1a",
+   "msgid":"12334",
+   "status":203,
+   "ni":"ni:///sha-256-32;U9StiA",
+   "ts":"2012-10-16T08:33:47+00:00",
+   "metadata":{
+      "publish":"php",
+      "meta":{
+         "key1":"abcd",
+         "key2":[
+            "wer",
+            "sdrt"
+         ]
+      },
+      "key1":"abcd",
+      "key2":[
+         "wer",
+         "sdrt"
+      ]
+   },
+   "loc":[
+      "abcd",
+      "xgfh",
+      "bghdf",
+      "village.n4c.eu"
+   ]
+}

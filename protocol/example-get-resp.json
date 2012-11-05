@@ -1,0 +1,14 @@
+{
+   "NetInf":"v0.1a",
+   "msgid":"12334",
+   "status":200,
+   "ni":"ni://wikipedia.org/sha-256;ElI8UC-1uqkYzDbQ7x46GW8RmMai9Rgs_344rx7kx3E",
+   "ts":"2012-10-15T15:09:58+00:00",
+   "metadata":{
+      "search":"Bristol"
+   },
+   "loc":[
+      "http://en.wikipedia.org/wiki/Bristol",
+      "http://example/.well-known/ni/sha-256/ElI8UC-1uqkYzDbQ7x46GW8RmMai9Rgs_344rx7kx3E"
+   ]
+}

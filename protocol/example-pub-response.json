@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Content-Type:application/json
+
+{
+   "NetInf":"v0.1a Stephen",
+   "msgid":"1234",
+   "status":201,
+   "ni":"ni:///sha-256;d748",
+   "ts":"2012-10-16T12:44:06+00:00",
+   "metadata":{
+      "publish":"php"
+   },
+   "loc":[
+      "testloc1",
+      "testloc2"
+   ]
+}

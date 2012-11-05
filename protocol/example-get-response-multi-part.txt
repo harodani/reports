@@ -1,0 +1,10 @@
+--ba5c33f8a457cc91a6b0cba9ad6fd6e3454521969b0d7378f5ce7bd9d645db29
+Content-Type: application/json
+
+{"NetInf":"v0.1a Stephen","msgid":"12334",...
+
+--ba5c33f8a457cc91a6b0cba9ad6fd6e3454521969b0d7378f5ce7bd9d645db29
+Content-Type:  text/html name="sha-256;ElI8UC-1uqkYzDbQ7x46GW8RmMai9Rgs_344rx7kx3E"
+
+<!DOCTYPE html>
+...

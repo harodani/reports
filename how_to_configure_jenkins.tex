@@ -1,0 +1,190 @@
+\documentclass[11pt]{article}
+%Gummi|061|=)
+\title{\textbf{How to configure and  use Jenkins}}
+\author{Kiril Goguev}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Building Jenkins}
+Make sure you download the latest *.deb file from the Jenkins website:\\
+
+http://pkg.jenkins-ci.org/debian/\\
+
+After installed, Jenkins by default starts as a service and runs on port 8080.\\
+
+\section{Jenkins configuration}
+
+Clicking on Configure system  from the Manage Jenkins button will allow you to configure the overall settings of Jenkins. Please note you can also configure *SOME* plugins from here as well. If you do not see the plugin configuration you have installed here, then take a look in the jobs configuration to find settings - if any. 
+
+\subsection {Java JDK}
+
+Before configuring the Java JDK please install it on the server you are working on.
+Required for Email notification service and also required for Android project building.
+\begin{enumerate}
+\item Name: $<$enter any name$>$
+\item JAVA\_HOME: $<$enter the exact directory on the server machine that holds the bin for jdk $>$ 
+\end{enumerate}
+
+\subsection {Android tools}
+
+Before configuring this in Jenkins makes sure you have installed the Android SDK in the server you are working on. 
+
+\begin{enumerate}
+\item Enter the path on the server for the Android SDK Root - In our case it is: /home/server-build/android-sdk-linux
+\item Check off Automatically install Android componenets when required
+\end{enumerate}
+\subsection {Ant}
+\begin{enumerate}
+\item Enter a Name for the Java ANT environment on the server
+\item Check off install automatically.
+\end{enumerate}
+
+\subsection{GIT}
+Our version of jenkins reqiures GIT plugin which can be installed from the manage plugins page
+Scroll down and look for the Jenkins GIT plugin  or use the filter in the top right hand side of the page\\
+
+Setting up the GIT plugin is done from the overall settings page under the section Git plugin.\\
+
+Enter the following settings:
+\begin{enumerate}
+\item Global Config user.name Value: $<$enter a user name for the git pusher$>$
+\item Global Config user.email Value: $<$enter the email for the git pusher$>$
+\item Create new accounts base on author/committer's email : checked - this will automatically create people in the Jenkins people page with thier username and email. Also a lookup for the email notifications.
+\end{enumerate}
+\subsection{JIRA}
+
+Install the JIRA plugin from the manage plugins page. Look for Jenkins JIRA plugin.\\
+Setting up the JIRA plugin is done from the overall settings page under the section JIRA.\\
+\begin{enumerate}
+\item URL:$<$enter the url for the JIRA server$>$
+\item Supports Wiki notation: checked
+\item Update Jira for All Build Issues: checked
+\item User Name: $<$enter the name for the JIRA user bot which will make the updates on JIRA as builds occur
+\item Password:$<$enter the password for the JIRA bot$>$
+\end{enumerate}
+
+
+\subsection{Email server}
+
+If you want to have emails being sent from Jenkins the best way is to use the google SMTP server. You will want to set up a project email address at google mail.\\
+
+Enter the following settings in the Email Notification section:
+\begin{enumerate}
+\item SMTP server: smtp.gmail.com
+\item Sender Email-Address: project.cs.2012.uu@gmail.com
+\item make sure USE SMTP Authentication is checked.
+\end{enumerate}
+
+Click advanced 
+\begin{enumerate}
+\item Enter the email address name when you set up the account- in our case it is: project.cs.2012.uu@gmail.com
+\item Enter the password for the account- in our case it is: pcs2012uu
+\item Check SSL
+\item SMTP port set to 465
+\item Char-Set is at default UTF-8
+\end{enumerate}
+
+\subsection{Projects}
+
+Jenkins requires Projects in order to do anything useful. \\
+
+To create a new job make sure you are on the jenkins tab, in the top left corner of the webpage. 
+Select \textbf{New Job}\\
+
+On the screen 
+\begin{enumerate}
+\item Enter a Job name - This name will show up on the main dashboard page
+\item Select Build a Free-Style software Project.
+\end{enumerate}
+Click OK when finished and you will be taken to the Configure screen of the project.
+Our specific project has the following project properties
+
+\begin{enumerate}
+\item Description - enter a project description
+\item under Source Code Management Select Git
+\item In Repository URL - enter the url for the git repository you will pull from( in our case /home/git/repositories/backend.git)
+\item In Branches to build -enter the exact branch you wish to pull and build from. in our case it is origin/BRANCH NAME i.e  origin/STAGING origin/DEVELOP , origin/RELEASE, origin/master. 
+\item under Build Triggers Select Poll SCM - enter the time to have jenkins check the git i.e  * * * * * for every minute.
+\item under Build click add Build Step and select Execute Shell
+\item in the Execute Shell command box - enter any commands required on the commandline in order to build your project. i.e cd netinf\_nrs ; make  etc\ldots
+\item under Post-Build Actions click Add post-build action and select Build other projects
+\item In Projects to Build - enter the name of the project you wish to start after the selected trigger has been fired.
+\item select the trigger Trigger only if build succeeds(used to make sure nothing went wrong with the current project steps).
+\item under Post-Build Actions click Add post-build action  and select Email Notification - this action uses the email list built in the people directory in the jenkins main dashboard.
+\item check Send e-mail for every unstable build 
+\item check Send seperate e-mails to individuals who broke the build 
+\item under Post-Build Actions click Add post-build action and select Publish Cobertura Coverage Report	- this will pull erlang eunit and coverage tests into the project main dashboard.
+\item In Cobertura xml report pattern - enter  **/*.coverage.xml
+\item under Post-Build Actions click Add post-build action and select Publish Junit test Report
+\item In Test report XMLs - enter **/.eunit/*.xml
+
+\end{enumerate}
+
+\section {our GIT workflow with JENKINS}
+
+The backend team will use the workflow outlined in the report GIT\_Practices.pdf as such the following build projects will be configured for use with JENKINS
+
+\subsection{Backend\_Staging}
+\begin{enumerate}
+\item Description - "This Job will pull from the Backend Git Repoisitory branch: STAGING and only check if the source files compile. If they compile then they are passed on to the DEVELOP branch."
+\item Git Section - URL /home/git/repositories/backend.git
+\item Git Section - Advanced - Name: STAGING
+\item Git Section - Branches to build: STAGING
+\item Build Triggers-Poll SCM - * * * * *
+\item Build -Execute Shell - cd netinf\_nrs; make compile
+\item Post Build Actions - Git Publisher Push only if build succeeds -checked
+\item Post Build Actions - Git Publisher Branch to Push: DEVELOP
+\item Post Build Actions - Git Publisher Target Remote Name: STAGING
+\item Post-Build Actions - Build other projects:  Backend\_DEVELOP
+\end{enumerate}
+\subsection{Backend\_Develop}
+
+This job assumes all code already compiles when it enters this branch. This branch is specifically for unit tests.
+
+\begin{enumerate}
+\item Description -"This job will pull from the Backend Git Repository branch: DEVELOP and checks if the source files compile and pass the unit tests. If they compile and pass the tests then they are passed on to the RELEASE branch."
+\item Git Section - URL /home/git/repositories/backend.git
+\item Git Section - Advanced - Name: DEVELOP
+\item Git Section - Branches to build: DEVELOP
+\item Build -Execute Shell - cd netinf\_nrs; make compile; make eunit;
+\item Post Build Actions - Git Publisher Push only if build succeeds -checked
+\item Post Build Actions - Git Publisher Branch to Push: RELEASE
+\item Post Build Actions - Git Publisher Target Remote Name: DEVELOP
+\item Post-Build Actions - Build other projects:  Backend\_RELEASE
+\end{enumerate}
+
+\subsection{Backend\_Release}
+
+This job assumes all code already compiles AND passes the unit tests. This branch is specifically for integration testing.
+
+\begin{enumerate}
+\item Description -"This job will pull from the Backend Git Repository branch: RELEASE and checks if the source files compile, pass unit tests and finally pass integration tests. If they compile, and pass all the tests then they are passed on to the master branch(Demo)."
+\item Git Section - URL /home/git/repositories/backend.git
+\item Git Section - Advanced - Name: RELEASE
+\item Git Section - Branches to build: RELEASE
+\item Build -Execute Shell - cd netinf\_nrs; make compile; make eunit; make integration
+\end{enumerate}
+
+If the final Backend\_Release succeeds then the following job Backend\_Demo should be taken care of manually until the process is perfected.
+
+\subsection{Backend\_Demo}
+
+This job assumes all code already compiles AND passes the unit tests. This branch is specifically for integration testing.
+
+\begin{enumerate}
+\item Description -"This job will pull from the Backend Git Repository branch: RELEASE and checks if the source files compile, pass unit tests and finally pass integration tests. If they compile, and pass all the tests then they are passed on to the master branch(Demo)."
+\item Git Section - URL /home/git/repositories/backend.git
+\item Git Section - Advanced - Name: RELEASE
+\item Git Section - Branches to build: RELEASE
+\item Build -Execute Shell - cd netinf\_nrs; make compile; make eunit; make integration
+\item Post Build Actions - Git Publisher Push only if build succeeds -checked
+\item Post Build Actions - Git Publisher Add tag - Tag to push: DemoX (where X is the sprint number)
+\item Post Build Actions - Git Publisher Target Remote Name: RELEASE
+\item Post Build Actions - Git Publisher Branch to Push: master
+\end{enumerate}
+
+Please refer to the latest version of the Git\_Practices report for how to use git while coding this project. 
+
+\end{document}
