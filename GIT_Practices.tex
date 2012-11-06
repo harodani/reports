@@ -28,7 +28,7 @@ There will be 4 persistent branches.
 The following naming convention for temporary branches is adopted: 
 
 \begin{itemize}
-\item SprintX.shortStoryName.issueNumber
+\item SprintX.shortStoryName
 \end{itemize}
 
 
@@ -38,7 +38,7 @@ NOTE: ALL story tasks are done in the pair programming paradigm. The temporary b
 \subsection {Policies}
 \begin{itemize}
 \item master\\ \\
-The 'master' branch will only contain Demo code. This is the code from the backend group which contains ONLY the fully tested and integrated stories.  \\Tags will be made here under the following convention:\\ \emph{SprintX.shortStoryName.issueNumber}\newpage
+The 'master' branch will only contain Demo code. This is the code from the backend group which contains ONLY the fully tested and integrated stories.  \\Tags will be made here under the following convention:\\ \emph{SprintX.shortStoryName}\newpage
 This is a JENKINS build tool controlled area - No human user should be operating in this branch. \\JENKINS is responsible for  merging from 'master' to 'develop' at the end of a sprint- in order to keep the branches synchronized and provide a fresh clean start for each sprint from working demo code.\\
 \item release\\ \\
 The 'release' branch will only contain individual stories which are completed and fully unit tested. Here we can pick and choose which stories to include in a specific demo. This branch is also a JENKINS build tool area. \\JENKINS is responsible for integration testing and merging between 'release' and 'master'
@@ -48,8 +48,8 @@ The 'develop' branch will contain all the code this is able to be compiled on th
 \item staging \\ \\
 The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. Also a JENKINS Build tool area, the code here will be considered in a story is in progress it may be done but it also may not compile. JENKINS will pull all the code from this branch and try to compile it, if it compiles then it will be merged with the 'develop' branch.
 
-\item SprintX.shortStoryName.issueNumber\\ \\
-The branch's name will contain the local working code for the specific sprint story followed by a short story name-typically the name written on the post it note for example: MSG\_Handler. The issue number is also taken from the post it note, this is the same number that is in the Redmine issue tracker. A merge to the DEVLEOP branch will mean the story is considered done for the sprint but requires testing by integration tools and JENKINS. This branch will be deleted after the tests are passed and the a successful merge is complete. History will be kept in the 'develop' branch should we need to revert for any reason. 
+\item SprintX.shortStoryName\\ \\
+The branch's name will contain the local working code for the specific sprint story followed by a short story name-typically the name written on the post it note for example: MSG\_Handler. A merge to the DEVLEOP branch will mean the story is considered done for the sprint but requires testing by integration tools and JENKINS. This branch will be deleted after the tests are passed and the a successful merge is complete. History will be kept in the 'develop' branch should we need to revert for any reason. 
 \end{itemize}
 
 
@@ -63,7 +63,7 @@ There will be at least 2 places in the GIT repository where we will use tags.
 \item master
 \item release
 \end{enumerate}
-Each tag will be labelled as follows SprintX.shortStoryName.issueNumber-RELEASE or SprintX-DemoZ depending on the sprint and which branch is being pushed to.
+Each tag will be labelled as follows SprintX.shortStoryName-RELEASE or SprintX-DemoZ depending on the sprint and which branch is being pushed to.
 
 
 \chapter{Sample work flow}
@@ -85,8 +85,8 @@ At the start of each sprint the development team will perform a git checkout -b 
 
 for a running example we will take the HTTP Handler from the first sprint. 
 \begin{verbatim}
-git checkout -b SprintX.shortStoryName.issueNumber develop
-git push -u origin SprintX.shortStoryName.issueNumber
+git checkout -b SprintX.shortStoryName develop
+git push -u origin SprintX.shortStoryName
 \end{verbatim}
 This will pull all the previous items into your temporary working branch from develop
 
@@ -104,15 +104,15 @@ After all the tasks are completed and you feel ready to move the task to the DON
 
 \begin{verbatim}
 git checkout staging
-git merge --no-ff SprintX.shortStoryName.issueNumber
+git merge --no-ff SprintX.shortStoryName
 git push origin staging
 
 
 - do the following only if you wish to delete your branch on the remote repository -
-git push origin :SprintX.shortStoryName.issueNumber
+git push origin :SprintX.shortStoryName
 
 - do the following if you wish to delete your branch locally -  
-git branch -d SprintX.shortStoryName.issueNumber 
+git branch -d SprintX.shortStoryName
 \end{verbatim}
 This will perform a merge and fast-forward on the remote 'staging' branch while keeping historical information.
 This will also create empty commits in the development branch as a way to quickly spot revisions which you may wish to go back to, for example if you need to remove a story that was not working properly.
@@ -136,7 +136,7 @@ As a story branch has been merged to 'develop', the code goes through a set of u
 \begin{verbatim}
 git checkout release
 git merge --no-ff develop
-git tag -a SprintX.shortStoryName.issueNumber-RELEASE
+git tag -a SprintX.shortStoryName-RELEASE
 git push origin release
 \end{verbatim}
 \subsection{Merging in to master}
