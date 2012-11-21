@@ -27,7 +27,7 @@ brief summary of the functionalities implemented in this sprint and in section
 For the third sprint we had the following goals:
 \begin{enumerate}
  \item Store Content
- \item Plug and Play Database
+ \item Database storage
  \item Refactor Code
  \item Search based on meta data
  \item Message forwarding in a distributed NetInf system
@@ -39,7 +39,7 @@ the third sprint.
 The back-end application is able to handle a ’full Put’ which means we can
 store the bit level objects contained inside the published NDOs in the node that
 receives the pulish request.
-\subsubsection {Plug and Play Database}
+\subsubsection {Database storage}
 The back-end application is able to store the published NDO’ inside a database.
 We implemented Riak to store information related to the NDO’s. Riak is an
 open source database that stores data using a simple key/value scheme.
@@ -58,14 +58,15 @@ forwarding to other nodes.
 \subsection {Sprint 4 Ideas}
 We have following ideas for the next sprint but we will decide at a later stage
 which one of these to implement:
-\begin{enumerate}
+\begin{itemize}
+\item Support a signature-based naming scheme, to allow dynamic NDOs
 \item Implement some kind of access control mechanism on the published NDOs
 \item Compare our Erlang implementation of Open NetInf with other imple-
 mentations based on some measurement criteria and collect results
 \item Truncate hash algorithm
 \item Implement another database for storing NDO’s e.g. SQLite
 \item Make our application work with support for bluetooth on laptops
-\end{enumerate}
+\end{itemize}
 \section{Frontend Team}
 
 The third sprint will be demoed on Friday, the 23rd of November.
