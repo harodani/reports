@@ -1,26 +1,181 @@
-\documentclass[11pt]{article}
-%Gummi|061|=)
-\title{\textbf{Welcome to Gummi 0.6.1}}
-\author{Alexander van der Mey\\
-		Wei-Ning Huang\\
-		Dion Timmermann}
-\date{}
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+
+\newcommand{\sect}[1]{Section ~\ref{sect:#1}}
+%opening
+\title{Sprint 3 Summary}
+
+\parindent 0pt
+\parskip 12pt
+
 \begin{document}
 
 \maketitle
 
-\section{Before you start}
+\section{Backend Team}
 
-You are now using Gummi 0.6.1. Many new exciting features have been added to the 0.6 series. The document editor is now a tabbed instance, allowing multiple documents to be worked on simultaneously. Using the new projects menu, you can group files together for easy access. 
+The overall goal for the third sprint was to have a solid distributed Erlang NetInf
+architecture that can handle storing and searching of content. In section 1.1 we
+describe the goals set for sprint 3 by the back-end team, section 1.2 provides a
+brief summary of the functionalities implemented in this sprint and in section
+1.3 we describe some ideas that we have for the next sprint.
 
-Support for two high-level {\LaTeX} building systems, \emph{rubber}\footnote{https://launchpad.net/rubber/} \& \emph{latexmk}\footnote{http://www.phys.psu.edu/{\textasciitilde}collins/software/latexmk-jcc/} has been added to this release as well. Your preferred typesetter can be configured through the Compilation tab in the Preferences menu. Typesetters that are not installed on your system will not be selectable. 
 
-Added for your viewing convenience is a continuous preview mode for the PDF. This mode is enabled by default, but can also be disabled through the \emph{(View $\rightarrow$ Page layout in preview)} menu. Complementary to this feature is SyncTeX integration, which allows you to synchronize the position in your editor with the PDF preview. 
+\subsection {Goals}
+\label{sect:goals}
+For the third sprint we had the following goals:
+\begin{enumerate}
+ \item Store Content
+ \item Plug and Play Database
+ \item Refactor Code
+ \item Search based on meta data
+ \item Message forwarding in a distributed NetInf system
+\end{enumerate}
+\subsection {Functionalities Implemented}
+In this section we briefly describe each functionality that we implemented during
+the third sprint.
+\subsubsection {Store Content}
+The back-end application is able to handle a ’full Put’ which means we can
+store the bit level objects contained inside the published NDOs in the node that
+receives the pulish request.
+\subsubsection {Plug and Play Database}
+The back-end application is able to store the published NDO’ inside a database.
+We implemented Riak to store information related to the NDO’s. Riak is an
+open source database that stores data using a simple key/value scheme.
+\subsubsection {Search based on meta data}
+The back-end appliction is able to search NDOs based on meta data. The search
+functionality will return a list of NDO names that match the search tokens sent
+by the front end application.
+\subsubsection {Message forwarding in a distributed NetInf system}
+The back-end application is able to forward messages to other NetInf nodes
+to get and search NDOs. We implemented simple service discovery protocol
+(SSDP) which uses UDP as the underlying protocol to broadcast IP addresses
+on a network. This way each node can broadcast its IP address on the network
+and other nodes will keep a list of these IP addresses for the purpose of message
+forwarding to other nodes.
 
-\section{Feedback}
-We hope you will enjoy using this release as much as we enjoyed creating it. If you have comments, suggestions or wish to report an issue you are experiencing - contact us at: \emph{http://gummi.midnightcoding.org}.
+\subsection {Sprint 4 Ideas}
+We have following ideas for the next sprint but we will decide at a later stage
+which one of these to implement:
+\begin{enumerate}
+\item Implement some kind of access control mechanism on the published NDOs
+\item Compare our Erlang implementation of Open NetInf with other imple-
+mentations based on some measurement criteria and collect results
+\item Truncate hash algorithm
+\item Implement another database for storing NDO’s e.g. SQLite
+\item Make our application work with support for bluetooth on laptops
+\end{enumerate}
+\section{Frontend Team}
 
-\section{One more thing}
-If you are wondering where your old default text is; it has been stored as a template. The template menu can be used to access and restore it. 
+The third sprint will be demoed on Friday, the 23rd of November.
+Our goals are outlined in \sect{goal}. For a thorough understanding of
+what has to be accomplished, we will explain our tasks corresponding to our
+goals more deeper in \sect{explanation}. \sect{demo} describes how
+we plan to demo our progress and \sect{sprint4} includes ideas for the upcoming sprint.
+
+\subsection{Goal}
+\label{sect:goal}
+For the third sprint we have the following main goals:
+\begin{itemize}
+ \item Application-wise: The application should be able to $\dots$
+ \begin{enumerate}
+  \item search for a simple webpage through a url
+  \item publish and request content from the local database and the NetInf node (NRS)
+  \item show the requested webpage within the WebView
+ \end{enumerate}
+ \item Test and clean up the current code and repository
+\end{itemize}
+
+\subsection{Tasks}
+\label{sect:explanation}
+Corresponding to the goals, the following sections will give more information
+about our actual tasks.
+
+\subsubsection{Application}
+\subsubsection{Search}
+As soon as the user types in a url, the application will search for the
+corresponding information object. The search request can be sent to the local database
+as well as to another NetInf node (NRS). Right now, the NRS and the database don't have
+the same interface for searching, but for setting and getting information objects (see \sect{request}).
+
+\subsubsection{Publish \& Request}
+\label{sect:request}
+A request will be send to all existing Resolution Services. In this sprint we will 
+add a local resolution service (LRS) that represents the interface to the local database.
+Therefore the database will have the same interface as the NRS for publishing and
+retrieving information objects.
+
+Since the backend team will provide cashing functionalities in this sprint, our application will
+have the possibility to publish to and retrieve from both NRS and LRS.
+
+\subsubsection{Show content}
+The view of our application shown before as a prototype will be created. The necessary functionalities
+need to be implemented and the WebView will be used for displaying simple webpages containing only text.
+
+Accordingly, the user will be able to request a simple webpage and view it within the application.
+
+\subsubsection{Clean-Up}
+Until the demo we want to have refactored and tested code. All exceptions 
+should be handled in a proper way. Jenkins should be set up correctly in order to provide continuous integration.
+Reviews will be done mainly by pair programming. 
+We want to introduce Util classes for common functionality. 
+The main properties will be read from a properties file.
+
+\subsection{Demo}
+\label{sect:demo}
+In order to demo our current progress we plan to do the following:
+
+\subsubsection{Search demo}
+Type in a web url and press "GO".
+
+\textbf{Case 1.: Fetching from uplink}
+
+ \begin{enumerate}
+  \item The application doesn't have the IO
+  \item It triggers a search request to the NRS
+  \item The NRS does not have the content either and does not have a locator list
+  \item The application fetches the webpage from the uplink
+  \item The application displays the content of a simple web page
+  \item The application publishes the IO to NRS and LRS
+ \end{enumerate}
+ 
+ \textbf{Case 2.: Fetching from LRS}
+ 
+ \begin{enumerate}
+  \item The application has the IO
+  \item The application displays the content of a simple web page
+ \end{enumerate}
+
+\textbf{Case 3.: Fetching from NRS}
+
+ \begin{enumerate}
+  \item The application doesn't have the IO
+  \item It triggers a search request to the NRS
+  \item The NRS has the IO and maybe a locator list
+  \item The application fetches the webpage from the NRS
+  \item The application displays the content of a simple web page
+  \item The application informs the NRS about being a locator and publishes the IO the the LRS
+ \end{enumerate}
+
+\textbf{Case 4.: Fetching from LRS}
+\begin{enumerate}
+  \item The application doesn't have the IO
+  \item It triggers a search request to the NRS
+  \item The NRS has a locator list
+  \item The application fetches the webpage from another device
+  \item The application displays the content of a simple web page
+  \item The application informs the NRS about being a locator and publishes the IO the the LRS
+ \end{enumerate}
+
+\subsection{Sprint 4 Ideas}
+\label{sect:sprint4}
+Our current ideas for the next sprint are:
+
+\begin{itemize}
+ \item Handling real web pages 
+ \item Adjusting the interfaces of LRS and NRS to completely be the same
+ \item Using the Search Controller of OpenNetInf
+\end{itemize}
 
 \end{document}
