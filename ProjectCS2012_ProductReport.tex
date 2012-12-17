@@ -59,7 +59,7 @@ The final of the deliverables from the backend team. The client asked for a proo
 
 \subsection {Convergence Layers}
 
-The NetInf NRS protocol introduces the concept of Convergence Layers(CL). CL's are specific protocols we can use to talk to other nodes on the network. For example we can use HyperTextTransferProtocol(HTTP), Erlang Messaging, User Datagram Protocol(UDP). We have implemented CL's as a set of Erlang modules whose sole jobs are to receive and send messages of the specific type of the CL, these set of modules  recieve( CL handlers) clean/format(CL message handler/message specific formatter) and forward into and out of the system. This marks the first and last point of entry into our system and our first line of fault-tolerance. 
+The NetInf NRS protocol introduces the concept of Convergence Layers(CL). CL's are specific protocols we can use to talk to other nodes on the network. For example we can use HyperTextTransferProtocol(HTTP), Erlang Messaging, User Datagram Protocol(UDP). We have implemented CL's as a set of Erlang modules whose sole jobs are to receive and send messages of the specific type of the CL, these set of modules  receive( CL handlers) clean/format(CL message handler/message specific formatter) and forward into and out of the system. This marks the first and last point of entry into our system and our first line of fault-tolerance. 
 
 \subsubsection{HTTP}
 
@@ -74,7 +74,11 @@ The NetInf protocol draft discusses using HTTP as a primary layer of communicati
 
 \subsubsection{UDP}
 
-The protocol draft lists it as a CL, however it's function is more like a discovery protocol for other NRS's of any type of implementation. 
+The protocol draft lists it as a CL, however it's function is more like a discovery protocol for other NRS's of any type of implementation. The UDP CL we have currently broadcasts NetInf Messages on the network on a multicast IP 225.4.5.6 and port 2345. 
+
+The UDP CL is supposed be called when a NetInf NRS 
+
+Currently UDP GET and UDP SEARCH requests are supported. The framework for UDP PUBLISH requests are included in the current code base, but we have not specifically used it for the purpose of forwarding publishes. 
 
 
 \subsection {Plug N' Play Database Wrappers}
