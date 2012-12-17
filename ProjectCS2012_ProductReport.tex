@@ -27,19 +27,37 @@ Kiril Goguev\\
 \section{Development Languages}
 \subsection{Java-Android}
 \subsection{Erlang}
-The backend group decided with the client to have our product written in Erlang because of it's fault-tolerance, scaleability and ease of distribution. Erlang is also a product of research done by the client in the past. This means that we have access to many indivudals who are competent in the language at our disposal. 
+The backend group decided with the client to have our product written in Erlang because of it's fault-tolerance, scalability and ease of distribution. Erlang is also a product of research done by the client in the past. This means that we have access to many individuals who are competent in the language at our disposal.
+Erlang uses the idea of modules and nodes as a primary platform for serving a function, this allows our product to be broken up into several parts.
+ 
 \subsection{Javascript}
 
-Javascript was used when the backend group decided to create a simple http interface to the Netinf Name Resolution server in order to show a proof of concept (NetInf streaming). Javascript was used to calculate the hash of files for streaming.
+Javascript was used when the backend group decided to create a simple http interface to the NetInf Name Resolution server in order to show a proof of concept (NetInf streaming). Javascript was used to calculate the hash of files for streaming.
 
-\subsection{Testing}
 \chapter{Product Description}
 \section {Frontend - Android Client}
-\section {Backend - Erlang NetInf Name Resolution Server}
-\subsection{NetInf Video Streaming}
+\section {Backend}
+
+The client agreed on having an Erlang version of a NetInf Name Resolution Server(NetInf NRS).  Our backend product implements the current draft NetInf Protocol in a distributed and purely functional language. The product promises a high level of scalability and fault-tolerance. The client initially asked for only the NRS as a product however the backend team was able to complete the initial product in a timely manner, allowing for applications of this network technology to be explored. 
+
+
+\subsection {Erlang NetInf Name Resolution Server}
+The first of the two deliverables from the backend team to the client. The Erlang NetInf Name Resolution Server(NetInf NRS) provides a new way to organize and retrieve data on the internet. Based on a inital NetInf NRS protocol draft from development teams such as SAIL and Ericsson Research. This product allows for flexibility and extension of the existing protocol.
+
+Erlang's concept of modularization allowed the team to break up the NRS functionality into distinctive convergence layers, real-time database switching, and even allow for a proof of concept video streaming client/protocol. 
+
+\subsection{NetInf Video Streaming client/protocol}
+
+The final of the deliverables from the backend team. The client asked for a proof of concept of a streaming protocol and client which lies on top of the Erlang NetInf NRS technology. The streaming protocol is a completely new addition to the NetInf draft. Our team came up with a way to utilize the code and transporting mechanism of the first product in order to stream video content, along with the protocol outlined below we have been able to create a http interface 'client' which allows you to see the streaming protocol in action as well access the NRS functionality. This particular product was not specified in the initial conversations with the client in September, but added late in the development cycle and is not meant to be a complete product.
+
+
 \chapter{System Architecture}
+
 \section {Android Client}
-\section {Netinf NRS}
+
+\section {NetInf NRS}
+
+\section {NetInf Video Streaming Protocol}
 \chapter{Evaluation and testing}
 \chapter{Related work}
 \chapter{Future Work}
