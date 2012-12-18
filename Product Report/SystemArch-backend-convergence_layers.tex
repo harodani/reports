@@ -1,0 +1,28 @@
+\subsection {Convergence Layers}
+
+The NetInf NRS protocol introduces the concept of Convergence Layers(CL). CL's are specific protocols we can use to talk to other nodes on the network. For example we can use HyperTextTransferProtocol(HTTP), Erlang Messaging, User Datagram Protocol(UDP). We have implemented CL's as a set of Erlang modules whose sole jobs are to receive and send messages of the specific type of the CL, these set of modules  receive( CL handlers) clean/format(CL message handler/message specific formatter) and forward into and out of the system. This marks the first and last point of entry into our system and our first line of fault-tolerance. 
+
+\subsubsection{HTTP}
+
+The NetInf protocol draft discusses using HTTP as a primary layer of communication between nodes. All requests are detailed as coming in through HTTP messages and then subsequently changed into internal system NetInf Messages. The HTTP CL consists of three(3) modules. 
+
+\begin{enumerate}
+\item nn\_http\_handler - uses Erlang cowboy to receive and send requests HTTP requests to/from our system
+\item nn\_message\_handler - Specifically spawned with the attached HTTP formatter in order to process requests
+\item nn\_http\_formatting - Handles converting requests/responses from HTTP  to NetInf Messages and vice versa.
+\end{enumerate}
+
+
+\subsubsection{UDP}
+
+The protocol draft lists it as a CL, however it's function is more like a discovery protocol for other NRS's of any type of implementation. The UDP CL we have currently broadcasts NetInf Messages on the network on a multicast IP 225.4.5.6 and port 2345. 
+
+The UDP CL is supposed be called when a NetInf NRS receives either a GET or a SEARCH request from some other convergence layer and returns no match. Our Forwarding module will kick and broadcast using the multicast address a UDP packet with the specific request (I.e HTTP GET turns into UDP GET and HTTP SEARCH turns into UDP SEARCH)
+
+Once the UDP GET/SEARCH messages are sent out to the network, the system may recieve back a response to the packet with the details asked for by the original request. The UDP\_handler in conjunction with the nn\_message\_handler(Spawned with UDP formatting) will then extract the details, create an internal NetInf Message and forward the message to the process that is currently waiting on the original request. In the case of an HTTP CL, we would forward the NetInf message back to the process which deals with the HTTP CL formatting/message handler.
+
+Currently UDP GET and UDP SEARCH requests are supported. The framework for UDP PUBLISH requests are included in the current code base, but we have not specifically used it for the purpose of forwarding publishes. 
+
+\subsection {Notes on other CL}
+
+There was a plan to include an Erlang specific CL, this would become a group of modules( handler, formatter) which deal only with Erlang specific messages. However this was thought later to be of no real benefit, but extending our system should be easily done. 

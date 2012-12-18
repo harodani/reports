@@ -1,0 +1,65 @@
+\documentclass[11pt]{report}
+%Gummi|061|=)
+\title{Project CS 2012 Product Report\\Uppsala University\\}
+
+\author{Daniele Bacarella\\
+		Jon Borglund\\
+		Kiril Goguev\\
+		Faroogh Hassan\\
+		Marcus Ihlar\\
+		Alexander Lindholm\\
+		Knut Lorenzen\\
+		Thomas Nordstr\"om\\
+}
+
+\date{}
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Introduction}
+\chapter{Information Centric Networking}
+
+\subsection{Network of Information}
+\subsection{Problems  today}
+\section{Development Languages}
+\input{devlang-frontend.tex}
+\input{devlang-backend.tex}
+
+\chapter{Product Description}
+
+\input{ProductDesc-frontend.tex}
+
+\input{ProductDesc-backend.tex}
+
+
+
+\chapter{System Architecture}
+
+\input {SystemArch-frontend.tex}
+
+\section {NetInf NRS}
+
+\input{SystemArch-backend-dependencies.tex}
+
+\input{SystemArch-backend-configurations.tex}
+
+\input{SystemArch-backend-convergence_layers.tex}
+
+\input{SystemArch-backend-PNP_database_wrappers.tex}
+
+\input{SystemArch-backend-NetInf_video_streaming_protocol.tex}
+
+
+\chapter{Evaluation and testing}
+\chapter{Related work}
+\chapter{Future Work}
+\chapter{Conclusion}
+\chapter{Installation Instructions}
+\section {Frontend}
+\subsection {Dependencies}
+\section {Backend}
+\subsection {Dependencies}
+\end{document}
