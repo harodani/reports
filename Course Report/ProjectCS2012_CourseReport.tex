@@ -71,7 +71,7 @@ We adopted a continuous integration server which allowed the developers to creat
 
 Jenkins is a CI server with a http interface that allows you setup custom jobs for your project. Things like monitoring a source control for changes or running command line arguments on the code in your project is easy and user friendly with plenty of tutorials and resources online. We used Jenkins to control both the ERNI and LISA project. 
 
-Jenkins was particularly useful for blaming individuals who 'broke the build'. If Jenkins is configured with the email addresses of all people and a build job fails after someone has updated the source code then Jenkins will send an email out notifiying those who have broken the build and who is has affected(all other collabarators on the current code file which is broken).
+Jenkins was particularly useful for blaming individuals who 'broke the build'. If Jenkins is configured with the email addresses of all people and a build job fails after someone has updated the source code then Jenkins will send an email out notifying those who have broken the build and who is has affected(all other collaborators on the current code file which is broken).
 
 We have generated a document which explains how to setup and use Jenkins as we have done in this project. 
 
@@ -113,32 +113,50 @@ The 'staging' branch will contain all the dirty code and is where the human user
 The branch's name will contain the local working code for the specific sprint story followed by a short story name-typically the name written on the post it note for example: MSG\_Handler. A merge to the DEVLEOP branch will mean the story is considered done for the sprint but requires testing by integration tools and JENKINS. This branch will be deleted after the tests are passed and the a successful merge is complete. History will be kept in the 'develop' branch should we need to revert for any reason. 
 \end{itemize}
 
+For instructions on how to utilize this workflow please see the attached Git\_Practices pdf
 
 
 \subsection{Testing}
 \chapter{Group Design Methodology}
 \section{SCRUM}
+
+The project generally specifies SCRUM project methodology. This is rapidly becoming the standard in companies who develop software and makes sense for students who are about to go into the real world of software development to learn it.
+
 \subsection{Roles}
+
+SCRUM distinguishes between SCRUM MASTER, Product Owner and the team. 
+
+Scrum master position means an individual who will be responsible for the product in a particular sprint, as well as liaise between the team and the product owner.
+
+Product Owner position means an individual who is considered to be the client in the project. The person who owns and controls the development of the software, adding and taking away features and generally the one who is supposed to give you the direction in sprint planning and demos.
+
+The team is the set of individuals who are working on the code for the product owner.
+
 \subsection{Daily meetings and Sprint planning}
+
+Since we have two teams (ERNI and LISA) we had two distinct sets of meetings and sprints. This meant that we had to bear in mind what the other team was doing since we were supposed to work in sync. One scrum master for each team with constant communication between both teams. 
+
 \subsection{Use of SCRUM in this project}
 \subsection{Conflicts}
 \chapter{Team Building}
 \subsection{Fika}
-\subsection{Night-outs \& Barbecues}
+\subsection{Buffets}
 \subsection{Birthdays}
 \chapter{Closing Remarks}
 
 For those who are going to be working with Erlang in future instances of this course:
-Erlang OTP in action is a great resource and helped greatly in the beginning of the course
+Erlang OTP in action is a great resource and helped greatly in the beginning of the course. 
+Traditionally: The course has a 2 week erlang workshop, we however had 1 week self-study (Erlang OTP in action and  the online resource learn you some erlang for great good - http://www.Learnyousomeerlangforgreatgood.com) followed by 2 day Erlang workshop. We believe this was a much better way to handle things since we got to make all the mistakes before and ask valuable questions when the expert came in. 
 
 Things that we thought were well-done in the project \ldots
 
 Things that we thought were a waste of time:
-Buildbot - use Jenkins instead
+Buildbot - use Jenkins instead.
 
 
 Be wary of:
-Httpc- there may be a bug \ldots
+
+
 
 
 \end{document}
