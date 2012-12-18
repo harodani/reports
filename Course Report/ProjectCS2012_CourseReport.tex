@@ -8,7 +8,7 @@ Kiril Goguev\\
 		Marcus Ihlar\\
 		Alexander Lindholm\\
 		Knut Lorenzen\\
-		Thomas Nordström\\
+		Thomas Nordstr\"om\\
 }
 
 \date{}
@@ -19,23 +19,126 @@ Kiril Goguev\\
 \tableofcontents
 
 \chapter{Introduction}
+
 \chapter{Project}
+
 \section{Team(s)}
+Due the scale of the project, the group decided to divide into two teams. The frontend team, responsible for implementing the client side of the NetInf project and the backend team, responsible for implementing the server technology.
+
+
+The groups were divided as such:
+
+The Frontend team(LISA)
+\begin{itemize}
+\item Kim Al-Tran
+\item Paolo Boschini
+\item Harlold Martinez
+\item Thiago Costa-Porto
+\end{itemize}
+
+The Backend team(ERNI) 
+
+\begin {itemize}
+\item Daniele Bacarella
+\item Jon Borglund
+\item Kiril Goguev
+\item Faroogh Hassan
+\item Alexander Lindholm
+\item Knut Lorenzen
+\item Thomas Nordstr\"om
+\end {itemize}
+
 \subsection{Seating arrangements}
+
+The project rooms were divided into two areas, one room housing the frontend team aptly called LISA, the other housing the backend team aptly called ERNI. 
+
+The frontend team's seating arrangement was in a \ldots
+
+ERNI's seating arrangement was in a horseshoe shape, 
+
 \subsection{Intergroup communication}
 \section{Tools}
-\subsection{Development Language}
-\subsection{Version Control}
+\subsection{Development Languages}
+
+The LISA team used Android -Java based development language
+
+The ERNI team used Erlang, Javascript, HTML 5  as thier development languages. The main product was coded in Erlang. During our final sprints the client wanted to add video streaming, so we also created a html client interface to our system using Javascript and HTML 5. 
+
+
 \subsection{Continuous Integration \& Build Server}
+
+We adopted a continuous integration server which allowed the developers to create special 'jobs' which will control the compilation, error reporting/blaming and source control. Other instances of this project used tools like buildbot but after a long and fruitless effort to make and configure buildbot properly we determined that buildbot was a waste of time and looked into a more powerful/user friendly CI server called JENKINS. 
+
+Jenkins is a CI server with a http interface that allows you setup custom jobs for your project. Things like monitoring a source control for changes or running command line arguments on the code in your project is easy and user friendly with plenty of tutorials and resources online. We used Jenkins to control both the ERNI and LISA project. 
+
+Jenkins was particularly useful for blaming individuals who 'broke the build'. If Jenkins is configured with the email addresses of all people and a build job fails after someone has updated the source code then Jenkins will send an email out notifiying those who have broken the build and who is has affected(all other collabarators on the current code file which is broken).
+
+We have generated a document which explains how to setup and use Jenkins as we have done in this project. 
+
+
+\subsection{Version Control}
+
+In order to keep our workflow going at a good pace we elected to have version control, which is good practice in all projects. We used Git with a custom workflow shown below. \\
+
+Have a server side repository with 4 initial persistant branches.
+\begin{itemize}
+\item master
+\item staging
+\item develop
+\item release
+\end{itemize}
+
+The following naming convention for temporary branches is adopted: 
+
+\begin{itemize}
+\item SprintX.shortStoryName
+\end{itemize}
+
+NOTE: ALL story tasks are done in the pair programming paradigm. The temporary branches will be deleted after each successful merge to the DEVELOP branch.
+
+\subsection {Policies}
+\begin{itemize}
+\item master\\ \\
+The 'master' branch will only contain Demo code. This is the code from the backend group which contains ONLY the fully tested and integrated stories.  \\\\Tags will be made here under the following convention:\\ \emph{SprintX.shortStoryName} \\\\
+This is a JENKINS build tool controlled area - No human user should be operating in this branch. \\JENKINS is responsible for  merging from 'master' to 'develop' at the end of a sprint- in order to keep the branches synchronized and provide a fresh clean start for each sprint from working demo code.\\
+\item release\\ \\
+The 'release' branch will only contain individual stories which are completed and fully unit tested. Here we can pick and choose which stories to include in a specific demo. This branch is also a JENKINS build tool area. \\JENKINS is responsible for integration testing and merging between 'release' and 'master'
+\item develop\\ \\
+The 'develop' branch will contain all the code this is able to be compiled on the server and is where the human users will start their personal story branches. Also a JENKINS build tool area, The code here will be considered in a "Story done and compiles but not yet tested" state.\\ JENKINS is responsible for unit testing and merging between 'develop' and 'release'
+
+\item staging \\ \\
+The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. Also a JENKINS Build tool area, the code here will be considered in a story is in progress it may be done but it also may not compile. JENKINS will pull all the code from this branch and try to compile it, if it compiles then it will be merged with the 'develop' branch.
+
+\item SprintX.shortStoryName\\ \\
+The branch's name will contain the local working code for the specific sprint story followed by a short story name-typically the name written on the post it note for example: MSG\_Handler. A merge to the DEVLEOP branch will mean the story is considered done for the sprint but requires testing by integration tools and JENKINS. This branch will be deleted after the tests are passed and the a successful merge is complete. History will be kept in the 'develop' branch should we need to revert for any reason. 
+\end{itemize}
+
+
+
 \subsection{Testing}
 \chapter{Group Design Methodology}
 \section{SCRUM}
 \subsection{Roles}
 \subsection{Daily meetings and Sprint planning}
 \subsection{Use of SCRUM in this project}
+\subsection{Conflicts}
 \chapter{Team Building}
 \subsection{Fika}
-\subsection{Night-outs \& Barbeques}
+\subsection{Night-outs \& Barbecues}
 \subsection{Birthdays}
 \chapter{Closing Remarks}
+
+For those who are going to be working with Erlang in future instances of this course:
+Erlang OTP in action is a great resource and helped greatly in the beginning of the course
+
+Things that we thought were well-done in the project \ldots
+
+Things that we thought were a waste of time:
+Buildbot - use Jenkins instead
+
+
+Be wary of:
+Httpc- there may be a bug \ldots
+
+
 \end{document}
