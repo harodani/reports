@@ -28,47 +28,51 @@
 \input{introduction.tex}
 
 \chapter{Preliminaries}
-
-\subsection{Network of Information}
-\subsection{Problems  today}
+\input{Preliminaries/Netinf/Prelim-Netinf.tex}
 \section{Development Languages}
-\input{devlang-frontend.tex}
-\input{devlang-backend.tex}
+\input{Preliminaries/Frontend/devlang-frontend.tex}
+\input{Preliminaries/Backend/devlang-backend.tex}
+\chapter{Goals and Scope}
+\input{Goals-Scope.tex}
 
 \chapter{Product Description}
 
-\input{ProductDesc-frontend.tex}
+\input{Product-Description/Frontend/ProductDesc-frontend.tex}
 
-\input{ProductDesc-backend.tex}
-
-
+\input{Product-Description/Backend/ProductDesc-backend.tex}
 
 \chapter{System Architecture}
 
-\input {SystemArch-frontend.tex}
+\input {System-Arch/Frontend/SystemArch-frontend.tex}
 
 \section {NetInf NRS}
 
-\input{SystemArch-backend-dependencies.tex}
+\input{System-Arch/Backend/SystemArch-backend-dependencies.tex}
 
-\input{SystemArch-backend-configurations.tex}
+\input{System-Arch/Backend/SystemArch-backend-configurations.tex}
 
-\input{SystemArch-backend-convergence_layers.tex}
+\input{System-Arch/Backend/SystemArch-backend-convergence_layers.tex}
 
-\input{SystemArch-backend-PNP_database_wrappers.tex}
+\input{System-Arch/Backend/SystemArch-backend-PNP_database_wrappers.tex}
 
-\input{SystemArch-backend-NetInf_video_streaming_protocol.tex}
+\input{System-Arch/Backend/SystemArch-backend-NetInf_video_streaming_protocol.tex}
 
 
 \chapter{Evaluation and testing}
-\chapter{Related work}
+\input{Evaluation/Eval-frontend.tex}
+\input{Evaluation/Eval-backend.tex}
 
 \chapter{Conclusion and Future Work}
+\input{Conclusion-Future_work.tex}
+
 \chapter{Appendix A: Installation instructions}
 \section {Frontend}
-\subsection {Dependencies}
+\input{Appendix-A/App-A-Installation_instructions_frontend.tex}
 \section {Backend}
-\subsection {Dependencies}
+\input{Appendix-A/App-A-Installation_instructions_backend.tex}
 \chapter {Appendix B: Maintenance instructions}
-\chapter {Appendix C:Suggested future work}
+\section{Frontend}
+\input{Appendix-B/App-B-Maintenance_instructions_frontend.tex}
+\section{Backend}
+\input{Appendix-B/App-B-Maintenance_instructions_backend.tex}
 \end{document}
