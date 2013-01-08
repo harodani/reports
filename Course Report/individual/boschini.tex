@@ -1,31 +1,33 @@
 \section{Paolo Boschini}
-
 During the first sprint I was in charge of investigating what mobile phones models
 would be a good fit for running the application we would build during the project.
 I looked at their specification and chose two models that Ericsson would then provide to us.
 As a frontend member I then started working on Bluetooth communication between phones
 together with Kim. We managed to get phones sending messages to each other and transfer
-files as this was one important feature our application should support.\\
+files as this was one important feature our application should support.
 
 In the second sprint I studied a previous implementation of NetInf and tried to understand
 it in depth to get a valid reference to use during the project. 
 I also wrote the code conventions for our workflow. After that I continued working on the Bluetooth implementation
 with Kim and implemented programmatic discovering of other devices and the ability to
-exchange binary information object (BO) between phones.\\
+exchange binary information object (BO) between phones.
 
-Sprint three was mainly about testing and refactoring. I read up on best practices when following 
+In this sprint I took the role of scrum master. I got acquainted with Jira, a digital tool for keeping track of stories and sub-tasks.
+To have a more instant overview about the sprint state I also used post-its on the whiteboard in our office making sure to synchronized them with Jira.
+I was also responsible for keeping track of the work state of the backend group in order to facilitate the communication between
+the two groups. The rest of the time was spent by testing and refactoring. I read up on best practices when following 
 test driven methodology in an Android environment and integrated that into our application.
 At this point our team felt the need to reorganize and optimize our version control system workflow,
 so Kim and I reorganized git branches to simplify our version control workflow.
 The refactoring part consisted of adding utility classes, fixing incomplete code comments and adding license
 information to our code. I then read up more on Android UI components and refined the UI structure and design of our application.
-At last I helped Linus to implement functionalities for fetching and posting data to the NRS cache implemented by the backend group.\\
+At last I helped Linus to implement functionalities for fetching and posting data to the NRS cache implemented by the backend group.
 
 In this sprint I helped Kim to separate the main application and the NetInf functionalities into two different projects.
 This decoupling was very important since it makes it possible for other developers to develop their own application
 and use our existing Netinf Android implementation.
 Another important feature was implemented in this iteration, namely the routing of network requests to our Netinf service
 when downloading web resources before displaying them into our application. Since each html page contains resources (images, text, videos) we could
-save them individually and pass them to our NetInf service as Information Objects (IO).\\
+save them individually and pass them to our NetInf service as Information Objects (IO).
 
-The last sprint involved minor bug fixes so that our application would support and correctly display a major number of web pages.\\
+The last sprint involved minor bug fixes so that our application would support and correctly display a major number of web pages.
