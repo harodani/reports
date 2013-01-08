@@ -12,9 +12,9 @@
 %Gummi|061|=)
 \title{Project CS 2012 Course Report\\Uppsala University\\}
 \author{Daniele Bacarella\\
-		Jon Borglund\\
-		Paolo Boschini\\
-		Kiril Goguev\\
+Jon Borglund\\
+Paolo Boschini\\
+Kiril Goguev\\
 		Faroogh Hassan\\
 		Marcus Ihlar\\
 		Alexander Lindholm\\
@@ -41,15 +41,15 @@
 \input{introduction.tex}
 \chapter{Resources}
 
-
 \input{group.tex}
 \input{equipment.tex}
+
+\subsection{Intergroup communication}
 
 \section{Tools}
 \input{dev-lang.tex}
 \input{CI-build-server.tex}
 \input{version-control.tex}
-\input{project-management.tex}
 \chapter{Project methodology and organization}
 \section{SCRUM}
 
@@ -85,9 +85,5 @@ The project generally specifies SCRUM project methodology. SCRUM is a framework 
 \input {individual/sunde.tex}
 \input {individual/tran.tex}
 \input {individual/nordstrom.tex}
-
-\chapter{Git Policies}
-
-\chapter{Jenkins Setup}
 
 \end{document}
