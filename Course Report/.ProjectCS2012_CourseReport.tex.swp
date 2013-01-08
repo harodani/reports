@@ -52,6 +52,8 @@
 \input{project-management.tex}
 \chapter{Project methodology and organization}
 \input{SCRUM.tex}
+\input{quality_assurance.tex}
+\input{timeline.tex}
 
 \chapter{Team Building}
 \input{team-building.tex}
