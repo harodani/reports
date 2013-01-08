@@ -1,1 +1,20 @@
-Filler stuff for Jon\\
+\section{Jon Borglund}
+During the first sprint I mainly refreshed my functional programming skills and also studied quite a bit of Erlang OTP.
+During the first couple of days me and Faroogh compiled some coding standards, we also researched Extreme Programming practices that we later presented to the group.
+
+On the second sprint we actually started the implementation of the NRS. During the first days Alex, Linus and I read and compiled a compact version of the NetInf protocol draft to be sure that both the frontend and the backend would interpret it in the same way. Alex and I also created a curl-script that allowed us to test our NRS according to the draft. 
+We then continued to design, implement and test the initial storage module. 
+After we started to implement an integration test with erlang and eunit.
+
+Sprint 3 I and Thomas fixed some bugs in the message handler and message formatter. Then I joined with Daniele to choose and add a persistent database. We first investigated which database alternatives there was. We decided to go with RIAK. Then we spent a long time to get it up and running, install and configure the erlang riak client, test it and so forth.
+
+During sprint 4 I was the scrum master, therefore I spent time on scrum master specific tasks, such as entering stuff into Redmine, updating the whiteboard and burn down chart and also conducted minor conflict mediation. 
+Thomas and I defined and implemented interesting state statistics, such as number of active request, number of received request etc. We also went through the NetInf protocol draft again to be sure that we have covered everything in the HTTP convergence layer in our implementation.  Marcus, Knut, Faroogh and I also put down half a day to conduct backlog grooming, to generate new backlog items for the next sprint. 
+
+The team was satisfied with me as scrum master during sprint 4, so during this sprint I was re-elected to fulfil these obligations. 
+During sprint 5 I worked mainly with Marcus and the implementation of the streaming. 
+
+I continued to work on the video streaming with Daniele and Alex during sprint 6. After some discussion with Ericsson, we changed some of the streaming, mainly to send the chunks as NetInf messages between the nodes, but without content validation. I also worked some with the HTML5 streaming interface. 
+It later turned out that Ericsson also wanted a comparison with the modified chunked data with a pure NetInf streaming solution, I started to implement another HTML5 interface to playback video with pure NetInf while Marcus and Thomas worked on the client backend.
+
+In the beginning of sprint 7 Alex and I finished the HTML5 interface for pure NetInf streaming.
