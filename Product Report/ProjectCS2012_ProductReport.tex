@@ -2,7 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{hyperref}
-
+\renewcommand\bibname{References}
 \parindent 0pt
 \parskip 8pt
 
@@ -33,7 +33,7 @@
 
 \chapter{Abstract}
 \input{abstract.tex}
-
+Demo of reference \cite{b1}. 
 \chapter{Introduction}
 \input{introduction.tex}
 
@@ -86,5 +86,10 @@
 \input{Appendix-B/App-B-Maintenance_instructions_frontend.tex}
 \section{Backend}
 \input{Appendix-B/App-B-Maintenance_instructions_backend.tex}
+
+\begin{thebibliography}{99}
+\bibitem{b1} Alex Awesome \textsl{awesome theory}, Uppsala 2013
+
+\end{thebibliography}
 
 \end{document}
