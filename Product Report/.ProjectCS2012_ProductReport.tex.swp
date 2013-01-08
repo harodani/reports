@@ -81,10 +81,8 @@
 \section {Backend}
 \input{Appendix-A/App-A-Installation_instructions_backend.tex}
 \chapter {Appendix B: Maintenance instructions}
-
 \section{Frontend}
 \input{Appendix-B/App-B-Maintenance_instructions_frontend.tex}
 \section{Backend}
 \input{Appendix-B/App-B-Maintenance_instructions_backend.tex}
-
 \end{document}
