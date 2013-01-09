@@ -20,3 +20,27 @@ While a tool for code review is supposed to be powerful in a teams repertoire, i
 large overhead that can delay the progress of a project. If a tool can not be understood and setup in about a day we recommend dropping it and search for another (if required). Often times the simplest solution is the most effective, in this case the LISA team eventually switched to using Pair-programming exactly like the ERNI team.
 
 
+\section {Quality Assurance}
+In large projects you need to be able to control the quality of your product. Does it do what the customer asked? Is it extensible? Is it releasable? While some companies have specific quality assurance teams, this instance of the course usually does not. Therefore, the team had to explore ways of answering the above questions.
+
+While SCRUM and Agile methodology easily answers the ``Is it releasable?'' question, just because you implement SCRUM and Agile does not mean you are doing it correctly. In SCRUM, at the end of every sprint you should have something that is demo-able. Sometimes this is not the case -- failed sprints, outstanding issues, etc.
+
+\subsection{Pair-programming}
+
+The ERNI team decided to take the pair programming approach to quality assurance. Two programmers complete a task and two other programmers review that work for bugs, imperfections (according to code standards), and integration status. 
+
+The team felt that this worked well as we were eight programmers who had little to no experience in functional programming and large group work projects. Often bugs were caught way before the task was completed and put into the review process. 
+
+Using pair programming also helped develop our skills faster as we taught each other how the language worked and had knowledge redundancy (if one person was away the task would not be stopped). After review you had twice as many members of the team having full knowledge of the code and functionality introduced into the product.
+
+The LISA team also used pair programming extensively, as a way of helping each other to implement some functionalities and to provide better code.
+
+\subsection{Code Reviews}
+
+The LISA team decided to use a tool called \textit{Gerrit} to preform code reviews. Gerrit is a web-based code review system, which makes it easier for us to do the review, as every team member can see what is up for review and what has been reviewed at all times. Gerrit is dependent on Git and acts almost like a filter, only allowing authorized changes to be pushed to the master branch on Git. Therefore, it promotes code quality by forcing code reviews to take place before code is placed on the repository.
+
+Initially, we had some trouble setting up the tool. While installing Gerrit itself is not a problem, integrating it with Jenkins was a bit of an issue. After a few emails with the maker of the Gerrit/Jenkins plugin, we found out that the issue was due to encoding in the terminal. Make sure you have the proper terminal encoding (UTF-8) before setting it up. After this small mix-up, Gerrit was ready to be used and and tests suggested that it was working properly.
+
+After everything was running, it took us about 2 hours to drop Gerrit altogether. The reason for it was mainly cultural -- we implemented a code reviewing tool in the middle of the project -- and we did not have enough time at that point to invest in learning how to do it properly and maybe circumvent the main issue we had with the tool. The main issue was that, in our team of 5, code was flying around back and forth, with feature branches being merged and these features being required to use by other features that were being developed at the same time. Gerrit provided a filter, as advertised, but it ended up with not being very productive for us. We would have to change our workflow and, in the middle of the project, that was a major overhead for all of us. Being a team of 5 people, we could manage, to a certain extent, the code quality by doing pair programming and reporting to others some strange code that one has come across.
+
+Gerrit is a very nice and interesting tool, which will probably help your development a lot \emph{if} you implement it in your team on day one or during the beginning of the second sprint. Thrive to understand and make effective use of this tool. And follow the proper installation guides.
