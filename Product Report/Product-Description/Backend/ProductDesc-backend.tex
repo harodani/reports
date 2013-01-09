@@ -11,3 +11,14 @@ Erlang's concept of modularization allowed the team to break up the NRS function
 \subsection{NetInf Video Streaming client/protocol}
 
 The last of the deliverables from the backend team. The client asked for a proof of concept of a streaming protocol and client which lies on top of the Erlang NetInf NRS technology. The streaming protocol is a completely new addition to the NetInf draft. Our team came up with a way to utilize the code and transporting mechanism of the first product in order to stream video content, along with the protocol outlined below we have been able to create a http interface 'client' which allows you to see the streaming protocol in action as well access the NRS functionality. This particular product was not specified in the initial conversations with the client in September, but added late in the development cycle and is not meant to be a complete product.
+
+\subsubsection{First implementation}
+In addition to normal NRS functionallity, to get transfer of chunks to work a transfer-dispatcher had to be implemented. The streaming works by clients subscribing to a stream from a specific NRS and constantly asking that NRS where to find these chunks. All the chunks are transfered via the transfer-dispatcher.
+The playback of the video chunks are done by polling the local NRS, this implies that every client has its own NetInf node running. See figure XXX.
+
+\subsubsection{Modified NetInf streaming}
+Due to request a from the client a more true Netinf implementation of streaming was implementented. Instead of using the transfer-dispatcher between the client nodes a workaround was added that disabled content validation, this resulted in it being possible to fetch chunks via NetInf messages. See figure XXX. The transfer-dispatcher is still used to send the chunks to the HTML-interface.
+
+\subsubsection{Pure NetInf streaming}
+To be able to evaluate the modified NetInf streaming another implementation was added, this implementation uses NetInf searches and gets for chunks. See figure XXX.
+
