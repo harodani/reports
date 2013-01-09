@@ -41,7 +41,7 @@ the backend team's Name Resolution Service and receive an answer. As
 we had more time than we expected, we started implementing parts of
 the Bluetooth communication.
 
-\subsection {LISA}
+
 \framebox(360, 100){
 	\minibox{
 	\textbf{Sprint 2}\\
@@ -63,8 +63,16 @@ into our code.
 
 We designed our first architecture draft based on OpenNetInf and implemented
 the most important modules for sending/receiving messages to/from the NRS -
-this time using OpenNetInf. We managed to 
+this time using OpenNetInf. We managed to share Information Objects between
+Android phones using Bluetooth. 
 
+At this stage, the application could request a content using a short hash.
+The specified hash was sent to the NRS and received a list of locators, that own
+the requested object, in return. The locators were Bluetooth MAC adresses.
+The application was then starting a Bluetooth discovery in order to find out
+whether one of these locators was within reach. If so, a Bluetooth communication
+to that locator was established. The hash was sent to the connected device, which
+replied with the file that was identified by the hash.
 
 
 \todo{cite netinf specs}
