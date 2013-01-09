@@ -1,3 +1,87 @@
+In this section we will see how to install and setup the Netinf NRS and the NetInf Streaming on a server.
+This description includes instructions on how to setup the system for both development and normal uses.
+
 \subsection{Dependencies}
+
+In order to run the system properly the following components are required to be installed on the system
+
+
+
+
 \subsection{Script}
+
+For the convenience of end users and developers, there is a packaged install/setup script available after obtaining the backend code.
+
+\textbf{note if the script is not immediately runnable for you please run the following command:}
+\begin{verbatim}
+chmod a+x netinf_nrs.sh
+\end{verbatim}
+
+You can run the script by using the following on a command line terminal
+
+\begin{verbatim}
+./netinf_nrs.sh
+\end{verbatim}
+
+The script will put you into a menu loop shown below and instructs you to type a number in order to choose an option.Choosing an option will preform the task and then cause the script to exit normally.
+
+\includegraphics[scale=0.5]{./img/Backend_install_script.png}
+
+The following options are available to the user
+
+\begin{itemize}
+\item Start Netinf NRS with the default list\\
+Assumes you have all the dependencies installed and only starts the netinf nrs with the list database.
+\item Start Netinf NRS with riak\\
+Will check that riak is running and present in the system and then start the netinf nrs with the Riak database.
+If riak is not present then the script will download and install all the required components. 
+\item Install and setup riak only\\
+Use this option only when you want to download and install riak on your machine. This will not start an NRS.
+\item Install and start from scratch\\
+This option assumes you have a bare machine and checks that all the dependencies are satisfied. It will auto download and install anything that is required and then start your NetInf NRS with the default list database. 
+\end{itemize}
+
+
 \subsection{Riak Database}
+
+Riak is a database written in Erlang. It is known for being distributed and fault-tolerant. Riak was choosen above other database implementations since it was suggested by the client and the development team had great support available. 
+
+In case there is something wrong with the script process on the target machine please follow the manual installation instructions below.
+
+Install libssl0.9.8 with
+\begin {verbatim}
+sudo apt-get install libssl0.9.8
+\end{verbatim}
+
+Next install the riak database
+\begin{verbatim}
+wget http://downloads.basho.com.s3-website-us-east-1.amazonaws.com/riak/CURRENT/ubuntu/lucid/riak_1.2.1-1_i386.deb
+sudo dpkg -i riak_1.2.1-1_i386.deb
+\end{verbatim}
+
+In order for the search to work in the riak system and from the NRS please enable search.
+Riak Search is enabled in the app.config (/etc/riak/app.config) file. Simply change the setting to “true” in Riak Search Config section (shown below).
+
+\begin{verbatim}
+%% Riak Search Config
+{riak_search, [
+               %% To enable Search functionality set this 'true'.
+               {enabled, false}
+              ]},
+\end{verbatim}
+
+Then run the in the terminal
+
+\begin{verbatim}
+riak restart
+\end{verbatim}
+
+Followed by to index the bucket
+
+\begin{verbatim}
+search-cmd install netinf_bucket
+\end{verbatim}
+
+Lastly, please make sure that the NRS is started with the riak database
+
+
