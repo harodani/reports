@@ -165,7 +165,26 @@ in the upcoming sprint.
 	}
 }
 
-\framebox(360, 80){
+
+During this sprint we tried to fix a bug that prevented some pages to display correctly.
+The bug showed up during the previous demo, so the goal of this sprint was to mainly
+solve this bug and make sure we had a working application. After several tests we spotted the problem that was causing
+the corrupted pages. The problem resided in the way we managed the search function and the messages sent to and from the NRS,
+causing the loading of the wrong identifier of the seeked web page after a search. The backend could solve the problem easily and our application
+started working as expected. During this iteration we also noticed some slow downs due to how we used the timeouts
+in our network requests, so we fine tuned them to get a decent speed when browsing web pages.
+
+Afterwards we discussed what to evaluate and how to evaluate our application. We then implemented logging of network
+activities by storing each request with the relative type of transmission used (uplink, NRS cache, bluetooth or database).
+In order to produce some statistics we also stored the amount of data that is transferred for each request and the time that
+it takes to transfer the data. To simplify the test we added a functionality to automate the loading of several web pages
+in sequence, so that we could gather a considerable amount of data from many web pages during each run of the application.
+
+At this point we had a working web browser that used NetInf services and could support four different types of transmission link.
+The next and last step would be to run the automated tests and analyze the obtained results, so that hopefully we would have interesting material
+to show in the final report.
+
+\framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 6}\\
 	\begin{tabular}{p{3cm}p{8cm}}
@@ -176,6 +195,20 @@ in the upcoming sprint.
 	\end{tabular}
 	}
 }
+
+The last sprint involved the preparation of the final presentation and writing the final course report and
+product report. As usual we devided the work into different tasks so that we could write different parts
+of both reports simultaneously. Some things we did in the previous weeks were hard to remember, so we made
+use of the notes we had in our logbooks and from the logs recorded in Jira. The difference between the course report
+and the project report is the target reader. The intended audience of course report is teachers and future students
+of this course, while for the product report the intended reader is the customer. The course report contains information
+on how we got to the final product, while the product report focuses more on the product itself, the implementation,
+how to run it and how to continue the development.
+
+In this sprint we also run the automated tests we had implemented in the previous sprint and created tables
+and graphs to use in the product reports. The final presentation was made with Prezi (reference?), an online tool
+to produce professional presentation.
+
 
 Overall goal of the project:
 Final product status:
@@ -193,7 +226,8 @@ Final product status:
 	\end{tabular}
 	}
 }
-\framebox(360, 100){
+
+\framebox(360, 102){
 	\minibox{
 	\textbf{Sprint 2}\\
 	\begin{centering}
@@ -207,7 +241,9 @@ Final product status:
 	}
 }
 
-\framebox(360, 98){
+
+
+\framebox(360, 108){
 	\minibox{
 	\textbf{Sprint 3}\\
 	\begin{tabular}{p{3cm}p{8cm}}
@@ -219,7 +255,7 @@ Final product status:
 	}
 }
 
-\framebox(360, 75){
+\framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 4}\\
 	\begin{tabular}{p{3cm}p{8cm}}
@@ -231,7 +267,7 @@ Final product status:
 	}
 }
 
-\framebox(360, 85){
+\framebox(360, 98){
 	\minibox{
 	\textbf{Sprint 5}\\
 	\begin{tabular}{p{3cm}p{8cm}}
