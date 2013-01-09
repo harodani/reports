@@ -1,34 +1,109 @@
 \section {Timeline}
 
-The following is a timeline of both team's scrum sprints. Please note that we were generally in sync with each other until sprint 4 where ERNI elected to have a one week sprint and LISA elected to have a two week sprint. The result was a series of one week sprints for the ERNI team ending with seven sprints in total, while LISA had only five.
+The following is a timeline of both team's scrum sprints. Please note that we were generally synchronized with each other until sprint 4 where ERNI chose to have two one week sprints instead of one two week sprint. The result was a series of one week sprints for the ERNI team ending with seven sprints in total, while LISA had only six.
 
-The course ran over a period of 4 and a half months starting in September until January 18th, with 2 major presentations. This particular instance of the course was a unique one since our group did not have a very concrete project laid out in terms of requirements. Therefore our real work and Scrum sprints started slightly later than other course instances. 
+The course ran over a period of four and a half months starting in September until January 18th, with two major presentations. This particular instance of the course was a unique one since our group did not have a very concrete project laid out in terms of requirements. Therefore our real work and Scrum sprints started slightly later than other course instances. Furthermore we were too few people in order to have two groups
+with two completely different clients.
 
 \subsection{Pre-Scrum}
 During the month of September the group met with the client who presented the idea, although it was not very concrete at the time. The lack of tight requirements gave us the freedom to choose the direction of where the project was going to go, however many felt that it was a little too free resulting in many weeks of research and no real direction. 
 
 In general the first few weeks of the course start with an Erlang workshop which consists of two weeks of intensive Erlang, however our project was so open that we had no idea on whether we would need Erlang at all.
 
+We started our first sprint after approximately one month.
+
 \subsection {LISA}
+\begin{centering}
+\framebox(360, 80){
+	\minibox{
+	\textbf{Sprint 1}\\
+	\begin{tabular}{p{3cm}p{8cm}}
+	Scrum Master & Thiago\\
+	Goal & Send and receive a message to the backend's server\\
+	Sprint length & 2 weeks\\
+	Met & Yes
+	\end{tabular}
+	}
+}
+\end{centering}
 
-Sprint 1\\
-Goal: 
-Met:
+Sprint 1 started off with setting up our working environment.
+This included reading up on and configuring the tools we chose to use during the project,
+which are described in \sect{tools}.
 
-Sprint 2\\
-Goal: 
-Met:
+We had a Skype meeting with Hugo Negrette and Miguel Sosa, who worked on a
+similar project before. Since their Master Thesis was a fundamental starting point
+for us, they helped us understanding critical parts of their code.
+\todo{Cite the master thesis of Hugo and Miguel}
+
+Finally, we implemented a simple application that could send a message to
+the backend team's Name Resolution Service and receive an answer. As
+we had more time than we expected, we started implementing parts of
+the Bluetooth communication.
+
+\subsection {LISA}
+\framebox(360, 100){
+	\minibox{
+	\textbf{Sprint 2}\\
+	\begin{centering}
+	\begin{tabular}{p{3cm}p{8cm}}
+	Scrum Master & Thiago\\
+	Goal & Communicate with another device using Bluetooth \& Publish and retrieve content with metadata\\
+	Sprint length & 2 weeks\\
+	Met & Yes
+	\end{tabular}
+	\end{centering}
+	}
+}
+
+Now that we succeeded to communicate with the backend's NRS,
+we needed to send messages according to the NetInf specifications.
+Thus, we investigated the specifications and embedded those message regulations
+into our code. 
+
+We designed our first architecture draft based on OpenNetInf and implemented
+the most important modules for sending/receiving messages to/from the NRS -
+this time using OpenNetInf. We managed to 
+
+
+
+\todo{cite netinf specs}
+
+- hash content
+- get locators using hash
+- connect to bluetooth through a chosen device
+- share bo
+- display file
+- define meta data
+- design architecture
+- send specs message
+- read meta data
+- meta data specifications
+- 
+
 
 Sprint 3\\
-Goal: 
+Scrum Master: Paolo
+Goal: Successful presentation. Search content, cache and retrieve content from the NRS, implement a minimal web interface
+Sprint length: 3 weeks
 Met:
 
 Sprint 4\\
-Goal: 
+Scrum Master: Kim-Anh
+Goal: Higher granularity browsing
+Sprint length: 2 weeks
 Met:
 
 Sprint 5\\
-Goal: 
+Scrum Master: Linus
+Goal: Running application without bug (not necessarily with Bluetooth Convergence Layer)
+Sprint length: 2 weeks
+Met:
+
+Sprint 6\\
+Scrum Master: Harold
+Goal: Sucessful presentation and a product and course report
+Sprint length:2 weeks
 Met:
 
 Overall goal of the project:
@@ -37,32 +112,42 @@ Final product status:
 \subsection {ERNI}
 
 Sprint 1\\
+Scrum Master:
 Goal: 
+Sprint length:
 Met:
 
 Sprint 2\\
+Scrum Master:
+Sprint length:
 Goal: 
+Sprint length:
 Met:
 
 Sprint 3\\
+Scrum Master:
 Goal: 
+Sprint length:
 Met:
 
 Sprint 4\\
+Scrum Master:
 Goal: 
+Sprint length:
 Met:
 
 Sprint 5\\
+Scrum Master:
 Goal: 
 Met:
+Sprint length:
 
 Sprint 6\\
+Scrum Master:
 Goal: 
+Sprint length:
 Met:
 
-Sprint 7\\
-Goal: 
-Met:
 
 Overall goal of the Project:
 Final product status:
