@@ -52,6 +52,7 @@
 \input{project-management.tex}
 \chapter{Project methodology and organization}
 \input{SCRUM.tex}
+\input{use-of-scrum.tex}
 
 \chapter{Team Building}
 \input{team-building.tex}
