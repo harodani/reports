@@ -133,6 +133,26 @@ java scripts.
 	}
 }
 
+As requested from Ericsson, we separated our application into two
+applications: Elephant, our browser that uses the services of another application,
+the NetInf services. 
+
+In sprint 4 we created our final application. This included
+creating the minimal browsing functionalities: Handling clicks on links
+as well as displaying web pages correctly as they are displayed in
+other browsers. The main challenge was to intercept the Android WebView
+to redirect resource requests to our NetInf services, instead of simply
+downloading them from uplink.
+
+Furthermore we needed to add settings and help pages. The user should
+be able to decide which NRS to connect to and whether she wants to upload content to the NRS or
+register her device as a locator.
+
+After sprint 4 we had our final application that offered a browsing functionality
+based on NetInf. Since some bugs were left to be reviewed, we tackled these
+in the upcoming sprint.
+
+
 \framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 5}\\
