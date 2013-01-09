@@ -13,7 +13,6 @@ In general the first few weeks of the course start with an Erlang workshop which
 We started our first sprint after approximately one month.
 
 \subsection {LISA}
-\begin{centering}
 \framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 1}\\
@@ -25,7 +24,6 @@ We started our first sprint after approximately one month.
 	\end{tabular}
 	}
 }
-\end{centering}
 
 Sprint 1 started off with setting up our working environment.
 This included reading up on and configuring the tools we chose to use during the project,
@@ -37,7 +35,7 @@ for us, they helped us understanding critical parts of their code.
 \todo{Cite the master thesis of Hugo and Miguel}
 
 Finally, we implemented a simple application that could send a message to
-the backend team's Name Resolution Service and receive an answer. As
+the backend team's Name Resolution Service (NRS) and receive an answer. As
 we had more time than we expected, we started implementing parts of
 the Bluetooth communication.
 
@@ -76,20 +74,6 @@ replied with the file that was identified by the hash.
 
 \todo{cite netinf specs}
 
-- hash content
-- get locators using hash
-- connect to bluetooth through a chosen device
-- share bo
-- display file
-- define meta data
-- design architecture
-- send specs message
-- read meta data
-- meta data specifications
-- 
-
-
-\begin{centering}
 \framebox(360, 98){
 	\minibox{
 	\textbf{Sprint 3}\\
@@ -101,9 +85,42 @@ replied with the file that was identified by the hash.
 	\end{tabular}
 	}
 }
-\end{centering}
 
-\begin{centering}
+Within the first week we mainly worked on the presentation for our review at Ericsson in Kista.
+We prepared a paper prototype (consisting of screen shots of the final application) of our 
+project idea of creating a browser application that we later called
+Elephant.
+The application should look like a normal browser and behave as expected. The main difference
+we wanted to achieve is that the browser uses information-based networking instead of location-based
+networking. Our idea was to create a browser using NetInf in a way, that the user does not
+need to know what actually happens. It would be a first step of changing our way of 
+networking. \textit{Note:} Using the paper prototype helped us a lot to agree on our
+project in the end. Our client could understand our ideas and was very happy to
+see where the project was going.
+
+Before continuing adding new functionalities, we took some time during the third sprint
+to clean up and refactor the code. We restructured our git branches due to our
+experience we gained from the previous sprints. The structure is described in \sect{git}.
+
+The new functionalities we added at last were publishing (register the 
+device as a locator), full-put (uploading the content to the NRS) and
+searching for contents using URLs. Furthermore we added a Local Resoltion Service (LRS)
+besides to the NRS. The LRS looked up a content in a local database, that we
+designed and implemented within this sprint. 
+
+Now our application could search for content within a local database and in a remote
+NRS by a URL. The response was a corresponding hash, that identified a
+web page associated to that URL. In case the NRS owned the web page that
+was searched for, we directly retrieved that web page instead of a hash.
+Using the hash, we could get a web page from the LRS or a list of locators
+from the NRS. In case of a list of locators, the device would start to
+connect to other devices and download the content through Bluetooth.
+As soon as we retrieved the web page, we could register ourself as a 
+locator in the NRS or even upload the content to the NRS.
+At this stage we displayed simple HTML web pages within a WebView environment, without any pictures or
+java scripts.
+
+
 \framebox(360, 75){
 	\minibox{
 	\textbf{Sprint 4}\\
@@ -115,9 +132,27 @@ replied with the file that was identified by the hash.
 	\end{tabular}
 	}
 }
-\end{centering}
 
-\begin{centering}
+As requested from Ericsson, we separated our application into two
+applications: Elephant, our browser that uses the services of another application,
+the NetInf services. 
+
+In sprint 4 we created our final application. This included
+creating the minimal browsing functionalities: Handling clicks on links
+as well as displaying web pages correctly as they are displayed in
+other browsers. The main challenge was to intercept the Android WebView
+to redirect resource requests to our NetInf services, instead of simply
+downloading them from uplink.
+
+Furthermore we needed to add settings and help pages. The user should
+be able to decide which NRS to connect to and whether she wants to upload content to the NRS or
+register her device as a locator.
+
+After sprint 4 we had our final application that offered a browsing functionality
+based on NetInf. Since some bugs were left to be reviewed, we tackled these
+in the upcoming sprint.
+
+
 \framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 5}\\
@@ -129,7 +164,7 @@ replied with the file that was identified by the hash.
 	\end{tabular}
 	}
 }
-\end{centering}
+
 
 During this sprint we tried to fix a bug that prevented some pages to display correctly.
 Unfortunately we could reproduce the bug during the previous demo, so the goal of this sprint was to mainly
@@ -149,7 +184,6 @@ At this point we had a working web browser that used NetInf services and could s
 The next and last step would be to run the automated tests and analyze the obtained results, so that hopefully we would have interesting material
 to show in the final report.
 
-\begin{centering}
 \framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 6}\\
@@ -161,7 +195,6 @@ to show in the final report.
 	\end{tabular}
 	}
 }
-\end{centering}
 
 Overall goal of the project:
 Final product status:
