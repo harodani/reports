@@ -1,2 +1,7 @@
 *.pdf
 *~
+*.swp
+*.toc
+*.out
+*.aux
+*.log
