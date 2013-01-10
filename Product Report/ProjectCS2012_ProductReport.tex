@@ -51,7 +51,8 @@ Demo of reference \cite{b1}.
 \input{Preliminaries/Frontend/devlang-frontend.tex}
 \input{Preliminaries/Backend/devlang-backend.tex}
 \chapter{Goals and Scope}
-\input{Goals-Scope.tex}
+\input{Goals-Scope/Goals-Scope-Frontend.tex}
+\input{Goals-Scope/Goals-Scope-Backend.tex}
 
 \chapter{Product Description}
 
@@ -73,9 +74,6 @@ Demo of reference \cite{b1}.
 
 \input{System-Arch/Backend/SystemArch-backend-PNP_database_wrappers.tex}
 
-\input{System-Arch/Backend/SystemArch-backend-NetInf_video_streaming_protocol.tex}
-
-
 \chapter{Evaluation and testing}
 \input{Evaluation/Eval-frontend.tex}
 \input{Evaluation/Eval-backend.tex}
@@ -94,6 +92,8 @@ Demo of reference \cite{b1}.
 \input{Appendix-B/App-B-Maintenance_instructions_frontend.tex}
 \section{Backend}
 \input{Appendix-B/App-B-Maintenance_instructions_backend.tex}
+\chapter {Appendix C: NetInf Video Streaming Draft}
+\input{Appendix-C/NetInf_video_streaming_protocol.tex}
 
 \begin{thebibliography}{99}
 
@@ -106,6 +106,12 @@ Hugo Negrette~Otaola and Miguel Sosa.
 \newblock Using multiple transport networks in netinf enabled android devices.
 \newblock Master's thesis, KTH, School of Information and Communication
   Technology (ICT), 2012.
+
+\bibitem{netinfproto}
+D.~Kutscher, S.~Farrell, and E.~Davies.
+\newblock The netinf protocol.
+\newblock Internet-Draft draft-kutscher-icnrg-netinf-proto-00.txt, IETF
+  Secretariat, Oct 2012.
 
 \bibitem{plugin} Android Developers (n.d.). Installing the Eclipse Plugin. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/installing/installing-adt.html
 

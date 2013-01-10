@@ -21,15 +21,15 @@ The following functions must be implemented by your database wrapper
     	{ok, pid()} | {ok, registered_name:atom()} | {error, string()}
 \end{verbatim}
 
-The above function returns the connection for the specified database
+The above function returns the connection for the specified database.
 Remember the init should return an identifier to the persistent process of the specified database.
 
 \begin {verbatim}
     publish(NetInfObject::nn_proto:proto()) -> 
-    	{ok, ReturnNetInfObj::nn_proto:proto()} | {ok, no_match}
+    	{ok, ReturnNetInfObj::nn_proto:proto()}
 \end{verbatim}
 
-Takes the NetInfObject and returns: {ok,NewObject} where NewObject is the NDO that was published
+Takes the NetInfObject and returns: {ok,NewObject} where NewObject is the NDO created when merging the object being published with an object with the same name in the database, or, if there was no object with that name in the database, NewObject is the object being published.
 
 \textbf{Get}
 
@@ -57,6 +57,6 @@ Takes the NetInfObject and returns {ok, ReturnNetInfObj} where ReturnNetInfObj i
 \end{verbatim}
 
 Takes a Erlang list of search keywords and returns a list of the NDO's which match those key words.
-References
+
 
 Please see the module src/nn\_database\_list as an example of the wrapper implementation for use with a 'list' database in the repository.

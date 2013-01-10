@@ -17,13 +17,48 @@ For new databases we encourage a new configuration to be make in order to keep t
 The following is the syntax for a config file 
 
 \begin {verbatim}
-[{netinf_nrs, [ 
-	     {database, nn_database_list},
-	     {convergence_layers, ["http"]},
-	     {ip_timer, 5000},
-	     {discovery, on} ]}].
+[{netinf_nrs,
+	[
+	{key1, value1},
+	...
+	{keyN, valueN}
+	]
+}].
 
 \end{verbatim}
+And here is an example of how our config file's looks
+\begin {verbatim}
+[{netinf_nrs,
+	[
+	{database, nn_database_riak},
+	{convergence_layers, ["http"]},
+	{ip_timer, 5000},
+	{discovery, on},
+	{nrs_port, 9999},
+	{ct_port, 8078},
+	{client_port, 8079}
+	]
+}].
+
+\end{verbatim}
+
+\subsubsection {Meaning of the config values}
+\begin{description}
+\item[database]
+This is used to define what database to use. The value must be the name of a module that implements our nn\_database behavior. Default is our riak implementation
+\item[convergence\_layers]
+Deprecated. This was used to define which convergence layers the node should support. Currently we use udp multicast instead
+\item[ip\_timer]
+Deprecated. This was used to define how often the node broadcasted that it was live to other nodes via udp multicasts
+\item[discovery]
+Deprecated. This was used to turn of the nodes discovery service for testing purposes
+\item[nrs\_port]
+This defines what port the NRS will use to listen for NetInf messages
+\item[ct\_port]
+\underline{\textbf{TODO MARKUS FIX THIS SHIT}}
+\item[client\_port]
+\underline{\textbf{TODO MARKUS FIX THIS SHIT}}
+\end{description}
 
 \subsection {Using config files}
 
@@ -49,9 +84,9 @@ In the erlang code we use the following
 application:get_env(app-name,parameter-name) 
 \end{verbatim}
 
-where app-name is our name for netinf\_nrs and parameter-name is the name of one of the parameters defined in the config file OR the env section of the netinf\_nrs.app.src file.
+where app-name is the name of the application, in our case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file OR the env section of the netinf\_nrs.app.src file.
 
-for example to set the database:
+for example to get the database:
 
 \begin {verbatim}
 application:get_env(netinf_nrs,database) 
