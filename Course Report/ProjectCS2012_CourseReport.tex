@@ -5,6 +5,7 @@
 
 \usepackage{graphicx}
 \usepackage{minibox}
+\usepackage{hyperref}
 
 % reference commands
 \newcommand{\fig}[1]{Figure ~\ref{fig:#1}}
@@ -86,5 +87,9 @@
 \chapter{Git Workflow}
 \input{git.tex}
 \chapter{Jenkins Setup}
+
 \input{jenkins.tex}
+
+\bibliography{references}
+\bibliographystyle{plain}
 \end{document}
