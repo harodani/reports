@@ -3,14 +3,54 @@ This description includes instructions on how to setup the system for both devel
 
 \subsection{Dependencies}
 
-In order to run the system properly the following components are required to be installed on the system
+In order to run the system properly the following components are required to be installed on the system, you can either run the script from the section below, or install these manually.
 
+For the NetInf NRS system
+\begin{itemize}
+\item Make
+\item Rebar
+\item G++ compiler
+\item Erlang - version R15B03
+\end{itemize}
 
+For the NetInf Video Streaming, in addition to the above the following component(s) is required
+\begin{itemize}
+\item Google Chrome Web browser - or any other browser that supports HTML 5 video tag.
+\end{itemize}
 
+To install Make and G++ manually please run the following commands in the ubuntu terminal.
+\begin{verbatim}
+sudo apt-get install build-essential
+sudo apt-get install g++
+\end{verbatim}
+
+To install Rebar and Erlang manually please follow the following steps
+
+Download and install: Rebar from Github
+https://github.com/basho/rebar/archive/master.zip
+
+unzip the archive and run the following command
+\begin{verbatim}
+ cd rebar-master
+ ./bootstrap
+ sudo cp rebar /usr/bin
+ 
+\end{verbatim}
+
+To Download and install Erlang - version R15B03
+You can retrieve it from the Erlang-Solutions website or use the following commands
+
+\begin{verbatim}
+
+ wget https://elearning.erlang-solutions.com/couchdb//rbingen_adapter//package_R15B03_precise32_1354121173/esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
+ 
+sudo dpkg -i esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
+
+\end{verbatim}
 
 \subsection{Script}
 
-For the convenience of end users and developers, there is a packaged install/setup script available after obtaining the backend code.
+For the convenience of end users and developers, there is a packaged install/setup script available after obtaining the backend code. This script is responsible for quickly installing the entire system with all the dependencies.
 
 \textbf{note if the script is not immediately runnable for you please run the following command:}
 \begin{verbatim}
