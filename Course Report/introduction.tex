@@ -1,6 +1,23 @@
 \section{Introduction}
-The main purpose of this project was to build an application based on the NetInf protocol. Ericsson Research acted as the customer for this project whereas the IT department of Uppsala university facilitated us with a project room, software and hardware infrastructure.
+The main purpose of this project was to build an application based on the NetInf protocol. Ericsson Research acted as the customer 
+for this project whereas the IT department of Uppsala University facilitated us with a project room, software and hardware infrastructure.
 
-The project team was divided into two groups where one group was dedicated for developing the front-end of the application whereas the other group was given the task to develop the back-end. The front-end group was called LISA and consisted of five members whereas the back-end group was named ERNI and was made up of eight individuals. The purpose of the application was to use NetInf protocol in an Information Centric Networking (ICN) paradigm to create, share and store Named Data Objects (NDO's). The front-end team developed the user interface of the application using JAVA which the end user could use to perform different operations. The back-end team developed the necessary modules to perform the back-end operations using Erlang/OTP. The details of the functionalities developed by the front-end and back-end teams can be found in the product report. Both teams followed Scrum as the software development methodology.          
+The project group was divided into two teams where one team was dedicated for developing the front-end of the 
+application whereas the other team was given the task to develop the back-end. The front-end group was called 
+LISA (abbreviation for "Look! I see ants!" which sounds like ICNs, information-centric networking ;-)) and consisted of five members whereas 
+the back-end team was named ERNI (Erlang NetInf) and was made up of eight individuals. 
 
-This document describes in detail the various tools, methodolgy and equipments we used to achieve our goals. 
+Starting off with the front-end's lose requirement to use NetInf within an application that can communicate with
+the back-end's server, the front-end decided to develop a mobile browser called "Elephant". Elephant is a normal
+web browser if you look at it from an end-user's perspective. So what differentiates a normal browser
+from the developed one? Instead of using host-based networking, only information-centric networking (ICN) is used.
+Therefore the browser is a proof-of-concept towards a new networking model where Information Objects are in focus.
+For the development Ericsson provided Android phones. Thus, Java was the language of choice.
+
+The back-end team developed the Name Resolution Service (NRS) to perform the back-end operations using Erlang/OTP. The details of the functionalities developed 
+by the front-end and back-end teams can be found in the product report. 
+
+Both teams followed Scrum as the software development methodology. You can find a short description about Scrum and
+how we used Scrum in \sect{scrum}.
+
+This document describes in detail the various tools, methodology and equipments we used to achieve our goals. 
