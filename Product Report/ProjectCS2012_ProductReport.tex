@@ -3,9 +3,14 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{color}
 
 \renewcommand\bibname{References}
 
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \parindent 0pt
 \parskip 8pt
 
@@ -56,7 +61,7 @@ Demo of reference \cite{b1}.
 
 \chapter{System Architecture}
 
-\input {System-Arch/Frontend/SystemArch-frontend.tex}
+\input{System-Arch/Frontend/SystemArch-frontend.tex}
 
 \section {NetInf NRS}
 
@@ -91,13 +96,22 @@ Demo of reference \cite{b1}.
 \input{Appendix-B/App-B-Maintenance_instructions_backend.tex}
 
 \begin{thebibliography}{99}
+
 \bibitem{b1} Alex Awesome \textsl{awesome theory}, Uppsala 2013
+
 \bibitem{otpInAction} Martin Logan, Eric Merritt, and Richard Carlsson. \textsl{Erlang and OTP in Action}. 2010.
 
-\bibitem{plugin} Android Developers (n.d.). Installing the Eclipse Plugin. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/installing/installing-adt.html
-\bibitem{bundle} Android Developers (n.d.). Get the Android SDK. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/index.html
-\bibitem{hardware} Android Developers (n.d.). Using Hardware Devices. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/tools/device.html\#setting-up
+\bibitem{masterthesis}
+Hugo Negrette~Otaola and Miguel Sosa.
+\newblock Using multiple transport networks in netinf enabled android devices.
+\newblock Master's thesis, KTH, School of Information and Communication
+  Technology (ICT), 2012.
 
+\bibitem{plugin} Android Developers (n.d.). Installing the Eclipse Plugin. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/installing/installing-adt.html
+
+\bibitem{bundle} Android Developers (n.d.). Get the Android SDK. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/index.html
+
+\bibitem{hardware} Android Developers (n.d.). Using Hardware Devices. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/tools/device.html\#setting-up
 
 \end{thebibliography}
 
