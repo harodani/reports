@@ -153,11 +153,11 @@ The ResolutionController handles a number of ResolutionServices. Each Resolution
 
 \subsubsection{NameResolutionService}
 
-TODO
+The NameResolutionService uses the HTTP convergence layer (TODO REFS) to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there so it should be relatively little work.
 
 \subsubsection{LocalResolutionService}
 
-TODO
+The LocalResolutionService uses a to the device local SQLite database. The LocalResolutionService has higher priority than the NameResolutionService meaning that when preforming a get the LocalResolutionService will be used first and then if needed the NameResolutionService as well.
 
 \subsection{SearchController}
 \label{sec:SearchController}
@@ -166,7 +166,7 @@ The SearchController handles a number of SearchServices. Each SearchService shou
 
 \subsubsection{UrlSearchService}
 
-TODO
+The UrlSearchService provides the functionality to search for a single token in the local database used by the LocalResolutionService and then, if not found, using the HTTP convergence layer to search in the NRS used by the NameResolutionService.
 
 \subsection{TransferDispatcher}
 \label{sec:TransferDispatcher}
@@ -175,7 +175,7 @@ The TransferDispatcher handles a number of ByteArrayProviders. Each ByteArrayPro
 
 \subsubsection{BluetoothProvider}
 
-TODO
+TODO Maybe by whomever wrote this?
 
 \section{Elephant}
 \label{sec:Elephant}
