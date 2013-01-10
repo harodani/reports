@@ -226,10 +226,6 @@ In this sprint we also run the automated tests we had implemented in the previou
 and graphs to use in the product reports. The final presentation was made with Prezi (reference?), an online tool
 to produce professional presentation.
 
-
-Overall goal of the project:
-Final product status:
-
 \subsection {ERNI}
 
 \framebox(360, 85){
@@ -244,13 +240,15 @@ Final product status:
 	}
 }
 
+During the first two-week sprint the ERNI team mainly setup their environment along with coordinating with LISA on building a server which would communicate to a client using simple (non NetInf messages). The code from this demo became the reference for the real NetInf server which was developed during the second sprint.
+
 \framebox(360, 102){
 	\minibox{
 	\textbf{Sprint 2}\\
 	\begin{centering}
 	\begin{tabular}{p{3cm}p{8cm}}
 	Scrum Master & Knut\\
-	Goal & Implement Netinf Publish and Get content with metadata\\
+	Goal & Implement NetInf Publish and Get content with metadata\\
 	Sprint length & 2 weeks\\
 	Met & Yes
 	\end{tabular}
@@ -258,6 +256,7 @@ Final product status:
 	}
 }
 
+In the second sprint which ran for another two weeks, ERNI created the basic NetInf server which was able to use the appropriate Publish and Get messages from the NetInf protocol draft. A major part of the sprint was devoted to creating the Message handler and the formatter which would accept messages passed in from the HTTP handler and convert them to the internal representation of a NetInf message. The ERNI team also developed a very basic list database in order to store information. 
 
 
 \framebox(360, 108){
@@ -265,37 +264,46 @@ Final product status:
 	\textbf{Sprint 3}\\
 	\begin{tabular}{p{3cm}p{8cm}}
 	Scrum Master & Faroogh\\
-	Goal &  Implement Netinf Search ,binary caching and retrieve content, implement a real database(riak) and implement a plug and play database wrapper\\
+	Goal &  Implement NetInf Search ,binary caching and retrieve content, implement a real database(riak) and implement a plug and play database wrapper\\
 	Sprint length & 3 weeks\\
 	Met & Yes
 	\end{tabular}
 	}
 }
 
+The third sprint consisted of refining the Publish and Get messages, implementing search and binary storage and finally introducing a real database. The client also stressed that they would like the ability to easily attach other databases, thus a database interface was created and the ERNI team attached Riak to the NetInf system.
+
 \framebox(360, 85){
 	\minibox{
 	\textbf{Sprint 4}\\
 	\begin{tabular}{p{3cm}p{8cm}}
 	Scrum Master & Jon\\
-	Goal & Provide the client with a draft of the Netinf Video Streaming\\
+	Goal & Provide the client with a draft of the NetInf Video Streaming\\
 	Sprint length & 1 week\\
 	Met & No
 	\end{tabular}
 	}
 }
 
+During the fourth sprint the ERNI team had choose to diverge from the LISA team since they had finished all the functionality described in the draft document and no longer required to build features for LISA. The client was impressed and suggested that the team look into applications for the NetInf system. The major application that was discussed was the use of NetInf and Video streaming to alleviate congestion problems while broadcasting content. The goal here was to provide the client with a draft of the new protocol but there were many disagreements on what the draft should contain and the team missed the deadline to hand in the draft.
+
+In an effort to fine tune our sprint planning, the team decided to try one week sprints in order to see how much we can accomplish with a smaller amount of time. This was due to the two-week sprints feeling too short leaving the team to scramble
+
 \framebox(360, 98){
 	\minibox{
 	\textbf{Sprint 5}\\
 	\begin{tabular}{p{3cm}p{8cm}}
 	Scrum Master & Jon\\
-	Goal & Implement Netinf video streaming on top of the existing NetInf NRS code and UDP convergence layer\\
+	Goal & Implement NetInf video streaming on top of the existing NetInf NRS code and UDP convergence layer\\
 	Sprint length & 1 week\\
 	Met & Yes
 	\end{tabular}
 	}
 	
 }
+
+In the fifth sprint the ERNI team had gotten the approval of the client to start implementing the NetInf video streaming protocol. It was a one week sprint where the team also added the UDP convergence layer after meeting with the client in the last sprint.
+
 
 \framebox(360, 80){
 	\minibox{
@@ -309,7 +317,6 @@ Final product status:
 	}
 }
 
-The final sprint(sprint 7) both teams joined together and had one large sprint writing the course and product reports.
+In the sixth sprint the ERNI team mostly fixed the major bugs in the system and finalizing the NetInf video streaming, the major feedback here was 
 
-Overall goal of the Project:
-Final product status:
+The final sprint(sprint 7) both teams joined together and had one large sprint writing the course and product reports.
