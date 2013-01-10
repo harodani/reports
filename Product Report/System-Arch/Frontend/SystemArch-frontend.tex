@@ -1,3 +1,25 @@
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstnewenvironment{code}[1][]%
+	{\minipage{\linewidth} 
+		\lstset{language=Java,
+			basicstyle=\ttfamily,
+			keywordstyle=\color{javapurple}\bfseries,
+			stringstyle=\color{javared},
+			commentstyle=\color{javagreen},
+			morecomment=[s][\color{javadocblue}]{/**}{*/},
+			numbers=left,
+			numberstyle=\tiny\color{black},
+			stepnumber=1,
+			numbersep=10pt,
+			tabsize=4,
+			showspaces=false,
+			showstringspaces=false}}
+	{\endminipage}
+
 \section{NetInfService}
 \label{sec:NetInfService}
 
@@ -13,20 +35,20 @@ NetInfService is the first of two Android applications. It provides a NetInf nod
 \subsection{Configuration}
 \label{sec:Configuration}
 
-The default settings for NetInfService are stored in the properties file "assets/config.properties". This includes but is not limited to NRS IP address, NRS port, and RESTful API port. Some of these settings can be changed live when running the NetInfService on an Android device. This does not change the default values in the properties file but are instead stored using the default Android shared preferences file, which is persistent.
+The default settings for NetInfService are stored in the properties file "assets/config.properties". This includes but is not limited to NRS IP address, NRS port, and RESTful API port. Some of these settings can be changed live when running the NetInfService on an Android device. This does not change the default values in the properties file but the changes are instead stored using the default Android shared preferences file, which is persistent.
 
 \subsection{RESTful API}
 \label{sec:RESTful API}
 
-The RESTful API receives HTTP requests. Depending on the type of request the ResolutionController, SearchController, or TransferDispatcher is called. Publish requests are handled by the ResolutionController. Retrieve requests first do a get using the ResolutionController and then, if the get response contained locators, transfer the file using the TransferDispatcher. Search requests are handled by the SearchController.
+The RESTful API receives HTTP requests for NetInf functionality. Depending on the type of request the ResolutionController, SearchController, or TransferDispatcher is called. Publish requests are handled by the ResolutionController. Retrieve requests first do a get using the ResolutionController and then, if the get response contained locators, transfer the file using the TransferDispatcher. Search requests are handled by the SearchController.
 
 The HTTP request use the following format:
 
 \begin{center}
-http://\{Host\}:\{Port\}/\{Prefix\}?{key1}=\{value1\}\&{key2}=\{value2\}...
+http://\{Host\}:\{Port\}/\{Prefix\}?\{key1\}=\{value1\}\&\{key2\}=\{value2\}...
 \end{center}
 
-Since the NetInfService should be running on the same device as the application using it, the host would most likely be either localhost or 127.0.0.1. The default port is 8080, for changing it see Section \ref{sec:Configuration}. Since the key-value pairs could contain illegal characters these should be URL encoded.
+Since the NetInfService should be running on the same device as the application using it, the host would most likely be either localhost or 127.0.0.1. The default port is 8080, for changing it see Section \ref{sec:Configuration}. The key-value pairs should be URL encoded as they can contain illegal characters.
 
 \subsubsection{Publish}
 
@@ -55,7 +77,7 @@ The following key-value pairs are optional:
 \begin{itemize}
 	\item btmac: The Bluetooth MAC address of the publishing device, it will be added as a locator to the published object.
 	\item meta: The metadata for the object that is being published. Remember to URL encode illegal characters.
-	\item filepath: The file path of the object that is being published. If this is present a pull put is done, otherwise not.
+	\item filepath: The file path of the object that is being published. If this is present a full put is done, otherwise not.
  \end{itemize}
 
 A successful publish returns HTTP status code 200. Any other code indicates something went wrong and should give an indication of what went wrong.
@@ -129,15 +151,31 @@ http://localhost:8080/search?tokens=http://www.ericsson.com/
 
 The ResolutionController handles a number of ResolutionServices. Each ResolutionServices should provide publish, get, and delete functionality using some convergence layer or equivalent. Currently there are two ResolutionServices, the LocalResolutionService which uses a local SQLite database and the NameResolutionService which communicates with a specific NRS using the HTTP convergence layer.
 
+\subsubsection{NameResolutionService}
+
+TODO
+
+\subsubsection{LocalResolutionService}
+
+TODO
+
 \subsection{SearchController}
 \label{sec:SearchController}
 
 The SearchController handles a number of SearchServices. Each SearchService should provide search functionality using some convergence layer or equivalent. Currently there is one SearchService, the UrlSearchService, which provide search functionality using a single string which is assumed to be a URL.
 
+\subsubsection{UrlSearchService}
+
+TODO
+
 \subsection{TransferDispatcher}
 \label{sec:TransferDispatcher}
 
 The TransferDispatcher handles a number of ByteArrayProviders. Each ByteArrayProvider should provide functionality to retrieve a file (as a ByteArray) in some way. Currently there is one ByteArrayProvider, the BluetoothProvider, which uses Bluetooth to transfer files from other Bluetooth enabled devices.
+
+\subsubsection{BluetoothProvider}
+
+TODO
 
 \section{Elephant}
 \label{sec:Elephant}
@@ -185,50 +223,33 @@ InformationObjects can contain attributes. In these applications the only used a
 
 \subsection{RESTful API Access}
 
-\definecolor{javared}{rgb}{0.6,0,0} % for strings
-\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
-\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
-\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
-
-\lstset{language=Java,
-basicstyle=\ttfamily,
-keywordstyle=\color{javapurple}\bfseries,
-stringstyle=\color{javared},
-commentstyle=\color{javagreen},
-morecomment=[s][\color{javadocblue}]{/**}{*/},
-numbers=left,
-numberstyle=\tiny\color{black},
-stepnumber=1,
-numbersep=10pt,
-tabsize=4,
-showspaces=false,
-showstringspaces=false}
-
 Access to the RESTful API is handled by the subclasses of NetInfRequest. There are three subclasses NetInfPublish, NetInfRetrieve, and NetInfSearch corresponding to the API calls for publish, retrieve, and search. NetInfRequest extends the class AsyncTask provided by Android, and hence all subclasses of NetInfRequest are also AsyncTasks.
 
 These classes can be used in two ways. Either by doing a blocking call:
 
-\begin{lstlisting}
+\begin{code}[language=Java]
 	// Create a new search
 	NetInfSearch search = new NetInfSearch("tokens", "ext");
 	// Execute the search
 	search.excute();
 	// Block until the search response is available
-	NetInfSearchResponse searchResponse = (NetInfSearchResponse) search.get();
+	NetInfSearchResponse searchResponse =
+	        (NetInfSearchResponse) search.get();
 	// Do things with the response...
-\end{lstlisting}
+\end{code}
 
-Or in a non-blocking way by override the function called when the response becomes available:
+Or in a non-blocking way by overriding the function that is called when the response becomes available:
 
-\begin{lstlisting}
+\begin{code}[language=Java]
 	// Create a new search
 	NetInfSearch search = new NetInfSearch("tokens", "ext") {
             @Override
             public void onPostExecute(NetInfResponse response) {
-                NetInfSearchResponse searchResponse = (NetInfSearchResponse) response;
+                NetInfSearchResponse searchResponse =
+                        (NetInfSearchResponse) response;
 				// Do things with the response...
             }
     }
     // Execute the search
 	search.excute();
-\end{lstlisting}
+\end{code}
