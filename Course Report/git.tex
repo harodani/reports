@@ -1,0 +1,94 @@
+The following section will detail a sample work flow for a sprint with at least two story items. 
+
+The follow image can quickly show you how the individual story may look on a time-line.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{img/workflow}
+\caption{Sample workflow for one story item}
+\label{fig:architecture}
+\end{figure}
+
+
+\subsection{Starting a sprint}
+
+At the start of each sprint the development team will perform a git checkout -b SprintX.shortStoryName DEVELOP
+
+for a running example we will take the HTTP Handler from the first sprint. 
+\begin{verbatim}
+git checkout -b SprintX.shortStoryName develop
+git push -u origin SprintX.shortStoryName
+\end{verbatim}
+This will pull all the previous items into your temporary working branch from develop
+
+\subsection{Working during a sprint}
+
+As you and your partner work together to complete the tasks outlined in the story, commit as usual to your local branch.\\
+\begin{verbatim}
+git pull origin staging
+git add [files that have been added or created/modified]
+git commit -m description - where description is the commit message you would like associated with the commit. 
+\end{verbatim}
+\subsection{Deploying a Done story}
+
+After all the tasks are completed and you feel ready to move the task to the DONE state, merge it to the development branch using the following command:\\
+
+\begin{verbatim}
+git checkout staging
+git merge --no-ff SprintX.shortStoryName
+git push origin staging
+
+
+- do the following only if you wish to delete your branch on the remote repository -
+git push origin :SprintX.shortStoryName
+
+- do the following if you wish to delete your branch locally -  
+git branch -d SprintX.shortStoryName
+\end{verbatim}
+This will perform a merge and fast-forward on the remote 'staging' branch while keeping historical information.
+This will also create empty commits in the development branch as a way to quickly spot revisions which you may wish to go back to, for example if you need to remove a story that was not working properly.
+\newpage
+\textbf {NOTE: AS A HUMAN USER THIS IS TYPICALLY WHERE YOU STOP WORKING IN THE WORKFLOW. \\THE FOLLOWING STEPS ARE TO BE IMPLEMENTED BY JENKINS AND AUTOMATED BUILD TOOLS. YOU ARE ONLY CONCERNED WITH WORKING ON THE DEVELOP BRANCH AND YOUR OWN STORY BRANCHES FOR EACH SPRINT. YOU SHOULD NEVER TOUCH MASTER OR RELEASE UNLESS ABSOLUTELY NECESSARY}
+
+\subsection{Testing a sprint story}
+
+The following steps assume that a testing suite was created and works well with JENKINS build tool. 
+
+\subsection{Merging in to develop}
+As a story branch has been merged to 'develop', the code goes through a set of unit tests and when it successfully passes all of them, it is ready to be merged to 'release': 
+\begin{verbatim}
+git checkout develop
+git merge --no-ff staging
+git push origin develop
+\end{verbatim}
+
+\subsection{Merging in to release}
+As a story branch has been merged to 'develop', the code goes through a set of unit tests and when it successfully passes all of them, it is ready to be merged to 'release': 
+\begin{verbatim}
+git checkout release
+git merge --no-ff develop
+git tag -a SprintX.shortStoryName-RELEASE
+git push origin release
+\end{verbatim}
+\subsection{Merging in to master}
+Supposing that all the sprint stories code have reached the stage of release, before proceeding with the final merging , we check that all the desired features have been implemented and tested properly.
+The final merging is performed upon the MASTER branch containing always the stable version of all the code written so far.
+  \begin{verbatim}
+git checkout master
+git merge --no-ff release
+git tag -a Sprint1.Demo1
+git push origin master
+\end{verbatim}
+\subsection{Post-sprint practice}
+
+After each sprint we should synchronize the 'master' and the 'develop' branch. This ensures a clean start for each sprint as the 'staging' branch will inherently be considered the "dirty" branch. 
+
+  \begin{verbatim}
+git checkout DEVELOP
+git merge --no-ff MASTER
+\end{verbatim}
+
+\subsection{References}
+The following was an inspiration for the git model:\\
+
+http://nvie.com/posts/a-successful-git-branching-model/
+ \\
