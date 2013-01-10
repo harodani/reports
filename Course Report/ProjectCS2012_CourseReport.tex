@@ -5,6 +5,7 @@
 
 \usepackage{graphicx}
 \usepackage{minibox}
+\usepackage{hyperref}
 
 % reference commands
 \newcommand{\fig}[1]{Figure ~\ref{fig:#1}}
@@ -38,8 +39,9 @@
 
 \tableofcontents
 
-\chapter{Abstract}
-\input{abstract.tex}
+\begin{abstract}
+ \input{abstract.tex}
+\end{abstract}
 
 \chapter{Introduction}
 \input{introduction.tex}
@@ -58,17 +60,12 @@
 \chapter{Project methodology and organization}
 \input{SCRUM.tex}
 \input{use-of-scrum.tex}
-
 \input{quality_assurance.tex}
 \input{timeline.tex}
-
-
 \chapter{Team Building}
 \input{team-building.tex}
 \chapter{Conclusion}
 \input{conclusion.tex}
-
-\chapter{References}
 
 \appendix
 \chapter{Individual input}
@@ -87,8 +84,12 @@
 \input {individual/tran.tex}
 \input {individual/nordstrom.tex}
 
-\chapter{Git Policies}
-
+\chapter{Git Workflow}
+\input{git.tex}
 \chapter{Jenkins Setup}
 
+\input{jenkins.tex}
+
+\bibliography{references}
+\bibliographystyle{plain}
 \end{document}
