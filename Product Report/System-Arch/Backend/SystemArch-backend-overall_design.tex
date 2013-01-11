@@ -1,0 +1,32 @@
+\section {Overall design}
+
+The architecture of the entire system consists of different processes and modules which interact with each other. There are two distinct process types: persistent and non-persistent. The persistent processes will run for the entire uptime of the system whereas the lifetime of a non-persistent process is the duration of its given task. Figure x below shows the current system design.
+
+\begin{figure}[h!]
+	\centering
+\includegraphics[scale=0.6]{./img/process_hierarchy.png}
+\caption{Current system design}
+\end{figure}
+
+\subsection{Architecture layers}
+
+The system architecture is divided into four distinct layers a network layer (http, udp) convergence layer, an internal Erlang NetInf layer and a storage layer. Within these layers lie the modules(Erlang processes) which are responsible for specific functions such as sending/receiving convergence layer messages, sanitizing messages, forwarding, accessing databases/file systems and logging.
+
+\subsection{NetInf Messaging}
+
+According to the draft specification(see appendix D-draft) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages.
+
+\subsubsection{Named Data Objects}
+In addition to the messaging component, NetInf describes any piece of information as a Named Data Object(NDO). In the current state of networks, the same piece of information is considered to be location based and mutable with many copies of the same information lying around. The purpose of an NDO is to provide a convenient way for the protocol to be able to catalogue and preform operations such as storing, retrieving and finally searching for information and removing the need for location based information.
+
+
+\subsubsection{Publish}
+
+
+
+
+\subsubsection{Get}
+
+\subsubsection{Search}
+
+
