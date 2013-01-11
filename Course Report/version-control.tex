@@ -27,7 +27,7 @@ This is a JENKINS build tool controlled area - No human user should be operating
 \item release\\ \\
 The 'release' branch will only contain individual stories which are completed and fully unit tested. Here we can pick and choose which stories to include in a specific demo. This branch is also a JENKINS build tool area. \\JENKINS is responsible for integration testing and merging between 'release' and 'master'
 \item develop\\ \\
-The 'develop' branch will contain all the code this is able to be compiled on the server and is where the human users will start their personal story branches. Also a JENKINS build tool area, The code here will be considered in a "Story done and compiles but not yet tested" state.\\ JENKINS is responsible for unit testing and merging between 'develop' and 'release'
+The 'develop' branch will contain all the code this is able to be compiled on the server and is where the human users will start their personal story branches. Also a JENKINS build tool area, the code here will be considered in a "Story done and compiles but not yet tested" state.\\ JENKINS is responsible for unit testing and merging between 'develop' and 'release'
 
 \item staging \\ \\
 The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. Also a JENKINS Build tool area, the code here will be considered in a story is in progress it may be done but it also may not compile. JENKINS will pull all the code from this branch and try to compile it, if it compiles then it will be merged with the 'develop' branch.
