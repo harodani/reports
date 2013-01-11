@@ -17,16 +17,44 @@ The system architecture is divided into four distinct layers a network layer (ht
 According to the draft specification(see appendix D-draft) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages.
 
 \subsubsection{Named Data Objects}
-In addition to the messaging component, NetInf describes any piece of information as a Named Data Object(NDO). In the current state of networks, the same piece of information is considered to be location based and mutable with many copies of the same information lying around. The purpose of an NDO is to provide a convenient way for the protocol to be able to catalogue and preform operations such as storing, retrieving and finally searching for information and removing the need for location based information.
+In addition to the messaging component, NetInf describes any piece of information as a Named Data Object(NDO). In the current state of networks, the same piece of information is considered to be location based and mutable with many copies of the same information lying around. The purpose of an NDO is to provide a convenient way for the protocol to be able to catalogue and preform operations such as storing, retrieving and finally searching for information and eliminating need for location based information.
 
 
 \subsubsection{Publish}
 
+NetInf describes a Publish message which consists of the following fields:
 
-
+\begin{description}
+\item[URI]  - Contains the hash of the NDO. It is unique to the peice of information that is going to be published into the system. It is also mandatory.
+\item[msgid] - A mandatory field as well and it is a unique number(integer). 
+\item[loc1] - An optional field, this is the I.P address of the device that created the information that will be shared.
+\item[loc2] - Same as the above.
+\item[ext] - An extension field, it is responsible for containing the meta data in JSON format.
+\item[rform] - 
+\item[fullPut]
+\end{description}
 
 \subsubsection{Get}
 
+NetInf describes a Get message which consists of the following fields:
+
+\begin{description}
+\item[URI]
+\item[msgid]
+\item[loc1]
+\item[loc2]
+\item[ext]
+\end{description}
+
+
 \subsubsection{Search}
 
+NetInf describes a Search message which consists of the following fields:
+
+\begin{description}
+\item[msgid]
+\item[tokens]
+\item[rform]
+\item[ext]
+\end{description}
 
