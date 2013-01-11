@@ -2,7 +2,32 @@
 
 \subsection{NetInf Enabled Browser}
 
-The goal of the frontend was to produce Elephant, a NetInf enabled browser. The browser should utilize NetInf technology to retrieve web page from other nearby devices and/or caching nodes in order to reduce the usage of the 3G uplink commonly used to access the Internet on mobile devices. This is done so that congestion in the 3G network can be avoided. The NetInf traffic should conform to the work in progress HTTP convergence layer \cite{netinfproto}.
+The goal of the frontend is to produce Elephant, a NetInf enabled browser for Android devices. The browser should utilize NetInf technology to retrieve web page from other nearby devices and/or caching nodes, if possible, in order to reduce the usage of the 3G uplink commonly used to access the Internet on mobile devices. This is done so that congestion in the 3G network can be avoided. The NetInf traffic should conform to the work in progress HTTP convergence layer \cite{netinfproto}. Web pages should be split into several parts to be able to benefit from being available from multiple sources.
 
-This includes:
+To accomplish this we need the possibility to:
 
+\begin{itemize}
+	\item Inject existing web pages into the NetInf network as NDOs.
+	\item Given a traditional web URL be able to find the corresponding NDO.
+	\item Get NDOs from other devices.
+\end{itemize}
+
+See Section \ref{sec:Elephant} for details on how this was solved by the Elephant browser.
+
+The following problems was considered to be out of scope:
+
+\begin{itemize}
+	\item Privacy
+	\item Security
+	\item Dynamic Content
+	\item Battery Consumption
+	\item Bluetooth Congestion
+\end{itemize}
+
+Privacy and security are both very important aspects, but would require complex considerations. They are areas that will require future work.
+
+Dynamic content is relevant as it is often changes in content (e.g. newspapers, Facebook, Twitter) that interests users. However this would add a lot of complexity to the problem since dynamic content means the mapping from traditional web URL to NDO would be constantly changing.
+
+Battery consumption was discusses and the simple solution of allowing users to disable battery draining technologies such as Bluetooth was decided upon. Hopefully, the battery problem will be solved by technological advancements.
+
+A final problem that was not taken into consideration was possible congestion in the Bluetooth network because of large amount of devices.
