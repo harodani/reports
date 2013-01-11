@@ -26,7 +26,8 @@ As you and your partner work together to complete the tasks outlined in the stor
 \begin{verbatim}
 git pull origin staging
 git add [files that have been added or created/modified]
-git commit -m description - where description is the commit message you would like associated with the commit. 
+git commit -m description - where description is the commit 
+message you would like associated with the commit. 
 \end{verbatim}
 \subsection{Deploying a Done story}
 
@@ -38,16 +39,19 @@ git merge --no-ff SprintX.shortStoryName
 git push origin staging
 
 
-- do the following only if you wish to delete your branch on the remote repository -
+- do the following only if you wish to 
+delete your branch on the remote repository -
 git push origin :SprintX.shortStoryName
 
 - do the following if you wish to delete your branch locally -  
 git branch -d SprintX.shortStoryName
 \end{verbatim}
 This will perform a merge and fast-forward on the remote 'staging' branch while keeping historical information.
-This will also create empty commits in the development branch as a way to quickly spot revisions which you may wish to go back to, for example if you need to remove a story that was not working properly.
-\newpage
-\textbf {NOTE: AS A HUMAN USER THIS IS TYPICALLY WHERE YOU STOP WORKING IN THE WORKFLOW. \\THE FOLLOWING STEPS ARE TO BE IMPLEMENTED BY JENKINS AND AUTOMATED BUILD TOOLS. YOU ARE ONLY CONCERNED WITH WORKING ON THE DEVELOP BRANCH AND YOUR OWN STORY BRANCHES FOR EACH SPRINT. YOU SHOULD NEVER TOUCH MASTER OR RELEASE UNLESS ABSOLUTELY NECESSARY}
+This will also create empty commits in the development branch as a way to quickly spot revisions which you may wish to go back to, for example if you need to remove a story that was not working properly.\\\\
+%\newpage
+\textbf {NOTE:}
+As a human user this is typically where you stop working in the workflow. The following steps are to be implemented by Jenkins and automated build tools. You are only concerned with working on the Develop branch and your own story branches for each sprint. You should never touch Master or Release unless absolutey necessary.
+%AS A HUMAN USER THIS IS TYPICALLY WHERE YOU STOP WORKING IN THE WORKFLOW. \\THE FOLLOWING STEPS ARE TO BE IMPLEMENTED BY JENKINS AND AUTOMATED BUILD TOOLS. YOU ARE ONLY CONCERNED WITH WORKING ON THE DEVELOP BRANCH AND YOUR OWN STORY BRANCHES FOR EACH SPRINT. YOU SHOULD NEVER TOUCH MASTER OR RELEASE UNLESS ABSOLUTELY NECESSARY
 
 \subsection{Testing a sprint story}
 

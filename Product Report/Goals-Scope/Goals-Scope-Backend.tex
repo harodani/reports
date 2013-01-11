@@ -1,3 +1,15 @@
-\section{Backend}
+\section{Goals and Scope - Backend}
+In this section we describe the goals and scope set by the back-end team for this project.
 
-Backend filler for Goals and scope of the project
+\subsection{Goals}
+The back-end team set the following goals to achieve for this project:
+\begin{enumerate}
+ \item {Build a Name Resolution Service (NRS) for the Erlang NetInf application.}\\
+ \item {Be able to publish, store and retrieve Named Data Objects (NDO's) in a NetInf network.}\\
+ \item {Make each NetInf node a caching node that can store NDO's.}\\
+ \item {Make the back-end processes distributed, concurrent and fault tolerant.}\\ 
+ \item {Be able to stream video using our Erlang NetInf application.}\\
+  \end{enumerate}
+
+\subsection{Scope}
+The scope of the backend application is limited to providing all the functionalities outlined in the NetInf Protocol draft document. \cite{netinfproto} This document outlines what information a NetInf Get, Publish and Search message should contain. It also defines how a Get, Publish and Search response message should look like. Apart from that it also covers specifications for the HTTP and UDP convergence layers. We made sure that our application followed all these specifications accurately. Providing video streaming was not part of the scope at the beginning of this project but after our customer made a request for it we included it in our project. 
