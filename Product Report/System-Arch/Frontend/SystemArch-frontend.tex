@@ -231,7 +231,7 @@ These classes can be used in two ways. Either by doing a blocking call:
 	// Create a new search
 	NetInfSearch search = new NetInfSearch("tokens", "ext");
 	// Execute the search
-	search.excute();
+	search.execute();
 	// Block until the search response is available
 	NetInfSearchResponse searchResponse =
 	        (NetInfSearchResponse) search.get();
@@ -251,5 +251,5 @@ Or in a non-blocking way by overriding the function that is called when the resp
             }
     }
     // Execute the search
-	search.excute();
+	search.execute();
 \end{code}
