@@ -137,15 +137,15 @@ Erlang uses supervisors to organize which process must stay alive for a applicat
 \begin{itemize}
 \item nn\_sup - This is the main supervisor which starts the \ldots
 \item nn\_sub\_supervisor - This is the sub supervisor. It is responsible for starting \ldots
-\item nn\_client\_supervisor - This is the client supervisor. It is responsible for starting \ldots
-\item nn\_msgid\_sup - This is the message id supervisor. It is responsible for starting \ldots
+\item nn\_client\_supervisor - This is the client supervisor. It is responsible for starting  http client stream handler. 
+\item nn\_msgid\_sup - This is the message id supervisor. It is responsible for starting the modules associated with message id storage
 \end{itemize}
 \item[Convergence-Layers]
 As stated in section \textbf{insert section numbers here} the application was designed to be modular, the idea of convergence-layers allowed the application to group three distinct modules together to create the convergence-layer in erlang.
 \begin{itemize}
-\item nn\_http\_handler 
-\item nn\_http\_forwarder
-\item nn\_http\_formatting
+\item nn\_http\_handler - This module contains code to process and send/recieve http requests from the outside world(using the cowboy library. It is the first part of the HTTP convergence layer.
+\item nn\_http\_forwarder - This module contains code to send and recieve http requests to other NRS' when a search has failed in the current NRS system.
+\item nn\_http\_formatting - This module is responsible for taking a HTTP message and converting it to the internal representation of the NetInf Message and vice versa. It interacts with the 
 \item nn\_udp\_handler
 \item nn\_udp\_forwarder
 \item nn\_udp\_formatting
@@ -161,13 +161,13 @@ This application contains a custom behaviour to allow developers to quickly crea
 \item[Databases]
 The NetInf NRS application has support for various plug and play database wrappers. As long as the developer adheres to the required input and output of the database behaviour this application can be extended to work with any database. 
 \begin{itemize}
-\item nn\_database\_list - This module implements the callback functions defined in the nn\_database. It is also a quick database consisting of a persistant Erlang list data structure. The module also has a timer which causes the list structure to be saved to disk every hour. This can be controlled in the configs/list.config file under the appropriate variable.
+\item nn\_database\_list - This module implements the callback functions defined in the nn\_database. It is also a quick database consisting of a persistent Erlang list data structure. The module also has a timer which causes the list structure to be saved to disk every hour. This can be controlled in the configs/list.config file under the appropriate variable.
 \item nn\_database\_riak - This module implements the callback functions defined in nn\_database, it is a wrapper for talking to a riak process (riak is a standalone database).
 \end{itemize}
 \item[Content-Caching]
 The NetInf NRS also includes a method of caching binary objects sent into the system via NetInf messages, the following are the two modules involved in this functionality.
 \begin {itemize}
-\item nn\_content\_handler - This module
+\item nn\_content\_handler - This module is responsible for handling the binary octets(files) coming into the system it is also the interface for storing and retrieving the files associated with NDOs.
 \item nn\_hash\_validation - This module validates the hash of the NDO coming in to the one that is currently stored in the files folder. Please note that the files folder must be present in the system otherwise the application will crash. 
 \end{itemize}
 \item[NetInf Video Streaming]
@@ -189,14 +189,18 @@ The NetInf NRS application supports a file based logging method, which creates a
 \item nn\_logger\_server
 \item nn\_log\_handler
 \end{itemize}
+\item [Message ID storage]
+The distributed nature of the NetInf NRS and multiple messages required the developers to be able to keep track of which message is associated to a specific process id and convergence layer handler. The message storage is a persistent table that maps this and allows the application to forward requests to specific handlers. 
+\begin{itemize}
+\item nn\_msgide This module contains code to store only one message id element. 
+\item nn\_msgids This module contains code to initiate to insert, lookup and delete the message ids
+\item nn\_msgid\_store This module contains the interface to the nn\_msgids. Developers should call this module to interact with the message id table.
+\end{itemize}
 \item [Utility \& Misc]
 The following modules are used to expose a variety of functions through out the system.
 \begin{itemize}
 \item nn\_util - This module contains many useful functions that were being used in multiple modules. It is recommended to read through the functions here as a function may have already been created and exposed to the developers.
 \item nn\_merging - This module contains all the functions for merging metadata in the NetInf NRS messages.It uses the json library extensively.
-\item nn\_msgide
-\item nn\_msgids
-\item nn\_msgid\_store
 \end {itemize}
 \item [Integration test]
 The NetInf NRS application required a test in order to check if all the modules were working as intended using the black box testing technique. 
