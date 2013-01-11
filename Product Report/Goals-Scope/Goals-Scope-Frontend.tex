@@ -2,9 +2,9 @@
 
 \subsection{NetInf Enabled Browser}
 
-The goal of the frontend is to produce Elephant, a NetInf enabled browser for Android devices. The browser should utilize NetInf technology to retrieve web page from other nearby devices and/or caching nodes, if possible, in order to reduce the usage of the 3G uplink commonly used to access the Internet on mobile devices. This is done so that congestion in the 3G network can be avoided. The NetInf traffic should conform to the work in progress HTTP convergence layer \cite{netinfproto}. Web pages should be split into several parts to be able to benefit from being available from multiple sources.
+The goal of the frontend is to produce a NetInf enabled browser for Android devices. The browser utilizes NetInf technology to retrieve web pages from other nearby devices and/or caching nodes in order to reduce the usage of shared 3G uplinks. The NetInf messages should conform to the NetInf HTTP convergence layer \cite{netinfproto}. Web pages are be split into several parts to be able to benefit from being available from multiple sources.
 
-To accomplish this we need the possibility to:
+In order to produce the browser we need the possibility to:
 
 \begin{itemize}
 	\item Inject existing web pages into the NetInf network as NDOs.
@@ -12,9 +12,7 @@ To accomplish this we need the possibility to:
 	\item Get NDOs from other devices.
 \end{itemize}
 
-See Section \ref{sec:Elephant} for details on how this was solved by the Elephant browser.
-
-The following problems was considered to be out of scope:
+The following problems are considered to be out of scope:
 
 \begin{itemize}
 	\item Privacy
@@ -24,10 +22,10 @@ The following problems was considered to be out of scope:
 	\item Bluetooth Congestion
 \end{itemize}
 
-Privacy and security are both very important aspects, but would require complex considerations. They are areas that will require future work.
+Privacy and security are both very important aspects, but would require complex considerations. They are areas that require future work.
 
-Dynamic content is relevant as it is often changes in content (e.g. newspapers, Facebook, Twitter) that interests users. However this would add a lot of complexity to the problem since dynamic content means the mapping from traditional web URL to NDO would be constantly changing.
+Dynamic content is relevant since a lot of content that is of interest to many users is dynamic and changes often (e.g. newspapers, Facebook, Twitter). However this adds a lot of complexity to the problem since dynamic content means the mappings from traditional web URLs to NDOs are constantly changing.
 
-Battery consumption was discusses and the simple solution of allowing users to disable battery draining technologies such as Bluetooth was decided upon. Hopefully, the battery problem will be solved by technological advancements.
+Battery consumption is a serious issue in this type of application. The application uses Bluetooth which is a battery draining technology. A simple solution that is used is to let the user disable Bluetooth. Hopefully the problem of heavy battery consumption will be solved by future technological advancements.
 
-A final problem that was not taken into consideration was possible congestion in the Bluetooth network because of large amount of devices.
+A final problem that is not taken into consideration is possible congestion in the Bluetooth network due to a large amount of devices running simultaneously.
