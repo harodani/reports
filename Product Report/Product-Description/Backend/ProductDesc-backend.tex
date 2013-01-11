@@ -10,11 +10,11 @@ Erlang's concept of modularization allowed the team to break up the NRS function
 
 \subsection{NetInf Video Streaming Client/Protocol}
 
-The last of the deliverables from the backend team. The client asked for a proof of concept of a streaming protocol and client which lies on top of the Erlang NetInf NRS technology. The streaming protocol is a completely new addition to the NetInf draft. Our team came up with a way to utilize the code and transporting mechanism of the first product in order to stream video content, along with the protocol outlined below we have been able to create a http interface 'client' which allows you to see the streaming protocol in action as well access the NRS functionality. This particular product was not specified in the initial conversations with the client in September, but added late in the development cycle and is not meant to be a complete product.
+The last of the deliverables from the backend team. The client asked for a proof of concept of a streaming protocol and client which lies on top of the Erlang NetInf NRS technology. The streaming protocol is a completely new addition to the NetInf draft. Our team came up with a way to utilize the code and transporting mechanism of the first product in order to stream video content, along with the protocol outlined below we have been able to create an http interface 'client' which allows you to see the streaming protocol in action as well as access the NRS functionality. This particular product was not specified in the initial conversations with the client in September, but was added late in the development cycle and it is not meant to be a complete product.
 
 \subsubsection{First Implementation}
-In addition to normal NRS functionality, to get transfer of chunks to work a http transfer-dispatcher had to be implemented. The streaming works by clients subscribing to a stream from a specific NRS and with an constant interval  asking that NRS where to find these chunks. All the chunks are transferred via the transfer-dispatcher.
-The playback of the video chunks are done by polling the local NRS, this implies that every client has its own NetInf node running. See figure \ref{fig:stream-seqorgmod}. The benefit of using this approach is that only one NDO containing the filename has to be published. The receiver can then derive the chunks locations, by appending the chunk number to the end of the locators provided in the filename NDO.
+In addition to normal NRS functionality, to get transfer of chunks to work an http transfer-dispatcher had to be implemented. The streaming works by clients subscribing to a stream from a specific NRS and with a constant interval asking that particular NRS where to find these chunks. All the chunks are transferred via the transfer-dispatcher.
+The playback of the video chunks is done by polling the local NRS, this implies that every client has its own NetInf node running. See figure \ref{fig:stream-seqorgmod}. The benefit of using this approach is that only one NDO containing the filename has to be published. The receiver can then derive the chunks locations, by appending the chunk number to the end of the locators provided in the filename NDO.
 
 \begin{figure}[h!]
 	\centering
@@ -37,6 +37,6 @@ To be able to evaluate the modified NetInf streaming another implementation was 
 \end{figure}
 
 \subsubsection{Streaming Frontend}
-To merge the chunks, a simple HTML5 frontend was added. HTML was the choice  to make the player platform independent.
+To merge the chunks, a simple HTML5 frontend was added. HTML was chosen to make the player platform independent.
 In both implementations the player starts a JavaScript that continuously polls the local NetInf node for the chunks through the http dispatcher.
 The difference is that the pure NetInf player, uses the NRS search to build the playlist, while the modified NetInf version just increase the chunk number.
