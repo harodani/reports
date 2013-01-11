@@ -9,6 +9,11 @@
 
 \renewcommand\bibname{References}
 
+% reference commands
+\newcommand{\fig}[1]{Figure ~\ref{fig:#1}}
+\newcommand{\tab}[1]{Figure ~\ref{tab:#1}}
+\newcommand{\sect}[1]{Section ~\ref{sec:#1}}
+
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \parindent 0pt
@@ -41,7 +46,6 @@
 
 \chapter{Abstract}
 \input{abstract.tex}
-Demo of reference \cite{b1}. 
 \chapter{Introduction}
 \input{introduction.tex}
 
@@ -65,6 +69,8 @@ Demo of reference \cite{b1}.
 \input{System-Arch/Frontend/SystemArch-frontend.tex}
 
 \section {NetInf NRS}
+
+\input{System-Arch/Backend/SystemArch-backend-overall_design.tex}
 
 \input{System-Arch/Backend/SystemArch-backend-dependencies.tex}
 
@@ -97,27 +103,37 @@ Demo of reference \cite{b1}.
 
 \begin{thebibliography}{99}
 
-\bibitem{b1} Alex Awesome \textsl{awesome theory}, Uppsala 2013
-
 \bibitem{otpInAction} Martin Logan, Eric Merritt, and Richard Carlsson. \textsl{Erlang and OTP in Action}. 2010.
+
+\bibitem{ICNarticle} INFORMATION-CENTRIC NETWORKING Kostas Pentikousis et. al. IEEE Communications Magazine, July 2012
+
+\bibitem{4ward} 4WARD project EU. 4WARD project home page. [Online]. http://www.4ward-project.eu/
 
 \bibitem{masterthesis}
 Hugo Negrette~Otaola and Miguel Sosa.
-\newblock Using multiple transport networks in netinf enabled android devices.
+\newblock Using Multiple Transport Networks in NetInf Enabled Android Devices.
 \newblock Master's thesis, KTH, School of Information and Communication
   Technology (ICT), 2012.
 
 \bibitem{netinfproto}
 D.~Kutscher, S.~Farrell, and E.~Davies.
-\newblock The netinf protocol.
+\newblock The NetInf Protocol.
 \newblock Internet-Draft draft-kutscher-icnrg-netinf-proto-00.txt, IETF
   Secretariat, Oct 2012.
+
+\bibitem{opennetinf}
+C.~Dannewitz, M.~Herlich, E.~Bauer, M.~Becker, F.~Beister, N.~Dertmann,
+  R.~Hrestic, M.~Kionka, M.~Mohr, M.~M\"uhe, D.~Murali, F.~Steffen, S.~Stey,
+  E.~Unruh, Q.~Wang, and S~Weber.
+\newblock OpenNetInf Documentation Design and Implementation.
+\newblock Technical Report TR-RI-11-314, University of Paderborn, Sept 2011.
 
 \bibitem{plugin} Android Developers (n.d.). Installing the Eclipse Plugin. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/installing/installing-adt.html
 
 \bibitem{bundle} Android Developers (n.d.). Get the Android SDK. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/index.html
 
 \bibitem{hardware} Android Developers (n.d.). Using Hardware Devices. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/tools/device.html\#setting-up
+
 
 \end{thebibliography}
 

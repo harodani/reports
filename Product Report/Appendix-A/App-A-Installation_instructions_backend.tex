@@ -124,4 +124,27 @@ search-cmd install netinf_bucket
 
 Lastly, please make sure that the NRS is started with the riak database
 
+\subsection{Running the NetInf NRS}
+
+To run the NetInf NRS without the script, please run the following commands after navigating to the netinf\_nrs folder:
+
+\begin{itemize}
+\item Using the list database \\
+\begin{verbatim}
+erl -pa ebin deps/*/ebin -config configs/list -s netinf_nrs 
+-eval "io:format(\"NetInf NRS is running ... ~n\")." 
+\end{verbatim}
+
+\item Using the riak databse \\
+Please make sure you have started the riak daemon before. If it has not been started use the first command shown below before the erl command.
+\begin{verbatim}
+riak start
+erl -pa ebin deps/*/ebin -config configs/riak -s netinf_nrs 
+-eval "io:format(\"NetInf NRS is running ... ~n\")." 
+\end{verbatim}
+\end{itemize}
+
+
+
+
 
