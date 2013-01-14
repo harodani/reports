@@ -1,8 +1,8 @@
 \subsection {Configurations}
 
-Since the system is supposed to be modular, we have also implemented configuration files. 
+Since the system is supposed to be modular, configuration files are also implemented. 
 
-Configuration files allow the user of the system to quickly start it with a predetermined setup, things such as which database to use, which convergence layers are supported, and timers for various functionality are also stored here for quick use and editing. The benifit of using erlang specific configuration files is the great way they are organized, giving you a highly readable and easy to swap out functionality. 
+Configuration files allow the user of the system to quickly start it with a predetermined setup, things such as which database to use, which convergence layers are supported, and timers for various functionality are also stored here for quick use and editing. The benifit of using erlang specific configuration files is the great way they are organized, giving a highly readable and easy to swap out functionality. 
 
 We have created 2 config files which live in the root netinf\_nrs directory.
 
@@ -26,7 +26,7 @@ The following is the syntax for a config file
 }].
 
 \end{verbatim}
-And here is an example of how our config file's looks
+And here is an example of how config files look
 \begin {verbatim}
 [{netinf_nrs,
 	[
@@ -45,9 +45,9 @@ And here is an example of how our config file's looks
 \subsubsection {Meaning of the config values}
 \begin{description}
 \item[database]
-This is used to define what database to use. The value must be the name of a module that implements our nn\_database behavior. Default is our riak implementation
+This is used to define what database to use. The value must be the name of a module that implements the nn\_database behavior. Default is our riak implementation
 \item[convergence\_layers]
-Deprecated. This was used to define which convergence layers the node should support. Currently we use udp multicast instead
+Deprecated. This was used to define which convergence layers the node should support. Currently udp multicast is used instead
 \item[ip\_timer]
 Deprecated. This was used to define how often the node broadcasted that it was live to other nodes via udp multicasts
 \item[discovery]
@@ -62,7 +62,7 @@ This defines what port the NRS will use to listen for NetInf messages
 
 \subsection {Using config files}
 
-We now need to have a flag on the erl command line that specifies the name of the config file to use. 
+Choosing to run the system with a config file is used by flagging it.
 
 \begin {verbatim}
  erl -pa ebin deps/*/ebin -config configs/list
@@ -78,13 +78,13 @@ Special note: if the netinf\_nrs.app.src file has some configuration options in 
 
 \subsection {Extracting the config parameters}
 
-In the erlang code we use the following 
+Extracting the config parameters is done by running the following command within erlang code or within the erlang shell
 
 \begin {verbatim}
 application:get_env(app-name,parameter-name) 
 \end{verbatim}
 
-where app-name is the name of the application, in our case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file OR the env section of the netinf\_nrs.app.src file.
+where app-name is the name of the application, in this case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file OR the env section of the netinf\_nrs.app.src file.
 
 for example to get the database:
 

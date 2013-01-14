@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{hugomiguel}
+Hugo~Negrette Otaola and Miguel Sosa.
+\newblock Using multiple transport networks in netinf enabled android devices.
+\newblock Master's thesis, KTH, School of Information and Communication
+  Technology (ICT), Sweden, 2012.
+
+\bibitem{netinfspecs}
+C.~Dannewitz B. Ohlman A. Keranen P. Hallam-Baker S.~Farrell, D.~Kutscher.
+\newblock Naming things with hashes draft-farrell-decade-ni-10.
+\newblock Handed to us by Ericsson, 2012.
+
+\end{thebibliography}

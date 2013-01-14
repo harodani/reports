@@ -12,7 +12,7 @@ If the NetInf network starts without any web content cached there will be a lot 
 
 \subsubsection{Search}
 
-The Elephant browser relies heavily on NetInf searches as described in Sections \ref{sec:Elephant Web Browser} and \ref{sec:Elephant}. Currently the time needed to perform a searches quickly increase as the number of published NDOs increases. The NRS supports two ways of saving published NDOs either using an Erlang list or a Riak database. Preliminary tests had problems with increasing search times using both these approaches. It is possible the slowdown is caused by the NetInfService or Elephant applications for some reason. Investigation into the reason behind this slowdown is required to improve the performance of the Elephant browser.
+The Elephant browser relies heavily on NetInf searches as described in Sections \ref{sec:Elephant Web Browser} and \ref{sec:Elephant}. Currently the time needed to perform a search quickly increases as the number of published NDOs increase. The NRS supports two ways of saving published NDOs either using an Erlang list or a Riak database. Preliminary tests had problems with increasing search times using both these approaches. It is possible the slowdown is caused by the NetInfService or Elephant applications for some reason. Investigation into the reason behind this slowdown is required to improve the performance of the Elephant browser.
 
 \subsubsection{Delete Functionality}
 
@@ -21,3 +21,19 @@ Currently the NetInf delete functionality is not provided by the NetInfService. 
 \subsubsection{NetInfService}
 
 NetInfService was implemented as its own Android application which is supposed to run in the background. While this makes it easy to create other applications using the provided functionality there are currently some problems with the application randomly stopping and not resuming until it is brought to the front. The suspected reason is that the Android OS might pause applications in the background to save system resources or stop them when system settings are changed and then restart them when they are brought to the front. If this is an unavoidable problem for Android applications running in the background then NetInfService needs to be changed, perhaps into an Android Service. More investigation is required.
+
+\subsection{Access Control}
+
+Currently any user can publish his content on the NRS. One functionality for the future could be to implement some kind of access control mechanism. Only authorized users would be able to publish on a particular NRS and only a partiular group of users would be able to access the published content. 
+
+\subsection{Interoperability}
+
+Another interesting task for the future could be to test the interoperability between different NetInf implementations. There are different implementations of NetInf in different programming languages. They should be able to communicate with each other if they have been implemented using the same protocol. 
+
+\subsection{Handle large file}
+
+Currently the application built by the project team experiences problems while dealing with files over 10 mega bytes. An improvement to the application could be make it handle larger files.
+
+\subsection{Database and Bluetooth convergence layer}
+
+Other suggestions for future work include testing the application with another database like SQLite or building a bluetooth convergence layer for users to be able to send NetInf messages via bluetooth. 
