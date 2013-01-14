@@ -1,9 +1,8 @@
-In this section we will see how to install and setup the Netinf NRS and the NetInf Streaming on a server.
-This description includes instructions on how to setup the system for both development and normal uses.
+This section describes how to install/setup the Netinf NRS and the NetInf Streaming on a server, it is intended for both end users and developers.
 
 \subsection{Dependencies}
 
-In order to run the system properly the following components are required to be installed on the system, you can either run the script from the section below, or install these manually.
+In order to run the system properly the following components are required to be installed on the system, the user can either run the script from the section below, or install these manually.
 
 For the NetInf NRS system
 \begin{itemize}
@@ -38,7 +37,7 @@ unzip the archive and run the following command
 \end{verbatim}
 
 To Download and install Erlang - version R15B03
-You can retrieve it from the Erlang-Solutions website or use the following commands
+It can be retrieved from the Erlang-Solutions website or use the following commands
 
 \begin{verbatim}
 
@@ -52,18 +51,18 @@ sudo dpkg -i esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
 
 For the convenience of end users and developers, there is a packaged install/setup script available after obtaining the backend code. This script is responsible for quickly installing the entire system with all the dependencies.
 
-\textbf{note if the script is not immediately runnable for you please run the following command:}
+\textbf{note if the script is not immediately runnable please run the following command:}
 \begin{verbatim}
 chmod a+x netinf_nrs.sh
 \end{verbatim}
 
-You can run the script by using the following on a command line terminal
+The script can be run by using the following on a command line terminal
 
 \begin{verbatim}
 ./netinf_nrs.sh
 \end{verbatim}
 
-The script will put you into a menu loop shown below and instructs you to type a number in order to choose an option.Choosing an option will preform the task and then cause the script to exit normally.
+The script will be put a into a menu loop shown below and instructs the user to type a number in order to choose an option.Choosing an option will preform the task and then cause the script to exit normally.
 
 \includegraphics[scale=0.5]{./img/Backend_install_script.png}
 
@@ -71,20 +70,20 @@ The following options are available to the user
 
 \begin{itemize}
 \item Start Netinf NRS with the default list\\
-Assumes you have all the dependencies installed and only starts the netinf nrs with the list database.
+Assumes the system has all the dependencies installed and only starts the netinf nrs with the list database.
 \item Start Netinf NRS with riak\\
 Will check that riak is running and present in the system and then start the netinf nrs with the Riak database.
 If riak is not present then the script will download and install all the required components. 
 \item Install and setup riak only\\
-Use this option only when you want to download and install riak on your machine. This will not start an NRS.
+Use this option only when riak needs to be downloaded and installed on the machine. This will not start an NRS.
 \item Install and start from scratch\\
-This option assumes you have a bare machine and checks that all the dependencies are satisfied. It will auto download and install anything that is required and then start your NetInf NRS with the default list database. 
+This option assumes a bare machine and checks that all the dependencies are satisfied. It will auto download and install anything that is required and then start the NetInf NRS with the default list database. 
 \end{itemize}
 
 
 \subsection{Riak Database}
 
-Riak is a database written in Erlang. It is known for being distributed and fault-tolerant. Riak was choosen above other database implementations since it was suggested by the client and the development team had great support available. 
+Riak is a database written in Erlang. It is known for being distributed and fault-tolerant. Riak was chosen above other database implementations since it was suggested by the client and the development team had great support available. 
 
 In case there is something wrong with the script process on the target machine please follow the manual installation instructions below.
 
@@ -99,7 +98,7 @@ wget http://downloads.basho.com.s3-website-us-east-1.amazonaws.com/riak/CURRENT/
 sudo dpkg -i riak_1.2.1-1_i386.deb
 \end{verbatim}
 
-In order for the search to work in the riak system and from the NRS please enable search.
+In order for the search to work in the Riak system and from the NRS please enable search.
 Riak Search is enabled in the app.config (/etc/riak/app.config) file. Simply change the setting to “true” in Riak Search Config section (shown below).
 
 \begin{verbatim}
@@ -116,13 +115,13 @@ Then run the in the terminal
 riak restart
 \end{verbatim}
 
-Followed by to index the bucket
+Followed by the command below to index the bucket
 
 \begin{verbatim}
 search-cmd install netinf_bucket
 \end{verbatim}
 
-Lastly, please make sure that the NRS is started with the riak database
+Lastly, please make sure that the NRS is started with the Riak database
 
 \subsection{Running the NetInf NRS}
 
@@ -136,15 +135,10 @@ erl -pa ebin deps/*/ebin -config configs/list -s netinf_nrs
 \end{verbatim}
 
 \item Using the riak databse \\
-Please make sure you have started the riak daemon before. If it has not been started use the first command shown below before the erl command.
+Please make sure the Riak daemon is started before. If it has not been started use the first command shown below before the erl command.
 \begin{verbatim}
 riak start
 erl -pa ebin deps/*/ebin -config configs/riak -s netinf_nrs 
 -eval "io:format(\"NetInf NRS is running ... ~n\")." 
 \end{verbatim}
 \end{itemize}
-
-
-
-
-
