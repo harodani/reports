@@ -10,11 +10,11 @@ The architecture of the entire system consists of different processes and module
 
 \subsection{Architecture layers}
 
-The system architecture is divided into four distinct layers a network layer (http, udp) convergence layer, an internal Erlang NetInf layer and a storage layer. Within these layers lie the modules(Erlang processes) which are responsible for specific functions such as sending/receiving convergence layer messages, sanitizing messages, forwarding, accessing databases/file systems and logging.
+The system architecture is divided into three distinct layers a network layer (http, udp) convergence layer, an internal Erlang NetInf layer and a storage layer. Within these layers lie the modules(Erlang processes) which are responsible for specific functions such as sending/receiving convergence layer messages, sanitizing messages, forwarding, accessing databases/file systems and logging.
 
 \subsection{NetInf Messaging}
 
-According to the draft specification(see appendix D-draft) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages.
+According to the draft specification(see appendix D-draft) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages in addition to how the Erlang NetInf NRS handles them.
 
 \subsubsection{Named Data Objects}
 In addition to the messaging component, NetInf describes any piece of information as a Named Data Object(NDO). In the current state of networks, the same piece of information is considered to be location based and mutable with many copies of the same information lying around. The purpose of an NDO is to provide a convenient way for the protocol to be able to catalogue and preform operations such as storing, retrieving and finally searching for information and eliminating need for location based information.
@@ -25,25 +25,28 @@ In addition to the messaging component, NetInf describes any piece of informatio
 NetInf describes a Publish message which consists of the following fields:
 
 \begin{description}
-\item[URI]  - Contains the hash of the NDO. It is unique to the peice of information that is going to be published into the system. It is also mandatory.
+\item[URI]  - Contains the hash of the NDO. It is unique to the piece of information that is going to be published into the system. It is also mandatory.
 \item[msgid] - A mandatory field as well and it is a unique number(integer). 
 \item[loc1] - An optional field, this is the I.P address of the device that created the information that will be shared.
 \item[loc2] - Same as the above.
 \item[ext] - An extension field, it is responsible for containing the meta data in JSON format.
-\item[rform] - 
-\item[fullPut]
+\item[rform] - The response format, The NetInf will format the response message using either HTML or JSON. JSON is the default if this field is not set.
+\item[fullPut] - This field is set to determine if octets(binary data) is present with the publish message with either ''true'' or ''false''
 \end{description}
+
+\subsubsection{Publish Message Workflow}
+
 
 \subsubsection{Get}
 
 NetInf describes a Get message which consists of the following fields:
 
 \begin{description}
-\item[URI]
-\item[msgid]
-\item[loc1]
-\item[loc2]
-\item[ext]
+\item[URI] - Contains the unique hash of the NDO, the user requests the specific data object using this hash.
+\item[msgid]- A mandatory and unique number for each message in the system.
+\item[loc1] - Optional I.P. Address 
+\item[loc2] - Same as above
+\item[ext]  - A field reserved for future extensions.
 \end{description}
 
 
@@ -52,9 +55,9 @@ NetInf describes a Get message which consists of the following fields:
 NetInf describes a Search message which consists of the following fields:
 
 \begin{description}
-\item[msgid]
-\item[tokens]
-\item[rform]
-\item[ext]
+\item[msgid] - Mandatory and a unique number.
+\item[tokens] - Space delimited text. This is the text that the user will search for within the system
+\item[rform] - Optional and will default to Json if not specified.
+\item[ext] - A field reserved for future extensions.
 \end{description}
 
