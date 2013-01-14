@@ -1,8 +1,8 @@
 \section{Goals and Scope - Backend}
-In this section we describe the goals and scope set by the back-end team for this project.
+In this section we describe the goals and scope set by the backend team for this project.
 
 \subsection{Goals}
-The back-end team set the following goals to achieve for this project:
+The backend team set the following goals to achieve for the Erlang implementation of the NRS:
 \begin{enumerate}
  \item {Build a Name Resolution Service (NRS) for the Erlang NetInf application.}\\
  \item {Be able to publish, store and retrieve Named Data Objects (NDO's) in a NetInf network.}\\
@@ -12,4 +12,4 @@ The back-end team set the following goals to achieve for this project:
   \end{enumerate}
 
 \subsection{Scope}
-The scope of the backend application is limited to providing all the functionalities outlined in the NetInf Protocol draft document. \cite{netinfproto} This document outlines what information a NetInf Get, Publish and Search message should contain. It also defines how a Get, Publish and Search response message should look like. Apart from that it also covers specifications for the HTTP and UDP convergence layers. We made sure that our application followed all these specifications accurately. Providing video streaming was not part of the scope at the beginning of this project but after our customer made a request for it we included it in our project. 
+The scope of the backend application is limited to providing all the functionalities outlined in the NetInf Protocol draft document. \cite{netinfproto} This document outlines what information a NetInf Get, Publish and Search message should contain. It also defines how a Get, Publish and Search response message should look like. Apart from that it also covers specifications for the HTTP and UDP convergence layers. We made sure that our application followed all these specifications accurately. Providing video streaming was not part of the scope at the beginning of this project but at the client's request preliminary(proof-of-concept) work was done, however readers should note that the video streaming is not meant to be a complete product and the development team encourages further research into this product.
