@@ -162,11 +162,15 @@ The LocalResolutionService uses a to the device local SQLite database. The Local
 \subsection{SearchController}
 \label{sec:SearchController}
 
-The SearchController handles a number of SearchServices. Each SearchService should provide search functionality using some convergence layer or equivalent. Currently there is one SearchService, the UrlSearchService, which provides search functionality using a single token which is assumed to be a URL.
+The SearchController handles a number of SearchServices. Each SearchService should provide search functionality 
+using some convergence layer or equivalent. Currently there is one SearchService, the UrlSearchService, 
+which provides search functionality using a single token which is assumed to be a URL.
 
 \subsubsection{UrlSearchService}
 
-The UrlSearchService provides the functionality to search for a single token in the local database used by the LocalResolutionService and then, if not found, using the HTTP convergence layer to search in the NRS used by the NameResolutionService.
+The UrlSearchService provides the functionality to search for a single token in the local database 
+used by the LocalResolutionService and then, if not found, using the HTTP convergence layer to search 
+in the NRS used by the NameResolutionService.
 
 \subsection{TransferDispatcher}
 \label{sec:TransferDispatcher}
@@ -174,8 +178,19 @@ The UrlSearchService provides the functionality to search for a single token in 
 The TransferDispatcher handles a number of ByteArrayProviders. Each ByteArrayProvider should provide functionality to retrieve a file (as a byte array) in some way. Currently there is one ByteArrayProvider, the BluetoothProvider, which uses Bluetooth to transfer files between Bluetooth enabled devices.
 
 \subsubsection{BluetoothProvider}
+The BluetoothProvider provides the functionality to retrieve the bytes of an Information Object
+through a specified Bluetooth locator. It first tries to establish a connection to the remote
+Bluetooth device. If successful, it requests the bytes of an object by sending the hash value
+that describes the object. As a response, the provider retrieves the bytes of the object, if
+it was available on the remote Bluetooth device.
 
-TODO Maybe by whomever wrote this?
+\subsubsection{BluetoothServer}
+The BluetoothServer continuously listens to incoming Bluetooth file requests. 
+If a remote device wants to connect to the local device, the BluetoothServer establishes
+a BluetoothSocket through which both devices can communicate with each other.
+The BluetoothServer expects to receive a string that represents a hash
+of a requested object. Using this hash, the BluetoothServer will send back
+the byte arrays of the corresponding object, if available. 
 
 \section{Elephant}
 \label{sec:Elephant}
