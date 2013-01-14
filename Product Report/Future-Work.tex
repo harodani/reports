@@ -1,3 +1,23 @@
 \section{Future Work}
 
-TODO Future Work\\
+\subsection{Elephant and NetInfService}
+
+\subsubsection{Dynamic Content}
+
+Currently the dynamic content problem is ignored. The browser application uses NetInf search to find NDOs corresponding to web pages. That is, given a traditional web URL we want to map to an NDO. As long as the web content is static the mapping from URL to NDO will be one-to-one. However, if the web content is dynamic the mapping will be one-to-many. If this is the case a search could return several matching NDOs. At a first glance adding the time the page was retrieved as metadata could seem to solve the problem. While this is true for some dynamic web pages, it does not hold in general. For example a web page could be generated differently depending on who or from where it was accessed. Further, a dynamic web page linking to other dynamic resources might be dependant on getting the correct version of the linked resources. In the second case a timestamp could help if all resources belonging together are marked with the same timestamp and not the individual access times.
+
+\subsubsection{Precaching}
+
+If the NetInf network starts without any web content cached there will be a lot of Internet access in the beginning while the content is entering the network. This could be prevented by precaching content in, for example, the NRS. By investigating which web pages are frequently accessed and when they are accessed the NRS could download these in advance. If the search requests always use the NRS this information will be continuously available to the NRS and it could automatically downloaded pages it expects to be accessed when there is bandwidth to spare.
+
+\subsubsection{Search}
+
+The Elephant browser relies heavily on NetInf searches as described in Sections \ref{sec:Elephant Web Browser} and \ref{sec:Elephant}. Currently the time needed to perform a searches quickly increase as the number of published NDOs increases. The NRS supports two ways of saving published NDOs either using an Erlang list or a Riak database. Preliminary tests had problems with increasing search times using both these approaches. It is possible the slowdown is caused by the NetInfService or Elephant applications for some reason. Investigation into the reason behind this slowdown is required to improve the performance of the Elephant browser.
+
+\subsubsection{Delete Functionality}
+
+Currently the NetInf delete functionality is not provided by the NetInfService. However, the framework for its implementation is in place so adding this functionality should require relatively little work.
+
+\subsubsection{NetInfService}
+
+NetInfService was implemented as its own Android application which is supposed to run in the background. While this makes it easy to create other applications using the provided functionality there are currently some problems with the application randomly stopping and not resuming until it is brought to the front. The suspected reason is that the Android OS might pause applications in the background to save system resources or stop them when system settings are changed and then restart them when they are brought to the front. If this is an unavoidable problem for Android applications running in the background then NetInfService needs to be changed, perhaps into an Android Service. More investigation is required.
