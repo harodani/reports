@@ -215,7 +215,12 @@ The default settings for Elephant are stored in the properties file "assets/conf
 \subsection{Control Flow}
 \label{sec:Control Flow}
 
-Figure \ref{fig:controlflow} shows a detailed picture of the control flow of the interaction between Elephant and NetInfService. The picture provides the packages and/or source files that are involved in different parts of the program, as well as some text and arrows describing the control flow.
+Figure \ref{fig:macro-controlflow} shows an overview of the control flow of the interaction between Elephant and NetInfService.
+Figure \ref{fig:application-controlflow} shows a picture of the internal control flow of the Elephant web browser.
+Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service.
+
+Pictures \ref{fig:application-controlflow} and \ref{fig:netinf-controlflow} provides the packages and/or source files that are
+involved in different parts of the program, as well as some text and arrows describing the control flow.
 
 The NetInfService mainly does its work by passing around Identifiers and InformationObjects (each encapsulating an Identifier).
 
@@ -229,11 +234,25 @@ An Identifier contains information about an InformationObject. The most importan
 
 InformationObjects can contain attributes. In these applications the only used attributes are locator attributes. More specifically locators pointing to other Bluetooth devices and locators pointing to the local file system.
 
-\begin{figure}[h!]
-	\centering
-		\includegraphics[width=1\textwidth]{./img/flowchart}
-    	\caption{Elephant/NetInfService Control Flow}
-	\label{fig:controlflow}
+\begin{figure}
+\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/flowchart-macros.pdf}}
+\caption{Elephant/NetInfService Control Flow}
+\label{fig:macro-controlflow}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/flowchart-application.pdf}}
+\caption{Elephant Control Flow}
+\label{fig:application-controlflow}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/flowchart-NetInf.pdf}}
+\caption{NetInfService Control Flow}
+\label{fig:netinf-controlflow}
 \end{figure}
 
 \subsection{RESTful API Access}
