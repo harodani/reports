@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"  standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="800" height="400" viewBox="0 0 800 400"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+<desc>Produced by GNUPLOT 4.4 patchlevel 3 </desc>
+
+<defs>
+
+	<circle id='gpDot' r='0.5' stroke-width='0.5'/>
+	<path id='gpPt0' stroke-width='0.244' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
+	<path id='gpPt1' stroke-width='0.244' stroke='currentColor' d='M-1,-1 L1,1 M1,-1 L-1,1'/>
+	<path id='gpPt2' stroke-width='0.244' stroke='currentColor' d='M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1'/>
+	<rect id='gpPt3' stroke-width='0.244' stroke='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<rect id='gpPt4' stroke-width='0.244' stroke='currentColor' fill='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<circle id='gpPt5' stroke-width='0.244' stroke='currentColor' cx='0' cy='0' r='1'/>
+	<use xlink:href='#gpPt5' id='gpPt6' fill='currentColor' stroke='none'/>
+	<path id='gpPt7' stroke-width='0.244' stroke='currentColor' d='M0,-1.33 L-1.33,0.67 L1.33,0.67 z'/>
+	<use xlink:href='#gpPt7' id='gpPt8' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt7' id='gpPt9' stroke='currentColor' transform='rotate(180)'/>
+	<use xlink:href='#gpPt9' id='gpPt10' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt3' id='gpPt11' stroke='currentColor' transform='rotate(45)'/>
+	<use xlink:href='#gpPt11' id='gpPt12' fill='currentColor' stroke='none'/>
+</defs>
+<g style="fill:none; color:white; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path  d='M49.4,353.2 L57.6,353.2 M723.3,353.2 L715.1,353.2 '></path>
+	<g transform="translate(41.8,357.3)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 0</text>
+	</g>
+	<path  d='M49.4,322.8 L57.6,322.8 M723.3,322.8 L715.1,322.8 '></path>
+	<g transform="translate(41.8,326.9)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 10</text>
+	</g>
+	<path  d='M49.4,292.4 L57.6,292.4 M723.3,292.4 L715.1,292.4 '></path>
+	<g transform="translate(41.8,296.5)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 20</text>
+	</g>
+	<path  d='M49.4,262.0 L57.6,262.0 M723.3,262.0 L715.1,262.0 '></path>
+	<g transform="translate(41.8,266.1)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 30</text>
+	</g>
+	<path  d='M49.4,231.6 L57.6,231.6 M723.3,231.6 L715.1,231.6 '></path>
+	<g transform="translate(41.8,235.7)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 40</text>
+	</g>
+	<path  d='M49.4,201.2 L57.6,201.2 M723.3,201.2 L715.1,201.2 '></path>
+	<g transform="translate(41.8,205.3)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 50</text>
+	</g>
+	<path  d='M49.4,170.9 L57.6,170.9 M723.3,170.9 L715.1,170.9 '></path>
+	<g transform="translate(41.8,175.0)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 60</text>
+	</g>
+	<path  d='M49.4,140.5 L57.6,140.5 M723.3,140.5 L715.1,140.5 '></path>
+	<g transform="translate(41.8,144.6)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 70</text>
+	</g>
+	<path  d='M49.4,110.1 L57.6,110.1 M723.3,110.1 L715.1,110.1 '></path>
+	<g transform="translate(41.8,114.2)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 80</text>
+	</g>
+	<path  d='M49.4,79.7 L57.6,79.7 M723.3,79.7 L715.1,79.7 '></path>
+	<g transform="translate(41.8,83.8)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 90</text>
+	</g>
+	<path  d='M49.4,49.3 L57.6,49.3 M723.3,49.3 L715.1,49.3 '></path>
+	<g transform="translate(41.8,53.4)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:end">
+		<text> 100</text>
+	</g>
+	<path  d='M184.2,353.2 L184.2,345.0 M184.2,49.3 L184.2,57.5 '></path>
+	<g transform="translate(179.2,360.8) rotate(90)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>1990</text>
+	</g>
+	<path  d='M319.0,353.2 L319.0,345.0 M319.0,49.3 L319.0,57.5 '></path>
+	<g transform="translate(314.0,360.8) rotate(90)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>1991</text>
+	</g>
+	<path  d='M453.7,353.2 L453.7,345.0 M453.7,49.3 L453.7,57.5 '></path>
+	<g transform="translate(448.7,360.8) rotate(90)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>1992</text>
+	</g>
+	<path  d='M588.5,353.2 L588.5,345.0 M588.5,49.3 L588.5,57.5 '></path>
+	<g transform="translate(583.5,360.8) rotate(90)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>1993</text>
+	</g>
+	<path  d='M49.4,49.3 L49.4,353.2 L723.3,353.2 L723.3,49.3 L49.4,49.3 Z '></path>
+	<g transform="translate(386.3,28.8)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:middle">
+		<text>ICN Measurements</text>
+	</g>
+</g>
+	<a xlink:title="Plot #1">
+<g style="fill:none; color:red; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<g transform="translate(769.5,110.8)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>BT</text>
+	</g>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(158, 158, 158)' points = '746.1,110.8 761.9,110.8 761.9,102.6 746.1,102.6 '/>
+	</g>
+	<path stroke='gray'  d='M746.1,110.8 L761.9,110.8 L761.9,102.6 L746.1,102.6 L746.1,110.8 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(158, 158, 158)' points = '123.5,353.2 244.9,353.2 244.9,342.5 123.5,342.5 '/>
+	</g>
+	<path stroke='gray'  d='M123.5,353.2 L123.5,342.6 L244.8,342.6 L244.8,353.2 L123.5,353.2 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(158, 158, 158)' points = '258.3,353.2 379.7,353.2 379.7,344.0 258.3,344.0 '/>
+	</g>
+	<path stroke='gray'  d='M258.3,353.2 L258.3,344.1 L379.6,344.1 L379.6,353.2 L258.3,353.2 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(158, 158, 158)' points = '393.1,353.2 514.5,353.2 514.5,344.3 393.1,344.3 '/>
+	</g>
+	<path stroke='gray'  d='M393.1,353.2 L393.1,344.4 L514.4,344.4 L514.4,353.2 L393.1,353.2 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(158, 158, 158)' points = '527.9,353.2 649.3,353.2 649.3,344.0 527.9,344.0 '/>
+	</g>
+	<path stroke='gray'  d='M527.9,353.2 L527.9,344.1 L649.2,344.1 L649.2,353.2 L527.9,353.2 Z '></path>
+</g>
+	</a>
+	<a xlink:title="Plot #2">
+<g style="fill:none; color:green; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<g transform="translate(769.5,94.4)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>NRS</text>
+	</g>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(150,  96,  24)' points = '746.1,94.4 761.9,94.4 761.9,86.2 746.1,86.2 '/>
+	</g>
+	<path stroke='gray'  d='M746.1,94.4 L761.9,94.4 L761.9,86.2 L746.1,86.2 L746.1,94.4 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(150,  96,  24)' points = '123.5,342.6 244.9,342.6 244.9,336.4 123.5,336.4 '/>
+	</g>
+	<path stroke='gray'  d='M123.5,342.6 L123.5,336.5 L244.8,336.5 L244.8,342.6 L123.5,342.6 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(150,  96,  24)' points = '258.3,344.1 379.7,344.1 379.7,335.8 258.3,335.8 '/>
+	</g>
+	<path stroke='gray'  d='M258.3,344.1 L258.3,335.9 L379.6,335.9 L379.6,344.1 L258.3,344.1 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(150,  96,  24)' points = '393.1,344.4 514.5,344.4 514.5,336.7 393.1,336.7 '/>
+	</g>
+	<path stroke='gray'  d='M393.1,344.4 L393.1,336.8 L514.4,336.8 L514.4,344.4 L393.1,344.4 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(150,  96,  24)' points = '527.9,344.1 649.3,344.1 649.3,338.2 527.9,338.2 '/>
+	</g>
+	<path stroke='gray'  d='M527.9,344.1 L527.9,338.3 L649.2,338.3 L649.2,344.1 L527.9,344.1 Z '></path>
+</g>
+	</a>
+	<a xlink:title="Plot #3">
+<g style="fill:none; color:blue; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<g transform="translate(769.5,78.0)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>DB</text>
+	</g>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(243, 255,  10)' points = '746.1,78.0 761.9,78.0 761.9,69.8 746.1,69.8 '/>
+	</g>
+	<path stroke='gray'  d='M746.1,78.0 L761.9,78.0 L761.9,69.8 L746.1,69.8 L746.1,78.0 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(243, 255,  10)' points = '123.5,336.5 244.9,336.5 244.9,241.9 123.5,241.9 '/>
+	</g>
+	<path stroke='gray'  d='M123.5,336.5 L123.5,242.0 L244.8,242.0 L244.8,336.5 L123.5,336.5 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(243, 255,  10)' points = '258.3,335.9 379.7,335.9 379.7,246.4 258.3,246.4 '/>
+	</g>
+	<path stroke='gray'  d='M258.3,335.9 L258.3,246.5 L379.6,246.5 L379.6,335.9 L258.3,335.9 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(243, 255,  10)' points = '393.1,336.8 514.5,336.8 514.5,249.5 393.1,249.5 '/>
+	</g>
+	<path stroke='gray'  d='M393.1,336.8 L393.1,249.6 L514.4,249.6 L514.4,336.8 L393.1,336.8 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(243, 255,  10)' points = '527.9,338.3 649.3,338.3 649.3,253.1 527.9,253.1 '/>
+	</g>
+	<path stroke='gray'  d='M527.9,338.3 L527.9,253.2 L649.2,253.2 L649.2,338.3 L527.9,338.3 Z '></path>
+</g>
+	</a>
+	<a xlink:title="Plot #4">
+<g style="fill:none; color:cyan; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<g transform="translate(769.5,61.6)" style="stroke:none; fill:black; font-family:Linux Biolinum G, Linux Biolinum, DejaVu Sans, Arial; font-size:11.00pt; text-anchor:start">
+		<text>UPL</text>
+	</g>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(181, 186, 255)' points = '746.1,61.6 761.9,61.6 761.9,53.4 746.1,53.4 '/>
+	</g>
+	<path stroke='gray'  d='M746.1,61.6 L761.9,61.6 L761.9,53.4 L746.1,53.4 L746.1,61.6 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(181, 186, 255)' points = '123.5,242.0 244.9,242.0 244.9,164.1 123.5,164.1 '/>
+	</g>
+	<path stroke='gray'  d='M123.5,242.0 L123.5,164.2 L244.8,164.2 L244.8,242.0 L123.5,242.0 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(181, 186, 255)' points = '258.3,246.5 379.7,246.5 379.7,162.3 258.3,162.3 '/>
+	</g>
+	<path stroke='gray'  d='M258.3,246.5 L258.3,162.4 L379.6,162.4 L379.6,246.5 L258.3,246.5 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(181, 186, 255)' points = '393.1,249.6 514.5,249.6 514.5,169.2 393.1,169.2 '/>
+	</g>
+	<path stroke='gray'  d='M393.1,249.6 L393.1,169.3 L514.4,169.3 L514.4,249.6 L393.1,249.6 Z '></path>
+	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'rgb(181, 186, 255)' points = '527.9,253.2 649.3,253.2 649.3,168.9 527.9,168.9 '/>
+	</g>
+	<path stroke='gray'  d='M527.9,253.2 L527.9,169.0 L649.2,169.0 L649.2,253.2 L527.9,253.2 Z '></path>
+</g>
+	</a>
+	<a xlink:title="Plot #5">
+<g style="fill:none; color:#157545; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+	<a xlink:title="Plot #6">
+<g style="fill:none; color:#000094; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+	<a xlink:title="Plot #7">
+<g style="fill:none; color:#FF9900; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+	<a xlink:title="Plot #8">
+<g style="fill:none; color:#0099A1; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+	<a xlink:title="Plot #9">
+<g style="fill:none; color:#D6D645; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+	<a xlink:title="Plot #10">
+<g style="fill:none; color:#A391FF; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+	<a xlink:title="Plot #11">
+<g style="fill:none; color:#FFCC00; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+	</a>
+<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path  d='M49.4,49.3 L49.4,353.2 L723.3,353.2 L723.3,49.3 L49.4,49.3 Z '></path>
+</g>
+</svg>
+
