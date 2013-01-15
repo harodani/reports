@@ -1,4 +1,4 @@
-The following guide describes exactly how the ERNI team installed and configured the automated build tool for use during the course. Please 
+The following guide describes exactly how the ERNI team installed and configured the automated build tool for use during the course. 
 
 \section{Building Jenkins}
 Make sure you download the latest *.deb file from the Jenkins website:\\
@@ -14,7 +14,7 @@ Clicking on Configure system  from the Manage Jenkins button will allow you to c
 \subsection {Java JDK}
 
 Before configuring the Java JDK please install it on the server you are working on.
-Required for Email notification service and also required for Android project building.
+It is required for the Email notification service and also required for Android project building.
 \begin{enumerate}
 \item Name: $<$enter any name$>$
 \item JAVA\_HOME: $<$enter the exact directory on the server machine that holds the bin for jdk $>$ 
@@ -35,7 +35,7 @@ Before configuring this in Jenkins makes sure you have installed the Android SDK
 \end{enumerate}
 
 \subsection{GIT}
-Our version of Jenkins requires GIT plugin which can be installed from the manage plugins page
+Our version of Jenkins requires GIT plugin which can be installed from the manage plugins page.
 Scroll down and look for the Jenkins GIT plugin  or use the filter in the top right hand side of the page\\
 
 Setting up the GIT plugin is done from the overall settings page under the section Git plugin.\\
@@ -73,10 +73,10 @@ Enter the following settings in the Email Notification section:
 Click advanced 
 \begin{enumerate}
 \item Enter the email address name when you set up the account- in our case it is: project.cs.2012.uu@gmail.com
-\item Enter the password for the account- in our case it is: pcs2012uu
+\item Enter the password for the account
 \item Check SSL
 \item SMTP port set to 465
-\item Char-Set is at default UTF-8
+\item Char-Set is at default: UTF-8
 \end{enumerate}
 
 \subsection{Projects}
@@ -93,6 +93,8 @@ On the screen
 \end{enumerate}
 Click OK when finished and you will be taken to the Configure screen of the project.
 Our specific project has the following project properties
+
+(NOTE: steps 14-17 is for erlang only)
 
 \begin{enumerate}
 \item Description - enter a project description
@@ -137,7 +139,7 @@ The backend team will use the workflow outlined in the report section Git Workfl
 This job assumes all code already compiles when it enters this branch. This branch is specifically for unit tests.
 
 \begin{enumerate}
-\item Description -"This job will pull from the Backend Git Repository branch: DEVELOP and checks if the source files compile and pass the unit tests. If they compile and pass the tests then they are passed on to the RELEASE branch."
+\item Description -"This job will pull from the Backend Git Repository branch: develop and checks if the source files compile and pass the unit tests. If they compile and pass the tests then they are passed on to the release branch."
 \item Git Section - URL /home/git/repositories/backend.git
 \item Git Section - Advanced - Name: develop
 \item Git Section - Branches to build: develop
@@ -164,10 +166,10 @@ If the final Backend\_Release succeeds then the following job Backend\_Demo shou
 
 \subsection{Backend\_Demo}
 
-This job assumes all code already compiles AND passes the unit tests. This branch is specifically for integration testing.
+This job assumes all code already compiles AND passes the unit tests. This branch is specifically for tagging demos.
 
 \begin{enumerate}
-\item Description -"This job will pull from the Backend Git Repository branch: RELEASE and checks if the source files compile, pass unit tests and finally pass integration tests. If they compile, and pass all the tests then they are passed on to the master branch(Demo)."
+\item Description -"This job will pull from the Backend Git Repository branch: release and checks if the source files compile, pass unit tests and finally pass integration tests. If they compile, and pass all the tests then they are passed on to the master branch(Demo)."
 \item Git Section - URL /home/git/repositories/backend.git
 \item Git Section - Advanced - Name: release
 \item Git Section - Branches to build: release
