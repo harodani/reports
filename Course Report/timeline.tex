@@ -1,16 +1,16 @@
 \section {Timeline}
 
-The following is a timeline of both team's scrum sprints. Please note that we were generally synchronized with each other until sprint 4 where ERNI chose to have two one week sprints instead of one two week sprint. The result was a series of one week sprints for the ERNI team ending with seven sprints in total, while LISA had only six.
+The following is a timeline of both team's scrum sprints. Please note that the team were generally synchronized with each other until sprint 4 where ERNI chose to have two one week sprints instead of one two week sprint. The result was a series of one week sprints for the ERNI team ending with seven sprints in total, while LISA had only six.
 
-The course ran over a period of four and a half months starting in September until January 18th, with two major presentations. This particular instance of the course was a unique one since our group did not have a very concrete project laid out in terms of requirements. Therefore our real work and Scrum sprints started slightly later than other course instances. Furthermore we were too few people in order to have two groups
+The course ran over a period of four and a half months starting in September until January 18th, with two major presentations. This particular instance of the course was a unique. Since the group did not have a very concrete project laid out in terms of requirements. Therefore the real work and Scrum sprints started slightly later than other course instances. Furthermore there were too few people in order to have two groups
 with two completely different clients.
 
 \subsection{Pre-Scrum}
-During the month of September the group met with the client who presented the idea, although it was not very concrete at the time. The lack of tight requirements gave us the freedom to choose the direction of where the project was going to go, however many felt that it was a little too free resulting in many weeks of research and no real direction. 
+During the month of September the group met with the client who presented the idea, although it was not very concrete at the time. The lack of tight requirements gave the developers the freedom to choose the direction the project was going to go, however many felt that it was a little too free resulting in many weeks of research and no real direction. 
 
-In general the first few weeks of the course start with an Erlang workshop which consists of two weeks of intensive Erlang, however our project was so open that we had no idea on whether we would need Erlang at all.
+In general the first few weeks of the course start with an Erlang workshop which consists of two weeks of intensive Erlang, however this project was so open that there was no idea on whether the project would need Erlang at all.
 
-We started our first sprint after approximately one month.
+The first sprint after approximately one month.
 
 \subsection {LISA}
 \framebox(360, 85){
@@ -25,25 +25,22 @@ We started our first sprint after approximately one month.
 	}
 }
 
-Sprint 1 started off with setting up our working environment.
+Sprint 1 started off with setting up the working environment.
 This included reading up on and configuring the tools we chose to use during the project,
 which are described in \sect{tools}. The work of installing the tools was directed to the
-ERNI group, which took over the tools for the beginning of the project. They had the
-server in their room and they were installing all the tools for their project as well.
+ERNI group, which took over the tools for the beginning of the project. 
 
 A major point for this sprint was also getting started with Scrum. It was very important
-for our team to develop a culture, some sort of a Scrum routine that we were going to follow.
-We felt we did a pretty good job doing this from the start of the project.
+for the team to develop a culture, some sort of a Scrum routine that we were going to follow.
+The front-end  did a pretty good job doing this from the start of the project.
 
-During the initial stages of development, We had a Skype meeting with Hugo Negrette~Otaola and
+During the initial stages of development, the front-end had a Skype meeting with Hugo Negrette~Otaola and
 Miguel Sosa, who worked on a similar project before. They wrote a Master Thesis \cite{hugomiguel}
-that was a fundamental starting point for our project, and they helped us understanding
-critical parts of their code.
+that was a fundamental starting point for the project.
 
-Finally, we implemented a simple application that could send a message to 
-the Name Resolution Service (NRS) developed by the Backend team and receive an answer. As
-we had more time than we expected, we started implementing parts of the Bluetooth communication and
-some side functions for helping the other functionalities of our project.
+Finally, the front-end implemented a simple application that could send a message to 
+the server developed by the Backend team and receive an answer.The front-end turned out to have more time than expected, so parts of the Bluetooth communication and
+some side functions were implemented.
 
 \framebox(360, 100){
 	\minibox{
@@ -59,14 +56,14 @@ some side functions for helping the other functionalities of our project.
 	}
 }
 
-Now that we succeeded to communicate with the backend's NRS,
+Now that we succeeded to communicate with the backend's server,
 we needed to send messages according to the NetInf specifications in \cite{netinfspecs}.
 Thus, we investigated the specifications and embedded those message regulations
 into our code. 
 
 We designed our first architecture draft based on OpenNetInf and implemented
 the most important modules for sending/receiving messages to/from the NRS -
-this time using OpenNetInf. We managed to share Information Objects between
+this time using OpenNetInf. We managed to share NDOs between
 Android phones using Bluetooth.
 
 At this stage, the application could request a content using a short hash.
@@ -110,8 +107,8 @@ project in the end. Our client could understand our ideas and was very happy to
 see where the project was going.
 
 Before continuing adding new functionalities, we took some time during the third sprint
-to clean up and refactor the code. We restructured our git branches due to our
-experience we gained from the previous sprints. The structure is described in \sect{git}.
+to clean up and refactor the code. The git branches were restructed due to the
+experience gained from the previous sprints. The structure is described in \sect{git}.
 
 The new functionalities we added at last were publishing (register the 
 device as a locator), full-put (uploading the content to the NRS) and
@@ -131,10 +128,9 @@ locator in the NRS or even upload the content to the NRS.
 At this stage we displayed simple HTML web pages within a WebView environment, without any pictures or
 java scripts.
 
-It is worth to note that the search implemented in this stage was not developed in the NetInf
+It is worth to note that the search implemented in this stage was not developed in accordance to the NetInf
 standards, not being connected to Resolution controllers. This was due to a perceived complexity of the code
-and the short amount of time we had to finish the sprint. It worked as if it was integrated to NetInf, but 
-just not glued to the internals of the service. We left this to be completed in the next sprint.
+and the short amount of time we had to finish the sprint. We left this to be completed in the next sprint.
 
 \framebox(360, 75){
 	\minibox{
