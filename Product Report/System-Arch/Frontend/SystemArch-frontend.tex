@@ -23,13 +23,23 @@
 \section{NetInfService}
 \label{sec:NetInfService}
 
-NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{masterthesis} and uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below.
+NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{masterthesis} and uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below. 
 
-\begin{figure}[h!]
+Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service,
+and provides the packages and/or source files, as well as some text and arrows describing the control flow.
+
+\begin{figure}
 	\centering
 		\includegraphics[width=0.75\textwidth]{./img/netinfservice}
     	\caption{NetInfService Overview}
 	\label{fig:netinfserviceoverview}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/flowchart-NetInf.pdf}}
+\caption{NetInfService Control Flow}
+\label{fig:netinf-controlflow}
 \end{figure}
 
 \subsection{Configuration}
@@ -216,10 +226,7 @@ The default settings for Elephant are stored in the properties file "assets/conf
 \label{sec:Control Flow}
 
 Figure \ref{fig:macro-controlflow} shows an overview of the control flow of the interaction between Elephant and NetInfService.
-Figure \ref{fig:application-controlflow} shows a picture of the internal control flow of the Elephant web browser.
-Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service.
-
-Pictures \ref{fig:application-controlflow} and \ref{fig:netinf-controlflow} provides the packages and/or source files that are
+Figure \ref{fig:application-controlflow} shows a picture of the internal control flow of the Elephant web browser, providing the packages and/or source files that are
 involved in different parts of the program, as well as some text and arrows describing the control flow.
 
 The NetInfService mainly does its work by passing around Identifiers and InformationObjects (each encapsulating an Identifier).
@@ -246,13 +253,6 @@ InformationObjects can contain attributes. In these applications the only used a
 \centerline{\includegraphics[width=1.4\textwidth]{./img/flowchart-application.pdf}}
 \caption{Elephant Control Flow}
 \label{fig:application-controlflow}
-\end{figure}
-
-\begin{figure}
-\centering
-\centerline{\includegraphics[width=1.4\textwidth]{./img/flowchart-NetInf.pdf}}
-\caption{NetInfService Control Flow}
-\label{fig:netinf-controlflow}
 \end{figure}
 
 \subsection{RESTful API Access}
