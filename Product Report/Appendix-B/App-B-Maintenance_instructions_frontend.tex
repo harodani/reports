@@ -1,1 +1,244 @@
-App-B-Maintenance instructions frontend filler
+\subsection{Default Application Settings}
+
+As mentioned in Sections \ref{sec:Configuration} and \ref{sec:ConfigurationElephant} the default settings for NetInfService and Elephant are stored in two properties files located at "assets/config.properties" inside each projects folder. These files mostly contain internal application settings but also some settings that can be changed through the applications' setting menus. If settings are changed through the setting menus the default in the files are not changed. Instead the changes are stored using the Android concept shared preferences which in short stores the settings in a for each application assigned file.
+
+\subsubsection{Elephant Web Browser}
+\label{sec:MaintElephantSettings}
+
+The properties file belonging to Elephant contain the following:
+
+\begin{itemize}
+	\item {\bf hash.alg = sha-256}
+	
+	Constant describing the hash algorithm used. Changing this does not change the algorithm, only the constant used in some functions.
+	
+	\item {\bf access.http.host = localhost}
+	
+	The address of the NetInfService RESTful API.
+	
+	\item {\bf access.http.port = 8080}
+	
+	The port used by the NetInfService RESTful API.
+	
+	\item {\bf sharing.folder = /DCIM/Shared/}
+	
+	The folder used to store downloaded and shared data.
+	
+	\item {\bf restlet.retrieve.file\_path = path}
+	
+	The key in the JSON response to a RESTful API retrieve request that contains the file path.
+	
+	\item {\bf restlet.retrieve.content\_type = ct}
+	
+	The key in the JSON response to a RESTful API retrieve request that contains the content path.
+	
+	\item {\bf restlet.search.results = results}
+	
+	The key in the JSON response to a RESTful API search request that contains the search results.
+	
+	\item {\bf default.webpage = ul.se}
+	
+	The default web page of web view.
+	
+	\item {\bf httprequest.timeout = 2000}
+	
+	The maximum time NetInfRequest subclasses wait for a response from the RESTful API.
+	
+	\item {\bf httprequest.encode = UTF-8}
+	
+	The encoding used for HTTP requests.
+	
+	\item {\bf http = http://}
+	
+	The HTTP schema.
+	
+	\item {\bf timeout.netinfsearch = 2000}
+	
+	Application specific timeout for searches.
+	
+	\item {\bf timeout.netinfretrieve = 2000}
+	
+	Application specific timeout for retrieves.
+	
+	\item {\bf timeout.netinfdownload.webobject = 2000}
+	
+	Application specific timeout for downloading from the Internet.
+	
+\end{itemize}
+
+\subsubsection{NetInfService}
+
+The NetInfService properties file contains several settings that are also in the Elephant browser settings. Duplicates are not repeated here, instead see Section \ref{sec:MaintElephantSettings}.
+
+\begin{itemize}
+	\item {\bf identity.nodeIdentity = ni:HASH\_OF\_PK=123~UNIQUE\_LABEL=456}
+	
+	The OpenNetInf node identity.
+	
+	\item {\bf nrs.http.host = 130.238.15.227}
+	
+	The NRS address.
+	
+	\item {\bf nrs.http.port = 9999}	
+	
+	The NRS port.
+	
+	\item {\bf nrs.http.search.timeout = 20000}	
+	
+	The timeout when doing a search using the NRS.
+	
+	\item {\bf metadata.*}
+	
+	Some fields used as metadata.
+	
+	\item{\bf bluetooth.interval = 300000}
+	
+	How often the Bluetooth discover should be run.
+	
+	\item{\bf bluetooth.timeout = 10000}
+	
+	For how long the Bluetooth discover is allowed to run.
+	
+	\item{\bf bluetooth.number\_attempts = 2}
+	
+	How many times Bluetooth tries to connect.
+	
+	\item{\bf bluetooth.buffer = 1024}
+	
+	The size of the buffer used to retrieve files over Bluetooth.
+	
+	\item{\bf lrs.priority = 77}
+	
+	The priority of the LocalResolutionService. Used to determine in which order to use ResolutionServices, higher means more important.
+	
+	\item{\bf nrs.priority = 42}	
+	
+	The priority of the NameResolutionService. Used to determine in which order to use ResolutionServices, higher means more important.	
+	
+	\item{\bf nrs.timeout = 2000}
+	
+	The HTTP timeout when doing publish or get from the NRS.
+	
+	\item{\bf nrs.max\_messsage = 100000000}
+	
+	The maximum number to use as message ID.
+	
+\end{itemize}
+
+\subsection{Development Environment}
+
+The Elephant browser and the NetInfService applications were developed on Ubuntu using the Eclipse IDE and Android SDK.
+
+For instructions on how to set up Eclipse IDE to use the Android SDK as well as compiling the applications see Section \ref{sec:Frontend Installation Instructions}
+
+\subsection{Eclipse Project Structure}
+
+There are three Eclipse projects. Application which contains the code for the Elephant browser. NetInfService which contains the code for the NetInfService application. NetInfUtilities which contain some utility functions used by the two other projects. Below follows the different packages the applications are structured into and the functionality that can be found in each.
+
+\subsubsection{Elephant Packages}
+
+\begin{itemize}
+	\item{\bf project.cs.lisa.application}
+	
+	Contains the Android Activities for the main view and the settings screen as well as auxiliary code for these.
+	
+	\item{\bf project.cs.lisa.application.dialogs}
+
+	Contains several popup dialogs either asking for input or displaying information.
+	
+	\item{\bf project.cs.lisa.application.hash}
+	
+	Contains SHA-256 hashing functionality.
+	
+	\item{\bf project.cs.lisa.application.html}
+	
+	NetInfWebViewClient changes the behaviour of the WebView by telling the WebView what to do when new resources are to be downloaded. NetInf is used to search for, download and publish web pages and/or resources. If necessary the Internet is used.
+	
+	\item{\bf project.cs.lisa.application.html.transfer}
+	
+	The FetchWebPageTask fetches the HTML source of a web page using NetInf if possible and loads it in the WebView. Then the WebView will load the resources using the NetInfWebViewClient.
+	
+DownloadWebObject is used be the NetInfWebViewClient to download the web page or resource from the Internet if not accessible by NetInf.
+	
+	\item{\bf project.cs.lisa.application.http}
+	
+	Contains the code handling the HTTP communication with the NetInfService's RESTful API. The classes NetInfPublish, NetInfRetrieve and NetInfSearch handles publishes, retrieves and searches respectively. The classes NetInfPublishResponse, NetInfRetrieveResponse and NetInfSearchResponse represent responses to publishes, retrieves and searches respectively.
+	
+	\item{\bf project.cs.lisa.application.networksettings}
+	
+	Contains code for checking and setting the Android devices network settings properly.
+	
+\end{itemize}
+
+\subsubsection{NetInfService Packages}
+
+\begin{itemize}
+	\item{\bf project.cs.netinfservice.application}
+	
+	Contains the Android Activities for the main view and the settings screen as well as auxiliary code for these.	
+	
+	\item{\bf project.cs.netinfservice.database}
+	
+	Handles the SQLLite database used by the LocalResolutionService as well as the UrlSearchService.	
+	
+	\item{\bf project.cs.netinfservice.netinf.access.rest}
+	
+	Handles the HTTP server providing the RESTful API.
+	
+	\item{\bf project.cs.netinfservice.netinf.access.rest.resources}	
+	
+	Contains the implementation of the RESTful API. IOResource handles publishes, BOResource handles retrieves and SearchResource handles searches.
+	
+	\item{\bf project.cs.netinfservice.netinf.common.datamodel}
+	
+	Contains extensions to OpenNetInf NDOs. This includes the metadata and content-type fields.
+	
+	\item{\bf project.cs.netinfservice.netinf.node}
+	
+	StarterNodeThread is used to start a NetInf node.	
+
+	\item{\bf project.cs.netinfservice.netinf.node.exceptions}
+
+	The InvalidResponseException is used when an invalid response is returned to a NetInf message.
+	
+	\item{\bf project.cs.netinfservice.netinf.node.module}
+	
+	The Module class binds abstract interfaces to concrete class implementations using Guice \cite{guice}.
+	
+	\item{\bf project.cs.netinfservice.netinf.node.resolution}
+	
+	The resolutions package contains the different ResolutionServices, see Section \ref{sec:ResolutionController}.
+	
+	\item{\bf project.cs.netinfservice.netinf.node.search}
+	
+	The search package contains the SearchServices, see Section \ref{sec:SearchController}.
+	
+	\item{\bf project.cs.netinfservice.netinf.provider}
+	
+	Contains the ByteArrayProvider class, see Section \ref{sec:TransferDispatcher}.
+	
+	\item{\bf project.cs.netinfservice.netinf.provider.bluetooth}
+	
+	The BluetoothDiscover class is used to periodically search for and store nearby Bluetooth devices.
+	
+	The BluetoothProvider class is described in \ref{sec:BluetoothProvider}
+	
+	\item{\bf project.cs.netinfservice.netinf.server.bluetooth}
+	
+	The BluetoothServer listens for incoming Bluetooth pairing requests. As soon as the local device has been successfully paired with a remote device, the BluetoothServer waits for a file request containing a hash. If the specified file is available, the file will be transferred to the remote device.
+	
+	\item{\bf project.cs.netinfservice.netinf.transferdispatcher}
+	
+	Contains the TransferDispatcher class, see Section \ref{sec:TransferDispatcher}.
+	
+	\item{\bf project.cs.netinfservice.util}
+
+	Contain utility classes.
+	
+	The IdentifierBuilder and IOBuilder classes ease the construction of Identifiers and InformationObjects respectively.
+	
+\end{itemize}
+
+\subsection{Javadoc}
+
+Javadoc was used during development to document the functionality of classes. For more detailed desciption of classes and their methods refer to the Javadoc.
