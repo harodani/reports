@@ -1,5 +1,5 @@
 \section {Frontend - Android Client}
-The following section will describe the product the front-end team developed during the course.
+The following section will describe the product the frontend team developed during the course.
 The product consists of two different applications: Elephant, the web browser, and an implementation
 of the NetInf services that support Information-Centric Networking.
 
@@ -16,7 +16,7 @@ While loading a web page the browser gives the user continuous feedback in the f
 indicating that the resources contained in the web page are being downloaded.
 Resources refer to content of a web page, such as pictures or texts.
 What is interesting to observe is that the spinning wheel changes color while loading a web page,
-indicating what kind of transmission is being used to retrieve each specific resource.
+indicating what kind of transmission is being used to retrieve each resource.
 The application uses five different colors: gray to indicate that a search is in progress, red to indicate
 that a resource is retrieved by the uplink connection (3G or WIFI), green to indicate database activity,
 black to indicate the use of a NRS caching node, and finally blue when a device retrieves a resource from
@@ -31,13 +31,13 @@ icon and cancel icon. \fig{loaded_page} shows an example view of the web browser
 \end{figure}
 
 To make sure that Elephant will be able to retrive resources from an NRS caching node and to be able
-to connect to other devices via Bluetooth, the NetInfService application has to be up and running.
+to connect to other devices via Bluetooth, the NetInfService application must be up and running.
 This is because the NetInf services enable communication to other nodes in the system and keep
 track of which devices have a certain resource to serve via Bluetooth.
 
 Elephant contains some customizable settings that can be found in the menu entry on the top right of the application.
 These settings make it possible to take advantage of the NetInf services. In comparison to other
-available browsers, Elephant makes use of Information-Centric Networking instead of Location-Based Networking
+available browsers, Elephant makes use of Information-Centric Networking as well as Location-Based Networking
 in an attempt to lower network congestion.
 Since one of the core ideas of Information-Centric Networking is to share content between nodes, the setting page
 tries to present a simple and transparent way to exploit the underlying capabilities of the NetInf services.
@@ -48,7 +48,7 @@ Enabling the second menu entry the device will not only register the user as a l
 so that the content can be served by a NRS cache node if there is one available.
 
 The last menu entry for the setting is for opening the NetInf Services' settings, so that the user does not have to switch applications
-manually for changing the service settings.
+manually when changing the service settings.
 \newpage
 
 \begin{figure}
@@ -76,7 +76,7 @@ so that the user can have a better understanding of how the web browser works.\\
   Search	& The application searches for the hash value of the resource requested, specified by a URL. This search includes
 		  searching for the hash value within the local database and the remote Name Resolution Service (NRS).
 		  It returns the value, if found.\\\hline
-  Get		& A Get request that contains the hash value of an Information Object (IO) triggers a content retrieval of the
+  Get		& A Get request that contains the hash value of an NDO triggers a content retrieval of the
 		  corresponding resource. The application tries to retrieve the content either from the Local Resolution Service (LRS), the NRS
 		  or from a remote Bluetooth device.\\\hline
   Publish	& The application can register the local device as a locator for a resource specified by a hash in the NRS. This way, remote

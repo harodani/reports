@@ -45,7 +45,7 @@ and provides the packages and/or source files, as well as some text and arrows d
 \subsection{Configuration}
 \label{sec:Configuration}
 
-The default settings for NetInfService are stored in the properties file "assets/config.properties". This includes but is not limited to NRS IP address, NRS port and RESTful API port. Some of these settings can be changed live when running the NetInfService on an Android device. This does not change the default values in the properties file but the changes are instead stored using the default Android shared preferences file, which is persistent.
+The default settings for NetInfService are stored in the properties file "assets/config.properties". This includes but is not limited to NRS IP address, NRS port and RESTful API port. Some of these settings can be changed when running the NetInfService on an Android device. This does not change the default values in the properties file but the changes are instead stored using the default Android shared preferences file, which is persistent.
 
 \subsection{RESTful API}
 \label{sec:RESTful API}
@@ -58,7 +58,7 @@ The HTTP request uses the following format:
 http://\{Host\}:\{Port\}/\{Prefix\}?\{key1\}=\{value1\}\&\{key2\}=\{value2\}...
 \end{center}
 
-Since the NetInfService should be running on the same device as the application that is using it, the host would most likely be either localhost or 127.0.0.1. The default port is 8080, for changing it see Section \ref{sec:Configuration}. The key-value pairs should be URL encoded as they can contain illegal characters.
+Since the NetInfService should be running on the same device as the application that is using it, the host would most likely be either localhost or 127.0.0.1. The default port is 8080, for changing these settings see Section \ref{sec:Configuration}. The key-value pairs must be URL encoded as they can contain illegal characters.
 
 \subsubsection{Publish}
 
@@ -163,11 +163,11 @@ The ResolutionController handles a number of ResolutionServices. Each Resolution
 
 \subsubsection{NameResolutionService}
 
-The NameResolutionService uses the HTTP convergence layer (TODO REFS) to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there so it should be relatively little work.
+The NameResolutionService uses the HTTP convergence layer (TODO REFS) to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there.
 
 \subsubsection{LocalResolutionService}
 
-The LocalResolutionService uses a to the device local SQLite database. The LocalResolutionService has higher priority than the NameResolutionService meaning that when preforming a get request the LocalResolutionService will be used first and then if needed the NameResolutionService as well.
+The LocalResolutionService uses a connection to the device's local SQLite database. The LocalResolutionService has higher priority than the NameResolutionService meaning that when preforming a get request the LocalResolutionService will be used first and then if needed the NameResolutionService as well.
 
 \subsection{SearchController}
 \label{sec:SearchController}
@@ -188,7 +188,7 @@ in the NRS used by the NameResolutionService.
 The TransferDispatcher handles a number of ByteArrayProviders. Each ByteArrayProvider should provide functionality to retrieve a file (as a byte array) in some way. Currently there is one ByteArrayProvider, the BluetoothProvider, which uses Bluetooth to transfer files between Bluetooth enabled devices.
 
 \subsubsection{BluetoothProvider}
-The BluetoothProvider provides the functionality to retrieve the bytes of an Information Object
+The BluetoothProvider provides the functionality to retrieve the bytes of an NDO
 through a specified Bluetooth locator. It first tries to establish a connection to the remote
 Bluetooth device. If successful, it requests the bytes of an object by sending the hash value
 that describes the object. As a response, the provider retrieves the bytes of the object, if
@@ -198,7 +198,7 @@ it was available on the remote Bluetooth device.
 The BluetoothServer continuously listens to incoming Bluetooth file requests. 
 If a remote device wants to connect to the local device, the BluetoothServer establishes
 a BluetoothSocket through which both devices can communicate with each other.
-The BluetoothServer expects to receive a string that represents a hash
+The BluetoothServer expects to receive a string that represents the hash
 of a requested object. Using this hash, the BluetoothServer will send back
 the byte arrays of the corresponding object, if available. 
 
@@ -207,7 +207,7 @@ the byte arrays of the corresponding object, if available.
 
 Elephant is the second Android application. It is a simple browser which uses NetInf through the NetInfService to cache and share web pages.
 
-The idea behind the Elephant browser is simple. When a traditional web URL is entered into the address bar and the refresh button is clicked, instead of just downloading the web page from the Internet the browser first tries to use NetInf to retrieve the web page.
+The idea behind the Elephant browser is simple. When a traditional web URL is entered into the address bar and the refresh button is clicked, instead of downloading the web page from the Internet the browser first tries to use NetInf to retrieve the web page.
 
 This is done by using the NetInfService. For the entered URL and each resource it links to:
 \begin{enumerate}
@@ -216,7 +216,7 @@ This is done by using the NetInfService. For the entered URL and each resource i
 	\item Possibly publish the file so that other devices can retrieve the file from this device.
 \end{enumerate}
 
-If the search or get fails for any reason, be it a timeout, no matches found or something else, the webpage is downloaded using the Internet.
+If the search or get fails for any reason, be it a timeout, no matches found or something else, the webpage is downloaded using the a standard HTTP request.
 
 \subsection{Configuration}
 
@@ -229,9 +229,9 @@ Figure \ref{fig:macro-controlflow} shows an overview of the control flow of the 
 Figure \ref{fig:application-controlflow} shows a picture of the internal control flow of the Elephant web browser, providing the packages and/or source files that are
 involved in different parts of the program, as well as some text and arrows describing the control flow.
 
-The NetInfService mainly does its work by passing around Identifiers and InformationObjects (each encapsulating an Identifier).
+The NetInfService mainly does its work by passing around Identifiers and NDOs (each encapsulating an Identifier).
 
-An Identifier contains information about an InformationObject. The most important pieces of information in these applications are:
+An Identifier contains information about an NDO. The most important pieces of information in these applications are:
 \begin{itemize}
 \item Hash Algorithm
 \item Hash
@@ -239,7 +239,7 @@ An Identifier contains information about an InformationObject. The most importan
 \item Metadata (as a JSON string)
 \end{itemize}
 
-InformationObjects can contain attributes. In these applications the only used attributes are locator attributes. More specifically locators pointing to other Bluetooth devices and locators pointing to the local file system.
+NDOs can contain attributes. In these applications the only used attributes are locator attributes. More specifically locators pointing to other Bluetooth devices and locators pointing to the local file system.
 
 \begin{figure}
 \centering
