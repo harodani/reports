@@ -178,6 +178,7 @@ in the NRS used by the NameResolutionService.
 The TransferDispatcher handles a number of ByteArrayProviders. Each ByteArrayProvider should provide functionality to retrieve a file (as a byte array) in some way. Currently there is one ByteArrayProvider, the BluetoothProvider, which uses Bluetooth to transfer files between Bluetooth enabled devices.
 
 \subsubsection{BluetoothProvider}
+\label{sec:BluetoothProvider}
 The BluetoothProvider provides the functionality to retrieve the bytes of an Information Object
 through a specified Bluetooth locator. It first tries to establish a connection to the remote
 Bluetooth device. If successful, it requests the bytes of an object by sending the hash value
@@ -209,6 +210,7 @@ This is done by using the NetInfService. For the entered URL and each resource i
 If the search or get fails for any reason, be it a timeout, no matches found or something else, the webpage is downloaded using the Internet.
 
 \subsection{Configuration}
+\label{sec:ConfigurationElephant}
 
 The default settings for Elephant are stored in the properties file "assets/config.properties". This includes but is not limited to RESTful API IP address, RESTful API port and RESTful API timeouts.
 
