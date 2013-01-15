@@ -50,15 +50,15 @@ This will perform a merge and fast-forward on the remote 'staging' branch while 
 This will also create empty commits in the development branch as a way to quickly spot revisions which you may wish to go back to, for example if you need to remove a story that was not working properly.\\\\
 %\newpage
 \textbf {NOTE:}
-As a human user this is typically where you stop working in the workflow. The following steps are to be implemented by Jenkins and automated build tools. You are only concerned with working on the Develop branch and your own story branches for each sprint. You should never touch Master or Release unless absolutey necessary.
+As a human user this is typically where you stop working in the workflow. The following steps are to be implemented by Jenkins and automated build tools. You are only concerned with working on the staging branch and your own story branches for each sprint. You should never touch Develop, Master or Release unless absolutey necessary.
 %AS A HUMAN USER THIS IS TYPICALLY WHERE YOU STOP WORKING IN THE WORKFLOW. \\THE FOLLOWING STEPS ARE TO BE IMPLEMENTED BY JENKINS AND AUTOMATED BUILD TOOLS. YOU ARE ONLY CONCERNED WITH WORKING ON THE DEVELOP BRANCH AND YOUR OWN STORY BRANCHES FOR EACH SPRINT. YOU SHOULD NEVER TOUCH MASTER OR RELEASE UNLESS ABSOLUTELY NECESSARY
 
 \subsection{Testing a sprint story}
 
-The following steps assume that a testing suite was created and works well with JENKINS build tool. 
+The following steps assume that a testing suite was created and works well with the Jenkins build tool. 
 
 \subsection{Merging in to develop}
-As a story branch has been merged to 'develop', the code goes through a set of unit tests and when it successfully passes all of them, it is ready to be merged to 'release': 
+When a story branch has been merged to 'staging', the code goes through a set of unit tests and when it successfully passes all of them, it is ready to be merged to 'develop': 
 \begin{verbatim}
 git checkout develop
 git merge --no-ff staging
@@ -66,7 +66,7 @@ git push origin develop
 \end{verbatim}
 
 \subsection{Merging in to release}
-As a story branch has been merged to 'develop', the code goes through a set of unit tests and when it successfully passes all of them, it is ready to be merged to 'release': 
+When a story branch has been successfully merged to 'develop', the code goes through a integration test and when it successfully passes it is ready to be merged to 'release': 
 \begin{verbatim}
 git checkout release
 git merge --no-ff develop
