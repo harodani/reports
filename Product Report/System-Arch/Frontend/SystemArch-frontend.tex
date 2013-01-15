@@ -25,15 +25,17 @@
 
 NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{masterthesis} and uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below. 
 
-Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service,
-and provides the packages and/or source files, as well as some text and arrows describing the control flow.
-
 \begin{figure}
 	\centering
 		\includegraphics[width=0.75\textwidth]{./img/netinfservice}
     	\caption{NetInfService Overview}
 	\label{fig:netinfserviceoverview}
 \end{figure}
+
+Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service,
+and provides the packages and/or source files, as well as some text and arrows describing the control flow.
+The digits in the connections between boxes illustrate the order of the actions throught the application flow.
+
 
 \begin{figure}
 \centering
