@@ -1,6 +1,5 @@
 \section{Introduction}
-The main purpose of this project was to build an application based on the NetInf protocol. Ericsson Research acted as the customer 
-for this project whereas the IT department of Uppsala University facilitated us with a project room, software and hardware infrastructure.
+The main purpose of this project was to build an application based on the NetInf protocol. NetInf nodes in a NetInf network support the creation, exchange and storage of units of data that can be identified and accessed using a URI-based naming scheme. \cite{netinfspecs} Ericsson Research acted as the customer for this project whereas the IT department of Uppsala University facilitated us with a project room, software and hardware infrastructure. 
 
 The project group was divided into two teams where one team was dedicated for developing the front-end of the 
 application whereas the other team was given the task to develop the back-end. The front-end group was called 
@@ -10,7 +9,8 @@ the back-end team was named ERNI (Erlang NetInf) and was made up of eight indivi
 Starting off with the front-end's lose requirement to use NetInf within an application that can communicate with
 the back-end's server, the front-end decided to develop a mobile browser called "Elephant". Elephant is a normal
 web browser if you look at it from an end-user's perspective. So what differentiates a normal browser
-from the developed one? Instead of using host-based networking, only information-centric networking (ICN) is used.
+from the developed one? Instead of using host-based networking, only information-centric networking (ICN) is used. Many recent papers and research efforts have noted that we should move the Internet away from its current reliance on purely point-to-point primitives to designs that make the Internet more data-oriented or content-centric. \cite{ghodsietal}  
+
 Therefore the browser is a proof-of-concept towards a new networking model where Information Objects are in focus.
 For the development Ericsson provided Android phones. Thus, Java was the language of choice.
 
