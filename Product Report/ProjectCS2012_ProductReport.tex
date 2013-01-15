@@ -48,25 +48,28 @@
 
 \tableofcontents
 
-\chapter{Introduction}
 \input{introduction.tex}
 
 \chapter{Preliminaries}
+\label{sec:preliminaries}
 \input{Preliminaries/Netinf/Prelim-Netinf.tex}
 \section{Development Languages}
 \input{Preliminaries/Frontend/devlang-frontend.tex}
 \input{Preliminaries/Backend/devlang-backend.tex}
 \chapter{Goals and Scope}
+\label{sec:goals}
 \input{Goals-Scope/Goals-Scope-Frontend.tex}
 \input{Goals-Scope/Goals-Scope-Backend.tex}
 
 \chapter{Product Description}
+\label{sec:product}
 
 \input{Product-Description/Frontend/ProductDesc-frontend.tex}
 
 \input{Product-Description/Backend/ProductDesc-backend.tex}
 
 \chapter{System Architecture}
+\label{sec:architecture}
 
 \input{System-Arch/Frontend/SystemArch-frontend.tex}
 
@@ -82,11 +85,15 @@
 
 \input{System-Arch/Backend/SystemArch-backend-PNP_database_wrappers.tex}
 
+\input{System-Arch/Backend/SystemArch-backend-video_streaming.tex}
+
 \chapter{Evaluation and testing}
+\label{sec:evaluation}
 \input{Evaluation/Eval-frontend.tex}
 \input{Evaluation/Eval-backend.tex}
 
 \chapter{Conclusions and Future Work}
+\label{sec:conclusions}
 \input{Conclusions}
 \input{Future-Work}
 
@@ -103,12 +110,41 @@
 \input{Appendix-B/App-B-Maintenance_instructions_backend.tex}
 \chapter {Appendix C: NetInf Video Streaming Draft}
 \input{Appendix-C/NetInf_video_streaming_protocol.tex}
+\chapter {Appendix D: License}
+\input{Appendix-D/license.tex}
 
 \begin{thebibliography}{99}
 
-\bibitem{otpInAction} Martin Logan, Eric Merritt, and Richard Carlsson. \textsl{Erlang and OTP in Action}. 2010.
+\bibitem{netinf}
+ A survey of information-centric networking,
+ \newblock Ahlgren, B. and Dannewitz, C. and Imbrenda, C. and Kutscher, D. and Ohlman, B.
+ \newblock IEEE Communications Magazine, July 2012
+
+ \bibitem{ericsson}
+ Ericsson - A world of communication - Ericsson
+ \newblock  Retrieved January 15th, 2013, from http://www.ericsson.com/se
+ 
+
+\bibitem{erlang}
+Erlang Programming Language
+\newblock Retrieved January 15th, 2013, from http://www.erlang.org/
+
+\bibitem{android}
+Android Developers (n.d.). 
+\newblock Android Developers. 
+\newblock Retrieved January 8th, 2013, from http://developer.android.com
+
+ \bibitem{opennetinf}
+C.~Dannewitz, M.~Herlich, E.~Bauer, M.~Becker, F.~Beister, N.~Dertmann,
+  R.~Hrestic, M.~Kionka, M.~Mohr, M.~M\"uhe, D.~Murali, F.~Steffen, S.~Stey,
+  E.~Unruh, Q.~Wang, and S~Weber.
+\newblock OpenNetInf Documentation Design and Implementation.
+\newblock Technical Report TR-RI-11-314, University of Paderborn, Sept 2011.
+ 
 
 \bibitem{ICNarticle} INFORMATION-CENTRIC NETWORKING Kostas Pentikousis et. al. IEEE Communications Magazine, July 2012
+
+\bibitem{otpInAction} Martin Logan, Eric Merritt, and Richard Carlsson. \textsl{Erlang and OTP in Action}. 2010.
 
 \bibitem{4ward} 4WARD project EU. 4WARD project home page. [Online]. http://www.4ward-project.eu/
 
@@ -124,18 +160,9 @@ D.~Kutscher, S.~Farrell, and E.~Davies.
 \newblock Internet-Draft draft-kutscher-icnrg-netinf-proto-00.txt, IETF
   Secretariat, Oct 2012.
 
-\bibitem{opennetinf}
-C.~Dannewitz, M.~Herlich, E.~Bauer, M.~Becker, F.~Beister, N.~Dertmann,
-  R.~Hrestic, M.~Kionka, M.~Mohr, M.~M\"uhe, D.~Murali, F.~Steffen, S.~Stey,
-  E.~Unruh, Q.~Wang, and S~Weber.
-\newblock OpenNetInf Documentation Design and Implementation.
-\newblock Technical Report TR-RI-11-314, University of Paderborn, Sept 2011.
 
-\bibitem{plugin} Android Developers (n.d.). Installing the Eclipse Plugin. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/installing/installing-adt.html
 
-\bibitem{bundle} Android Developers (n.d.). Get the Android SDK. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/sdk/index.html
 
-\bibitem{hardware} Android Developers (n.d.). Using Hardware Devices. Android Developers. Retrieved January 8, 2013, from http://developer.android.com/tools/device.html\#setting-up
 
 
 \end{thebibliography}
