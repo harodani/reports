@@ -30,7 +30,7 @@ The 'release' branch will only contain individual stories which are completed an
 The 'develop' branch will contain all the code this is able to be compiled on the server and is where the human users will start their personal story branches. Also a Jenkins build tool area, the code here will be considered in a "Story done and compiles but not yet tested" state.\\ Jenkins is responsible for unit testing and merging between 'develop' and 'release'
 
 \item staging \\ \\
-The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. Also a Jenkins Build tool area, the code here will be considered in a story is in progress it may be done but it also may not compile. Jenkins will pull all the code from this branch and try to compile it, if it compiles then it will be merged with the 'develop' branch.
+The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. This is also the branch where Jenkins is used. Jenkins will pull all new commits and try to compile it, if it compiles then it will be merged with the 'develop' branch. If not, Jenkins will notify the users who has commited changes since the last failing commit.
 
 \item SprintX.shortStoryName\\ \\
 The branch's name will contain the local working code for the specific sprint story followed by a short story name-typically the name written on the post it note for example: MSG\_Handler. A merge to the Develop branch will mean the story is considered done for the sprint but requires testing by integration tools and Jenkins. This branch will be deleted after the tests are passed and the a successful merge is complete.
