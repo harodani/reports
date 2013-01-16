@@ -50,6 +50,27 @@ The results of test one using full put can be seen in Figure \ref{fig:frontendte
 	\label{fig:frontendtest1}
 \end{figure}
 
+Table \ref{tbl:times} shows the total time spent and the time spent actually transferring files when retrieving the 15 web page set.
+
+\begin{table}[!h]
+		\centering
+       \begin{tabular}{| c | c | c | c |}
+               \hline
+               Phone \# & Total time (s) & Time downloading (s) & Time spent downloading of total time(\%)\\
+               \hline
+               1 & 251 & 17 & \textbf{6}\\
+               \hline
+               2 & 303 & 15 & \textbf{4}\\
+               \hline
+               3 & 241 & 20 & \textbf{8}\\
+               \hline
+               4 & 254 & 18 & \textbf{7}\\
+               \hline
+       \end{tabular}
+       \caption{Run-times}
+       \label{tbl:times}
+\end{table}
+
 The results of test two can be seen in Figure \ref{fig:frontendtest2}. The two leftmost bars represent the first repetition of the test and the two right most the second repetition.
 
 \begin{figure}
@@ -59,7 +80,7 @@ The results of test two can be seen in Figure \ref{fig:frontendtest2}. The two l
 	\label{fig:frontendtest2}
 \end{figure}
 
-The results of the third test can be seen i Figure \ref{fig:frontendtest3}
+The results of the third test can be seen in Figure \ref{fig:frontendtest3}
 
 \begin{figure}
 	\centering
@@ -70,16 +91,16 @@ The results of the third test can be seen i Figure \ref{fig:frontendtest3}
 
 \subsection{Discussion}
 
-From Figure \ref{fig:frontendtest1}, it can be see that even without precaching, approximately 30\% of the data can be retrieved without accessing the Internet. This corresponds roughly to the 25\% which could be expected if all the resources were unique and successfully cached in the NRS, since in that case only the first phone would retrieve the resource from the Internet. With precaching of popular web pages this percentage could possibly increase even further.
+In Figure \ref{fig:frontendtest1}, it can be see that even without precaching, approximately 30\% of the data can be retrieved without accessing the Internet. This corresponds roughly to the 25\% which could be expected if all the resources were unique and successfully cached in the NRS, since in that case only the first phone would retrieve the resource from the Internet. With precaching of popular web pages this percentage could possibly increase even further.
 
 It was observed that if one phone had a jump start on another phone to start retrieving a certain web page, the second phone shortly caught up with the first phone. The two phones then try to retrieve the same resource at the same time which will not be in the cache and both will use the Internet.
 
 In Figure \ref{fig:frontendtest1} it can also be seen that a few percent of resources are retrieved from the database. This is because these resources are linked to several times throughout the web pages. Since the resource is cached in the database the first time, additional requests can use the database.
 
-From Figure \ref{fig:frontendtest2} it can be seen that when accessing a web page a second time a small part still has to be retrieved using the Internet. An example of when this can happen is when a web page links to a resource using JavaScript to add a timestamp to the resource's URL. The dynamic nature of this content means that it will not be in any cache when requested. This means there will be a certain amount of resource that will have to be retrieved from the Internet.
+Figure \ref{fig:frontendtest2} demonstrates that when accessing a web page a second time a small part still has to be retrieved using the Internet. An example of when this can happen is when a web page links to a resource using JavaScript to add a timestamp to the resource's URL. The dynamic nature of this content means that it will not be in any cache when requested. This means there will be a certain amount of resource that will have to be retrieved from the Internet.
 
-From Figure \ref{fig:frontendtest3} it can be seen that the amount of data retrieved using alternate transfer methods are similar whether or not full put is used. This is expected as only the first phone should have to retrieve the data from the Internet. If can also be seen that, as expected, the amount of data retrieved is close to the theoretical 25\% mentioned above.
+In Figure \ref{fig:frontendtest3} it can be seen that the amount of data retrieved using alternate transfer methods are similar whether or not full put is used. This is expected as only the first phone should have to retrieve the data from the Internet. If can also be seen that, as expected, the amount of data retrieved is close to the theoretical 25\% mentioned above.
 
-From Table TODO REF it can be seen that the retrieval of web pages is very slow. So slow that using this application in a real life situation probably only makes sense if there is no connection at all otherwise. The main culprit behind the long retrieval times seems to be the search. Since a search is done for every web resource the time quickly adds up. To improve the retrieval times of web pages the search needs to be optimized.
+Table \ref{tbl:times} shows that the retrieval of web pages is very slow, but it can also shows that the actual transfer of files does not contribute to much of the total time. The retrieval is so slow that using this application in a real life situation probably only makes sense if there is no connection at all otherwise. The main culprit behind the long retrieval times seems to be the searches. This is not visible from the logs but when the application is running most of the time is spent searching. A search is done for every web resource and the time quickly adds up. To improve the retrieval times of web pages the search needs to be optimized.
 
 One thing that is not immediately visible but that effects the test result is the fact that NetInfService randomly pauses in the background. If this happens it results in all publishes, gets and searches failing which in turn results in everything being retrieved from the Internet. It is suspected that this is caused by how the Android OS handles applications in the background.
