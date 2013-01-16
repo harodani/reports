@@ -3,7 +3,7 @@ The evaluation of the Elephant browser and the NetInfService applications tries 
 
 \begin{enumerate}
 \item How much uplink bandwidth is saved?
-\item How much of content is used multiple times?
+\item How much of content is used multiple times throughout web pages?
 \item How much of linked resources are dynamically generated?
 \item How much time does it take to retrieve web page?
 \end{enumerate}
@@ -37,4 +37,12 @@ This however means that the test is limited to using the free main memory of the
 
 % Table (or plot) of re-usage after period
 
-\subsubsection{Discussion}
+\subsubsection{Conclusions}
+
+From Figure TODO REF we can see that even without precaching and even when the phones are not downloading exactly the same web pages we still have a decrease of approximately 30\% when it comes to data retrieved from the Internet. With precaching of popular web pages this ratio should be possible to increase even further.
+
+In Figure TODO REF it can also be seen that approximately TODO\% of resources are retrieved from the database. This is because these resources are linked to several times throughout the . Since the resource is cached in the database the first time, additional requests can use the database.
+
+From figure TODO REF we can see that when accessing a web page a second time approximately TODO\% still has to be retrieved using the Internet. An example of when this happens is when a web pages links to a resource using javascript to add a timestamp to the resource's URL. The dynamic nature of this content means that it will not be in any cache when requested. This means there will be a certain amount of resource that will have to be retrieved from the Internet.
+
+From the tests we can conclude that the retrieval of web pages is very slow. So slow that using this application in a real life situation probably only makes sense if there is no connection at all otherwise. The main culprit behind the long retrieval times seems to be the search. Since a search is done for every web resource the time quickly adds up. To improve the retrieval times of web pages the search needs to be optimized.
