@@ -1,8 +1,6 @@
 \section{Backend}
 
-
-The following section will describe how the NetInf NRS application will be evaluated and tested. One of the goals of the project was to show that the use of the new Network of Information protocol(NetInf) would be better in terms of speed and time compared to existing location centric infrastructure. 
-
+The following section will describe how the NetInf NRS application will be evaluated and tested. One of the goals of the project was to show that the use of the new Network of Information protocol (NetInf) would be better in terms of bandwidth, speed and time compared to existing location based infrastructure. 
 
 The Erlang NetInf NRS application, along with the video stream was evaluated with the following set of tests. 
 
@@ -16,11 +14,10 @@ The following test was conducted:
 \item Comparison between both implementations of the NetInf Video streaming
 \end{itemize}
 
-The testing was done by transfer 500 chunks of bogus data between a number of different NetInf nodes running ERNI. All the receiving nodes started the transfer at the same time. To be able to publish N number of chunks in an easy and fast manner, the \textit{nn\_evaluation} module was implemented.
+The testing was done by transferring 500 chunks of bogus data between a number of different NetInf nodes running ERNI. All the receiving nodes started the transfer at the same time. To be able to publish N number of chunks in an easy and fast manner, the \textit{nn\_evaluation} module was implemented.
 
 
 %The backbone of the entire application, this is the main product which the client requested. It is important to explore how much better this implementation of NetInf performs compared to location centric services today. 
-
 
 \subsection{Pure video streaming evaluation setup}
 The nodes that were included in the pure version of the streaming were the following:

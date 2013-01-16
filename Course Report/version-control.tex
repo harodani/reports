@@ -1,7 +1,7 @@
 \subsection{Version Control}
 \label{sec:git}
 
-In order to keep our workflow going at a good pace we elected to have version control, which is good practice in all projects. We used Git with a custom workflow shown below. \\
+In order to keep the workflow going at a good pace the teams elected to have version control, which is good practice in all projects. Git was used with a custom workflow shown below. \\
 
 Have a server side repository with 4 initial persistent branches.
 \begin{itemize}
@@ -22,18 +22,18 @@ NOTE: The temporary branches will be deleted after each successful merge to the 
 \subsection {Policies}
 \begin{itemize}
 \item master\\ \\
-The 'master' branch will only contain Demo code. This is the code from the backend group which contains ONLY the fully tested and integrated stories.  \\\\Tags will be made here under the following convention:\\ \emph{SprintX.shortStoryName} \\\\
-This is a Jenkins build tool controlled area - No human user should be operating in this branch. \\Jenkins is responsible for  merging from 'develop' to 'master' at the end of a sprint- in order to keep the branches synchronized and provide a fresh clean start for each sprint from working demo code.\\
+The 'master' branch will only contain Demo code. This is the code which contains ONLY the fully tested and integrated stories.  \\\\Tags will be made here under the following convention:\\ \emph{SprintX.shortStoryName} \\\\
+This is a Jenkins build tool controlled area - No human user should be operating in this branch. \\Jenkins is responsible for  merging from 'release' to 'master' at the end of a sprint- in order to keep the branches synchronized and provide a fresh clean start for each sprint from working demo code.\\
 \item release\\ \\
-The 'release' branch will only contain individual stories which are completed and fully unit tested. Here we can pick and choose which stories to include in a specific demo. This branch is also a Jenkins build tool area. \\Jenkins is responsible for integration testing and merging between 'release' and 'master'
+The 'release' branch will only contain individual stories which are completed and fully unit tested. Here the team can pick and choose which stories to include in a specific demo. This branch is also a Jenkins build tool area. \\Jenkins is responsible for integration testing and merging between 'release' and 'master'
 \item develop\\ \\
-The 'develop' branch will contain all the code this is able to be compiled on the server and is where the human users will start their personal story branches. Also a Jenkins build tool area, the code here will be considered in a "Story done and compiles but not yet tested" state.\\ Jenkins is responsible for unit testing and merging between 'develop' and 'release'
+The 'develop' branch will contain all the code that is able to be compiled on the server and is where the human users will start their personal story branches. Also a Jenkins build tool area, the code here will be considered in a "Story done and compiles but not yet tested" state.\\ Jenkins is responsible for unit testing and merging between 'develop' and 'release'
 
 \item staging \\ \\
-The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. Also a Jenkins Build tool area, the code here will be considered in a story is in progress it may be done but it also may not compile. Jenkins will pull all the code from this branch and try to compile it, if it compiles then it will be merged with the 'develop' branch.
+The 'staging' branch will contain all the dirty code and is where the human users will push all their code when finished for the end of the day. This is also the branch where Jenkins is used. Jenkins will pull all new commits and try to compile it, if it compiles then it will be merged with the 'develop' branch. If not, Jenkins will notify the users who has commited changes since the last failing commit.
 
 \item SprintX.shortStoryName\\ \\
-The branch's name will contain the local working code for the specific sprint story followed by a short story name-typically the name written on the post it note for example: MSG\_Handler. A merge to the Develop branch will mean the story is considered done for the sprint but requires testing by integration tools and Jenkins. This branch will be deleted after the tests are passed and the a successful merge is complete.
+The branch's name will contain of the word 'Sprint' with the current sprint number appended followed by a short story name-typically the name written on the post-it note for example: Message\_Handler. A merge to the 'develop' branch will mean the story is considered done for the sprint but requires testing by integration tools and Jenkins. This branch will be deleted after the tests are passed and a successful merge is complete.
 \end{itemize}
 
-For instructions on how to utilize this workflow please see the attached Git\_Workflow pdf
+For instructions on how to utilize this workflow see Appendix \ref{gitworkflow}.

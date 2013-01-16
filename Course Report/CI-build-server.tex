@@ -1,9 +1,9 @@
 \subsection{Continuous Integration \& Build Server}
 
-We adopted a continuous integration server which allowed the developers to create special 'jobs' which will control the compilation, error reporting/blaming and source control. Other instances of this project used tools like buildbot but after a long and fruitless effort to make and configure buildbot properly we determined that buildbot was a waste of time and looked into a more powerful/user friendly CI server called Jenkins. 
+A continuous integration(CI) server was adopted which allowed the developers to create special 'jobs' which  controled the compilation, error reporting/blaming and source control. Other instances of this project used tools like buildbot but after a long and fruitless effort to make and configure buildbot properly the teams determined that buildbot was a waste of time and looked into a more powerful/user friendly CI server called Jenkins. 
 
-Jenkins is a CI tool with a HTTP interface that allows you to setup custom jobs for your project. Things like monitoring a version control system for changes or running command line arguments on the code in your project is easy and user friendly with Jenkins due to plenty of tutorials and resources available online. We used Jenkins to control both the ERNI and LISA project. 
+Jenkins is a CI tool with a HTTP interface that allows users to setup custom jobs for their project. Things like monitoring a version control system for changes or running command line arguments on the code in the project is easy and user friendly with Jenkins due to plenty of tutorials and resources available online. Jenkins controlled both the ERNI and LISA project. 
 
 Jenkins was particularly useful for blaming individuals who 'broke the build'. If Jenkins is configured with the email addresses of all people and a build job fails after someone has updated the source code then, Jenkins will send an email out notifying those who have broken the build and those who are affected(all other collaborators on the current code file which is broken).
 
-We have generated a document which explains how to setup and use Jenkins as we have done in this project. 
+Appendix C \ref{jenkins} describes in detail how Jenkins was setup for use in this project.
