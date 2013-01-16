@@ -1,8 +1,6 @@
 \section{Backend}
 
-The following section will describe how the NetInf NRS application will be evaluated and tested. One of the goals of the project was to show that the use of the new Network of Information protocol (NetInf) would be better in terms of bandwidth, speed and time compared to existing location based infrastructure. 
-
-The Erlang NetInf NRS application, along with the video stream was evaluated with the following set of tests. 
+The following section describes how the NetInf NRS application was evaluated and tested. 
 
 \subsection{Video streaming protocol evaluation}
 One of the problems discussed was reducing congestion when broadcasting content. This was solved by implementing an alternative way of sending chunked data as seen in Section \ref{sec:Chunked data streaming} according to the video streaming draft in Appendix \ref{VideoDraft}. In the following section this implementation is referred as the \textit{modified streaming}. 
@@ -45,7 +43,7 @@ The clients then get the stream NDO, added themselves as locator and published i
 \end{enumerate}
 
 \subsection{Stream results and comparison} 
-The Figure~\ref{fig:eval-stream-modvspure} shows that the pure NetInf streaming is faster when it comes to transferring all the chunks. This result is not that unexpected since the modified version have a lot of over head in this case, if it tries to get a chunk from another client which does not have them yet, this will yield in an 404 response and the client will need to try another source. While the pure NetInf will get a hit every time. 
+The Figure~\ref{fig:eval-stream-modvspure} shows that the pure NetInf streaming is faster when it comes to transferring all the chunks. This result is not that unexpected since the modified version have a lot of overhead in this case, if it tries to get chunks from another client which does not have them yet, this will yield in an 404 response and the client will need to try another source. While the pure NetInf will get a hit every time. 
  
 Comparing CPU usage in Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig:eval-stream-mod-cpu}, it shows that even with only five receiving nodes the central NRS running with the pure version is struggling with handling the requests while the CPU load of the modified version is almost not noticeable.
 
@@ -69,7 +67,6 @@ Comparing CPU usage in Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig
     	\caption{Central NRS CPU usage during modified streaming}
 	\label{fig:eval-stream-mod-cpu}
 \end{figure}
-
 
 
 \subsection{Notes on Interoperability}
