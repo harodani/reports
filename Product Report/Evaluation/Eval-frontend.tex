@@ -3,20 +3,24 @@ The evaluation of the Elephant browser and the NetInfService applications tries 
 
 \begin{enumerate}
 \item How much uplink bandwidth is saved?
+\item How much of content is used multiple times?
+\item How much of linked resources are dynamically generated?
 \item How much time does it take to retrieve web page?
 \end{enumerate}
 
 \subsection{Test Setup}
 
-The test setup consists of a set of web pages from which each of four Android phones will automatically retrieve 15 in a random order. Using the logging functionality of the applications, information about how (Internet, Bluetooth, NRS or Database) resources are retrieved, how many bytes each resource consists of and how long it take to retrieve are acquired.
+The first test setup consists of a set of web pages from which each of four Android phones will automatically retrieve 15 in a random order. Using the logging functionality of the applications, information about how (Internet, Bluetooth, NRS or Database) resources are retrieved, how many bytes each resource consists of and how long it take to retrieve are acquired. The results are meant to give an idea of the answer to questions 1 and 2.
 
 The web page sets are of sizes 15, 20, 25, 30 and 35. They are derived from the service Alexa \cite{alexa}, which is renowned for its web metrics. This service keeps track of the most visited web sites by country, and the top sites were used to create the sets.
 
 For the backend the setup for the tests consist of a Name Resolution Service that is reset between each test.
 
+The second test setup consisted of first retrieving all web pages from the set of 30 using one phone, and then repeat. The results are meant to give an idea of the answer to question 3.
+
 \subsection{Hardware}
 
-Tests are run on three Samsung Galaxy Nexus (TODO ref) phones and one HTC One X (TODO ref) phone using Android OS 4.1.1 Jellybean (TODO ref) that were provided by Ericsson.
+Tests are run on three Samsung Galaxy Nexus phones and one HTC One X phone using Android OS 4.1.1 Jellybean that were provided by Ericsson.
 
 For the backend the Name Resolution Service was run on a Intel Core 2 Quad CPU Q9400 @ 2.66GHz × 4 with 4 gigabytes of memory using Ubuntu 12.04 LTS.
 
