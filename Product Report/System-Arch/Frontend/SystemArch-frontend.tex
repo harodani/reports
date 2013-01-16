@@ -32,9 +32,9 @@ NetInfService is the first of two Android applications. It provides a NetInf nod
 	\label{fig:netinfserviceoverview}
 \end{figure}
 
-Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service,
+Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInfService,
 and provides the packages and/or source files, as well as some text and arrows describing the control flow.
-The digits in the connections between boxes illustrate the order of the actions throught the application flow.
+The digits on the connections between boxes illustrate the order actions are taken.
 
 
 \begin{figure}
@@ -165,7 +165,7 @@ The ResolutionController handles a number of ResolutionServices. Each Resolution
 
 \subsubsection{NameResolutionService}
 
-The NameResolutionService uses the HTTP convergence layer \cite{netinfproto} to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there.
+The NameResolutionService uses the Named Information URI \cite{ninames} and the HTTP convergence layer \cite{netinfproto} to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there.
 
 \subsubsection{LocalResolutionService}
 
