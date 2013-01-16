@@ -39,9 +39,12 @@ This is a manual test, where we would check if the web sites in our list are cor
 \subsubsection{Testing}
 The test setup consists of a set of web pages that we want to retrieve using four phones provided by Ericsson. The set of web pages were fetched from the service \textit{Alexa.com}, which is renowned for web metrics. This service keeps track of the most visited sites by country, and a set of 500 web sites was collected to serve as a test set. The phones will automatically access the web pages in a random order. Tests are run on three Nexus phones and one HTC phone.
 
-The backend setup for the tests was a Name Resolution Service with a list database that is stored in main memory. We chose to use the list database instead of the Riak database because it was more stable and easier to debug. 
+The backend setup for the tests was a Name Resolution Service with a list database that is stored in main memory, running on a Intel Core 2 Quad CPU Q9400 @ 2.66GHz × 4 with 4 gigabytes of memory. We chose to use the list database instead of the Riak database because it was more stable and easier to debug.
 
-Using the list database provided a problem for testing. The available space was limited 
+Using the list database provided a problem for testing. The available space was limited, and a test with 50 web sites crashed the Name Resolution Service. Therefore, we ran tests with 15, 20, 25, 30 and 35 websites being visited by our application. The crash was due to the amount of information (metadata) attached to each object stored in the database, and the object that is also stored in memory. Storing the object in memory allows the NRS to serve files, making the NRS to behave as caching node.
+
+Tests were run on 15th of January, 2013, with data collected from \textit{Alexa.com} at GMT 7:00.
+
 \subsubsection{Results}
 
 \subsubsection{Discussion}
