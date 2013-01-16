@@ -11,7 +11,7 @@ The evaluation of the Elephant browser and the NetInfService applications tries 
 
 \subsection{Test Setup}
 
-The first test setup consists of a set of web pages from which each of four Android phones will automatically retrieve in a random order. Using the logging functionality of the applications, information about how (Internet, Bluetooth, NRS or Database) resources are retrieved, how many bytes each resource consists of and how long it take to retrieve are acquired. The results are meant to give an idea of the answer to questions 1 and 2.
+The first test setup consists of a set of web pages which each of four Android phones will automatically retrieve in a random order. Using the logging functionality of the applications, information about how (Internet, Bluetooth, NRS or Database) resources are retrieved, how many bytes each resource consists of and how long it take to retrieve are acquired. Full put is enabled on all four phones because the answer to question 1 does not depend on which method of transfer is used. The test is repeated for one set size with full put turned off on all four phones to make sure Bluetooth works. The results are meant to give an idea of the answer to questions 1 and 2.
 
 The web page sets are of sizes 15, 20, 25 and 30. They are derived from the service Alexa \cite{alexa}, which is renowned for its web metrics. This service keeps track of the most visited web sites by country, and the top sites were used to create the sets.
 
@@ -39,13 +39,20 @@ This however means that the test is limited to using the free main memory of the
 
 % Table (or plot) of re-usage after period
 
-The results of test one can be seen in Figure \ref{fig:frontendtest2}. Each bar represents a specific set size and the colors show how much of the data was transferred with each technology.
+The results of test one using full put can be seen in Figure \ref{fig:frontendtest1}. Each bar represents a specific set size and the colors show how much of the data was transferred with each technology. The result when using Bluetooth instead can be seen in Figure \ref{fig:frontendtest1-bluetooth}
 
 \begin{figure}
 	\centering
 		\includegraphics[width=0.75\textwidth, angle=-90]{./img/plots.pdf}
-    	\caption{Results of Test 1}
+    	\caption{Results of Test 1 using full put}
 	\label{fig:frontendtest1}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics[width=0.75\textwidth, angle=-90]{./img/plots.pdf}
+    	\caption{Results of Test 1 using Bluetooth}
+	\label{fig:frontendtest1-bluetooth}
 \end{figure}
 
 The results of test two can be seen in Figure \ref{fig:frontendtest2}. The two leftmost bars represent the first repetition of the test and the two right most the second repetition.
