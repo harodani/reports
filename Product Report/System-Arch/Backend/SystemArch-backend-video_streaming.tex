@@ -15,7 +15,7 @@ http://localhost:8078/octets/ni%3A%2F%2F%2Fsha-256-64%3Babc
 The stream handler module \textit{nn\_stream\_handler} handles fetching and polling of chunked octets between different NetInf nodes.
 In both streaming implementations the logic for fetching the chunks is to shuffle the list of available locators and fetch all available chunks in the ICN. When there are no more chunks, the stream handler retries on a regular interval. After a defined number of retries it will finally terminate itself.  
 
-\subsubsection{HTTP client}
+\subsubsection{HTTP client handling}
 The \textit{nn\_http\_client\_handler} module is used to serve the HTML5 interface for NetInf Get, Publish and Search requests. It forwards these requests to the local NRS. The client runs on port 8079. The different interfaces that can be seen are:
 
 The interface for regular NetInf interaction, located at 
