@@ -14,9 +14,6 @@ The following test was conducted:
 
 The testing was done by transferring 500 chunks of bogus data between a number of different NetInf nodes running ERNI. All the receiving nodes started the transfer at the same time. To be able to publish N number of chunks in an easy and fast manner, the \textit{nn\_evaluation} module was implemented.
 
-
-%The backbone of the entire application, this is the main product which the client requested. It is important to explore how much better this implementation of NetInf performs compared to location centric services today. 
-
 \subsection{Pure video streaming evaluation setup}
 The nodes that were included in the pure version of the streaming were the following:
 Central NRS node, one stream source node that published all 500 NDOs to itself with \textit{fullput} set to True, then also published the NDO to the central NRS with \textit{fullput} false. The central NRS can not have the octets because otherwise it would provide all clients with the octects directly, hence prevent the network load to be more balanced.
@@ -42,10 +39,11 @@ The clients then get the stream NDO, added themselves as locator and published i
 \item increase the chunk number
 \end{enumerate}
 
-\subsection{Stream results and comparison} 
-The Figure~\ref{fig:eval-stream-modvspure} shows that the pure NetInf streaming is faster when it comes to transferring all the chunks. This result is not that unexpected since the modified version have a lot of overhead in this case, if it tries to get chunks from another client which does not have them yet, this will yield in an 404 response and the client will need to try another source. While the pure NetInf will get a hit every time. 
- 
-Comparing CPU usage in Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig:eval-stream-mod-cpu}, it shows that even with only five receiving nodes the central NRS running with the pure version is struggling with handling the requests while the CPU load of the modified version is almost not noticeable.
+\subsection{Results} 
+The Figure~\ref{fig:eval-stream-modvspure} shows that the pure NetInf streaming is faster when it comes to transferring all the chunks. 
+
+The CPU load of the central NRS was recorded with the built in system monitor, the result of the pure version is in Figure~\ref{fig:eval-stream-pure-cpu} and the modified in Figure~\ref{fig:eval-stream-mod-cpu}. 
+
 
 \begin{figure}[h!]
 	\centering
@@ -68,10 +66,14 @@ Comparing CPU usage in Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig
 	\label{fig:eval-stream-mod-cpu}
 \end{figure}
 
+\subsection{Discussion}
+As seen in Figure~\ref{fig:eval-stream-modvspure} the transfer of the chunks took less time using the pure streaming, this was not unexpected since the modified version have a lot of overhead in this case, if it tries to get chunks from another client which does not have them yet, this will yield in an 404 response and the client will need to try another source. While the pure NetInf will get a hit every time. 
+
+Comparing CPU load in Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig:eval-stream-mod-cpu}, it shows that even with only five receiving nodes the pure central NRS was under considerably high load, while the modified versions load was almost not noticeable. The CPU load on the pure NRS is mainly because of the number of database lookups. 
 
 \subsection{Notes on Interoperability}
 
-There already are existing implementations created by SAIL and Ericsson Research for the NetInf protocol. In the beginning of the product life-cycle the client requested the development team to evaluate the interoperability of this product and the others, however as the product evolved the client requested that the interoperability be left to them to evaluate and that this development team continue with evaluating the video streaming instead.
+There already are existing implementations created by SAIL and Ericsson Research for the NetInf protocol\citation{netinfproto}. In the beginning of the product life-cycle the client requested the development team to evaluate the interoperability of this product and the others, however as the product evolved the client requested that the interoperability be left to them to evaluate and that this development team continue with evaluating the video streaming instead.
 
 Therefore the development team did not evaluate interoperability, but there is confidence that with minor tweaking of the code (due to differences in the various draft versions of the NetInf protocol spec) this product and others will become interoperable.
 
