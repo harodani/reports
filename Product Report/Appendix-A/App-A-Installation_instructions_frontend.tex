@@ -1,9 +1,8 @@
-In this section we will take a look at how to configure
-our environment to run our application on an Android device. 
+This section will describe how to configure the environment to run the frontend application on an Android device. 
 This description includes configuring Eclipse with Android in order to continue development. 
-We assume that you already have the Java SDK installed.
+The guide assumes that the Java SDK is installed.
 
-For our project we have been working with:
+The frontend team have been working with:
 \begin{itemize}
 \item Eclipse Indigo Service Release 2
 \item Android Version 4.1, API Level 16
@@ -11,28 +10,27 @@ For our project we have been working with:
 
 \subsection{Configuring Eclipse with Android}
 There are two ways to set up Eclipse with Android.
-If you already have Eclipse installed, follow
+If Eclipse is installed, follow
 the instructions "Installing the Eclipse Plugin" 
 at \cite{android} in order to configure the 
-Android support for your Eclipse environment.
+Android support for the Eclipse environment.
 
-In case you don't have Eclipse installed yet, Android
-lately released a Bundle that contains Eclipse and all 
+If Eclipse is not installed yet, Android has released a Bundle that contains Eclipse and all 
 necessary tools for developing Android applications.
 This bundle can be found at "Get the Android SDK" at \cite{android}.
 
 \subsection{Installing and debugging the application}
-The latest version of our code can be found on Github \footnote{Project CS Frontend application. \url{https://github.com/project-cs-2012}}.
+The latest version of the frontend code can be found on Github \footnote{Project CS Frontend application. \url{https://github.com/project-cs-2012}}.
 
-In order to run the application on your Android device, connect the device
-to your computer, import the project and simply run it in Eclipse. 
+In order to run the application on an Android device, connect the device
+to a computer, import the project and simply run it in Eclipse. 
 Eclipse should recognize the device on its own and immediately offer a list
 of available devices, on which the application can be installed on.
 
-For debugging, you furthermore need to enable USB debugging on your device,
-which can be found under the settings menu of your device.
+For debugging, USB debugging on the device must be enabled.
+This setting can be found under the settings menu of the device.
 
-Note that your system might not detect some devices. We ran into that issue
+Note that the system might not detect some devices. This issue occurred with
 using the HTC ONE x. In that case, a preliminary set up needs to be done.
 This set up includes creating a udev rules file. More information
 can be found under \textbf{"Setting up a Device for Development"} at

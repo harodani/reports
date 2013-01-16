@@ -8,7 +8,7 @@ Currently the dynamic content problem is ignored. Given a traditional web URL th
 
 \subsubsection{Search}
 
-The Elephant browser relies heavily on NetInf searches as described in Sections \ref{sec:Elephant Web Browser} and \ref{sec:Elephant}. Currently the time needed to perform a search quickly increases as the number of published NDOs increase. The NRS supports two ways of saving published NDOs either using an Erlang list or a Riak database. Preliminary tests had problems with increasing search times using both these approaches. It is possible that the slowdown is caused by the NetInfService or Elephant application for some reason. Investigation into the reason behind this slowdown is required to improve the performance of the Elephant browser.
+The Elephant browser relies heavily on NetInf searches as described in Sections \ref{sec:Elephant Web Browser} and \ref{sec:Elephant}. Currently the time needed to perform a search quickly increases as the number of published NDOs increase. The NRS supports two ways of storing published NDOs either using an Erlang list or a Riak database. Preliminary tests had problems with increasing search times using both these approaches. It is possible that the slowdown is caused by the NetInfService or Elephant application for some reason. Investigation into the reason behind this slowdown is required to improve the performance of the Elephant browser.
 
 \subsubsection{Delete Functionality}
 
@@ -16,25 +16,25 @@ Currently the NetInf delete functionality is not provided by the NetInfService. 
 
 \subsubsection{NetInfService}
 
-NetInfService was implemented as its own Android application which is supposed to run in the background. While this makes it easy to create other applications using the provided functionality there are currently some problems with the application randomly stopping and not resuming until it is brought to the front. The suspected reason is that the Android OS might pause applications in the background to save system resources or stop them when system settings are changed and then restart them when they are brought to the front. If this is an unavoidable problem for Android applications running in the background then NetInfService needs to be changed, perhaps into an Android Service. More investigation is required.
+NetInfService was implemented as its own Android application which is supposed to run in the background. While this makes it easy to create other applications using the provided functionality there are currently some problems with the application randomly stopping and not resuming until it is brought to the front. The suspected reason is that the Android OS might pause applications in the background to save system resources or stop them when system settings are changed and then restart them when they are brought to the front. If this is an unavoidable problem for Android applications running in the background then NetInfService needs to be changed, perhaps into an Android Service.
 
 \subsection{NetInf NRS}
 
 \subsubsection{Precaching}
 
-If the NetInf network starts without any web content cached there will be a lot of Internet access in the beginning while the content is entering the network. This could be prevented by precaching content in the NRS. By investigating which web pages are frequently accessed and when they are accessed, the NRS could download these popular web pages in advance. If the search requests always use the NRS this information will be continuously available to the NRS and it could automatically download pages it expects to be accessed when there is bandwidth to spare.
+If the NetInf network starts without any web content cached there will be a lot of Internet access in the beginning while the content is entering the network. This could be prevented by precaching content in the NRS. By investigating which web pages are frequently accessed and when they are accessed, the NRS could download these popular web pages in advance. If the search requests always use the NRS this information will be continuously available to the NRS and it could automatically download the pages it expects will be accessed when there is bandwidth to spare.
 
 \subsubsection{Access Control}
 
-Currently any user can publish his content on the NRS. One functionality for the future could be to implement some kind of access control mechanism. Only authorized users would be able to publish on a particular NRS and only a partiular group of users would be able to access the published content. 
+Currently any user can publish thier content on the NRS. One functionality for the future could be to implement some kind of access control mechanism. Only authorized users would be able to publish on a particular NRS and only a partiular group of users would be able to access the published content. 
 
 \subsubsection{Interoperability}
 
-Another interesting task for the future could be to test the interoperability between different NetInf implementations. There are different implementations of NetInf in different programming languages. They should be able to communicate with each other if they have been implemented using the same protocol. 
+Another interesting task for the future could be to test the interoperability between different NetInf implementations. There are different implementations of NetInf in different programming languages. They should be able to communicate with each other if they have been implemented using the same version of the protocol draft. 
 
 \subsubsection{Handle large file}
 
-The current system has some unexpected behaviour when files transfered exceed 10 mega bytes. An improvement to the application could be to make it more stable when handling larger files.
+The current system has some unexpected behaviour when files transferred exceed 10 mega bytes. An improvement to the application could be to make it more stable when handling larger files.
 
 \subsubsection{Database and Bluetooth convergence layer}
 
@@ -43,3 +43,17 @@ Other suggestions for future work include testing the application with another d
 \subsection{Security}
 
 Security is a field that was out of scope for this project but is an area that would be interesting to look into. Questions like how to handle private data within the network amongst others belong here.
+
+\subsubsection{NRS required folder creation}
+
+Currently the NetInf NRS requires a few environment folders(logs and files) to be present without crashing the system. The product relies on a separate "make" file which creates these folders. In the future the folder creation can be moved to be within the NetInf NRS product.
+
+\subsubsection{Polling Logic}
+
+The polling logic needs to be implemented in the video streaming client, this is how often the receiver should get a new chunk or check if a new chunk exists.  
+
+\subsection{General}
+
+The following section describes a list of ideas on the changes that can be made to the ICN draft as well as some general ideas on how to increase the use and acceptance of ICN in the world. 
+
+
