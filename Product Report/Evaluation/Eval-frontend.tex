@@ -1,2 +1,38 @@
-\subsection{Frontend}
-Filler for front end testing and evaluation\\
+\section{Frontend}
+
+The evaluation of the Elephant browser and the NetInfService applications tries to answer the following two core questions:
+
+\begin{enumerate}
+\item How much uplink bandwidth is saved?
+\item How much time does it take to retrieve web page?
+\end{enumerate}
+
+\subsection{Test Setup}
+
+The test setup consists of a set of web pages from which each of four Android phones will automatically retrieve 15 in a random order. Using the logging functionality of the applications, information about how (Internet, Bluetooth, NRS or Database) resources are retrieved, how many bytes each resource consists of and how long it take to retrieve are acquired.
+
+The web page sets are of sizes 15, 20, 25, 30 and 35. They are derived from the service Alexa \cite{alexa}, which is renowned for its web metrics. This service keeps track of the most visited web sites by country, and the top sites were used to create the sets.
+
+For the backend the setup for the tests consist of a Name Resolution Service that is reset between each test.
+
+\subsection{Hardware}
+
+Tests are run on three Samsung Galaxy Nexus (TODO ref) phones and one HTC One X (TODO ref) phone using Android OS 4.1.1 Jellybean (TODO ref) that were provided by Ericsson.
+
+For the backend the Name Resolution Service was run on a Intel Core 2 Quad CPU Q9400 @ 2.66GHz × 4 with 4 gigabytes of memory using Ubuntu 12.04 LTS.
+
+\subsection{Limitations}
+
+The backend Name Resolution Service supports two types of databases to use for storing published NDOs. The first uses Erlang lists stored in main memory, the other uses a Riak database. The list database was chosen for this test as it is more well tested and easier to work with.
+
+This however means that the test is limited to using the free main memory of the system. A preliminary test using a set of 50 web pages caused the system to run out of memory, resulting in a crash. Therefore, the size of the sets are limited to a maximum of 35 web pages.
+
+\subsubsection{Results}
+% Plot of usage
+
+% Table comparing time of access to each resource
+
+% Table (or plot) of re-usage after period
+
+\subsubsection{Discussion}
+
