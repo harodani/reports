@@ -14,12 +14,12 @@ The client requested the development team to look into the application of NetInf
 \item Comparison between both implementations of the NetInf Video streaming
 \end{itemize}
 
-The testing was done by transfer 500 chunks of bogus data between a number of different NetInf nodes running Erni. All the receiving nodes started the transfer at the same time. To be able to publish N number of chunks, the \textit{nn\_evaluation} module was implemented.
+The testing was done by transfer 500 chunks of bogus data between a number of different NetInf nodes running Erni. All the receiving nodes started the transfer at the same time. To be able to publish N number of chunks in an easy and fast manner, the \textit{nn\_evaluation} module was implemented.
 
 %The backbone of the entire application, this is the main product which the client requested. It is important to show here just how much better this implementation of NetInf is compared to location based services used today. 
 
 \subsubsection{Pure video streaming evaluation setup}
-The nodes that where included in the pure version of the streaming was the following. 
+The nodes that were included in the pure version of the streaming was the following. 
 Central NRS which all NDOs the without octects where published. 
 One source node that publish all 500 NDOs to itself with \textit{fullput} set to true, then also publish the NDO to the central NRS with \textit{fullput} false. The central NRS can not have the octets because otherwise it would provide all clients with the octects directly, hence prevent the network load to be more balanced.
 Five clients nodes then got each chunk by:
@@ -32,7 +32,7 @@ Five clients nodes then got each chunk by:
 \end{enumerate}
 
 \subsubsection{Modified video streaming evaluation setup}
-In this setup the nodes present was one that served as both the source and central NRS and five clients. The source first published the stream NDO to itself, then use the content dispatcher to put all the chunks in the storage.
+In this setup the nodes present was one that served as both the source and central NRS and five client nodes. The source first published the stream NDO to itself, then use the content dispatcher to put all the chunks in the storage.
 The clients then get the stream NDO, add them self as locator and publish it. To retrieve the chunks each client need to:
 \begin{enumerate}
 \item append the current chunk number to the NDO name.
@@ -43,7 +43,7 @@ The clients then get the stream NDO, add them self as locator and publish it. To
 \end{enumerate}
 
 \subsubsection{Stream results and comparison} 
-The Figure~\ref{fig:eval-stream-modvspure} shows that the pure NetInf streaming is more efficient when it comes to transferring all the chunks. This result is not that unexpected since the modified version have a lot of over head, if it tries to get a chunk from an other client which does not have them yet, this will yield in an 404 response and the client will need to try another source. While the pure NetInf will get a hit every time. 
+The Figure~\ref{fig:eval-stream-modvspure} shows that the pure NetInf streaming is more efficient when it comes to transferring all the chunks. This result is not that unexpected since the modified version have a lot of over head in this case, if it tries to get a chunk from an other client which does not have them yet, this will yield in an 404 response and the client will need to try another source. While the pure NetInf will get a hit every time. 
  
 When comparing Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig:eval-stream-mod-cpu}, it shows that even with only five receiving nodes the central NRS is struggling with the searches. While the CPU load of the modified version is almost not noticeable.  
 
