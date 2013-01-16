@@ -19,7 +19,7 @@ For the backend the setup for the tests consist of a Name Resolution Service tha
 
 The second test setup consisted of first retrieving all web pages from the set of 15 using one phone, and then repeat. The results are meant to give an idea of the answer to question 3. The test is repeated two times, with the Name Resolution Service reset in between. 
 
-A third test is performed retrieving the 15 web page set, once with full put enabled on all phones and once with it disabled. This is done to test the Bluetooth functionality.
+A third test is performed retrieving the 15 web page set, once with full put enabled on all phones, with full put enabled on two phones and once with it disabled. This is done to test the Bluetooth functionality. Our goal is to simulate the scenarios where there is no peer-to-peer interaction, there is limited peer-to-peer interaction and with full peer-to-peer interaction, respectively.
 
 \subsection{Hardware}
 
@@ -84,7 +84,7 @@ The results of the third test can be seen in Figure \ref{fig:frontendtest3}
 
 \begin{figure}
 	\centering
-		\includegraphics[width=0.75\textwidth, angle=-90]{./img/bt.pdf}
+		\includegraphics[width=0.75\textwidth, angle=-90]{./img/half_bt.pdf}
     	\caption{Results of Test 3}
 	\label{fig:frontendtest3}
 \end{figure}
