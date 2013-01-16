@@ -1,10 +1,15 @@
 \subsection {Plug N' Play Database Wrappers}
+\label{PNP}
+The Erlang NetInf NRS includes functionality to allow for run-time database switching as well as providing an easy way to add interfaces to existing databases. Currently support for Riak is added, as well as a default Erlang list 'database' implementation. The database interface is designed to be very intuitive to implement. Figure \ref{fig:dbfig} shows the interface.
 
-The Erlang NetInf NRS includes functionality to allow for real-time database switching as well as providing an easy way to add interfaces to existing databases. Currently support for Riak is added, as well as a default Erlang list 'database' implementation. The database interface is designed to be very intuitive to implement.
+\begin{figure}[h!]
+	\centering
+\centerline{\includegraphics{./img/database_api.png}}
+\caption{Database Interface}
+\label{fig:dbfig}
+\end{figure}
 
-\includegraphics[scale=0.5]{./img/database_api.png}
-
-\subsection {Setup of Module}
+\subsection {Setup of Database Module}
 
 All modules which wish to implement a database connection will use the custom nn\_database behaviour.
 
@@ -29,7 +34,7 @@ Remember the init should return an identifier to the persistent process of the s
     	{ok, ReturnNetInfObj::nn_proto:proto()}
 \end{verbatim}
 
-Takes the NetInfObject and returns: {ok,NewObject} where NewObject is the NDO created when merging the object being published with an object with the same name in the database, or, if there was no object with that name in the database, NewObject is the object being published.
+Takes the NetInfObject and returns: \{ok, NewObject\} where NewObject is the NDO created when merging the object being published with an object with the same name in the database. If there was no object with that name in the database, NewObject is the object being published.
 
 \textbf{Get}
 
@@ -38,7 +43,7 @@ Takes the NetInfObject and returns: {ok,NewObject} where NewObject is the NDO cr
     	{ok, nn_proto:proto()} | {ok, no_match}
 \end{verbatim}
 
-Takes the NetInf Name of the object and returns: {ok, Data} where Data is the NDO that was found or no\_match if not found.
+Takes the NetInf Name of the object and returns: \{ok, Data\} where Data is the NDO that was found or no\_match if not found.
 
 \textbf{Unpublish}
 
@@ -47,7 +52,7 @@ Takes the NetInf Name of the object and returns: {ok, Data} where Data is the ND
     	{ok, ReturnNetInfObj::nn_proto:proto()} | {ok, no_match}
 \end{verbatim}
 
-Takes the NetInfObject and returns {ok, ReturnNetInfObj} where ReturnNetInfObj is the NDO entry that was deleted from the specified database.
+Takes the NetInfObject and returns \{ok, ReturnNetInfObj\} where ReturnNetInfObj is the NDO entry that was deleted from the specified database.
 
 \textbf{Search}
 
@@ -58,5 +63,12 @@ Takes the NetInfObject and returns {ok, ReturnNetInfObj} where ReturnNetInfObj i
 
 Takes a Erlang list of search keywords and returns a list of the NDO's which match those key words.
 
+\textbf{Flush}
 
-Please see the module src/nn\_database\_list as an example of the wrapper implementation for use with a 'list' database in the repository.
+\begin{verbatim}
+flush() -> ok
+\end{verbatim}
+
+Deletes all the entries in the database.   
+
+Please see the module src/nn\_database\_list as an example of the wrapper implementation for use with a 'list' database in the source code.

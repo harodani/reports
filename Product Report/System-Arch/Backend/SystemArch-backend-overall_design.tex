@@ -2,9 +2,9 @@
 
 There are two distinct process types: persistent and non-persistent. The persistent processes will run for the entire uptime of the system whereas the lifetime of a non-persistent process is the duration of its given task. Figure \ref{fig:processhi} below shows the current system design.
 
-\begin{figure}[h!]
+\begin{figure}
 	\centering
-\includegraphics[scale=0.6]{./img/process_hierarchy.png}
+\centerline{\includegraphics[width=1.4\textwidth]{./img/process_hierarchy.png}}
 \caption{Current system design}
 \label{fig:processhi}
 \end{figure}
@@ -68,6 +68,13 @@ NetInf describes a Publish message which consists of the following fields:
 
 \subsubsection{Publish Message Workflow}
 
+\begin{figure}
+	\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/seq_pub.png}}
+\caption{Publish Message workflow}
+\label{fig:publishfig}
+\end{figure}
+
 A requester would like to share information. Using an external client the requester sends a NetInf Publish Request message with the mandatory fields set as described above through a supported convergence layer(HTTP for example). The Erlang NetInf NRS will then receive the message and create a 'message' record(see section: \ref{NDO-message}).
 
 A convergence layer handler(CL handler) is spawned and receives the request.
@@ -81,7 +88,7 @@ The Event Handler will then read the NDO and determine if a Content Handler(CH) 
 
 The Storage module will call the appropriate function for the database(through the functions defined in the Database Wrapper nn\_database). In this case the database will store the published NDO. If a NDO with the same name exists, the two NDO's are merged and the result is stored.
 
-Once the NDO is stored in the database a message is sent back through the chain of waiting processes. This occurs until the Message formatter can create a response containing the NDO that was stored and any CL specific response codes. Note that any process' that were temporarily spawned will kill themselves after the job is complete. Figure XX shows the flow of communication for Publish requests.  
+Once the NDO is stored in the database a message is sent back through the chain of waiting processes. This occurs until the Message formatter can create a response containing the NDO that was stored and any CL specific response codes. Note that any process' that were temporarily spawned will kill themselves after the job is complete. Figure \ref{fig:publishfig} shows the flow of communication for Publish requests.  
 
 
 \subsubsection{Get}
@@ -98,7 +105,14 @@ NetInf describes a Get message which consists of the following fields:
 
 \subsubsection{Get Message Workflow}
 
-A requester would like to retrieve information, using an external client the requester sends a NetInf Get request(assuming they know the name of the NDO they are looking for) in the format described above. The process is similar to the publish, until the NDO is passed to the event handler. The event handler will call the database to lookup the NDO using the URI field. If found the NDO will be returnd back through the system to the Message Formatter in order to construct the appropriate response message. However, if the NDO is not found a Message Forwarder will be spawned and the NDO request is broadcasted out on the UDP CL. If there are other Erlang NetInf NRS' on the network a UDP response packet will be sent and the original NRS which forwarded the request will eventually respond to the requester with the NDO or timeout. Figure XX shows the flow of communication for Get requests.
+\begin{figure}
+	\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/backend_seq_diagram_GET.png}}
+\caption{Get Message workflow}
+\label{fig:getfig}
+\end{figure}
+
+A requester would like to retrieve information, using an external client the requester sends a NetInf Get request(assuming they know the name of the NDO they are looking for) in the format described above. The process is similar to the publish, until the NDO is passed to the event handler. The event handler will call the database to lookup the NDO using the URI field. If found the NDO will be returnd back through the system to the Message Formatter in order to construct the appropriate response message. However, if the NDO is not found a Message Forwarder will be spawned and the NDO request is broadcasted out on the UDP CL. If there are other Erlang NetInf NRS' on the network a UDP response packet will be sent and the original NRS which forwarded the request will eventually respond to the requester with the NDO or timeout. Figure \ref{fig:getfig} shows the flow of communication for Get requests.
 
 \subsubsection{Search}
 
@@ -113,4 +127,11 @@ NetInf describes a Search message which consists of the following fields:
 
 \subsubsection{Search Message Workflow}
 
-A requester would like to retrieve information but they does not know the name of the NDO. A NetInf search request can be sent to the Erlang NetInf NRS to retrieve a list of NDO names and the metadata which match a particular criteria(search tokens). The process is similar to both the Get and the Publish however the event handler calls the appropriate search function in the attached database. If no match is found the request is automatically forwarded on the UDP CL where the same procedure takes place. If a match is found, a response is created  and sent back to the original CL handler. Figure XX shows the flow of communication for  Search requests.
+\begin{figure}
+	\centering
+\centerline{\includegraphics[width=1.4\textwidth]{./img/backend_seq_diagram_SEARCH.png}}
+\caption{Search Message workflow}
+\label{fig:searchfig}
+\end{figure}
+
+A requester would like to retrieve information but they do not know the name of the NDO. A NetInf search request can be sent to the Erlang NetInf NRS to retrieve a list of NDO names and the metadata which match a particular criteria(search tokens). The process is similar to both the Get and the Publish however the event handler calls the appropriate search function in the attached database. If no match is found the request is automatically forwarded on the UDP CL where the same procedure takes place. If a match is found, a response is created  and sent back to the original CL handler. Figure \ref{fig:searchfig} shows the flow of communication for  Search requests.

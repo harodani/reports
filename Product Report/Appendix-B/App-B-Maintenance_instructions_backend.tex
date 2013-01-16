@@ -1,12 +1,12 @@
-The following section describes the maintenance and default settings of the ERNI teams NetInf NRS as well as the NetInf Video Streaming.
+The following section describes the maintenance and default settings of the backend team's NetInf NRS as well as the NetInf Video Streaming.
 
 \subsection{Default Application Settings}
 
 The NetInf NRS application is controlled using one of two methods, first through the Erlang application src file(netinf\_nrs.app) found in the netinf\_nrs/src directory. The second from the configuration files loaded at run time from the configs directory. 
 
-By default the following settings are used when you do not specify on the Erlang command line which config file to use, please refer to section \ref{Meaning of the config values} to understand what each setting is used for. 
+By default the following settings are used when there is no specification on the Erlang command line which config file to use, please refer to section \ref{Meaning of the config values} to understand what each setting is used for. 
 
-In short, the list database will be attached to the instance of the Erlang NetInf NRS.
+In short, the Erlang NetInf NRS will be started with the list database.
 
 \begin{description}
 \item[database]
@@ -29,11 +29,11 @@ off
 
 \subsection {Development Environment}
 
-To those wishing to continue the development of the NetInf NRS and the NetInf Video Streaming. The following section details how our development environment was set up. 
+To those wishing to continue the development of the Erlang NetInf NRS and the NetInf Video Streaming. The following section details how the development environment was set up. 
 
 Please note that the applications were developed on the Ubutnu 12.04 LTS platform, deviating from this may cause the application to behave in unexpected ways.
 
-The recommended editor used was emacs with the erlang-mode, this editor and mode can be installed using the following commands:
+The recommended editor used was Emacs with the erlang-mode, this editor and mode can be installed using the following commands:
 
 \begin{itemize}
 \item sudo apt-get install emacs
@@ -44,26 +44,26 @@ Useful emacs commands include:
 
 \begin{itemize}
 \item ALT+X \\
-sets up emacs for the meta-command mode. Here you can enter the erlang-mode by typing
+Sets up Emacs for the meta-command mode. Erlang-mode can be set by typing
 ALT+X erlang-mode
+\item CTRL+X+F
+Opens a file or create a file. 
 \item CTRL+X+S \\
 Emacs quick short cut for saving files
 \item CTRL+C+K \\
 Emacs quick short cut for compiling and saving Erlang files
 \item CTRL+X 1-3 \\
-Emacs quick short for dividing the windows into 1 whole window, horizontally or vertically.
+Emacs quick short for dividing the windows into 1 whole window(1), horizontally(2) or vertically(3).
 \end{itemize}
 
 Please note that Emacs has auto-completion for commands when pressing tab. Other useful tips include Erlang-mode skeletons which allow the developer to import comment sections and whole skeletons for generic servers and behaviours.
 
-In addition to running the NetInf NRS developers should note that Erlang comes with a utility to monitor the processes spawned in applications, please use the following commands to invoke the appmon utility in the Erlang virtual machine.
+In addition to running the NetInf NRS developers should note that Erlang comes with a utility to monitor the processes spawned in applications called AppMon. To start AppMon, start an Erlang shell and use the following command.
 
 \begin{verbatim}
-erl -pa ebin deps/*/ebin -configs/list  - enter the first line in the terminal
-appmon:start(). -enter the following lines in the erlang 
-				 shell that starts after the above command
-netinf_nrs:start().
+appmon:start(). 
 \end{verbatim}
+
 
 \subsection {Code and folder structure}
 
@@ -71,23 +71,23 @@ The NetInf NRS and the NetInf Video Streaming application are organized in the f
 
 \begin{description}
 \item [netinf\_nrs]
-The main folder which holds the code, config, make and the important files for the application.
+The main folder which holds the following folders as well as the other important files for the application.
 \item [configs]
 The folder which contains all the configuration files for the NetInf NRS application. Please place all the new configuration files here. 
 \item [curludp]
 This folder contains a text file which the is read from the udp\_test.sh. It has no other uses.
 \item [deps]
-This folder is created automatically from running the rebar( or the script, which invokes makes and eventually rebar). It contains all the dependency code required for libraries that were used in the NetInf NRS application. 
+This folder is created automatically by running the rebar(or the script, which invokes makes and eventually rebar). It contains all the dependency code required for libraries that were used in the NetInf NRS application. 
 \item [doc]
-This folder is created automatically from running the rebar doc command (see section fix ref here below). Use the index.html file to get to the first page of the documentation. Please note that this is normally not present unless you run the doc command.
+This folder is created automatically by running the rebar doc command (see \ref{bdoc}). Use the index.html file to get to the first page of the documentation. Note that this is normally not present unless the doc command has been run.
 \item [ebin]
 This folder contains all the compiled Erlang beam files, this is where the Erlang virtual machine will look for the compiled code modules.
 \item [files]
-This folder contains all the stored binary content(NDO cache). The NetInf NRS will look here and determine if it has the content or not if the NRS recieves a get message, alternatively if the NRS receives a publish message with binary octets it will save it here. This folder is required for the NRS to start properly.
+This folder contains all the stored binary content(NDO cache). The NetInf NRS will look here and determine if it has the content or not if the NRS recieves a get message, alternatively if the NRS receives a publish message with binary octets it will save it here. This folder is required for the NRS to start properly and will be created using the make target "set\_env\_folders".
 \item [logs]
-This folder contains all the logging files, it also contains a folder named old. The logger service in the NRS will create a text file with information about the NRS and current activities here up to a default size of 10MB (may be changed in the nrs\_logger.erl file in the src directory). This folder is required for the NRS to start properly.
+This folder contains all the logging files, it also contains a folder named old. The logger service in the NRS will create a text file with information about the NRS and current activities here up to a default size of 10MB (may be changed in the nrs\_logger.erl file in the src directory). This folder is required for the NRS to start properly, this folder will also be created using the make target "set\_env\_folders"
 \item [resources]
-This folder contains all the resources for the HTML client interface for the NetInf NRS video streaming.
+This folder contains all the resources associated with the HTML client interface for the NetInf NRS video streaming.
 \item [src]
 This folder contains all the source code for both the NetInf NRS and the video streaming.
 \end{description}
@@ -96,66 +96,66 @@ Please note that inside the main netinf\_nrs folder are several files consisting
 
 \begin{description}
 \item[Makefile]
-This is the make file with several targets shown below. It is primarily used for compiling the NetInf Nrs project and invoked now by the main netinf\_nrs script. 
+This is the make file with several targets shown below. It is primarily used for compiling the NetInf Nrs project and invoked by the main netinf\_nrs script. 
 \begin{itemize}
 \item all \\
-Creates the required folders for the environment, compiles both erlang source code and the json c++ and finally runs eunit but this does not start the NRS.
+Creates the required folders for the environment, compiles both erlang source code and the JSON c++ and finally runs eunit but this does not start the NRS.
 \item all\_no\_test \\
 Same as the above, however it does not invoke the eunit tests.
 \item eunit \\
 Runs the eunit tests using the rebar and skips all the dependency tests(only tests NetInf NRS).
 \item integration\_test \\
-compiles the Erlang source code and the dependencies if need be and then runs only the integration\_test code.
+Compiles the Erlang source code and the dependencies if need be and then runs only the integration\_test code.
 \item integration\_test\_riak \\
-Same as the above but will attach the riak database to the Erlang NetInf NRS instance and run the integration\_test code on that.
+Same as the above but will attach the Riak database to the Erlang NetInf NRS instance and run the integration\_test code on that.
 \item makec \\
-Compiles only the c++ json dependency code in the deps folder. 
+Compiles only the c++ JSON dependency code in the deps folder. 
 \item set\_env\_folders \\
 First removes the following  required folders: logs and files, then re-creates them.
 \item compile \\
-First tests if the deps folder already exists then compiles the dependencies, otherwise it will get all the required dependencies and then compile them.
+First tests if the "deps" folder already exists then compiles the dependencies, otherwise it will download all the required dependencies and then compile them.
 \item compile\_deps \\
-cleans the deps folder then downloads all the dependencies again and compiles them.
+Cleans the "deps" folder then downloads all the dependencies again and compiles them.
 \item start\_script\_riak \\
-Runs the steps in the all\_no\_test target then starts the NetInf NRS with the riak database attached.
+Runs the steps in the all\_no\_test target then starts the NetInf NRS with the Riak database attached.
 \item start\_script \\
 Runs the steps in the all\_no\_test target then starts the NetInf NRS with the default list database attached.
 \item clean \\
-removes the environment folders (logs and files) and removes the ebin compiled folders as well as the crash dump if the Erlang virtual machine crashed.
+Removes the environment folders (logs and files) and removes the ebin compiled folders as well as the crash dump if the Erlang virtual machine has crashed previously.
 \end{itemize}
 \item[rebar.config]
-This file defines all the settings for rebar in this particular project. The dependencies as well as options for eunit and various plugins to rebar can be configured.
+This file defines all the settings for rebar in this particular product. The dependencies as well as options for eunit and various plugins to rebar can be configured.
 \item[udp\_test.sh]
-This file is a script for testing the UDP convergence layer. Please note it is best tested with the discovery off in the config file. You must have at least two different computers to run these tests. All instructions are in the script. 
+This file is a script for testing the UDP convergence layer. Please note it is best tested with the discovery off in the config file. At least two different computers are required to run these tests. All instructions are in the script. 
 \item[netinf\_nrs.sh]
-This file is the main setup/install and run script. Please use this to install all the required components on the machine to ensure maximum compatibility. More details about this script can been seen in \ref{Appendix-A/App-A-Installation_instructions_backend.tex}
+This file is the main setup/install and run script. Please use this to install all the required components on the machine to ensure maximum compatibility. More details about this script can been seen in \ref{backend-install-script}
 \end{description}
 
 \subsection {NetInf NRS modules}
 
-The main code modules are located in the /src directory of the main folder. Each file has comments inside which can be generated into documentation please see subsection \ref{Generating documentation}
+The main code modules are located in the "src" directory of the main folder. Each file has comments inside which can be generated into documentation please see subsection \ref{bdoc}
 
 \begin{description}
 \item[Erlang-application file]
-Erlang applications require a definition file in order for the Erlang virtual machine to be able to understand which modules need to be preloaded and what configurations if any need to be supplied to the application
+Erlang applications require a definition file in order for the Erlang virtual machine to be able to understand which modules need to be preloaded and what configurations if any need to be supplied to the application.
 \begin{itemize}
-\item netinf\_nrs.app.src - this file gets read by the Erlang virtual machine at compile time. Developers can set various options for the default settings in the "env" section of the file.
+\item netinf\_nrs.app.src - This file gets read by the Erlang virtual machine at compile time. Developers can set various options for the default settings in the "env" section of the file.
 \end{itemize}
 \item[Supervisors]
 Erlang uses supervisors to organize which process must stay alive for a application to function as intended, below is a brief description of all the supervisors required in the NetInf NRS application
 \begin{itemize}
-\item nn\_sup - This is the main supervisor which starts the sub, msg id, and client supervisors as well as the storage, discovery(deprecated), logger, stats and the udp handler.
-\item nn\_sub\_supervisor - This is the sub supervisor. It is responsible for starting the following processes: event\_handler, message\_handler, content\_handler, http\_forwarder, udp\_forwarder and finally the content\_transfer\_handler.
+\item nn\_sup - This is the main supervisor which starts the persistent processes mainly: sub, msg id, and client supervisors as well as the storage, discovery(deprecated), logger, stats and the udp handler.
+\item nn\_sub\_supervisor - This is the sub supervisor. It is responsible for starting the following non-persistent processes: event\_handler, message\_handler, content\_handler, http\_forwarder, udp\_forwarder and finally the content\_transfer\_handler.
 \item nn\_client\_supervisor - This is the client supervisor. It is responsible for starting the http client stream handler. 
 \item nn\_msgid\_sup - This is the message id supervisor. It is responsible for starting the modules associated with message id storage.
 \end{itemize}
 \item[Convergence-Layers]
-As stated in section \textbf{insert section numbers here} the application was designed to be modular, the idea of convergence-layers allowed the application to group three distinct modules together to create the convergence-layer in erlang.
+As stated in section \ref{CL} the application was designed to be modular, the idea of convergence-layers allowed the application to group three distinct modules together to create the convergence-layer in Erlang.
 \begin{itemize}
-\item nn\_http\_handler - This module contains code to process and send/recieve http requests from the outside world(using the cowboy library. It is the first part of the HTTP convergence layer.
-\item nn\_http\_forwarder - This module contains code to send and recieve http requests to other NRS' when a search has failed in the current NRS system.
+\item nn\_http\_handler - This module contains code to process and send/receive http requests from the outside world(using the cowboy library). It is the first part of the HTTP convergence layer.
+\item nn\_http\_forwarder - This module contains code to send and receive http requests to other NRS' when a search has failed in the NRS system. Note, this feature(HTTP forwarding) is only used when the system has been started with the static\_peers configuration. See \ref{backconfig} for more details.
 \item nn\_http\_formatting - This module is responsible for taking a HTTP message and converting it to the internal representation of the NetInf Message and vice versa. It interacts with the message\_handler passing converted messages back and forth. The message\_handler that has been spawned with HTTP as the convergence layer uses this module.
-\item nn\_udp\_handler - This module contains code to send/recieve NetInf UDP messages. It is spawned by the sub supervisor and serves as the entry and exit point of the system for the UDP convergence layer.
+\item nn\_udp\_handler - This module contains code to send/receive NetInf UDP messages. It is spawned by the sub supervisor and serves as the entry and exit point of the system for the UDP convergence layer.
 \item nn\_udp\_forwarder - This module contains code to convert and forward messages from another convergence layer into UDP specific messages and then passes them to the UDP handler to send out of the system.
 \item nn\_udp\_formatting - This module contains code to convert UDP NetInf messages and extract information into a NetInf Message for use in the message\_handler. The message\_handler that has been spawned with UDP as the convergence layer uses this module.
 \item nn\_message\_handler - This module is responsible for accepting messages from a convergence layer handler. It is spawned with the specific convergence layer name so that the module can redirect requests to the appropriate formatter. The handler also forwards messages to the event handler for further processing in the system.
@@ -163,35 +163,35 @@ As stated in section \textbf{insert section numbers here} the application was de
 \item[Database behaviour \& Storage interface]
 This application contains a custom behaviour to allow developers to quickly create wrappers for databases as well as functionality to change the database at run-time. The following modules are involved:
 \begin {itemize}
-\item nn\_database - This is the custom behaviour implemented for creating database wrappers. Each new database wrapper must include this file in the header. Erlang will then tell you if you are missing some functions when you implement a new database wrapper. See section  PNP Database Wrapper {fix ref here} for more information.
+\item nn\_database - This is the custom behaviour implemented for creating database wrappers. Each new database wrapper must implement this behaviour. Erlang will then warn the developer if there are missing key functions in the implementation of the new database wrapper. The section PNP Database Wrapper \ref{PNP} has more information.
 \item nn\_storage - This is the interface between the database wrapper and the content caching. This module is responsible for facilitating requests from the event\_handler.
 \end{itemize}
 \item[Databases]
 The NetInf NRS application has support for various plug and play database wrappers. As long as the developer adheres to the required input and output of the database behaviour this application can be extended to work with any database. 
 \begin{itemize}
 \item nn\_database\_list - This module implements the callback functions defined in the nn\_database. It is also a quick database consisting of a persistent Erlang list data structure. The module also has a timer which causes the list structure to be saved to disk every hour. This can be controlled in the configs/list.config file under the appropriate variable.
-\item nn\_database\_riak - This module implements the callback functions defined in nn\_database, it is a wrapper for talking to a riak process (riak is a standalone database).
+\item nn\_database\_riak - This module implements the callback functions defined in nn\_database, it is a wrapper for talking to a Riak process (Riak is a standalone database).
 \end{itemize}
 \item[Content-Caching]
 The NetInf NRS also includes a method of caching binary objects sent into the system via NetInf messages, the following are the two modules involved in this functionality.
 \begin {itemize}
 \item nn\_content\_handler - This module is responsible for handling the binary octets(files) coming into the system it is also the interface for storing and retrieving the files associated with NDOs.
-\item nn\_hash\_validation - This module validates the hash of the NDO coming in to the one that is currently stored in the files folder. Please note that the files folder must be present in the system otherwise the application will crash. 
+\item nn\_hash\_validation - This module validates the hash of the NDO coming in against the one that is currently stored in the files folder. Please note that the files folder must be present in the system otherwise the application will crash. As stated previously, the make target "set\_env\_folders" can be used to create the required environment folders.
 \end{itemize}
 \item[NetInf Video Streaming]
-The NetInf NRS application supports a video streaming protocol on top of the existing application. The main files used in this protocol are described here, please note that the video streaming also relies on the resources folder as well to provide the http client interface to the user. 
+The NetInf NRS application supports a video streaming protocol on top of the existing application. The main files used in this protocol are described here. Note that the video streaming also relies on the resources folder as well to provide the http client interface to the user. 
 
 \begin{itemize}
-\item nn\_subscribe - This module is responsible for subscribing to a stream, it is only used in the NetInf video streaming.
-\item nn\_stream\_handler - This module is responsible for polling and fetching the chunks for the users.
-\item nn\_stats - This module is responsible for keeping track of various statistics.
-\item nn\_ct\_handler - This module is responsible for transferring of content without NetInf
-\item nn\_http\_client\_handler - This module is responsible for exposing the http\_client\_interface to users.
-\item nn\_http\_ct\_handler - This module is responsible for transferring of content over HTTP.
+\item nn\_subscribe - Responsible for subscribing to a stream, it is only used in the NetInf video streaming.
+\item nn\_stream\_handler - Responsible for polling and fetching the chunks for the users.
+\item nn\_stats - Responsible for keeping track of various statistics.
+\item nn\_ct\_handler - Responsible for transferring of content without NetInf
+\item nn\_http\_client\_handler - Responsible for exposing the http\_client\_interface to users.
+\item nn\_http\_ct\_handler - Responsible for transferring of content over HTTP.
 \end{itemize}
 
 \item[Logger]
-The NetInf NRS application supports a file based logging method, which creates a file named log.txt in the logs folder. The logger comes with 3 levels verbose, warning and error. Developers can choose which level to log at in the configuration file. By default the log file sizes are set to 10MB and then the log file gets moved to the old/ folder. You can increase this in the nn\_logger module under the macro LOG\_FILE\_SIZE.
+The NetInf NRS application supports a file based logging method, which creates a file named log.txt in the logs folder. The logger comes with three(3) levels: verbose, warning and error. Developers can choose which level to log at in the configuration file. By default the log file sizes are set to 10MB and then the log file gets moved to the old/ folder. You can increase this in the nn\_logger module under the macro LOG\_FILE\_SIZE.
 \begin{itemize}
 \item nn\_logger - This module is responsible for opening the log file and writing to it.
 \item nn\_logger\_server - This module is responsible for handling the requests to log the event from various modules.
@@ -200,7 +200,7 @@ The NetInf NRS application supports a file based logging method, which creates a
 \item [Message ID storage]
 The distributed nature of the NetInf NRS and multiple messages required the developers to be able to keep track of which message is associated to a specific process id and convergence layer handler. The message storage is a persistent table that maps this and allows the application to forward requests to specific handlers. 
 \begin{itemize}
-\item nn\_msgide This module contains code to store only one message id element. 
+\item nn\_msgide This module contains code to store one message id to process id mapping. 
 \item nn\_msgids This module contains code to initiate to insert, lookup and delete the message ids
 \item nn\_msgid\_store This module contains the interface to the nn\_msgids. Developers should call this module to interact with the message id table.
 \end{itemize}
@@ -208,7 +208,7 @@ The distributed nature of the NetInf NRS and multiple messages required the deve
 The following modules are used to expose a variety of functions through out the system.
 \begin{itemize}
 \item nn\_util - This module contains many useful functions that were being used in multiple modules. It is recommended to read through the functions here as a function may have already been created and exposed to the developers.
-\item nn\_merging - This module contains all the functions for merging metadata in the NetInf NRS messages.It uses the json library extensively.
+\item nn\_merging - This module contains all the functions for merging metadata.
 \end {itemize}
 \item [Integration test]
 The NetInf NRS application required a test in order to check if all the modules were working as intended using the black box testing technique. 
@@ -220,27 +220,30 @@ The NetInf NRS application required a test in order to check if all the modules 
 
 The majority of the above modules have unit tests for them in the same folder, they are denoted with the same starting name but also have the \_test as well. 
 
+\textbf{Other Important Modules}
+
 netinf\_nrs - holds the main code for starting and stopping the application along with all the required dependencies(Ranch, Crypto, Cowboy).
 
-nn\_app - Starting point of the nn application. Initiates an http listener and starts the main supervisor and reads all the configuration settings from the config files or the env from the netinf\_nrs.app.src file.
+nn\_app - Starting point of the nn\_application. Initiates a HTTP listener, starts the main supervisor and reads all the configuration settings from the config files as well as the env from the netinf\_nrs.app.src file.
 
 nn\_event\_handler -This module is responsible for passing messages between the storage interface and content\_handler. 
 
 nn\_proto - This module contains the internal representation of a NetInf message based on the draft. It also contains functions to get and set the messages. It is used in many modules and it is part of the core NetInf NRS architecture.
 
 nn\_discovery\_service - This module is deprecated.
+
 nn\_discovery\_client - This module is deprecated.
 
 
 \subsection{Generating documentation}
-
+\label{bdoc}
 Code documentation for the application can be generated by running the following commands in the terminal when in the main netinf\_nrs folder.
 
 \begin{verbatim}
 rebar doc skip_deps=true
 \end{verbatim}
 
-This will create a new folder doc/ in the main netinf\_nrs folder. The documentation should be read from the file named index.html
+This will create a new folder "doc" in the main netinf\_nrs folder. The documentation should be read from the file named index.html
 
 
 
