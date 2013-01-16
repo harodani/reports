@@ -35,8 +35,17 @@ Subscribe to a pure NetInf stream, http://localhost:8079/subscribe/search\_and\_
 
 
 \subsubsection{HTML5 interfaces}
-To combine the video chunks, two HTML5 video elements are used to pre-cache the chunks through the transfer dispatcher. This is done by alternating the visibility and playback of the two elements with JavaScript. With this method of playback the chunks looks like one continuous stream. 
+To combine the video chunks, two HTML5 video elements are used to pre-cache the chunks through the transfer dispatcher. This is done by alternating the visibility and playback of the two elements with JavaScript. With this method of playback the video chunks looks like one continuous stream. 
 To make the usability of the interface smoother, some asynchronous network request are used to communicate with the HTTP client.
 To the right of the interfaces it is possible to see the current state of the local NRS. 
 
 \subsubsection{Difference between implementations}
+The main difference between the implementations is in the module \textit{nn\_event\_handler}. When requesting a chunk with the modified version, the special case of hash algorithm name \textit{demo} is used to avoid a database lookup and content validation. To request chunk number 80 of the stream \textit{ni:///sha-256;abc}, the NDO name will be \textit{ni:///demo;abc80}. The metadata and locators in such an response is empty. To add a new chunk to the stream it is simple to increase the chunk number and add the chunk to the storage. 
+\paragraph{The pure NetInf streaming} assumes that each chunk in the stream has been published to the NRS, with an ordinary NetInf publish request and with required metadata. The chunk metadata should include stream name and chunk number. For the stream \textit{mystream} chunk number \textit{80} of \textit{ni:///sha-256;abc}, the metadata must include. 
+\begin{verbatim}
+{"meta": {"stream":"mystream", "chunk":"mystream80"}}
+\end{verbatim}
+To obtain the chunk of an pure stream the receiver will have to search for each chunk or if all the chunks is available from initiation search for the stream name.
+
+\subsubsection{Advantages and disadvantages}
+The biggest advantage with the modified streaming is that the overhead of handling the chunks is reduced. A flaw is that the content validation has been disabled and it is possible to add chunks with modified content. 

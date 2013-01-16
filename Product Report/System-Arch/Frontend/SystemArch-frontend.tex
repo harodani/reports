@@ -32,9 +32,9 @@ NetInfService is the first of two Android applications. It provides a NetInf nod
 	\label{fig:netinfserviceoverview}
 \end{figure}
 
-Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInf service,
+Figure \ref{fig:netinf-controlflow} shows a picture of the internal control flow of the NetInfService,
 and provides the packages and/or source files, as well as some text and arrows describing the control flow.
-The digits in the connections between boxes illustrate the order of the actions throught the application flow.
+The digits on the connections between boxes illustrate the order actions are taken.
 
 
 \begin{figure}
@@ -88,7 +88,7 @@ The following key-value pairs are optional:
 
 \begin{itemize}
 	\item btmac: The Bluetooth MAC address of the publishing device, it will be added as a locator to the published object.
-	\item meta: The metadata of the object that is being published. Remember to URL encode illegal characters.
+	\item meta: The metadata \cite{netinfproto} of the object that is being published. Remember to URL encode illegal characters.
 	\item filepath: The file path of the object that is being published. If this is present, a full put is done, otherwise not.
  \end{itemize}
 
@@ -165,7 +165,7 @@ The ResolutionController handles a number of ResolutionServices. Each Resolution
 
 \subsubsection{NameResolutionService}
 
-The NameResolutionService uses the HTTP convergence layer (TODO REFS) to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there.
+The NameResolutionService uses the Named Information URI \cite{ninames} and the HTTP convergence layer \cite{netinfproto} to communicate with a single NRS. Currently the NameResolutionService supports publish and get. Delete is not yet supported but the framework for its implementation is there.
 
 \subsubsection{LocalResolutionService}
 
@@ -190,8 +190,8 @@ in the NRS used by the NameResolutionService.
 The TransferDispatcher handles a number of ByteArrayProviders. Each ByteArrayProvider should provide functionality to retrieve a file (as a byte array) in some way. Currently there is one ByteArrayProvider, the BluetoothProvider, which uses Bluetooth to transfer files between Bluetooth enabled devices.
 
 \subsubsection{BluetoothProvider}
-The BluetoothProvider provides the functionality to retrieve the bytes of an NDO
-through a specified Bluetooth locator. It first tries to establish a connection to the remote
+\label{sec:BluetoothProvider}
+The BluetoothProvider provides the functionality to retrieve the bytes of an NDO through a specified Bluetooth locator. It first tries to establish a connection to the remote
 Bluetooth device. If successful, it requests the bytes of an object by sending the hash value
 that describes the object. As a response, the provider retrieves the bytes of the object, if
 it was available on the remote Bluetooth device.
@@ -221,6 +221,7 @@ This is done by using the NetInfService. For the entered URL and each resource i
 If the search or get fails for any reason, be it a timeout, no matches found or something else, the webpage is downloaded using the a standard HTTP request.
 
 \subsection{Configuration}
+\label{sec:ConfigurationElephant}
 
 The default settings for Elephant are stored in the properties file "assets/config.properties". This includes but is not limited to RESTful API IP address, RESTful API port and RESTful API timeouts.
 

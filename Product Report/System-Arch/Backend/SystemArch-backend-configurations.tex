@@ -4,15 +4,14 @@ Since the system is supposed to be modular, configuration files are also impleme
 
 Configuration files allow the user of the system to quickly start it with a predetermined setup, things such as which database to use, which convergence layers are supported, and timers for various functionality are also stored here for quick use and editing. The benifit of using erlang specific configuration files is the great way they are organized, giving a highly readable and easy to swap out functionality. 
 
-We have created 2 config files which live in the root netinf\_nrs directory.
+We have created two(2) config files which live in the "config" directory.
 
 \begin {itemize}
 \item list.config
 \item riak.config
 \end {itemize}
 
-For new databases we encourage a new configuration to be make in order to keep things simple.
-
+For new databases the developers encourage a new configuration to be created in order to keep things simple.
 
 The following is the syntax for a config file 
 
@@ -26,7 +25,7 @@ The following is the syntax for a config file
 }].
 
 \end{verbatim}
-And here is an example of how config files look
+And here is an example of a config file:
 \begin {verbatim}
 [{netinf_nrs,
 	[
@@ -45,7 +44,7 @@ And here is an example of how config files look
 \subsubsection {Meaning of the config values}
 \begin{description}
 \item[database]
-This is used to define what database to use. The value must be the name of a module that implements the nn\_database behavior. Default is our riak implementation
+This is used to define what database to use. The value must be the name of a module that implements the nn\_database behavior. Default is the Riak implementation.
 \item[convergence\_layers]
 Deprecated. This was used to define which convergence layers the node should support. Currently udp multicast is used instead
 \item[ip\_timer]
@@ -55,9 +54,9 @@ Deprecated. This was used to turn of the nodes discovery service for testing pur
 \item[nrs\_port]
 This defines what port the NRS will use to listen for NetInf messages
 \item[ct\_port]
-\underline{\textbf{TODO MARKUS FIX THIS SHIT}}
+This defines the port used to transfer HTTP chunks to clients.
 \item[client\_port]
-\underline{\textbf{TODO MARKUS FIX THIS SHIT}}
+This defines the port the HTML client interface interacts with.
 \end{description}
 
 \subsection {Using config files}
@@ -78,13 +77,13 @@ Special note: if the netinf\_nrs.app.src file has some configuration options in 
 
 \subsection {Extracting the config parameters}
 
-Extracting the config parameters is done by running the following command within erlang code or within the erlang shell
+Extracting the config parameters is done by running the following command.
 
 \begin {verbatim}
 application:get_env(app-name,parameter-name) 
 \end{verbatim}
 
-where app-name is the name of the application, in this case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file OR the env section of the netinf\_nrs.app.src file.
+where app-name is the name of the application, in this case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file or the env section of the netinf\_nrs.app.src file.
 
 for example to get the database:
 
@@ -92,9 +91,6 @@ for example to get the database:
 application:get_env(netinf_nrs,database) 
 \end{verbatim}
 
-would return {ok, nn\_database\_list} or {ok, nn\_database\_riak} depending on the configuration. 
-
-
-\subsubsection  {Erlang config files}
+would return \{ok, nn\_database\_list\} or \{ok, nn\_database\_riak\} depending on the configuration. However if the parameter name is not defined, the above command will return undefined.
 
 for more information see: http://www.erlang.org/doc/man/config.html

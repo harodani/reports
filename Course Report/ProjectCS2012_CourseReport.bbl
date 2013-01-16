@@ -1,14 +1,22 @@
 \begin{thebibliography}{1}
 
+\bibitem{ericsson}
+Ericsson - a world of communication - ericsson.
+\newblock Retrieved January 15th, 2013, from http://www.ericsson.com.
+
+\bibitem{erlang}
+Erlang programming language.
+\newblock Retrieved January 15th, 2013, from http://www.erlang.org/.
+
 \bibitem{ghodsietal}
 B.~Raghavan S.~Shenker A.~Singla J.~Wilcox A.~Ghodsi, T.~Koponen.
-\newblock Information-centric networking: Seeing the forest for the trees,
+\newblock Information-centric networking: Seeing the forest for the trees.
 \newblock {\em ACM HotNets-X}, 2011.
 
-\bibitem{netinfproto}
-S.~Farrell D.~Kutscher and E.~Davies.
-\newblock The netinf protocol.
-\newblock Handed to us by Ericsson, 2012.
+\bibitem{netinf}
+B.~Ahlgren, C.~Dannewitz, C.~Imbrenda, D.~Kutscher, and B.~Ohlman.
+\newblock A survey of information-centric networking.
+\newblock {\em IEEE Communications Magazine}, 2012.
 
 \bibitem{hugomiguel}
 H.~Otaola and M.~Sosa.
@@ -22,7 +30,7 @@ C.~Dannewitz B.~Ohlman A.~Keranen P.~Hallam-Baker S.~Farrell, D.~Kutscher.
 \newblock Handed to us by Ericsson, 2012.
 
 \bibitem{scrumpaper}
-K.~Schwaber and J.~Sutherland,
-\newblock {The Scrum Guide}, 2011.
+K.~Schwaber and J.~Sutherland.
+\newblock {\em The Scrum Guide}, 2011.
 
 \end{thebibliography}

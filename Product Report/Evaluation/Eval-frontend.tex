@@ -1,2 +1,55 @@
 \subsection{Frontend}
-Filler for front end testing and evaluation\\
+In order to evaluate our browser application and the NetInf services, we want to find answers to the following core questions:
+
+\begin{enumerate}
+\item Can we reduce uplink bandwidth using NetInf?
+\item How much time does it take to receive the same data through alternative mediums (Bluetooth, NRS, uplink, database)?
+\end{enumerate}
+
+\subsubsection{Measurement Ideas}
+\subsubsection{How much Internet traffic do we avoid using NetInf?}
+We plan to count how many times we use the 4 different methods of retrieving web pages: Via bluetooth from another device, from the NRS, from the local database and from the internet.
+We also plan to combine this information with the amount of the data that was transferred to be able to show how often we can avoid using the Internet connection.
+
+During this test we consider to vary the following variables:
+
+\begin{enumerate}
+\item Number of phones
+\item Time intervals between accessing web pages
+\item Distance between phones (for Bluetooth connectivity)
+\item Publish with full-put and without full-put
+\item Random number of phones that have elected to share
+\end{enumerate}
+
+\subsection{How much time does it take to receive the same data through alternative mediums (Bluetooth, NRS, uplink, database)?}
+
+Loading data in NetInf involves different technologies for transferring data. In our extension of OpenNetInf, we can transfer data between two devices through Bluetooth, transfer data directly from the NRS (acting as a cache node), get data from the Internet link or use the device's internal database to get previously visited data directly from the internal cache.
+
+We want to measure the latency involved in retrieving objects using all four methods. We can use the measurements to identify potential bottlenecks in the system -- for example, is the database access faster than downloading a new page? -- and to validate the idea of using NetInf in scenarios such as the 'Train' scenario discussed in the project.
+
+This test is helpful to evaluate how these different methods of retrieving objects interact with each other. Our application architecture goes through three types before using external internet connection, as it first checks the internal database, then the NRS and finally the Bluetooth neighbours. It will be interesting to see how the objects get spread after a certain amount of time through the network and how long it takes to completely load web pages with our application.
+
+To measure such transfers, we will employ timers in each component to mark the time needed to retrieve objects. Our plan is to produce graphs with these measurements and provide a clear view of the bottlenecks and network usage for our application.
+
+\subsubsection{Which pages have we tested that are displayed correctly?}
+We want to write down a list of web pages we have tested and which were displayed correctly within our application.
+
+This is a manual test, where we would check if the web sites in our list are correctly displayed in our application. It is also an interesting way to detect possible errors. Furthermore, developers that will need to reuse our application will have a defined set of pages they know about for sure that they are tested.
+
+\subsubsection{Testing}
+The test setup consists of a set of web pages that we want to retrieve using four phones provided by Ericsson. The set of web pages were fetched from the service \textit{Alexa.com}, which is renowned for web metrics. This service keeps track of the most visited sites by country, and a set of 500 web sites was collected to serve as a test set. The phones will automatically access the web pages in a random order. Tests are run on three Nexus phones and one HTC phone.
+
+The backend setup for the tests was a Name Resolution Service with a list database that is stored in main memory, running on a Intel Core 2 Quad CPU Q9400 @ 2.66GHz × 4 with 4 gigabytes of memory. We chose to use the list database instead of the Riak database because it was more stable and easier to debug.
+
+Using the list database provided a problem for testing. The available space was limited, and a test with 50 web sites crashed the Name Resolution Service. Therefore, we ran tests with 15, 20, 25, 30 and 35 websites being visited by our application. The crash was due to the amount of information (metadata) attached to each object stored in the database, and the object that is also stored in memory. Storing the object in memory allows the NRS to serve files, making the NRS to behave as caching node.
+
+Tests were run on 15th of January, 2013, with data collected from \textit{Alexa.com} at GMT 7:00.
+
+\subsubsection{Results}
+% Plot of usage
+
+% Table comparing time of access to each resource
+
+% Table (or plot) of re-usage after period
+
+\subsubsection{Discussion}
