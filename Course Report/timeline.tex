@@ -8,9 +8,9 @@ with two completely different clients.
 \subsection{Pre-Scrum}
 During the month of September the group met with the client who presented the idea, although it was not very concrete at the time. The lack of tight requirements gave the developers the freedom to choose the direction that the project was going to go. The outcome of this was that the teams had to spend the first few weeks on research without no real direction. 
 
-In general the first few weeks of the course start with an Erlang workshop which consists of two weeks of intensive Erlang, however this project was so open that there was no idea on whether the project would need Erlang at all.
+In most instances the first few weeks of the course start with an Erlang workshop which consists of two weeks of intensive Erlang, however this project was so open that there was no idea on whether the project would need Erlang at all.
 
-The first sprint after approximately one month.
+The first sprint started after approximately one month.
 
 \subsection {LISA}
 \framebox(360, 85){
@@ -36,10 +36,10 @@ The front-end  did a pretty good job doing this from the start of the project.
 
 During the initial stages of development, the front-end had a Skype meeting with Hugo Negrette~Otaola and
 Miguel Sosa, who worked on a similar project before. They wrote a Master Thesis \cite{hugomiguel}
-that was a fundamental starting point for the project.
+that were a fundamental starting point for the project.
 
 Finally, the front-end implemented a simple application that could send a message to 
-the server developed by the Backend team and receive an answer.The front-end turned out to have more time than expected, so parts of the Bluetooth communication and
+the server developed by the Backend team and receive an answer. The front-end turned out to have more time than expected, so parts of the Bluetooth communication and
 some side functions were implemented.
 
 \framebox(360, 100){
@@ -58,7 +58,7 @@ some side functions were implemented.
 
 Now that we succeeded to communicate with the backend's server,
 we needed to send messages according to the NetInf specifications in \cite{netinfspecs}.
-Thus, we investigated the specifications and embedded those message regulations
+Thus, we investigated the specifications and implemented those message regulations
 into our code. 
 
 We designed our first architecture draft based on OpenNetInf and implemented
@@ -66,9 +66,9 @@ the most important modules for sending/receiving messages to/from the NRS -
 this time using OpenNetInf. We managed to share NDOs between
 Android phones using Bluetooth.
 
-At this stage, the application could request a content using a short hash.
-The specified hash was sent to the NRS and received a list of locators, that own
-the requested object, in return. The locators were Bluetooth MAC adresses.
+At this stage, the application could request content using a short hash.
+The specified hash was sent to the NRS and a list of locators, that own
+the requested object, was recieved in return. The locators were Bluetooth MAC adresses.
 The application was then starting a Bluetooth discovery in order to find out
 whether one of these locators was within reach. If so, a Bluetooth communication
 to that locator was established. The hash was sent to the connected device, which
@@ -98,7 +98,7 @@ Within the first week we mainly worked on the presentation for our review at Eri
 We prepared a paper prototype (consisting of screen shots of the final application) of our 
 project idea of creating a browser application that we later called
 Elephant.
-The application should look like a normal browser and behave as expected. The main difference
+The application looks like a normal browser and behaves as expected. The main difference
 we wanted to achieve is that the browser uses information-based networking instead of location-based
 networking. Our idea was to create a browser using NetInf in a way, that the user does not
 need to know what actually happens. It would be a first step of changing our way of 
@@ -110,22 +110,21 @@ Before continuing adding new functionalities, we took some time during the third
 to clean up and refactor the code. The git branches were restructed due to the
 experience gained from the previous sprints. The structure is described in \sect{git}.
 
-The new functionalities we added at last were publishing (register the 
+The new functionalities we added were publishing (register the 
 device as a locator), full-put (uploading the content to the NRS) and
 searching for contents using URLs. Furthermore we added a Local Resoltion Service (LRS)
-besides to the NRS. The LRS looked up a content in a local database, that we
+besides to the NRS. The LRS looked up content in a local database, that we
 designed and implemented within this sprint. 
 
 Now our application could search for content within a local database and in a remote
 NRS by a URL. The response was a corresponding hash, that identified a
 web page associated to that URL. In case the NRS owned the web page that
-was searched for, we directly retrieved that web page instead of a hash.
-Using the hash, we could get a web page from the LRS or a list of locators
+was searched for, we directly retrieved that web page instead of a hash. Using the hash, we could get a web page from the LRS or a list of locators
 from the NRS. In case of a list of locators, the device would start to
 connect to other devices and download the content through Bluetooth.
 As soon as we retrieved the web page, we could register ourself as a 
 locator in the NRS or even upload the content to the NRS.
-At this stage we displayed simple HTML web pages within a WebView environment, without any pictures or
+At this stage we displayed simple HTML web pages within a Android WebView environment, without any pictures or
 java scripts.
 
 It is worth to note that the search implemented in this stage was not developed in accordance to the NetInf
@@ -178,9 +177,7 @@ in the upcoming sprint.
 	}
 }
 
-During this sprint we tried to fix a bug that prevented some pages to display correctly.
-The bug showed up during the previous demo, so the goal of this sprint was to mainly
-solve this bug and make sure we had a working application. After several tests we spotted the problem that was causing
+During this sprint we tried to fix a bug that prevented some pages to display correctly. The bug showed up during the previous demo, so the goal of this sprint was to solve this bug and make sure we had a working application. After several tests we spotted the problem that was causing
 the corrupted pages. The problem resided in the way we managed the search function and the messages sent to and from the NRS,
 causing the loading of the wrong identifier of the seeked web page after a search. The backend could solve the problem easily and our application
 started working as expected. During this iteration we also noticed some slow downs due to how we used the timeout
@@ -190,7 +187,7 @@ Afterwards we discussed what to evaluate and how to evaluate our application. We
 activities by storing each request with the relative type of transmission used (uplink, NRS cache, bluetooth or database).
 In order to produce some statistics we also stored the amount of data that is transferred for each request and the time that
 it takes to transfer the data. To simplify the test we added a functionality to automate the loading of several web pages
-in sequence, so that we could gather a considerable amount of data from many web pages during each run of the application.
+in sequence. That way it became possible to gather a considerable amount of data from many web pages during each run of the application.
 
 At this point we had a working web browser that used NetInf services and could support four different types of transmission link.
 The next and last step would be to run the automated tests and analyze the obtained results, so that hopefully we would have interesting material
@@ -201,7 +198,7 @@ to show in the final report.
 	\textbf{Sprint 6}\\
 	\begin{tabular}{p{3cm}p{8cm}}
 	Scrum Master & Harold\\
-	Goal & Sucessful presentation and both the product and course report\\
+	Goal & Successful presentation and both the product and course report\\
 	Sprint length & 2 weeks\\
 	Met & Yes
 	\end{tabular}
@@ -216,8 +213,7 @@ of this course, while the product report is intended for the customer. The cours
 on how we got to the final product, while the product report focuses more on the product itself, the implementation,
 how to run it and how to continue the development.
 
-In this sprint we also ran the automated tests we had implemented in the previous sprint and created tables
-and graphs to use in the product reports. The final presentation was made with Prezi\footnote{\url{http://prezi.com/}}, an online tool to produce professional and creative presentations.
+In this sprint we also ran the automated tests we had implemented in the previous sprint and organized the results. The final presentation was made with Prezi\footnote{\url{http://prezi.com/}}, an online tool to produce presentations.
 
 \subsection {ERNI}
 
@@ -257,7 +253,7 @@ In the second sprint which ran for another two weeks, ERNI created the basic Net
 	\textbf{Sprint 3}\\
 	\begin{tabular}{p{3cm}p{8cm}}
 	Scrum Master & Faroogh\\
-	Goal &  Implement NetInf Search ,binary caching and retrieve content, implement a real database(riak) and implement a plug and play database wrapper\\
+	Goal &  Implement NetInf Search, binary caching and retrieve content, implement a real database(riak) and implement a plug and play database wrapper\\
 	Sprint length & 3 weeks\\
 	Met & Yes
 	\end{tabular}
@@ -278,7 +274,7 @@ The third sprint consisted of refining the Publish and Get messages, implementin
 	}
 }
 
-During the fourth sprint the ERNI team had chosen to diverge from the LISA team since they had finished all the functionality described in the draft document and no longer required to build features for LISA. The client was impressed and suggested that the team look into applications for the NetInf system. The major application that was discussed was the use of NetInf and Video streaming to alleviate congestion problems while broadcasting content. The goal here was to provide the client with a draft of the new protocol but there were many disagreements on what the draft should contain and the team missed the deadline to hand in the draft.
+During the fourth sprint the ERNI team had chosen to diverge from the LISA team since they had finished all the functionality described in the draft document and were no longer required to build features for LISA. The client was impressed and suggested that the team look into applications for the NetInf system. The major application that was discussed was the use of NetInf and Video streaming to alleviate congestion problems while broadcasting content. The goal here was to provide the client with a draft of the new protocol but there were many disagreements on what the draft should contain and the team missed the deadline to hand in the draft.
 
 In an effort to fine tune our sprint planning, the team decided to try one week sprints in order to see how much they could accomplish with a smaller amount of time. This was due to problems estimating the amount of work the team could finish. The team always overestimated the time it would take to finish tasks leaving the team with too little to do at the end of sprints.
 
@@ -295,7 +291,7 @@ In an effort to fine tune our sprint planning, the team decided to try one week 
 	
 }
 
-In the fifth sprint the ERNI team had gotten the approval of the client to start implementing the NetInf video streaming protocol. It was a one week sprint where the team also added the UDP convergence layer after meeting with the client in the previous sprint.
+In the fifth sprint the ERNI team had gotten the approval of the client to start implementing the NetInf video streaming protocol. It was a one week sprint where the team also added the UDP convergence layer after by request from the client in the previous sprint.
 
 
 \framebox(360, 80){
@@ -310,6 +306,6 @@ In the fifth sprint the ERNI team had gotten the approval of the client to start
 	}
 }
 
-In the sixth sprint the ERNI team mostly fixed the major bugs in the system and finalizing the NetInf video streaming, the major feedback here was to get rid of the http content-dispatcher and replace it with a modified version that use NetInf messages to transfer the chunks.
+In the sixth sprint the ERNI team mostly fixed the major bugs in the system and finalizing the NetInf video streaming, the major feedback here was to get rid of the HTTP content-dispatcher and replace it with a modified version that use NetInf messages to transfer the chunks.
 
-The final sprint(sprint 7) both teams joined together and had one large sprint writing the course and product reports.
+The final sprint both teams joined together and had one large sprint writing the course and product reports.
