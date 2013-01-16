@@ -1,12 +1,12 @@
 \subsection{Backend}
 
-The following section will describe how the NetInf NRS application will be evaluated and tested. One of the goals of the project was to show that the use of the new Network of Information protocol( NetInf) would be better in terms of bandwidth, speed and time compared to existing location based infrastructure. 
+The following section will describe how the NetInf NRS application will be evaluated and tested. One of the goals of the project was to show that the use of the new Network of Information protocol(NetInf) would be better in terms of speed and time compared to existing location centric infrastructure. 
 
 The Erlang NetInf NRS application, along with the video stream was evaluated with the following set of tests. 
 
 
 \subsubsection{Video streaming protocol evaluation}
-The client requested the development team to look into the application of NetInf to real world problems, one of the problems discussed was reducing congestion for broadcasting content. This was solved by implementing an alternative way of sending chunked data as seen in Section \ref{sec:Chunked data streaming} according to the video streaming draft seen in Appendix \ref{VideoDraft}. In the following section this implementation is called the modified streaming. The following was test was conducted:
+The client requested that the development team look into the application of NetInf in real world problems. One of the problems discussed was reducing congestion for broadcasting content. This was solved by implementing an alternative way of sending chunked data as seen in Section \ref{sec:Chunked data streaming} according to the video streaming draft seen in Appendix \ref{VideoDraft}. In the following section this implementation is called the modified streaming. The following was test was conducted:
 
 \begin{itemize}
 \item Testing the modified version of NetInf video streaming. 
@@ -16,7 +16,7 @@ The client requested the development team to look into the application of NetInf
 
 The testing was done by transfer 500 chunks of bogus data between a number of different NetInf nodes running Erni. All the receiving nodes started the transfer at the same time. To be able to publish N number of chunks, the \textit{nn\_evaluation} module was implemented.
 
-%The backbone of the entire application, this is the main product which the client requested. It is important to show here just how much better this implementation of NetInf is compared to location based services used today. 
+%The backbone of the entire application, this is the main product which the client requested. It is important to explore how much better this implementation of NetInf performs compared to location centric services today. 
 
 \subsubsection{Pure video streaming evaluation setup}
 The nodes that where included in the pure version of the streaming was the following. 
@@ -72,13 +72,13 @@ When comparing Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig:eval-st
 
 \subsubsection{Notes on Interoperability}
 
-There already are existing implementations done by SAIL and Ericsson Research for the NetInf protocol and in the beginning of the product life-cycle the client requested the development team to try to evaluate the interoperability of this product and others, however as the product evolved the client's requested that the interoperability be left to them to evaluate and for this development team to continue with evaluating the video streaming.
+There already are existing implementations created by SAIL and Ericsson Research for the NetInf protocol. In the beginning of the product life-cycle the client requested the development team to evaluate the interoperability of this product and the others, however as the product evolved the client requested that the interoperability be left to them to evaluate and that this development team continue with evaluating the video streaming instead.
 
-Therefore the development team did not evaluate interoperability at all but there is confidence that with some minor tweaking of the code (due to differences in the various draft versions of the NetInf protocol spec) that this product and others will become interoperable with minimal effort.
+Therefore the development team did not evaluate interoperability, but there is confidence that with minor tweaking of the code (due to differences in the various draft versions of the NetInf protocol spec) this product and others will become interoperable.
 
+The following list describes the evaluation performed for testing the NetInf NRS application.
 
 \begin{itemize}
 \item Evaluation of the search time and get time for the supported databases
-\item Resource usage
 \item Measuring the number of requests per the frontend phone client
 \end{itemize}
