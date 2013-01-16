@@ -43,20 +43,17 @@ This however means that the test is limited to using the free main memory of the
 
 The results of test one using full put can be seen in Figure \ref{fig:frontendtest1}. Each bar represents a specific set size and the colors show how much of the data was transferred with each technology.
 
-\begin{figure}
-	\centering
-		\includegraphics[width=0.75\textwidth, angle=-90]{./img/plots.pdf}
-    	\caption{Results of Test 1}
-	\label{fig:frontendtest1}
-\end{figure}
-
 Table \ref{tbl:times} shows the total time spent and the time spent actually transferring files when retrieving the 15 web page set.
 
-\begin{table}[!h]
+The results of test two can be seen in Figure \ref{fig:frontendtest2}. The two leftmost bars represent the first repetition of the test and the two right most the second repetition.
+
+The results of the third test can be seen in Figure \ref{fig:frontendtest3}
+
+\begin{table}[H]
 		\centering
        \begin{tabular}{| c | c | c | c |}
                \hline
-               Phone \# & Total time (s) & Time downloading (s) & Time spent downloading of total time(\%)\\
+               Phone \# & Total time (s) & Time downloading (s) & Time downloading (\%)\\
                \hline
                1 & 251 & 17 & \textbf{6}\\
                \hline
@@ -71,20 +68,23 @@ Table \ref{tbl:times} shows the total time spent and the time spent actually tra
        \label{tbl:times}
 \end{table}
 
-The results of test two can be seen in Figure \ref{fig:frontendtest2}. The two leftmost bars represent the first repetition of the test and the two right most the second repetition.
-
-\begin{figure}
+\begin{figure}[H]
 	\centering
-		\includegraphics[width=0.75\textwidth, angle=-90]{./img/rerun.pdf}
+		\includegraphics[width=0.62\textwidth, angle=-90]{./img/plots.pdf}
+    	\caption{Results of Test 1}
+	\label{fig:frontendtest1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.62\textwidth, angle=-90]{./img/rerun.pdf}
     	\caption{Results of Test 2}
 	\label{fig:frontendtest2}
 \end{figure}
 
-The results of the third test can be seen in Figure \ref{fig:frontendtest3}
-
-\begin{figure}
+\begin{figure}[H]
 	\centering
-		\includegraphics[width=0.75\textwidth, angle=-90]{./img/half_bt.pdf}
+		\includegraphics[width=0.62\textwidth, angle=-90]{./img/half_bt.pdf}
     	\caption{Results of Test 3}
 	\label{fig:frontendtest3}
 \end{figure}
