@@ -15,7 +15,7 @@ The system architecture is divided into four(4) distinct layers: a network (HTTP
 
 \subsection{NetInf Messaging}
 
-According to the draft specification(see\cite{netinfproto}) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages in addition to how the Erlang NetInf NRS handles them.
+According to the draft specification\cite{netinfproto} NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages in addition to how the Erlang NetInf NRS handles them.
 
 \subsubsection{Named Data Objects}
 
@@ -76,7 +76,7 @@ NetInf describes a Publish message which consists of the following fields:
 \label{fig:publishfig}
 \end{figure}
 
-A requester would like to share information. Using an external client the requester sends a NetInf Publish Request message with the mandatory fields set as described above through a supported convergence layer(HTTP for example). The Erlang NetInf NRS will then receive the message and create a 'message' record(see section: \ref{NDO-message}).
+A requester would like to share information. Using an external client the requester sends a NetInf Publish request message with the mandatory fields set as described above through a supported convergence layer(HTTP for example). The Erlang NetInf NRS will then receive the message and create a 'message' record(see section: \ref{NDO-message}).
 
 A convergence layer handler(CL handler) is spawned and receives the request.
 Once a request is in the system, the CL handler that received it will pass the request onto the message handler(MH). The MH is independent of the CL however, the formatting library used by the MH will depend on the CL the request was received on.
@@ -135,4 +135,4 @@ NetInf describes a Search message which consists of the following fields:
 \label{fig:searchfig}
 \end{figure}
 
-A requester would like to retrieve information but they do not know the name of the NDO. A NetInf search request can be sent to the Erlang NetInf NRS to retrieve a list of NDO names and the metadata which match a particular criteria(search tokens). The process is similar to both the Get and the Publish however the event handler calls the appropriate search function in the attached database. If no match is found the request is automatically forwarded on the UDP CL where the same procedure takes place. If a match is found, a response is created  and sent back to the original CL handler. Figure \ref{fig:searchfig} shows the flow of communication for  Search requests.
+A requester would like to retrieve information but do not know the name of the NDO. A NetInf search request can be sent to the Erlang NetInf NRS to retrieve a list of NDO names and the metadata which match a particular criteria(search tokens). The process is similar to both the Get and the Publish however the event handler calls the appropriate search function in the attached database. If no match is found the request is automatically forwarded on the UDP CL where the same procedure takes place. If a match is found, a response is created  and sent back to the original CL handler. Figure \ref{fig:searchfig} shows the flow of communication for  Search requests.
