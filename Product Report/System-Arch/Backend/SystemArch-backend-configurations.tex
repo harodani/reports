@@ -47,13 +47,13 @@ And here is an example of a config file:
 \subsubsection {Meaning of the config values}
 \begin{description}
 \item[database]
-This is used to define what database to use. The value must be the name of a module that implements the nn\_database behavior. Default is the Riak implementation.
+This is used to define what database to use. The value must be the name of a module that implements the nn\_database behaviour. Default is the Riak implementation.
 \item[convergence\_layers]
-Deprecated. This was used to define which convergence layers the node should support. Currently udp multicast is used instead
+Deprecated. This was used to define which convergence layers the node should support. Currently UDP multicast is used instead.
 \item[ip\_timer]
-Deprecated. This was used to define how often the node broadcasted that it was live to other nodes via udp multicasts
+Deprecated. This was used to define how often the node broadcasted that it was live to other nodes via UDP multicasts.
 \item[discovery]
-Deprecated. This was used to turn of the nodes discovery service for testing purposes
+Deprecated. This was used to control whether or not the discovery service was active for testing purposes.
 \item[nrs\_port]
 This defines what port the NRS will use to listen for NetInf messages
 \item[ct\_port]
@@ -64,7 +64,7 @@ This defines the port the HTML client interface interacts with.
 
 \subsection {Using config files}
 
-Choosing to run the system with a config file is used by flagging it.
+To run the application with a config file, the \emph{-config} flag must be set on the Erlang command line.
 
 \begin {verbatim}
  erl -pa ebin deps/*/ebin -config configs/list
@@ -76,24 +76,23 @@ OR
  erl -pa ebin deps/*/ebin -config configs/riak
 \end{verbatim}
 
-Special note: if the netinf\_nrs.app.src file has some configuration options in the env section and there is a config file specified on the erlang command line then the parameters in the config file  will take precendence.
+Note: if the netinf\_nrs.app.src file has some configuration options in the env section and there is a config file specified on the Erlang command line then the parameters in the config file  will take precedence.
 
 \subsection {Extracting the config parameters}
 
-Extracting the config parameters is done by running the following command.
+Developers can use the following code to extract the values associated with a configuration parameter.
 
 \begin {verbatim}
-application:get_env(app-name,parameter-name) 
+application:get_env(app-name, parameter-name). 
 \end{verbatim}
 
-where app-name is the name of the application, in this case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file or the env section of the netinf\_nrs.app.src file.
+The argument app-name is the name of the application, in this case netinf\_nrs, and parameter-name is the name of one of the parameters defined in the config file or the env section of the netinf\_nrs.app.src file.
 
-for example to get the database:
+For example to retrieve the value associated with the database a developer can use the following:
 
 \begin {verbatim}
-application:get_env(netinf_nrs,database) 
+application:get_env(netinf_nrs, database).
 \end{verbatim}
 
-would return \{ok, nn\_database\_list\} or \{ok, nn\_database\_riak\} depending on the configuration. However if the parameter name is not defined, the above command will return undefined.
+This code would return \{ok, nn\_database\_list\} or \{ok, nn\_database\_riak\} depending on the configuration. However if the parameter name is not defined, the above code will return undefined.
 
-for more information see: http://www.erlang.org/doc/man/config.html

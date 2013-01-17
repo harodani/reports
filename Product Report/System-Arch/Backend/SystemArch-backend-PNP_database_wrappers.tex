@@ -1,6 +1,6 @@
-\subsection {Plug N' Play Database Wrappers}
+\subsection {Plug N' Play Database Wrapper}
 \label{PNP}
-The Erlang NetInf NRS includes functionality to allow for run-time database switching as well as providing an easy way to add interfaces to existing databases. Currently support for Riak is added, as well as a default Erlang list 'database' implementation. The database interface is designed to be very intuitive to implement. Figure \ref{fig:dbfig} shows the interface.
+The Erlang NetInf NRS includes functionality to allow for run-time database switching as well as providing an easy way to add interfaces to existing databases. At the time of writing this report the Erlang NetInf NRS provides support for Riak, as well as a default Erlang list 'database' implementation. The database interface is designed to be intuitive to implement. Figure \ref{fig:dbfig} shows the interface.
 
 \begin{figure}[H]
 	\centering
@@ -17,7 +17,7 @@ All modules which wish to implement a database connection will use the custom nn
     -module(nn_database).
 \end{verbatim}
 
-The following functions must be implemented by all database wrappers
+The following functions must be implemented by all database wrappers:
 
 \textbf{Initialization}
 
@@ -61,14 +61,14 @@ Takes the NetInfObject and returns \{ok, ReturnNetInfObj\} where ReturnNetInfObj
     	{ok, list()} | {ok, no_match}
 \end{verbatim}
 
-Takes a Erlang list of search keywords and returns a list of the NDO's which match those key words.
+Takes a Erlang list of search keywords and returns a list of the NDOs which match those key words.
 
 \textbf{Flush}
 
-\begin{verbatim}
-flush() -> ok
+\begin {verbatim}
+	flush() -> ok
 \end{verbatim}
 
 Deletes all the entries in the database.   
 
-Please see the module src/nn\_database\_list as an example of the wrapper implementation for use with a 'list' database in the source code.
+See the module src/nn\_database\_list as an example of the wrapper implementation for use with a 'list' database in the source code.
