@@ -23,7 +23,7 @@
 \section{NetInfService}
 \label{sec:NetInfService}
 
-NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{hugomiguel} and uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below. 
+NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{hugomiguel}. The NetInfService uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below. 
 
 \begin{figure}
 	\centering
@@ -181,8 +181,7 @@ which provides search functionality using a single token which is assumed to be 
 \subsubsection{UrlSearchService}
 
 The UrlSearchService provides the functionality to search for a single token in the local database 
-used by the LocalResolutionService and then, if not found, using the HTTP convergence layer to search 
-in the NRS used by the NameResolutionService.
+used by the LocalResolutionService. If the token is not found in the database, then a search will be preformed using the HTTP convergence layer. This new search looks for tokens in the NRS, which uses the NameResolutionService.
 
 \subsection{TransferDispatcher}
 \label{sec:TransferDispatcher}
