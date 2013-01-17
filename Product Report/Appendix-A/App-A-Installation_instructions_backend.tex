@@ -27,8 +27,8 @@ sudo apt-get install g++
 
 To install Rebar and Erlang manually please follow the following steps
 
-Download and install: Rebar from Github
-https://github.com/basho/rebar/archive/master.zip
+Download and install: Rebar from Github \footnote{Rebar Github. \url{https://github.com/basho/rebar/archive/master.zip}}.
+
 
 unzip the archive and run the following command
 \begin{verbatim}
@@ -43,7 +43,9 @@ It can be retrieved from the Erlang-Solutions website or use the following comma
 
 \begin{verbatim}
 
-wget https://elearning.erlang-solutions.com/couchdb//rbingen_adapter//package_R15B03_precise32_1354121173/esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
+wget https://elearning.erlang-solutions.com/couchdb//
+rbingen_adapter//package_R15B03_precise32_1354121173/
+esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
  
 sudo dpkg -i esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
 
@@ -51,7 +53,8 @@ sudo dpkg -i esl-erlang_15.b.3-1~ubuntu~precise_i386.deb
 
 \subsection{Script}
 \label{backend-install-script}
-For the convenience of end users and developers, there is a packaged install/setup script available after obtaining the backend code. This script is responsible for quickly installing the entire system with all the dependencies.
+For the convenience of end users and developers, there is a packaged install/setup script available after obtaining the backend code. 
+This script is responsible for quickly installing the entire system with all the dependencies.
 
 \textbf{If the script is not immediately runnable please run the following command:}
 \begin{verbatim}
@@ -64,21 +67,22 @@ The script can be run by using the following on a command line terminal.
 ./netinf_nrs.sh
 \end{verbatim}
 
-The script will be put a into a menu loop shown below and instructs the user to type a number in order to choose an option.Choosing an option will preform the task and then cause the script to exit normally.
+The script will be put a into a menu loop shown below and instructs the user to type a number in order 
+to choose an option. Choosing an option will preform the task and then cause the script to exit normally.
 
 \includegraphics[scale=0.5]{./img/Backend_install_script.png}
 
 The following options are available to the user
 
 \begin{itemize}
-\item Start Netinf NRS with the default list\\
+\item Start Netinf NRS with the default list:\\
 Assumes the system has all the dependencies installed and only starts the NetInf NRS with the list database.
-\item Start Netinf NRS with riak\\
+\item Start Netinf NRS with riak:\\
 Will check that Riak is running and present in the system and then start the NetInf NRS with the Riak database.
-If riak is not present then the script will download and install all the required components. 
-\item Install and setup riak only\\
+If Riak is not present then the script will download and install all the required components. 
+\item Install and setup riak only:\\
 Use this option only when Riak needs to be downloaded and installed on the machine. This will not start an NRS.
-\item Install and start from scratch\\
+\item Install and start from scratch:\\
 This option assumes a bare machine and checks that all the dependencies are satisfied. It will auto download and install anything that is required and then start the NetInf NRS with the default list database. 
 \end{itemize}
 
@@ -96,12 +100,14 @@ sudo apt-get install libssl0.9.8
 
 Next install the Riak database:
 \begin{verbatim}
-wget http://downloads.basho.com.s3-website-us-east-1.amazonaws.com/riak/CURRENT/ubuntu/lucid/riak_1.2.1-1_i386.deb
+wget http://downloads.basho.com.s3-website-us-east-1.amazonaws.com/
+riak/CURRENT/ubuntu/lucid/riak_1.2.1-1_i386.deb
+
 sudo dpkg -i riak_1.2.1-1_i386.deb
 \end{verbatim}
 
-In order for the search to work in the Riak system and from the NRS please enable search.
-Riak Search is enabled in the app.config (/etc/riak/app.config) file. Simply change the setting to “true” in Riak Search Config section (shown below).
+In order for the search to work in the Riak system and from the NRS please enable search, 
+Riak Search has to be enabled in the app.config (/etc/riak/app.config) file. Simply change the setting to “true” in Riak Search Config section (shown below).
 
 \begin{verbatim}
 %% Riak Search Config
@@ -111,7 +117,7 @@ Riak Search is enabled in the app.config (/etc/riak/app.config) file. Simply cha
               ]},
 \end{verbatim}
 
-Then run the in the terminal;
+Then run the in the terminal:
 
 \begin{verbatim}
 riak restart
