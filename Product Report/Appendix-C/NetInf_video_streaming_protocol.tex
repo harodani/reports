@@ -10,7 +10,7 @@ The stream source will PUBLISH an NDO containing the filename as content. The ob
 
 In order to access the stream, a receiver will first perform a NetInf-GET on the above filename object in order to retrieve the locator. 
 
-In the next step the client can get the chunks. By replacing the hash algorithm in the NDO-name with \_demo\_ and sending a NetInf-Get to the source, the stream provider will return the octets of the most recent chunk and the chunk number in the metadata. This implies that the regular hash validation has been disabled.
+In the next step the client can get the chunks. This is done by replacing the hash algorithm in the NDO-name with demo and sending a NetInf-Get to the source. The stream provider will then return an NDO with the octets of the most recent chunk and the chunk number in the metadata. This implies that the regular hash validation has been disabled.
 
 For further chunks, the receiver will increment the chunk number and append it to the locator.
 \begin{verbatim}

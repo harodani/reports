@@ -23,7 +23,7 @@ NetInf describes any piece of information as a Named Data Object(NDO). In the cu
 
 \subsubsection{Internal NetInf Messaging}
 
-The Erlang NetInf NRS uses an internal record to represent a NetInf protocol message. For each request in the system, an instance of the following Erlang record is created and passed to various modules in order to have the specific operation preformed. Afterwards the NRS constructs a response message and sends it back to the requester. There are two records defined in the module nn\_proto, the first defines a request, primarily a Publish, Get, or Search messages from outside of the system(external clients and other NRS'). While the second record defines the NDO. The message record includes the NetInf record (if available). 
+The Erlang NetInf NRS uses an internal record to represent a NetInf protocol message. For each request in the system, an instance of the following Erlang record is created and passed to various modules in order to have the specific operation preformed. Afterwards the NRS constructs a response message and sends it back to the requester. There are two records defined in the module nn\_proto, the first defines a request, primarily a Publish, Get, or Search message from outside of the system(external clients and other NRS'). While the second record defines the NDO. The message record includes the NetInf record (if available). 
 
 \label{NDO-message}
 \begin{verbatim}
@@ -85,11 +85,11 @@ At this point the original request will be validated and sanitized for use in th
 
 In the case that the validation and sanitization succeeds the MH will have a newly sanitized and internal message representation of the original request(NDO). The request is now ready to be passed deeper into the system. The MH spawns an event handler(EH) and goes to sleep waiting for the message to complete the process. 
 
-The Event Handler will then read the NDO and determine if a Content Handler(CH) will need to be spawned in order to store the binary data(octets). The CH is only spawned if the FullPut flag in the original request was present and set to 'true'. Finally the EH will pass the NDO to the storage module and wait until the process is complete.
+The event handler will then read the NDO and determine if a content handler(CH) will need to be spawned in order to store the binary data(octets). The CH is only spawned if the "FullPut" flag in the original request was present and set to 'true'. Finally the EH will pass the NDO to the storage module and wait until the process is complete.
 
-The Storage module will call the appropriate function for the database(through the functions defined in the Database Wrapper nn\_database). In this case the database will store the published NDO. If a NDO with the same name exists, the two NDO's are merged and the result is stored.
+The storage module will call the appropriate function for the database(through the functions defined in the database wrapper nn\_database). In this case the database will store the published NDO. If a NDO with the same name exists, the two NDO's are merged and the result is stored.
 
-Once the NDO is stored in the database a message is sent back through the chain of waiting processes. This occurs until the Message formatter can create a response containing the NDO that was stored and any CL specific response codes. Note that any process' that were temporarily spawned will kill themselves after the job is complete. Figure \ref{fig:publishfig} shows the flow of communication for Publish requests.  
+Once the NDO is stored in the database a message is sent back through the chain of waiting processes. This occurs until the message formatter can create a response containing the NDO that was stored and any CL specific response codes. Note that any processes that were temporarily spawned will kill themselves after the job is complete. Figure \ref{fig:publishfig} shows the flow of communication for Publish requests.  
 
 
 \subsubsection{Get}
@@ -135,4 +135,4 @@ NetInf describes a Search message which consists of the following fields:
 \label{fig:searchfig}
 \end{figure}
 
-A requester would like to retrieve information but do not know the name of the NDO. A NetInf search request can be sent to the Erlang NetInf NRS to retrieve a list of NDO names and the metadata which match a particular criteria(search tokens). The process is similar to both the Get and the Publish however the event handler calls the appropriate search function in the attached database. If no match is found the request is automatically forwarded on the UDP CL where the same procedure takes place. If a match is found, a response is created  and sent back to the original CL handler. Figure \ref{fig:searchfig} shows the flow of communication for  Search requests.
+A requester would like to retrieve information but does not know the name of the NDO. A NetInf search request can be sent to the Erlang NetInf NRS to retrieve a list of NDO names and the metadata which match a particular criteria(search tokens). The process is similar to both the Get and the Publish however the event handler calls the appropriate search function in the attached database. If no match is found the request is automatically forwarded on the UDP CL where the same procedure takes place. If a match is found, a response is created  and sent back to the original CL handler. Figure \ref{fig:searchfig} shows the flow of communication for Search requests.
