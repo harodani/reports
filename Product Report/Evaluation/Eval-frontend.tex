@@ -91,7 +91,7 @@ The results of the third test can be seen in Figure \ref{fig:frontendtest3}
 
 \subsection{Discussion}
 
-In Figure \ref{fig:frontendtest1}, it can be see that even without precaching, approximately 30\% of the data can be retrieved without accessing the Internet. This corresponds roughly to the 25\% which could be expected if all the resources were unique and successfully cached in the NRS, since in that case only the first phone would retrieve the resource from the Internet. With precaching of popular web pages this percentage could possibly increase even further.
+In Figure \ref{fig:frontendtest1}, it can be see that even without precaching, approximately 30\% of the data can be retrieved without accessing the Internet. With precaching of popular web pages this percentage could possibly increase even further.
 
 It was observed that if one phone had a jump start on another phone to start retrieving a certain web page, the second phone shortly caught up with the first phone. The two phones then try to retrieve the same resource at the same time which will not be in the cache and both will use the Internet.
 
@@ -99,7 +99,7 @@ In Figure \ref{fig:frontendtest1} it can also be seen that a few percent of reso
 
 Figure \ref{fig:frontendtest2} demonstrates that when accessing a web page a second time a small part still has to be retrieved using the Internet. An example of when this can happen is when a web page links to a resource using JavaScript to add a timestamp to the resource's URL. The dynamic nature of this content means that it will not be in any cache when requested. This means there will be a certain amount of resource that will have to be retrieved from the Internet.
 
-In Figure \ref{fig:frontendtest3} it can be seen that the amount of data retrieved using alternate transfer methods are similar whether or not full put is used. This is expected as only the first phone should have to retrieve the data from the Internet. If can also be seen that, as expected, the amount of data retrieved is close to the theoretical 25\% mentioned above.
+In Figure \ref{fig:frontendtest3} it can be seen that the amount of data retrieved without using the Internet is similar whether or not full put is used. This is as expected because the data that is not made available through full put should be available through Bluetooth.
 
 Table \ref{tbl:times} shows that the retrieval of web pages is very slow, but it can also shows that the actual transfer of files does not contribute to much of the total time. The retrieval is so slow that using this application in a real life situation probably only makes sense if there is no connection at all otherwise. The main culprit behind the long retrieval times seems to be the searches. This is not visible from the logs but when the application is running most of the time is spent searching. A search is done for every web resource and the time quickly adds up. To improve the retrieval times of web pages the search needs to be optimized.
 
