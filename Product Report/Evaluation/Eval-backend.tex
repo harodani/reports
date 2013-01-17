@@ -1,12 +1,12 @@
 \section{Backend}
 
-The following section describes how the NetInf streaming functionality was evaluated and tested. 
+The following section describes how the Erlang NetInf streaming functionality was evaluated and tested. 
 
 \subsection{Video streaming protocol evaluation}
 One of the problems discussed was reducing congestion when broadcasting content. 
 This was solved by implementing an alternative way of sending chunked data as seen in 
-Section \ref{sec:Chunked data streaming} according to the video streaming draft in 
-Appendix \ref{VideoDraft}. In the following section this implementation is referred to
+Section \ref{sec:Chunkeddata} according to the video streaming draft in 
+Appendix C \ref{VideoDraft}. In the following section this implementation is referred to
 as the \textit{modified streaming}. 
 The following tests were conducted:
 
@@ -16,7 +16,7 @@ The following tests were conducted:
 \item Comparison between both implementations of the NetInf Video streaming
 \end{itemize}
 
-The testing was done by transferring 500 chunks of bogus data between a number of different NetInf nodes running ERNI. 
+The testing was done by transferring 500 chunks of bogus data between a number of different NetInf nodes running the NRS. 
 All the receiving nodes started the transfer at the same time.
 To be able to publish $N$ number of chunks in an easy and fast manner, the \textit{nn\_evaluation} module was implemented.
 
@@ -25,10 +25,10 @@ The nodes that were included in the pure version of the streaming were the follo
 Central NRS node, one streaming source node that published all 500 NDOs to itself with 
 \textit{fullput} set to True, then also published the NDO to the central NRS with 
 \textit{fullput} set to False. The central NRS can not have the octets 
-because otherwise it would provide all clients with the octects directly, 
+because otherwise it would provide all clients with the octets directly, 
 hence prevent the network load to be more balanced.
 
-Five client nodes then got each chunk by:
+Five client nodes then retrieved each chunk by:
 \begin{enumerate}
 \item searching NRS for the chunk with chunk number and stream name.
 \item getting the NDO metadata and locators from the NRS.
@@ -87,12 +87,12 @@ the result of the pure version is in Figure~\ref{fig:eval-stream-pure-cpu} and t
 As can be seen in Figure~\ref{fig:eval-stream-modvspure} the transfer of the chunks 
 took less time using the pure streaming, this was not unexpected since the modified version has a lot of overhead in this case, 
 if it tries to get chunks from another client which does not have them yet, 
-this will yield in an 404 response and the client will need to try another source. 
+this will yield an 404 response and the client will need to try another source. 
 The pure NetInf however will get a hit every time. 
 
 Comparing CPU load in Figure~\ref{fig:eval-stream-pure-cpu} and Figure~\ref{fig:eval-stream-mod-cpu}, 
-it shows that even with only five receiving nodes the pure central NRS was under considerably high load,
-while the modified versions load was almost not noticeable. The CPU load on the pure NRS is caused by  
+shows that even with only five receiving nodes the pure central NRS was under considerably high load.
+While in the modified versions load was almost not noticeable. The CPU load on the pure NRS is caused by  
 the number of database lookups. 
 
 \subsection{Notes on Interoperability}
