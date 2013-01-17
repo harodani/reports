@@ -28,9 +28,15 @@ To get the 32th chunk, append 32 to the end of the hash
 \end{verbatim}
  
 If the receiver also acts as a cache, it will send a PUBLISH with the filename object and a locator pointing to itself to the NRS.
+\fig{streaming_dia} shows the flow of the actions. 
 \\
 
+\begin{figure}
+\centering
 \includegraphics[scale=0.5]{./img/sequence_diagram_streaming.png}
+\caption{Streaming Sequence Diagram}\label{fig:streaming_dia}
+\end{figure}
+
 
 \subsubsection{Testing criteria} 
 
