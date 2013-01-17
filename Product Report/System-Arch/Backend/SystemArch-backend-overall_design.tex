@@ -11,14 +11,15 @@ There are two distinct process types: persistent and non-persistent. The persist
 
 \subsection{Architecture layers}
 
-The system architecture is divided into three distinct layers a network layer (HTTP, UDP) convergence layer, an internal Erlang NetInf layer and a storage layer. Within these layers lies the modules(Erlang processes) which are responsible for specific functions such as sending/receiving convergence layer messages, sanitizing messages, forwarding, accessing databases/file systems and logging.
+The system architecture is divided into four(4) distinct layers: a network (HTTP, UDP) convergence layer, Message validation and formatting layer, an Erlang NetInf layer and finally an external storage layer consisting of a database as well as access to the file system. Within these layers lie the modules(Erlang processes) which are responsible for specific functions such as sending/receiving convergence layer messages, sanitizing messages, forwarding, accessing databases/file systems and logging.
 
 \subsection{NetInf Messaging}
 
-According to the draft specification(see appendix D-draft) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages in addition to how the Erlang NetInf NRS handles them.
+According to the draft specification(see\cite{netinfproto}) NetInf has three well defined messages which comprise of the core functionality of the system. The following sections describe the purpose and flow of each of these messages in addition to how the Erlang NetInf NRS handles them.
 
 \subsubsection{Named Data Objects}
-In addition to the messaging component, NetInf describes any piece of information as a Named Data Object(NDO). In the current state of networks, the same piece of information is considered to be location based and mutable with many copies of the same information lying around. The purpose of an NDO is to provide a convenient way for the protocol to be able to catalogue and preform operations such as storing, retrieving and finally searching for information while eliminating the need for location based information.
+
+NetInf describes any piece of information as a Named Data Object(NDO). In the current state of networks, the same piece of information is considered to be host centric and mutable with many copies of the same information lying around. The purpose of an NDO is to provide a convenient way for the protocol to be able to catalogue and preform operations such as storing, retrieving and finally searching for information while eliminating the need for host centric information.
 
 \subsubsection{Internal NetInf Messaging}
 
