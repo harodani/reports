@@ -1,13 +1,12 @@
-\section {Frontend - Android Client}
+\section {Frontend}
 The following section describes the product the frontend team developed during the course.
 The product consists of two different applications: Elephant, the web browser, and an implementation
 of the NetInf services that support Information-Centric Networking.
 
 \subsection{Elephant Web Browser}
 \label{sec:Elephant Web Browser}
-The web browser application is a basic implementation of a web browser that lets the user browse
-the web. The graphical interface is very simple and intuitive, since the only steps required for
-opening a web page is to tap on the address bar, enter the desired web page and confirm the input URL.
+The  application is a basic implementation of a web browser. The graphical interface is very simple and intuitive, 
+since the only steps required for opening a web page is to tap on the address bar, enter the desired web page and confirm the input URL.
 This is achieved by either pressing enter on the keyboard or tapping on the refresh button on the right
 of the address bar. At this point the browser will start to communicate with the NetInfService to
 search for the resources that are contained in the requested web page.
@@ -18,7 +17,7 @@ Resources refer to content of a web page, such as pictures or texts.
 What is interesting to observe is that the spinning wheel changes color while loading a web page,
 indicating what kind of transmission is being used to retrieve each resource.
 The application uses five different colors: gray to indicate that a search is in progress, red to indicate
-that a resource is retrieved by the uplink connection (3G or WIFI), green to indicate database activity,
+that a resource is retrieved by the uplink connection (3G or Wi-Fi), green to indicate database activity,
 black to indicate the use of a NRS caching node, and finally blue when a device retrieves a resource from
 another device via Bluetooth. The application also offers the possibility to interrupt the
 loading process by tapping on the the same icon used to start loading a page, as it toggles between a refresh
@@ -40,14 +39,14 @@ These settings make it possible to take advantage of the NetInf services. In com
 available browsers, Elephant makes use of Information-Centric Networking as well as Location-Based Networking
 in an attempt to lower network congestion.
 Since one of the core ideas of Information-Centric Networking is to share content between nodes, the setting page
-tries to present a simple and transparent way to exploit the underlying capabilities of the NetInf services.
-The user can decide if they want to share visited pages, as well as upload web pages to a caching node.
+tries to present a simple and transparent way to exploit the underlying capabilities of the NetInf services. This setting 
+page is shown in \fig{ele_settings}. The user can decide if they want to share visited pages, as well as upload web pages to a caching node.
 The first menu entry gives the possibility to register the local device as a locator that can serve other devices
 with the loaded content via Bluetooth.
 Enabling the second menu entry the device will not only register the user as a locator, but will also transfer the actual bytes,
 so that the content can be served by a NRS cache node if there is one available.
 
-The last menu entry for the setting is for opening the NetInf Services' settings, so that the user does not have to switch applications
+The last menu entry for the setting is for opening the NetInf Service's settings, so that the user does not have to switch applications
 manually when changing the service settings.
 \newpage
 
