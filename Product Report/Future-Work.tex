@@ -4,11 +4,12 @@
 
 \subsubsection{Dynamic Content}
 
-Currently the dynamic content problem is ignored. Given a traditional web URL the browser application maps 
+Currently, the dynamic content problem is ignored. Given a traditional web URL, the browser application maps 
 it to an NDO. As long as the web content is static, the mapping from URL to NDO will be a one-to-one relation. 
 However, if the web content is dynamic, the mapping will be one-to-many. If this is the case a search could return 
 several matching NDOs. At a first glance adding a timestamp specifying when the the page was retrieved could seem 
-to solve the problem. While this is true for some dynamic web pages, it does not hold in general. For example a web 
+to solve the problem. %This would transfer to the application the responsibility of keeping data fresh.
+While this is true for some dynamic web pages, it does not hold in general. For example a web 
 page could be generated differently depending on who or from where it was accessed. Furthermore, a dynamic web page 
 linking to other dynamic resources might be dependent on getting the correct version of the linked resources. In the 
 second case a timestamp could help if all resources belonging together are marked with the same timestamp and not the 
@@ -17,11 +18,11 @@ individual access times. Currently the first search result is used by default.
 \subsubsection{Search}
 
 The Elephant browser relies heavily on NetInf searches as described in Sections \ref{sec:Elephant Web Browser} 
-and \ref{sec:Elephant}. Currently the time needed to perform a search quickly increases as the number of published 
+and \ref{sec:Elephant}. The time needed to perform a search increases as the number of published 
 NDOs grows. The NRS supports two ways of storing published NDOs either using an Erlang list or a Riak database. 
-Preliminary tests had problems with increasing search times using both these approaches. It is possible that the 
-slowdown is caused by the NetInfService or Elephant application for some reason. Investigation into the reason behind 
-this slowdown is required to improve the performance of the Elephant browser.
+Preliminary tests had problems with increasing search times using both these approaches. Searching is expensive because it
+is being performed in a list database. Better results can be obtained when using databases that are suited to handling a
+larger amount of data, such as Riak.
 
 \subsubsection{Delete Functionality}
 
@@ -31,9 +32,9 @@ implementation is in place so adding this functionality should require relativel
 \subsubsection{NetInfService}
 
 NetInfService was implemented as its own Android application which is supposed to run in the background. 
-While this makes it easy to create other applications using the provided functionality there are currently some 
+While this makes it easy to create other applications using the provided functionality, there are currently 
 problems with the application randomly stopping and not resuming until it is brought to the front. The suspected 
-reason is that the Android OS might pause applications in the background to save system resources or stop them 
+reason is that the Android OS might pause applications in the background to save system resources, or stop them 
 when system settings are changed and then restart them when they are brought to the front. If this is an unavoidable 
 problem for Android applications running in the background then NetInfService needs to be changed, perhaps into an Android Service.
 
@@ -46,7 +47,7 @@ Bluetooth Convergence Layer for users to be able to send NetInf messages via Blu
 
 \subsubsection{Precaching}
 
-If the NetInf network starts without any web content cached there will be a lot of Internet access in the beginning 
+If the NetInf network starts without any objects cached, it is probable that a lot of Internet access in the beginning 
 while the content is entering the network. This could be prevented by precaching content in the NRS. By investigating 
 which web pages are frequently accessed and when they are accessed, the NRS could download these popular web pages in 
 advance. If the search request always uses the NRS, this information will be continuously available to the NRS and it 
@@ -54,25 +55,26 @@ could automatically download the pages it expects to be accessed when there is b
 
 \subsubsection{Access Control}
 
-Currently any user can publish thier content on the NRS. One functionality for the future could be to implement some 
-kind of access control mechanism. Only authorized users would be able to publish to a particular NRS and only a partiular 
-group of users would be able to access the published content. 
+Currently, any user can publish their content on the NRS. One functionality for the future is to implement some 
+kind of access control mechanism. Only authorized users would be able to publish content to a particular NRS and only a partiular 
+group of users would be able to access the published content.
 
 \subsubsection{Interoperability}
 
-Another interesting task for the future could be to test the interoperability between different NetInf implementations. 
-There are different implementations of NetInf in different programming languages. They should be able to communicate with 
-each other if they have been implemented using the same version of the protocol draft. 
+Further work could be done in testing the interoperability between different NetInf implementations. Different
+implementations of NetInf exist, in different programming languages. These implementations should be able to communicate
+with each other if they have been implemented using the same version of the protocol draft. 
 
 \subsubsection{Handle large file}
 
-The current system has some unexpected behaviour when files transferred exceed 10 mega bytes. An improvement to the 
+The current system has some unexpected behaviour when files transferred exceed 10 megabytes. An improvement to the 
 application could be to make it more stable when handling larger files.
 
 \subsection{Security}
 
-Security is a field that was out of scope for this project but is an area that would be interesting to look into. 
-Questions like how to handle private data within the network amongst others belong here.
+Security is a field that was out of scope for this project. However, it is an area that should not be overlooked in the future.
+Questions like how to handle private data within the network, who can publish or retrieve data within the network, who to trust 
+as a content source, amongst others.
 
 \subsubsection{NRS required folder creation}
 
@@ -82,7 +84,7 @@ The product relies on a separate "make" file which creates these folders. In the
 \subsubsection{Polling Logic}
 
 The polling logic needs to be implemented in the video streaming client, this is how often the receiver should get 
-a new chunk or check if a new chunk exists.  
+a new chunk or check if a new chunk exists.
 
 \subsection{General}
 
