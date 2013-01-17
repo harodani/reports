@@ -23,7 +23,7 @@
 \section{NetInfService}
 \label{sec:NetInfService}
 
-NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{masterthesis} and uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below. 
+NetInfService is the first of two Android applications. It provides a NetInf node which can be accessed through a RESTful API. This allows any application running on the same device as the NetInfService to access NetInf functionality through simple HTTP requests. The interface is described in detail in Section \ref{sec:RESTful API}. NetInfService is based on the work done in a previous master thesis \cite{hugomiguel}. The NetInfService uses and extends OpenNetInf to provide this functionality. An overview of the design of NetInfService can be seen in Figure \ref{fig:netinfserviceoverview}, the individual components are described below. 
 
 \begin{figure}
 	\centering
@@ -52,7 +52,7 @@ The default settings for NetInfService are stored in the properties file "assets
 \subsection{RESTful API}
 \label{sec:RESTful API}
 
-The RESTful API receives HTTP requests for NetInf functionality. Depending on the type of request, the ResolutionController, SearchController or TransferDispatcher is called. Publish requests are handled by the ResolutionController. Retrieve requests first trigger a get request using the ResolutionController and then, if the get response contained locators, transfer the file using the TransferDispatcher. Search requests are handled by the SearchController.
+The RESTful API receives HTTP requests for NetInf functionality. Depending on the type of request, the ResolutionController, SearchController or TransferDispatcher is called. Publish requests are handled by the ResolutionController. Retrieve requests first trigger a get request using the ResolutionController and, if the get response contained locators, it will transfer the file using the TransferDispatcher. Search requests are handled by the SearchController.
 
 The HTTP request uses the following format:
 
@@ -64,9 +64,9 @@ Since the NetInfService should be running on the same device as the application 
 
 \subsubsection{Publish}
 
-Publish request uses the prefix \emph{publish}.
+Publish requests use the prefix \emph{publish}.
 
-It requires the following key-value pairs:
+They require the following key-value pairs:
 
 \begin{tabular}{ | l | l | }
 	\hline
@@ -106,7 +106,7 @@ http://localhost:8080/publish?hash=TcoP1fQkoxsDq4B8uud+syvy0Inu0c7hVLOv7UWN4Nw \
 
 Retrieve requests use the prefix \emph{retrieve}.
 
-It requires the following key-value pairs:
+They require the following key-value pairs:
 
 \begin{tabular}{ | l | l | }
 	\hline
@@ -129,7 +129,7 @@ http://localhost:8080/retrieve?hash=TcoP1fQkoxsDq4B8uud+syvy0Inu0c7hVLOv7UWN4Nw 
 
 Search requests use the prefix \emph{search}.
 
-It requires the following key-value pairs:
+They require the following key-value pairs:
 
 \begin{tabular}{ | l | l | }
 	\hline
@@ -146,7 +146,7 @@ The following key-value pair is optional:
 \end{tabular}
 
 \begin{itemize}
-	\item tokens: Currently NetInfService only supports one token. This should be changed to accept a string of space separated search tokens to follow specification.
+	\item tokens: Currently NetInfService only supports one token. This should be changed to accept a string of space separated search tokens to follow the specification.
 	\item ext: The ext field is meant for future extensions. It is allowed, but currently ignored.
  \end{itemize}
 
@@ -181,8 +181,7 @@ which provides search functionality using a single token which is assumed to be 
 \subsubsection{UrlSearchService}
 
 The UrlSearchService provides the functionality to search for a single token in the local database 
-used by the LocalResolutionService and then, if not found, using the HTTP convergence layer to search 
-in the NRS used by the NameResolutionService.
+used by the LocalResolutionService. If the token is not found in the database, then a search will be preformed using the HTTP convergence layer. This new search looks for tokens in the NRS, which uses the NameResolutionService.
 
 \subsection{TransferDispatcher}
 \label{sec:TransferDispatcher}

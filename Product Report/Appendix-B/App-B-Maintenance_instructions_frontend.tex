@@ -1,6 +1,11 @@
 \subsection{Default Application Settings}
 
-As mentioned in Sections \ref{sec:Configuration} and \ref{sec:ConfigurationElephant} the default settings for NetInfService and Elephant are stored in two properties files located at "assets/config.properties" inside each projects folder. These files mostly contain internal application settings but also some settings that can be changed through the applications' setting menus. If settings are changed through the setting menus the default in the files are not changed. Instead the changes are stored using the Android concept shared preferences which in short stores the settings in a for each application assigned file.
+As mentioned in Sections \ref{sec:Configuration} and \ref{sec:ConfigurationElephant} the default settings f
+or NetInfService and Elephant are stored in two properties files located at "assets/config.properties" inside each projects folder. 
+These files mostly contain internal application settings but also some settings that can be changed through the applications' 
+setting menus. If settings are changed through the setting menus 
+the default in the files are not changed. Instead the changes are stored using 
+the Android concept shared preferences which in short stores the settings in a for each application assigned file.
 
 \subsubsection{Elephant Web Browser}
 \label{sec:MaintElephantSettings}
@@ -38,7 +43,7 @@ The properties file belonging to Elephant contain the following:
 	
 	\item {\bf default.webpage = ul.se}
 	
-	The default web page of web view.
+	The default web page of the web view.
 	
 	\item {\bf httprequest.timeout = 2000}
 	
@@ -46,7 +51,7 @@ The properties file belonging to Elephant contain the following:
 	
 	\item {\bf httprequest.encode = UTF-8}
 	
-	The encoding used for HTTP requests.
+	The encoding is used for HTTP requests.
 	
 	\item {\bf http = http://}
 	
@@ -68,7 +73,8 @@ The properties file belonging to Elephant contain the following:
 
 \subsubsection{NetInfService}
 
-The NetInfService properties file contains several settings that are also in the Elephant browser settings. Duplicates are not repeated here, instead see Section \ref{sec:MaintElephantSettings}.
+The NetInfService properties file contains several settings that are also in the Elephant browser settings. 
+Duplicates are not repeated here, instead see Section \ref{sec:MaintElephantSettings}.
 
 \begin{itemize}
 	\item {\bf identity.nodeIdentity = ni:HASH\_OF\_PK=123~UNIQUE\_LABEL=456}
@@ -89,11 +95,11 @@ The NetInfService properties file contains several settings that are also in the
 	
 	\item {\bf metadata.*}
 	
-	Some fields used as metadata.
+	Some field names used as metadata.
 	
 	\item{\bf bluetooth.interval = 300000}
 	
-	How often the Bluetooth discover should be run.
+	Period of time, after which a Bluetooth discovery is triggered.
 	
 	\item{\bf bluetooth.timeout = 10000}
 	
@@ -101,7 +107,7 @@ The NetInfService properties file contains several settings that are also in the
 	
 	\item{\bf bluetooth.number\_attempts = 2}
 	
-	How many times Bluetooth tries to connect.
+	How many times Bluetooth tries to establish a Bluetooth connection.
 	
 	\item{\bf bluetooth.buffer = 1024}
 	
@@ -133,7 +139,14 @@ For instructions on how to set up Eclipse IDE to use the Android SDK as well as 
 
 \subsection{Eclipse Project Structure}
 
-There are three Eclipse projects. Application which contains the code for the Elephant browser. NetInfService which contains the code for the NetInfService application. NetInfUtilities which contain some utility functions used by the two other projects. Below follows the different packages the applications are structured into and the functionality that can be found in each.
+There are three Eclipse projects:
+
+\begin{itemize} 
+ \item Application which contains the code for the Elephant browser
+ \item NetInfService which contains the code for the NetInfService application
+ \item NetInfUtilities which contain some utility functions used by the two other projects
+\end{itemize}
+Following are the different packages the applications are structured into and the functionality that is associated with each.
 
 \subsubsection{Elephant Packages}
 
@@ -152,17 +165,21 @@ There are three Eclipse projects. Application which contains the code for the El
 	
 	\item{\bf project.cs.lisa.application.html}
 	
-	NetInfWebViewClient changes the behaviour of the WebView by telling the WebView what to do when new resources are to be downloaded. NetInf is used to search for, download and publish web pages and/or resources. If necessary the Internet is used.
+	NetInfWebViewClient changes the behaviour of the WebView by telling the WebView what to do
+	when new resources are to be downloaded. NetInf is used to search for, download and publish web pages and/or resources. If necessary the Internet is used.
 	
 	\item{\bf project.cs.lisa.application.html.transfer}
 	
-	The FetchWebPageTask fetches the HTML source of a web page using NetInf if possible and loads it in the WebView. Then the WebView will load the resources using the NetInfWebViewClient.
+	The FetchWebPageTask fetches the HTML source of a web page using NetInf if 
+	possible and loads it into the WebView. Then the WebView will load the resources using the NetInfWebViewClient.
 	
 DownloadWebObject is used be the NetInfWebViewClient to download the web page or resource from the Internet if not accessible by NetInf.
 	
 	\item{\bf project.cs.lisa.application.http}
 	
-	Contains the code handling the HTTP communication with the NetInfService's RESTful API. The classes NetInfPublish, NetInfRetrieve and NetInfSearch handles publishes, retrieves and searches respectively. The classes NetInfPublishResponse, NetInfRetrieveResponse and NetInfSearchResponse represent responses to publishes, retrieves and searches respectively.
+	Contains the code handling the HTTP communication with the NetInfService's RESTful API. The classes NetInfPublish, NetInfRetrieve and NetInfSearch handle 
+	publish, retrieve and search respectively. The classes NetInfPublishResponse, NetInfRetrieveResponse and NetInfSearchResponse represent 
+	responses to publish, retrieve and search respectively.
 	
 	\item{\bf project.cs.lisa.application.networksettings}
 	
@@ -179,7 +196,7 @@ DownloadWebObject is used be the NetInfWebViewClient to download the web page or
 	
 	\item{\bf project.cs.netinfservice.database}
 	
-	Handles the SQLLite database used by the LocalResolutionService as well as the UrlSearchService.	
+	Handles the SQLLite database used by both the LocalResolutionService as well as the UrlSearchService.	
 	
 	\item{\bf project.cs.netinfservice.netinf.access.rest}
 	
@@ -187,7 +204,7 @@ DownloadWebObject is used be the NetInfWebViewClient to download the web page or
 	
 	\item{\bf project.cs.netinfservice.netinf.access.rest.resources}	
 	
-	Contains the implementation of the RESTful API. IOResource handles publishes, BOResource handles retrieves and SearchResource handles searches.
+	Contains the implementation of the RESTful API. IOResource handles publish, BOResource handles retrieve and SearchResource handles search.
 	
 	\item{\bf project.cs.netinfservice.netinf.common.datamodel}
 	
@@ -207,7 +224,7 @@ DownloadWebObject is used be the NetInfWebViewClient to download the web page or
 	
 	\item{\bf project.cs.netinfservice.netinf.node.resolution}
 	
-	The resolutions package contains the different ResolutionServices, see Section \ref{sec:ResolutionController}.
+	The resolution package contains the different ResolutionServices, see Section \ref{sec:ResolutionController}.
 	
 	\item{\bf project.cs.netinfservice.netinf.node.search}
 	
@@ -225,7 +242,9 @@ DownloadWebObject is used be the NetInfWebViewClient to download the web page or
 	
 	\item{\bf project.cs.netinfservice.netinf.server.bluetooth}
 	
-	The BluetoothServer listens for incoming Bluetooth pairing requests. As soon as the local device has been successfully paired with a remote device, the BluetoothServer waits for a file request containing a hash. If the specified file is available, the file will be transferred to the remote device.
+	The BluetoothServer listens for incoming Bluetooth pairing requests. As soon as the local device has been 
+	successfully paired with a remote device, the BluetoothServer waits for a file request containing a hash. If the specified file is available, 
+	the file will be transferred to the remote device.
 	
 	\item{\bf project.cs.netinfservice.netinf.transferdispatcher}
 	
@@ -233,7 +252,7 @@ DownloadWebObject is used be the NetInfWebViewClient to download the web page or
 	
 	\item{\bf project.cs.netinfservice.util}
 
-	Contain utility classes.
+	Contains utility classes.
 	
 	The IdentifierBuilder and IOBuilder classes ease the construction of Identifiers and InformationObjects respectively.
 	
