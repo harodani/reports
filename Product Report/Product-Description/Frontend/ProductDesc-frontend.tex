@@ -1,50 +1,40 @@
 \section {Frontend}
 The following section describes the product the frontend team developed during the course.
 The product consists of two different applications: Elephant, the web browser, and an implementation
-of the NetInf services that support Information-Centric Networking.
+of the NetInf services.
 
 \subsection{Elephant Web Browser}
 \label{sec:Elephant Web Browser}
-The  application is a basic implementation of a web browser. The graphical interface is very simple and intuitive, 
-since the only steps required for opening a web page is to tap on the address bar, enter the desired web page and confirm the input URL.
-This is achieved by either pressing enter on the keyboard or tapping on the refresh button on the right
-of the address bar. At this point the browser will start to communicate with the NetInfService to
-search for the resources that are contained in the requested web page.
-
-While loading a web page the browser gives the user continuous feedback in the form of a spinning wheel,
-indicating that the resources contained in the web page are being downloaded.
-Resources refer to content of a web page, such as pictures or texts.
-What is interesting to observe is that the spinning wheel changes color while loading a web page,
-indicating what kind of transmission is being used to retrieve each resource.
-The application uses five different colors: gray to indicate that a search is in progress, red to indicate
-that a resource is retrieved by the uplink connection (3G or Wi-Fi), green to indicate database activity,
-black to indicate the use of a NRS caching node, and finally blue when a device retrieves a resource from
-another device via Bluetooth. The application also offers the possibility to interrupt the
+The color of the spin-progress-bar indicates the medium used for fetching data.  
+\begin{itemize}
+\item Red indicates the uplink connection (3G or Wi-Fi)
+\item Green indicates the database
+\item Black indicates a NRS caching node
+\item Blue indicates Bluetooth
+\end{itemize}
+Other than these colors, grey means that a search is currently in progress.
+The application also offers the possibility to interrupt the
 loading process by tapping on the the same icon used to start loading a page, as it toggles between a refresh
-icon and cancel icon. \fig{loaded_page} shows an example view of the web browser.\\
-
+icon and cancel icon. 
 \begin{figure}
 \centering
 \includegraphics[scale=0.29]{img/loaded_page.png}
 \caption{Loading a web page via uplink}\label{fig:loaded_page}
 \end{figure}
 
-To make sure that Elephant will be able to retrive resources from an NRS caching node and to be able
-to connect to other devices via Bluetooth, the NetInfService application must be up and running.
-This is because the NetInf services enable communication to other nodes in the system and keep
-track of which devices have a certain resource to serve via Bluetooth.
+\fig{loaded_page} shows an example view of the web browser.\\
+
+
+To make sure that Elephant is able to retrieve resources from other mediums than the uplink, the NetInf service application must be up and running.
+This is because the NetInf service enables communication to other nodes in the network and to keep track of which devices have a certain resource to serve via Bluetooth.
 
 Elephant contains some customizable settings that can be found in the menu entry on the top right of the application.
-These settings make it possible to take advantage of the NetInf services. In comparison to other
+These settings make it possible to take advantage of the NetInf service. In comparison to other
 available browsers, Elephant makes use of Information-Centric Networking as well as Location-Based Networking
 in an attempt to lower network congestion.
-Since one of the core ideas of Information-Centric Networking is to share content between nodes, the setting page
-tries to present a simple and transparent way to exploit the underlying capabilities of the NetInf services. This setting 
-page is shown in \fig{ele_settings}. The user can decide if they want to share visited pages, as well as upload web pages to a caching node.
-The first menu entry gives the possibility to register the local device as a locator that can serve other devices
-with the loaded content via Bluetooth.
-Enabling the second menu entry the device will not only register the user as a locator, but will also transfer the actual bytes,
-so that the content can be served by a NRS cache node if there is one available.
+In the setting page, see \fig{ele_settings}, the user can decide if they want to share visited pages as well as upload web pages to a caching node.
+The first menu entry gives the possibility to register the local device as a locator that can serve other devices via Bluetooth.
+By enabling the second menu entry the device will not only register as a locator, but will also transfer the actual files to a NRS cache node, if any.
 
 The last menu entry for the setting is for opening the NetInf Service's settings, so that the user does not have to switch applications
 manually when changing the service settings.

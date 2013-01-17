@@ -1,5 +1,5 @@
 \subsection{Chunked data streaming}
-
+\label{sec:Chunkeddata}
 The Erlang NetInf NRS includes two different ways to stream chunked data. The first is the modified version of NetInf that removes the overhead of publishing each chunk to the NRS. The other implementation uses pure NetInf to publish each chunk. Both of them use an HTML5 interface to playback the stream. 
 
 %\includegraphics[scale=0.5]{./img/database_api.png}
@@ -38,7 +38,7 @@ Subscribe to a pure NetInf stream
 
 \subsubsection{HTML5 interfaces}
 To combine the video chunks, two HTML5 video elements are used to pre-cache the chunks through the content dispatcher. This is done by alternating the visibility and playback of the two elements with JavaScript. With this method of playback the video chunks looks like one continuous stream. 
-To make the usability of the interface smoother, some asynchronous network request are used to communicate with the HTTP client.
+To make the usability of the interface smoother, some asynchronous network requests are used to communicate with the HTTP client.
 To the right of the interface it is possible to see the current state of the local NRS. 
 
 \subsubsection{Difference between implementations}
