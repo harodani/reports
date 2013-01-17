@@ -83,9 +83,9 @@ Once a request is in the system, the CL handler that received it will pass the r
 
 At this point the original request will be validated and sanitized for use in the internal NRS system and a NDO will be created. If the request is malformed the MH will construct a response message immediately and pass the new message back, informing the requester of the specific reason the request was rejected and then the MH will die. 
 
-In the case that the validation and sanitization succeeds the MH will have a newly sanitized and internal message representation of the original request(NDO). The request is now ready to be passed deeper into the system. The MH spawns an Event Handler(EH) and goes to sleep waiting for the message to complete the process. 
+In the case that the validation and sanitization succeeds the MH will have a newly sanitized and internal message representation of the original request(NDO). The request is now ready to be passed deeper into the system. The MH spawns an event handler(EH) and goes to sleep waiting for the message to complete the process. 
 
-The Event Handler will then read the NDO and determine if a Content Handler(CH) will need to be spawned in order to store the binary data(octets). The CH is only spawned if the FullPut flag in the original request was present and set to 'true'. Finally the EH will pass the NDO to the Storage module and wait until the process is complete.
+The Event Handler will then read the NDO and determine if a Content Handler(CH) will need to be spawned in order to store the binary data(octets). The CH is only spawned if the FullPut flag in the original request was present and set to 'true'. Finally the EH will pass the NDO to the storage module and wait until the process is complete.
 
 The Storage module will call the appropriate function for the database(through the functions defined in the Database Wrapper nn\_database). In this case the database will store the published NDO. If a NDO with the same name exists, the two NDO's are merged and the result is stored.
 
@@ -113,7 +113,7 @@ NetInf describes a Get message which consists of the following fields:
 \label{fig:getfig}
 \end{figure}
 
-A requester would like to retrieve information, using an external client the requester sends a NetInf Get request(assuming they know the name of the NDO they are looking for) in the format described above. The process is similar to the publish, until the NDO is passed to the event handler. The event handler will call the database to lookup the NDO using the URI field. If found the NDO will be returnd back through the system to the Message Formatter in order to construct the appropriate response message. However, if the NDO is not found a Message Forwarder will be spawned and the NDO request is broadcasted out on the UDP CL. If there are other Erlang NetInf NRS' on the network a UDP response packet will be sent and the original NRS which forwarded the request will eventually respond to the requester with the NDO or timeout. Figure \ref{fig:getfig} shows the flow of communication for Get requests.
+A requester would like to retrieve information, using an external client the requester sends a NetInf Get request(assuming they know the name of the NDO they are looking for) in the format described above. The process is similar to the publish, until the NDO is passed to the event handler. The event handler will call the database to lookup the NDO using the URI field. If found the NDO will be returned back through the system to the message formatter in order to construct the appropriate response message. However, if the NDO is not found a message forwarder will be spawned and the NDO request is broadcasted out on the UDP CL. If there are other Erlang NetInf NRS' on the network a UDP response packet will be sent and the original NRS which forwarded the request will eventually respond to the requester with the NDO or timeout. Figure \ref{fig:getfig} shows the flow of communication for Get requests.
 
 \subsubsection{Search}
 
