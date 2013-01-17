@@ -1,6 +1,6 @@
 \subsection {Convergence Layers}
 \label{CL}
-The NetInf NRS protocol introduces the concept of Convergence Layers(CL). CL's are specific protocols that can be used to talk to other nodes on the network. For example it is possible to use the HyperTextTransferProtocol(HTTP), Erlang Messaging or User Datagram Protocol(UDP). The CL's are implemented as a set of Erlang modules whose sole jobs are to receive and send messages of the specific type of the CL. These set of modules receive(CL handlers) clean/format(CL specific formatter) and forward into and out of the system.
+The NetInf NRS protocol introduces the concept of Convergence Layers(CL). CL's are specific protocols that can be used to talk to other nodes on the network. For example it is possible to use the HyperTextTransferProtocol(HTTP), Erlang Messaging or User Datagram Protocol(UDP). The CL's are implemented as a set of Erlang modules whose sole jobs are to receive and send messages of the specific type of the CL. These modules receive(CL handlers) clean/format(CL specific formatter) and forward into and out of the system.
 
 \subsubsection{HTTP}
 
