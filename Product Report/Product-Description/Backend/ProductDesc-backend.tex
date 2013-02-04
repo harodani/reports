@@ -47,7 +47,7 @@ Instead of using the transfer-dispatcher between the client nodes a workaround w
 content validation, this resulted in fetching chunks via NetInf messages. The polling logic is still the 
 same as first implementation, seen in figure \ref{fig:stream-seqorgmod}. Instead of using ordinary HTTP locators, the 
 receiver is required to modify the \textit{NetInf GET requests} to get the chunks. This is done by replacing the 
-hash algorithm with the custom hash name \textit{demo}. For example, to get the first chunk of \textit{ni:///sha-256;abc}, 
+hash algorithm with the custom hash name \textit{demo}, this fictitious hash name is used to avoid the content validation and database lookups. For example, to get the first chunk of \textit{ni:///sha-256;abc}, 
 the request should contain \textit{ni:///demo;abc1}. The HTTP transfer-dispatcher is still used to transfer the chunks to the HTML-interface.
 
 \subsubsection{Pure NetInf Streaming}
