@@ -1,0 +1,67 @@
+\begin{thebibliography}{10}
+
+\bibitem{alexa}
+Alexa - the web information company.
+\newblock Retrieved January 16th, 2013, from http://www.alexa.com/.
+
+\bibitem{ericsson}
+Ericsson - a world of communication - ericsson.
+\newblock Retrieved January 15th, 2013, from http://www.ericsson.com.
+
+\bibitem{erlang}
+Erlang programming language.
+\newblock Retrieved January 15th, 2013, from http://www.erlang.org/.
+
+\bibitem{4ward}
+The fp7 4ward project.
+\newblock Retrieved January 8th, 2013, from http://www.4ward-project.eu/.
+
+\bibitem{guice}
+Google guice (n.d.).
+\newblock Retrieved January 15, 2013, from
+  http://code.google.com/p/google-guice/.
+
+\bibitem{javascript}
+Javascript | mdn.
+\newblock Retrieved January 15, 2013, from
+  https://developer.mozilla.org/en-US/docs/JavaScript.
+
+\bibitem{netinf}
+B.~Ahlgren, C.~Dannewitz, C.~Imbrenda, D.~Kutscher, and B.~Ohlman.
+\newblock A survey of information-centric networking.
+\newblock {\em IEEE Communications Magazine}, 2012.
+
+\bibitem{opennetinf}
+E.~Bauer M.~Becker F.~Beister N.~Dertmann-R.~Hrestic M.~Kionka M.~Mohr
+  M.~M\"uhe D.~Murali F.~Steffen S.~Stey E.~Unruh Q.~Wang C.~Dannewitz,
+  M.~Herlich and S~Weber.
+\newblock Opennetinf documentation design and implementation.
+\newblock Technical report, University of Paderborn, September 2011.
+
+\bibitem{netinfproto}
+S.~Farrell D.~Kutscher and E.~Davies.
+\newblock The netinf protocol.
+\newblock Handed to us by Ericsson, 2012.
+
+\bibitem{otpInAction}
+Martin Logan, Eric Merritt, and Richard Carlsson.
+\newblock {\em {Erlang and OTP in Action}}.
+\newblock Manning, November 2010.
+
+\bibitem{android}
+Android~Developers (n.d.).
+\newblock Android developers.
+\newblock Retrieved January 8th, 2013, from http://developer.android.com.
+
+\bibitem{ICNarticle}
+Kostas Pentikousis, Prosper Chemouil, Kathleen Nichols, George Pavlou, and Dan
+  Massey.
+\newblock Information-centric networking [guest editorial].
+\newblock {\em IEEE Communications Magazine}, 50(7):22--25, 2012.
+
+\bibitem{ninames}
+C.~Dannewitz B.~Ohlman A.~Keranen P.~Hallam-Baker S.~Farrell, D.~Kutscher.
+\newblock Naming things with hashes draft-farrell-decade-ni-10.
+\newblock Handed to us by Ericsson, 2012.
+
+\end{thebibliography}
