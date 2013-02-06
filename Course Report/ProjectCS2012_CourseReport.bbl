@@ -1,4 +1,8 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{buildbotsite}
+Buildbot - an automated build tool.
+\newblock Retrieved February 4th, 2013, from http://trac.buildbot.net/.
 
 \bibitem{ericsson}
 Ericsson - a world of communication - ericsson.
@@ -7,6 +11,23 @@ Ericsson - a world of communication - ericsson.
 \bibitem{erlang}
 Erlang programming language.
 \newblock Retrieved January 15th, 2013, from http://www.erlang.org/.
+
+\bibitem{gitsite}
+Git - fast version control.
+\newblock Retrieved February 4th, 2013, from http://git-scm.com/.
+
+\bibitem{jenkinssite}
+Jenkins - an extendable open source continues integration server.
+\newblock Retrieved February 4th, 2013, from http://jenkins-ci.org/.
+
+\bibitem{jirasite}
+Jira.
+\newblock Retrieved February 4th, 2013, from
+  http://www.atlassian.com/software/jira/overview.
+
+\bibitem{redminesite}
+Redmine - a project manager web application.
+\newblock Retrieved February 4th, 2013, from http://www.redmine.org/.
 
 \bibitem{ghodsietal}
 B.~Raghavan S.~Shenker A.~Singla J.~Wilcox A.~Ghodsi, T.~Koponen.
@@ -17,6 +38,13 @@ B.~Raghavan S.~Shenker A.~Singla J.~Wilcox A.~Ghodsi, T.~Koponen.
 B.~Ahlgren, C.~Dannewitz, C.~Imbrenda, D.~Kutscher, and B.~Ohlman.
 \newblock A survey of information-centric networking.
 \newblock {\em IEEE Communications Magazine}, 2012.
+
+\bibitem{product-report}
+P.~Boschini K.~Goguev F.~Hassan M.~Ihlar-A.~Lindholm K.~Lorenzen H.
+  Mart\'{i}nez T. Nordstr\"om T.~Costa Porto L.~Sunde K-A.~Tran D.~Bacarella,
+  J.~Borglund.
+\newblock Project cs 2012 product report.
+\newblock 2012.
 
 \bibitem{hugomiguel}
 H.~Otaola and M.~Sosa.

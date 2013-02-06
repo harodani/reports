@@ -1,4 +1,5 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ProjectCS2012_CourseReport.aux
 The style file: plain.bst
 Database file #1: references.bib
@@ -10,6 +11,31 @@ while executing---line 1049 of file plain.bst
 Too many commas in name 1 of "A.~Ghodsi, T.~Koponen, B.~Raghavan, S.~Shenker, A.~Singla, J.~Wilcox" for entry ghodsietal
 while executing---line 1049 of file plain.bst
 Warning--to sort, need author or key in erlang
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1049 of file plain.bst
+Warning--to sort, need author or key in buildbotsite
+Warning--to sort, need author or key in jenkinssite
+Warning--to sort, need author or key in gitsite
+Warning--to sort, need author or key in redminesite
+Warning--to sort, need author or key in jirasite
 Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, A.~Keranen, P.~Hallam-Baker" for entry netinfspecs
 while executing---line 1049 of file plain.bst
 Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, A.~Keranen, P.~Hallam-Baker" for entry netinfspecs
@@ -22,51 +48,72 @@ Too many commas in name 1 of "A.~Ghodsi, T.~Koponen, B.~Raghavan, S.~Shenker, A.
 while executing---line 1090 of file plain.bst
 Too many commas in name 1 of "A.~Ghodsi, T.~Koponen, B.~Raghavan, S.~Shenker, A.~Singla, J.~Wilcox" for entry ghodsietal
 while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "D.~Bacarella, J.~Borglund, P.~Boschini, K.~Goguev, F.~Hassan, M.~Ihlar, A.~Lindholm, K.~Lorenzen,H. Mart\'{i}nez,T. Nordstr\"om, T.~Costa Porto, L.~Sunde, K-A.~Tran" for entry product-report
+while executing---line 1090 of file plain.bst
+Warning--empty journal in product-report
 Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, A.~Keranen, P.~Hallam-Baker" for entry netinfspecs
 while executing---line 1090 of file plain.bst
 Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, A.~Keranen, P.~Hallam-Baker" for entry netinfspecs
 while executing---line 1090 of file plain.bst
 Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, A.~Keranen, P.~Hallam-Baker" for entry netinfspecs
 while executing---line 1090 of file plain.bst
-You've used 7 entries,
+You've used 13 entries,
             2118 wiz_defined-function locations,
-            525 strings with 4936 characters,
-and the built_in function-call counts, 1507 in all, are:
-= -- 141
-> -- 70
+            543 strings with 5675 characters,
+and the built_in function-call counts, 2497 in all, are:
+= -- 230
+> -- 82
 < -- 0
-+ -- 31
-- -- 22
-* -- 75
-:= -- 266
-add.period$ -- 18
-call.type$ -- 7
-change.case$ -- 31
++ -- 39
+- -- 24
+* -- 108
+:= -- 386
+add.period$ -- 31
+call.type$ -- 13
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 57
-empty$ -- 124
-format.name$ -- 22
-if$ -- 307
+cite$ -- 21
+duplicate$ -- 102
+empty$ -- 256
+format.name$ -- 24
+if$ -- 542
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 2
-newline$ -- 35
-num.names$ -- 10
-pop$ -- 44
+int.to.str$ -- 13
+missing$ -- 3
+newline$ -- 60
+num.names$ -- 12
+pop$ -- 105
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 38
 quote$ -- 0
-skip$ -- 46
+skip$ -- 82
 stack$ -- 0
-substring$ -- 37
-swap$ -- 6
+substring$ -- 67
+swap$ -- 11
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 2
-while$ -- 10
-width$ -- 8
-write$ -- 66
-(There were 12 error messages)
+type$ -- 52
+warning$ -- 8
+while$ -- 12
+width$ -- 15
+write$ -- 110
+(There were 32 error messages)
