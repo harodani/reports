@@ -4,10 +4,6 @@
 Alexa - the web information company.
 \newblock Retrieved January 16th, 2013, from http://www.alexa.com/.
 
-\bibitem{ericsson}
-Ericsson - a world of communication - ericsson.
-\newblock Retrieved January 15th, 2013, from http://www.ericsson.com.
-
 \bibitem{erlang}
 Erlang programming language.
 \newblock Retrieved January 15th, 2013, from http://www.erlang.org/.
@@ -26,6 +22,10 @@ Javascript | mdn.
 \newblock Retrieved January 15, 2013, from
   https://developer.mozilla.org/en-US/docs/JavaScript.
 
+\bibitem{sail}
+Sail.
+\newblock Retrieved January 17th, 2013, from http://www.sail-project.eu/.
+
 \bibitem{netinf}
 B.~Ahlgren, C.~Dannewitz, C.~Imbrenda, D.~Kutscher, and B.~Ohlman.
 \newblock A survey of information-centric networking.
@@ -43,6 +43,17 @@ S.~Farrell D.~Kutscher and E.~Davies.
 \newblock The netinf protocol.
 \newblock Handed to us by Ericsson, 2012.
 
+\bibitem{covertool}
+Ivan Dubrov.
+\newblock Covertool.
+\newblock Retrieved January 15th, 2013, from
+  https://github.com/idubrov/covertool.
+
+\bibitem{cowboy}
+Loïc Hoguin.
+\newblock Erlang cowboy.
+\newblock Retrieved January 15th, 2013, from https://github.com/extend/cowboy.
+
 \bibitem{otpInAction}
 Martin Logan, Eric Merritt, and Richard Carlsson.
 \newblock {\em {Erlang and OTP in Action}}.
@@ -52,6 +63,12 @@ Martin Logan, Eric Merritt, and Richard Carlsson.
 Android~Developers (n.d.).
 \newblock Android developers.
 \newblock Retrieved January 8th, 2013, from http://developer.android.com.
+
+\bibitem{hugomiguel}
+H.~Otaola and M.~Sosa.
+\newblock Using multiple transport networks in netinf enabled android devices.
+\newblock Master's thesis, KTH, School of Information and Communication
+  Technology (ICT), Sweden, 2012.
 
 \bibitem{ICNarticle}
 Kostas Pentikousis, Prosper Chemouil, Kathleen Nichols, George Pavlou, and Dan
@@ -63,5 +80,14 @@ Kostas Pentikousis, Prosper Chemouil, Kathleen Nichols, George Pavlou, and Dan
 C.~Dannewitz B.~Ohlman A.~Keranen P.~Hallam-Baker S.~Farrell, D.~Kutscher.
 \newblock Naming things with hashes draft-farrell-decade-ni-10.
 \newblock Handed to us by Ericsson, 2012.
+
+\bibitem{riak}
+Basho Technologies.
+\newblock Riak.
+\newblock Retrieved January 15th, 2013, from
+  http://docs.basho.com/riak/latest/downloads/.
+
+\bibitem{json}
+Paul J.~Davis YAMASHINA~Hio.
 
 \end{thebibliography}

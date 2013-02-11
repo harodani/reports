@@ -4,10 +4,22 @@
 The system architecture for the backend relies on a few external libraries. The following are important for the system to run well. 
 
 \begin {enumerate}
-\item Erlang Cowboy - with its own set of dependencies Ranch, and Crypto
-\item Erlang RTS 
-\item Erlang covertool
-\item Erlang JSON library
-\item Riak - with search hooks and a Key-Value(KV) bucket installed.
+\item Erlang Cowboy \cite{cowboy}
+
+Erlang Cowboy is a small light-weight HTTP server and library written in Erlang for the purpose of handling HTTP requests. The Erlang NetInf NRS product uses functions in Erlang cowboy to communicate with the HTTP convergence layer. Erlang cowboy is responsible for all the multi-part and HTTP requests that are created in the system. 
+\item Erlang RTS \cite{erlang}
+
+Erlang Runtime application system is the core Erlang system. Erlang NetInf NRS would not run on the computer system without the core part of Erlang.
+
+\item Erlang covertool \cite{covertool}
+
+Erlang covertool is an Erlang library created by Ivan Dubrov in order to convert the Erlang "cover" reports into a specific format called cobratura XML. This is required for compiling code metric reports and passing them into Jenkins for display on the build server. 
+
+\item Erlang JSON library \cite{json}
+
+Erlang JSON is a library created by Yamashina Hio and Paul J. Davis. This library contains functions which allow Erlang to convert data structures to JSON data structures. The Erlang NetInf NRS uses this library extensively to support storing, retriving and manipulating data in JSON format.
+\item Riak \cite{riak} - with search hooks and a Key-Value(KV) bucket installed.
 		(Only used for using the system with Riak database)
+		
+Riak is an open-source scaleable and distributed Erlang database. Created by Basho Technologies, The NetInf NRS uses this database when run with the Riak Database option. Riak was chosen because of it's ease of use and recommendation by the customer. It is the only 'real' database that is currently supported since the other 'database' shipped with the product is an Erlang list data structure.
 \end {enumerate}
