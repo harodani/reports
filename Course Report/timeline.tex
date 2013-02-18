@@ -1,16 +1,20 @@
 \section {Timeline}
 
-The following is a timeline of both team's scrum sprints. Please note that the teams were synchronized with each other until sprint 4 when the ERNI group chose to have two one week sprints instead of one two week sprint. The result was a series of one week sprints for the ERNI team ending with seven sprints in total, while LISA had only six.
+This section presents a timeline of both team's Scrum sprints. It is recommended that the timeline is read after or in conjunction with the product report\cite{product-report}, as it details how our final product was implemented. The timeline specifically points out the technical aspects that were tackled during each sprint.
 
-The course ran over a period of four and a half months starting on September the 3rd and ended on January 18th, with two major presentations. This particular instance of the course was unique since the client did not have a very concrete project laid out in terms of requirements. Therefore the real work and Scrum sprints started slightly later than other course instances. Furthermore there were too few people in order to have two groups
+Both teams were synchronized with each other until sprint 4 when the ERNI group chose to have two one week sprints instead of one two week sprint. The result was a series of one week sprints for the ERNI team ending with seven sprints in total, while LISA had only six.
+
+The course ran over a period of four and a half months starting on September the 3rd and ended on January 18th, with two major presentations. This particular instance of the course was unique since the client did not have a very concrete project laid out in terms of requirements. In the beginning of the course, a lot of time was spent learning about ICN and thinking about scenarios which would be interesting to implement. We held different meetings on trying to unders  Therefore the real work and Scrum sprints started slightly later than other course instances. Furthermore there were too few people in order to have two groups
 with two completely different clients.
 
 \subsection{Pre-Scrum}
-During the month of September the group met with the client who presented the idea, although it was not very concrete at the time. The lack of tight requirements gave the developers the freedom to choose the direction that the project was going to go. The outcome of this was that the teams had to spend the first few weeks on research without no real direction. 
+During the month of September the group met with the client who presented the idea, although it was not very concrete at the time. The basis for the project was known -- the group would work with Information-Centric Networks -- but what was going to be developed was still undecided.
 
-In most instances the first few weeks of the course start with an Erlang workshop which consists of two weeks of intensive Erlang, however this project was so open that there was no idea on whether the project would need Erlang at all.
+This meant that the group had the freedom to discuss different scenarios to be implemented during the course. It also meant that the first few weeks of the course were spent reading up on research papers that discussed ICN. There were numerous meetings during September that helped increase the knowledge about ICN and investigate further the pros and cons of this technology.
 
-The first sprint started after approximately one month.
+In previous years, the course started with an Erlang workshop which consists of two weeks of intensive Erlang. However, this instance of the project was so open, that it was unknown whether the project would need Erlang at all.
+
+By the end of the month, we had a better idea of what we were going to do, especially after meeting our client. It was also time to separate the groups, define the teams and rearrange our workspace. All of this happened right before the first sprint, which started after approximately one month.
 
 \subsection {LISA}
 \framebox(360, 85){
@@ -63,7 +67,7 @@ into our code.
 
 We designed our first architecture draft based on OpenNetInf and implemented
 the most important modules for sending/receiving messages to/from the NRS -
-this time using OpenNetInf. We managed to share NDOs between
+this time using OpenNetInf. We managed to share objects between
 Android phones using Bluetooth.
 
 At this stage, the application could request content using a short hash.
@@ -111,7 +115,7 @@ experience gained from the previous sprints. The structure is described in \sect
 
 The new functionalities we added were publishing (register the 
 device as a locator), full-put (uploading the content to the NRS) and
-searching for contents using URLs. Furthermore we added a Local Resoltion Service (LRS)
+searching for contents using URLs. Furthermore we added a Local Resolution Service (LRS)
 besides the NRS. The LRS looked up content in a local database, that we
 designed and implemented within this sprint. 
 
@@ -153,7 +157,7 @@ other browsers. The main challenge was to intercept the Android WebView
 to redirect resource requests to our NetInf services, instead of simply
 downloading them from uplink.
 
-We also intregated the search functionality to NetInf, making use of the Search Controller and
+We also integrated the search functionality to NetInf, making use of the Search Controller and
 implementing our search functionalities as Search Services.
 
 Furthermore we needed to add settings and help pages. The user should
@@ -207,7 +211,7 @@ to show in the final report.
 The last sprint involved the preparation of the final presentation and writing the final course report and
 product report. As usual we divided the work into different tasks so that we could write different parts
 of both reports simultaneously. The difference between the course report
-and the project report is the target reader. The intended audience of the course report are Olle, Muneeb and future students
+and the project report is the target reader. The intended audience of the course report are the teachers and future students
 of this course, while the product report is intended for the customer. The course report contains information
 on how we got to the final product, while the product report focuses more on the product itself, the implementation,
 how to run it and how to continue the development.
@@ -259,7 +263,7 @@ In the second sprint which ran for another two weeks, ERNI created the basic Net
 	}
 }
 
-The third sprint consisted of refining the Publish and Get messages, implementing search and binary storage and finally introducing a real database. The client also stressed that they would like the ability to easily attach other databases, thus a database interface was created and the ERNI team attached Riak to the NetInf system. During this sprint a presentation of the progress so far was held at Ericsson in Kista.
+The third sprint consisted of refining the Publish and Get messages, implementing search and binary storage and finally introducing a real database. The client also stressed that they would like the ability to easily attach other databases, thus a database interface was created and the ERNI team attached Riak\cite{riaksite} to the NetInf system. During this sprint a presentation of the progress so far was held at Ericsson in Kista.
 
 \framebox(360, 85){
 	\minibox{
@@ -273,9 +277,9 @@ The third sprint consisted of refining the Publish and Get messages, implementin
 	}
 }
 
-During the fourth sprint the ERNI team had chosen to diverge from the LISA team since they had finished all the functionality described in the draft document and were no longer required to build features for LISA. The client was impressed and suggested that the team look into applications for the NetInf system. The major application that was discussed was the use of NetInf and Video streaming to alleviate congestion problems while broadcasting content. The goal here was to provide the client with a draft of the new protocol but there were many disagreements on what the draft should contain and the team missed the deadline to hand in the draft.
+During the fourth sprint the ERNI team had chosen to diverge from the LISA team since we had finished all the functionality described in the draft document and were no longer required to build features for LISA. The client was impressed and suggested that the team look into applications for the NetInf system. The major application that was discussed was the use of NetInf and Video streaming to alleviate congestion problems while broadcasting content. The goal here was to provide the client with a draft of the new protocol but there were many disagreements on what the draft should contain and the team missed the deadline to hand in the draft.
 
-In an effort to fine tune our sprint planning, the team decided to try one week sprints in order to see how much they could accomplish with a smaller amount of time. This was due to problems estimating the amount of work the team could finish. The team always overestimated the time it would take to finish tasks leaving the team with too little to do at the end of sprints.
+In an effort to fine tune our sprint planning, the team decided to try one week sprints in order to see how much we could accomplish with a smaller amount of time. This was due to problems estimating the amount of work the team could finish. The team always overestimated the time it would take to finish tasks leaving the team with too little to do at the end of sprints.
 
 \framebox(360, 98){
 	\minibox{
@@ -305,6 +309,6 @@ In the fifth sprint the ERNI team had gotten the approval of the client to start
 	}
 }
 
-In the sixth sprint the ERNI team mostly fixed the major bugs in the system and finalizing the NetInf video streaming. The major feedback here was to get rid of the HTTP content-dispatcher and replace it with a modified version that uses NetInf messages to transfer the chunks.
+In the sixth sprint the ERNI team mostly fixed the main bugs in the system and finalizing the NetInf video streaming. The major feedback here was to get rid of the HTTP content-dispatcher and replace it with a modified version that uses NetInf messages to transfer the chunks.
 
 In the final sprint both teams joined together and had one large sprint writing the course and product reports.

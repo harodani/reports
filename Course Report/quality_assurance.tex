@@ -5,7 +5,7 @@ While Scrum and Agile methodology easily answers the ``Is it releasable?'' quest
 
 \subsection{Pair-programming}
 
-Both teams decided to take the pair programming approach for quality assurance. Two programmers complete a task and two other programmers review that work for bugs, imperfections (according to code standards), and integration status. 
+Both teams decided to take the pair programming approach for quality assurance. Two programmers complete a task and two other programmers review that work for bugs, imperfections (according to coding standards), and integration status. 
 
 The ERNI team felt that this worked particularly well as we all had little to no experience in functional programming and large group work projects. Often bugs were caught way before the task was completed and put into the review process. 
 
@@ -13,7 +13,7 @@ Using pair programming also helped develop our skills faster as we taught each o
 
 \subsection{Code Reviews}
 
-The LISA team decided to use a tool called \textit{Gerrit} to preform code reviews. Gerrit is a web-based code review system, which makes it easier for us to do the review, as every team member can see what is up for review and what has been reviewed at all times. Gerrit is dependent on Git and acts almost like a filter, only allowing authorized changes to be pushed to the master branch on Git. Therefore, it promotes code quality by forcing code reviews to take place before code is placed on the repository.
+The LISA team decided to use a tool called Gerrit\cite{gerritsite} to preform code reviews. Gerrit is a web-based code review system, which makes it easier for us to do the review, as every team member can see what is up for review and what has been reviewed at all times. Gerrit is dependent on Git and acts almost like a filter, only allowing authorized changes to be pushed to the master branch on Git. Therefore, it promotes code quality by forcing code reviews to take place before code is placed on the repository.
 
 Initially, we had some trouble setting up the tool. While installing Gerrit itself is not a problem, integrating it with Jenkins was a bit of an issue. After a few emails with the maker of the Gerrit/Jenkins plugin, we found out that the issue was due to encoding in the terminal. Make sure you have the proper terminal encoding (UTF-8) before setting it up. After this small mix-up, Gerrit was ready to be used and tests suggested that it was working properly.
 
