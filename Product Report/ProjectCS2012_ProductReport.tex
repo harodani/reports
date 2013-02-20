@@ -70,7 +70,16 @@
 
 \chapter{System Architecture}
 \label{sec:architecture}
+\section{Architecture Overview}
+The system is a combination of frontend and backend subsystems that communicate using network protocols including HTTP and Bluetooth. Figure~\ref{fig:overall_arch} shows how messages can flow between the different subsystems. All messages are of a request-response type, therefore messages are always flowing in both directions between subsystems. The messages contain NetInf get, publish or search requests except for messages emitted from the Elephant web browser to the Internet, these are normal HTTP requests. 
 
+The following sections describe the different subsystems in detail.
+\begin{figure}[H]
+	\centering
+\centerline{\includegraphics[width=1.2\textwidth]{./img/overall_arch.png}}
+\caption{The Elephant browser initially requests an object from the NetInf service, if the object is not found the request will be forwarded to an Erlang NRS. The Erlang NRS responds with object or locators to the objects if the object is present in the NetInf network. If the object is not found within the NetInf network, the Elephant browser will try to fetch it from the Internet and then publish it to the NetInf Service which in turn will send a publish request to the NRS.}
+\label{fig:overall_arch}
+\end{figure}
 \input{System-Arch/Frontend/SystemArch-frontend.tex}
 
 \section {Erlang NetInf NRS}
