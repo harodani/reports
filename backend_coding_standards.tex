@@ -11,11 +11,13 @@
 
 
 \section{Purpose}
-The purpose of this document is to define coding standards for the NetInf implementation in Erlang. This document is based on the official coding standard and conventions for Erlang (http://www.erlang.se/doc/programming\_rules.shtml\#REF87730). 
+The purpose of this document is to define coding standards for the NetInf implementation in Erlang. 
+This document is based on the official coding standard and conventions for Erlang (http://www.erlang.se/doc/programming\_rules.shtml\#REF87730). 
 
 \section{Engineering Principles}
 \subsection{Export As Few Functions As Possible From a Module}
-For better readability and understanding of code it is recommended that we export as few functions as possible. When exporting a function you should define specification (a.k.a contract) with the erlang “-spec” compiler attribute (http://www.erlang.org/doc/reference\_manual/typespec.html\#id75681). 
+For better readability and understanding of code it is recommended that we export as few functions as possible.
+When exporting a function you should define specification (a.k.a contract) with the erlang “-spec” compiler attribute (http://www.erlang.org/doc/reference\_manual/typespec.html\#id75681). 
 
 \subsection{Prefer Readability Over Speed}
 It is recommended that we initially write code that is easy to read instead of writing code that makes the program run fast but hard to understand. However if run time complexity becomes a problem, consider rewriting the code in an optimized way. 

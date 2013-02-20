@@ -12,6 +12,10 @@ Ericsson - a world of communication - ericsson.
 Erlang programming language.
 \newblock Retrieved January 15th, 2013, from http://www.erlang.org/.
 
+\bibitem{gerritsite}
+Gerrit code review.
+\newblock Retrieved February 18th, 2013, from http://code.google.com/p/gerrit.
+
 \bibitem{gitsite}
 Git - fast version control.
 \newblock Retrieved February 4th, 2013, from http://git-scm.com/.
@@ -28,6 +32,10 @@ Jira.
 \bibitem{redminesite}
 Redmine - a project manager web application.
 \newblock Retrieved February 4th, 2013, from http://www.redmine.org/.
+
+\bibitem{riaksite}
+Riak - open source, distributed database.
+\newblock Retrieved February 18th, 2013, from http://basho.com/riak.
 
 \bibitem{ghodsietal}
 B.~Raghavan S.~Shenker A.~Singla J.~Wilcox A.~Ghodsi, T.~Koponen.
