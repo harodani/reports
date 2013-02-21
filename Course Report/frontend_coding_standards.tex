@@ -16,10 +16,10 @@ on the Android Code Style Guidelines for Contributors\footnote{\url{http://sourc
   \item Don't catch a generic exception e.g. \textit{Exception e}. Alternatives to do this are:
  \begin{itemize}
     \item Catch each exception with a separate catch block after a single try.
-    \item Refactor the code in order to have muliple try blocks.
-    \item Rethrow the exception and let it be handle in the next level.
+    \item Refactor the code in order to have multiple try blocks.
+    \item Rethrow the exception and let it be handled on the next level.
   \end{itemize}
-  \item Do not use finalizers. Let the garbage collector do its job
+  \item Do not use finalizers. Let the garbage collector do its job.
   \item Always write full imports.
   
   \section{Java Style Rules}
@@ -27,7 +27,7 @@ on the Android Code Style Guidelines for Contributors\footnote{\url{http://sourc
   \item Try not to exceed 40 (forty) lines of code for each method.
   \item Try to keep the scope of a variable as small as possible. Also, try to initialize it with a proper value. 
   \item Order the imports beginning with Android libraries, followed by third parties libraries and ending with \textit{java} and \textit{javax} classes, each group separated by an empty line.
-  \item For identation, use four spaces for blocks and eight spaces for line wraps (i.e. when the line of code is too long and needs to be cut).
+  \item For indentation, use four spaces for blocks and eight spaces for line wraps (i.e. when the line of code is too long and needs to be cut).
   \item Limit the line length to 80 (eighty) characters. 
   \item Use standard Java Annotations e.g. \textit{@Deprecated, @Override, @SuppressWarnings}.
   \item Use acronyms as words e.g. write \textit{XmlHttpRequest} not \textit{XMLHTTPRequest}.
