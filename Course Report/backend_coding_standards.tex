@@ -1,11 +1,11 @@
-The purpose of this document is to define coding standards for the NetInf implementation in Erlang. This document is based on the official coding standard and conventions for Erlang \footnote{\url{http://www.erlang.se/doc/programming\_rules.shtml\#REF87730}}. 
+The purpose of this section is to define coding standards for the NetInf implementation in Erlang. This document is based on the official coding standard and conventions for Erlang \footnote{\url{http://www.erlang.se/doc/programming\_rules.shtml\#REF87730}}. 
 
 \section{Engineering Principles}
 \subsection{Export As Few Functions As Possible From a Module}
-For better readability and understanding of code it is recommended that we export as few functions as possible. When exporting a function you should define specification (a.k.a contract) with the erlang “-spec” compiler attribute (http://www.erlang.org/doc/reference\_manual/typespec.html\#id75681). 
+For better readability and understanding of code, it is recommended that we export as few functions as possible. When exporting a function you should define specification, also known as \texttt{contract}, with the erlang “-spec” compiler attribute (http://www.erlang.org/doc/reference\_manual/typespec.html\#id75681). 
 
 \subsection{Prefer Readability Over Speed}
-It is recommended that we initially write code that is easy to read instead of writing code that makes the program run fast but hard to understand. However if run time complexity becomes a problem, consider rewriting the code in an optimized way. 
+It is recommended that code is initially written in a easy-to-read manner instead of writing code that makes the program run fast but hard to understand. However, if run time complexity becomes a problem, consider rewriting the code in an optimized way. 
 
 \subsection{Directory Structure of an OTP Application}
 Erlang/OTP applications should have a directory structure as shown below:
@@ -20,34 +20,34 @@ Erlang/OTP applications should have a directory structure as shown below:
 \end{lstlisting}
 Where: 
 \begin{description}
-\item[doc] This is where you put your overview.edoc file if you generate documentation from EDoc. 
-\item[ebin] This is where your compiled code (.beam files) and meta data file (.app) is located. 
-include: Your public header files (.hrl file) should be kept in this directory.  
-\item[priv] Here you should put template files, shared objects and DLLs. 
-\item[src] This should have source code related to your application which includes .erl files and internal .hrl files. It can also have ASN.1, YECC, MIB and other source files.
+\item[doc] This is where the overview.edoc file goes, if one wants to generate documentation from EDoc. 
+\item[ebin] This is where compiled code (.beam files) and meta data file (.app) are located.
+include: Public header files (.hrl file) should be kept in this directory.  
+\item[priv] Template files, shared objects and DLLs. 
+\item[src] Application source code, which includes .erl files and internal .hrl files. It can also have ASN.1, YECC, MIB and other source files.
 \end{description}
 
 \section{Specific Lexical and Stylistic Conventions}
-Use Emacs and Erlang mode when writing code. To get to correct indentation just press ‘Tab’ when you are in Erlang mode. We recommend that everyone use Emacs for writing the code because this way everybody in the team will be familiar with everyone else’s development environment. This is important in case we decide to do pair programming. 
+Use Emacs and Erlang mode when writing code. To correct indentation, just press ‘Tab’ when you are in Erlang mode. We recommend that Emacs is used for writing the code because everybody in the team will be familiar with everyone else’s development environment. This is important in case team members decide to do pair programming.
 
 \begin{itemize}
 
-\item Don’t write deeply nested code which means not more than 2 levels of indentation. 
-\item Don’t write larger modules than 400 lines. 
-\item Don’t write long lines, at most 78 characters.
-\item Don’t write longer functions than 15 to 20 lines. 
-\item Choose meaningful variable names and use capitalized letter to separate the words. Example: ReceivedMessage
-\item The function name should represent what the function does. Use underscore to separate different words. Example: send\_message().
-\item Give space after each argument in a data structure or function arguments. Example {12, 13, 45}.
-\item Use tagged return values. This means that the return value of the functions should be a tuple where the first key should be an atom explaining what it is.  
-\item Don't use -import
-\item Use multiple -export clauses instead of grouping a lot of functions together in one export clause. Examples:  user interface, intermodule exports and exports for use within module only. 
+\item Do not write deeply nested code which means not more than 2 levels of indentation. 
+\item Do not write larger modules than 400 lines. 
+\item Do not write long lines, at most 78 characters.
+\item Do not write longer functions than 15 to 20 lines. 
+\item Choose meaningful variable names and use capitalized letter to separate the words. Example: \texttt{ReceivedMessage}
+\item The function name should represent what the function does. Use underscore to separate different words. Example: \texttt{send\_message()}.
+\item Give space after each argument in a data structure or function arguments. Example \texttt{{12, 13, 45}}.
+\item Use tagged return values. This means that the return value of the functions should be a tuple where the first key should be an atom explaining what the tuple is.
+\item Do not use -import
+\item Use multiple -export clauses instead of grouping a lot of functions together in one export clause. Examples: user interface, intermodule exports and exports for use within module only. 
 \item Always use proper indentation.
 \item Do not comment out old code, just remove it because it is already in the source control repository.  
 \end{itemize}
-  
+
 \subsection{Comments and Documentation}
-Instead of littering your code with comments you should write meaningful variable and function names. But in some cases where the code is hard to understand you can write short comments. For every function use Edoc notation and explain arguments and return value and if present, side effects. (http://www.erlang.org/doc/apps/edoc/chapter.html).  
+Instead of littering your code with comments, you should write meaningful variable and function names. But in some cases where the code is hard to understand you can write short comments. For every function use Edoc notation and explain arguments and return value and, if present, side effects. (http://www.erlang.org/doc/apps/edoc/chapter.html).  
 
 Each file should start with a short description of the module contained in the file and a brief description of all exported functions. All the error messages in an application should be documented in a single document.  
 

@@ -1,34 +1,38 @@
 \lstset{language=Java}
 
-The purpose of this document is to define the coding standars for the implemented Android-based application. These standars are based
+The purpose of this section is to present the code convention used in the implementation of the Android-based application. These code standards are based
 on the Android Code Style Guidelines for Contributors\footnote{\url{http://source.android.com/source/code-style.html}}.
 
 \section{Java Language Rules}
 
 \begin{itemize}
- \item Do not ignore exceptions: Always handle the exception, or throw a new one according to the level of abstraction, 
- or handle it gracefully, or throw a new \textit{RuntimeException} in case there is nothing possible to do. 
- It is acceptable to ignore it if there is a good reason to do it, but you should comment the reason in the code.
- \item Don't catch a generic exception e.g. \textit{Exception e}. Alternatives to do this are:
+  \item Do not ignore exceptions. It is only acceptable to ignore exceptions if there is a good reason to do it, which should be given as a comment in the code. As a general rule, always:
+  \begin{itemize}
+   \item handle the exception;
+   \item or throw a new exception according to the level of abstraction;
+   \item or handle it gracefully;
+   \item or throw a new \textit{RuntimeException} in case there is nothing possible to do.
+  \end{itemize}
+  \item Don't catch a generic exception e.g. \textit{Exception e}. Alternatives to do this are:
  \begin{itemize}
     \item Catch each exception with a separate catch block after a single try.
     \item Refactor the code in order to have muliple try blocks.
     \item Rethrow the exception and let it be handle in the next level.
   \end{itemize}
-  \item Do not use finalizers. Let the garbage collector fo its job
-  \item Always write full imports. 
+  \item Do not use finalizers. Let the garbage collector do its job
+  \item Always write full imports.
+  
   \section{Java Style Rules}
-  \item Use Javadoc standards for commenting code. Always write the descriptions in third person. This rule can be skipped if the
-  method is too trivial e.g. a \textit{getters} and \textit{setters}.
-  \item Do not excede fourty lines of code for each method.
+  \item Use Javadoc standards for commenting code. Always write the descriptions in third person. This rule can be skipped if the method is too trivial e.g. a \textit{getters} and \textit{setters}.
+  \item Try not to exceed 40 (forty) lines of code for each method.
   \item Try to keep the scope of a variable as small as possible. Also, try to initialize it with a proper value. 
-  \item Order the imports beginning with Android libraries, then third parties libraries and ending with \textit{java} and \textit{javax} classes.
-  \item For identation use four spaces for blocks and eight spaces for line wraps i.e. when the line of code is too long and needs to be cutted.
-  \item Limit the line length to eighty characters. 
-  \item Use the standard Java Annotations e.g. \textit{@Deprecated, @Override, @SuppressWarnings}.
+  \item Order the imports beginning with Android libraries, followed by third parties libraries and ending with \textit{java} and \textit{javax} classes, each group separated by an empty line.
+  \item For identation, use four spaces for blocks and eight spaces for line wraps (i.e. when the line of code is too long and needs to be cut).
+  \item Limit the line length to 80 (eighty) characters. 
+  \item Use standard Java Annotations e.g. \textit{@Deprecated, @Override, @SuppressWarnings}.
   \item Use acronyms as words e.g. write \textit{XmlHttpRequest} not \textit{XMLHTTPRequest}.
   \item Use TODO comments for temporary fixes and future work.
-  \item Use the five levels of logging i.e. Error, warning, informative, debug and verbose.
+  \item Use all five levels of logging (Error, Warning, Informative, Debug and Verbose) as applicable.
   \item Use the standard brace style: 
   \begin{lstlisting}
       public void foo() {
@@ -44,7 +48,7 @@ on the Android Code Style Guidelines for Contributors\footnote{\url{http://sourc
     \item Other fields start with a lower case letter.
     \item Public static final fields (constants) are letters in upper case and spaces replaced by underscores.
     Example:
-    \begin{lstlisting}
+      \begin{lstlisting}
       public class MyClass {
 	  public static final int SOME_CONSTANT = 42;
 	  public int publicField;
@@ -53,10 +57,6 @@ on the Android Code Style Guidelines for Contributors\footnote{\url{http://sourc
 	  private int mPrivate;
 	  protected int mProtected;
       }
-  \end{lstlisting}
+      \end{lstlisting}
+    \end{itemize}
   \end{itemize}
-
-  
-\end{itemize}
-
-
