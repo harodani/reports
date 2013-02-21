@@ -1,4 +1,5 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: ProjectCS2012_ProductReport.aux
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: ProjectCS2012_ProductReport.aux
 The style file: plain.bst
 Database file #1: references.bib
 I was expecting an "="---line 39 of file references.bib
@@ -79,4 +80,45 @@ Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, 
 while executing---line 1090 of file plain.bst
 Too many commas in name 1 of "S.~Farrell, D.~Kutscher, C.~Dannewitz, B.~Ohlman, A.~Keranen, P.~Hallam-Baker" for entry ninames
 while executing---line 1090 of file plain.bst
+You've used 18 entries,
+            2118 wiz_defined-function locations,
+            568 strings with 6129 characters,
+and the built_in function-call counts, 3826 in all, are:
+= -- 348
+> -- 161
+< -- 0
++ -- 71
+- -- 50
+* -- 178
+:= -- 623
+add.period$ -- 46
+call.type$ -- 18
+change.case$ -- 78
+chr.to.int$ -- 0
+cite$ -- 24
+duplicate$ -- 138
+empty$ -- 364
+format.name$ -- 50
+if$ -- 815
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 4
+newline$ -- 85
+num.names$ -- 24
+pop$ -- 152
+preamble$ -- 1
+purify$ -- 61
+quote$ -- 0
+skip$ -- 115
+stack$ -- 0
+substring$ -- 108
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 6
+while$ -- 25
+width$ -- 20
+write$ -- 159
 (There were 35 error messages)

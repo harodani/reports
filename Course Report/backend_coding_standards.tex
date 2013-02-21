@@ -2,10 +2,10 @@ The purpose of this section is to define coding standards for the NetInf impleme
 
 \section{Engineering Principles}
 \subsection{Export As Few Functions As Possible From a Module}
-For better readability and understanding of code, it is recommended that we export as few functions as possible. When exporting a function you should define specification, also known as \texttt{contract}, with the erlang “-spec” compiler attribute (http://www.erlang.org/doc/reference\_manual/typespec.html\#id75681). 
+For better readability and understanding of code, it is recommended that we export as few functions as possible. When exporting a function you should define specification, also known as \texttt{contract}, with the erlang “-spec” compiler attribute \footnote{\url{http://www.erlang.org/doc/reference\_manual/typespec.html\#id75681}}. 
 
 \subsection{Prefer Readability Over Speed}
-It is recommended that code is initially written in a easy-to-read manner instead of writing code that makes the program run fast but hard to understand. However, if run time complexity becomes a problem, consider rewriting the code in an optimized way. 
+It is recommended that code is initially written in an easy-to-read manner instead of writing code that makes the program run fast but hard to understand. However, if run time complexity becomes a problem, consider rewriting the code in an optimized way. 
 
 \subsection{Directory Structure of an OTP Application}
 Erlang/OTP applications should have a directory structure as shown below:
@@ -22,13 +22,13 @@ Where:
 \begin{description}
 \item[doc] This is where the overview.edoc file goes, if one wants to generate documentation from EDoc. 
 \item[ebin] This is where compiled code (.beam files) and meta data file (.app) are located.
-include: Public header files (.hrl file) should be kept in this directory.  
+\item[include] Public header files (.hrl file) should be kept in this directory.  
 \item[priv] Template files, shared objects and DLLs. 
 \item[src] Application source code, which includes .erl files and internal .hrl files. It can also have ASN.1, YECC, MIB and other source files.
 \end{description}
 
 \section{Specific Lexical and Stylistic Conventions}
-Use Emacs and Erlang mode when writing code. To correct indentation, just press ‘Tab’ when you are in Erlang mode. We recommend that Emacs is used for writing the code because everybody in the team will be familiar with everyone else’s development environment. This is important in case team members decide to do pair programming.
+Use Emacs and Erlang mode when writing code. To correct indentation, just press ‘Tab’ when you are in Erlang mode. We recommend that Emacs is used for writing the code because everybody in the team will be familiar with everyone else's development environment. This is important in case team members decide to do pair programming.
 
 \begin{itemize}
 
@@ -47,7 +47,7 @@ Use Emacs and Erlang mode when writing code. To correct indentation, just press 
 \end{itemize}
 
 \subsection{Comments and Documentation}
-Instead of littering your code with comments, you should write meaningful variable and function names. But in some cases where the code is hard to understand you can write short comments. For every function use Edoc notation and explain arguments and return value and, if present, side effects. (http://www.erlang.org/doc/apps/edoc/chapter.html).  
+Instead of littering your code with comments, you should write meaningful variable and function names. But in some cases where the code is hard to understand you can write short comments. For every function use Edoc notation and explain arguments and return value and, if present, side effects \footnote{\url{http://www.erlang.org/doc/apps/edoc/chapter.html}}.
 
 Each file should start with a short description of the module contained in the file and a brief description of all exported functions. All the error messages in an application should be documented in a single document.  
 
